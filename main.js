@@ -11,6 +11,8 @@ app.use(express.urlencoded({
 }))
 
 app.use("/public",require("./routes/publicRoute"))
+app.use("/admin",require("./routes/adminRoute"))
+app.use("/helathcare",require("./routes/healthofficerRoute"))
 
 app.listen(port, ()=>{
     console.log(`Server started at post ${port}`)
