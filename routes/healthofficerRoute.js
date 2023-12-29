@@ -29,4 +29,29 @@ router.post("/create-parent-acc", async (req, res) => {
     }
 });
 
+//Edit Parent Account
+router.put("/update-parent-acc/:nic", async (req, res) => {
+    try {
+      const nic = req.params.nic;
+      //In request body use Schema Attributes
+      const updateData = req.body;
+      console.log(updateData);
+      const account = await ParentSchema.findOneAndUpdate(
+        { motherorGuardianNIC: nic },
+        { $set: updateData },
+        { new: true }
+      );
+  
+      if (!account) {
+        return res.status(404).send("Account not found");
+      }
+  
+      return res.status(200).send(account);
+    } catch (err) {
+      return res
+        .status(500)
+        .send("Error while updating account information: " + err.message);
+    }
+  });
+
 module.exports = router; // Export the router instance

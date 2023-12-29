@@ -27,6 +27,31 @@ router.post("/create-health-acc", async (req, res) => {
     }
 });
 
+//Edit Healthcare Professional Account
+router.put("/update-health-acc/:nic", async (req, res) => {
+  try {
+    const nic = req.params.nic;
+    //In request body use Schema Attributes
+    const updateData = req.body;
+    console.log(updateData);
+    const account = await healthcareProfessionalSchema.findOneAndUpdate(
+      { hcpNIC: nic },
+      { $set: updateData },
+      { new: true }
+    );
+
+    if (!account) {
+      return res.status(404).send("Account not found");
+    }
+
+    return res.status(200).send(account);
+  } catch (err) {
+    return res
+      .status(500)
+      .send("Error while updating account information: " + err.message);
+  }
+});
+
 
 //Healthcare Professional Account Deletion
 router.delete("/delete-helath-acc/:nic", async (req, res) => {
@@ -46,6 +71,8 @@ router.delete("/delete-helath-acc/:nic", async (req, res) => {
         .json({ error: "Error while deleting account", message: err.message });
     }
   });
+
+
 
   //Mother or Guardian Account Creation
 router.post("/create-parent-acc", async (req, res) => {
@@ -71,6 +98,31 @@ router.post("/create-parent-acc", async (req, res) => {
       return res.status(201).send(savedParentAccount); // Sending the saved account's data with HTTP 201
   } catch (err) {
       return res.status(500).send("Account creation failed: " + err.message); // Handle database errors
+  }
+});
+
+//Edit Parent Account
+router.put("/update-parent-acc/:nic", async (req, res) => {
+  try {
+    const nic = req.params.nic;
+    //In request body use Schema Attributes
+    const updateData = req.body;
+    console.log(updateData);
+    const account = await ParentSchema.findOneAndUpdate(
+      { motherorGuardianNIC: nic },
+      { $set: updateData },
+      { new: true }
+    );
+
+    if (!account) {
+      return res.status(404).send("Account not found");
+    }
+
+    return res.status(200).send(account);
+  } catch (err) {
+    return res
+      .status(500)
+      .send("Error while updating account information: " + err.message);
   }
 });
 
