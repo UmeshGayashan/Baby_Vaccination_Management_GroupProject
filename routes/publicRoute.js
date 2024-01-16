@@ -5,12 +5,15 @@ const userSchema = require("../schemas/userSchema")
 // Registration Route
 router.post("/register", async (req, res) => {
     try {
-      const { name, email, username, password } = req.body;
+      const { firstName, lastName, email, username, password } = req.body;
       console.log("Hello");
   
       // Create a new user document
       const newUser = new userSchema({
-        name: name,
+        name: {
+          firstName: firstName,
+          lastName: lastName,
+        },
         email: email,
         username: username,
         password: password,

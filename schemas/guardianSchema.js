@@ -1,8 +1,14 @@
 const mongoose = require("mongoose")
 const guardianSchema = mongoose.Schema({
-    motherorGuardianName:{
-        type:String,
-        required:true
+    motherorGuardianName: {
+        firstName: {
+            type: String,
+            required: true
+        },
+        lastName: {
+            type: String,
+            required: true
+        }
     },
     motherorGuardianNIC:{
         type:String,
@@ -18,6 +24,7 @@ const guardianSchema = mongoose.Schema({
     },
     guardianEmail:{
         type:String,
+        unique:true
     },
     guardianTelephoneNumber:{
         type:Number,

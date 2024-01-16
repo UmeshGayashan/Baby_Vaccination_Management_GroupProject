@@ -6,10 +6,13 @@ const ParentSchema = require("../schemas/guardianSchema");
 //Mother or Guardian Account Creation
 router.post("/create-parent-acc", async (req, res) => {
     try {
-        const { mname, mnic, address ,postalcode, email,telephone, username, password } = req.body;
+        const { mfirstName, mlastName, mnic, address ,postalcode, email,telephone, username, password } = req.body;
 
         const newParentAcc = new ParentSchema({
-            motherorGuardianName: mname,
+            motherorGuardianName: {
+              firstName: mfirstName,
+              lastName: mlastName,
+            },
             motherorGuardianNIC: mnic,
             Address: address,
             PostalCode: postalcode,

@@ -1,8 +1,14 @@
 const mongoose = require("mongoose")
 const healthcareProfessionalSchema = mongoose.Schema({
-    hcpName:{
-        type:String,
-        required:true
+    hcpName: {
+        firstName: {
+            type: String,
+            required: true
+        },
+        lastName: {
+            type: String,
+            required: true
+        }
     },
     hcpNIC:{
         type:String,

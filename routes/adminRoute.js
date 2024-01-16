@@ -7,10 +7,13 @@ const ParentSchema = require("../schemas/guardianSchema")
 //Healthcare Professional Account Creation
 router.post("/create-health-acc", async (req, res) => {
     try {
-        const { name, nic, postalCode, email, username, password } = req.body;
+        const { firstName, lastName, nic, postalCode, email, username, password } = req.body;
 
         const newHealthAcc = new healthcareProfessionalSchema({
-            hcpName: name,
+            hcpName: {
+              firstName: firstName,
+              lastName: lastName,
+            },
             hcpNIC: nic,
             hcpPostalCode: postalCode,
             hcpEmail: email,
@@ -77,10 +80,13 @@ router.delete("/delete-helath-acc/:nic", async (req, res) => {
   //Mother or Guardian Account Creation
 router.post("/create-parent-acc", async (req, res) => {
   try {
-      const { mname, mnic, address ,postalcode, email,telephone, username, password } = req.body;
+      const { mfirstName, mlastName, mnic, address ,postalcode, email,telephone, username, password } = req.body;
 
       const newParentAcc = new ParentSchema({
-          motherorGuardianName: mname,
+        motherorGuardianName: {
+          firstName: mfirstName,
+          lastName: mlastName,
+          },
           motherorGuardianNIC: mnic,
           Address: address,
           PostalCode: postalcode,
