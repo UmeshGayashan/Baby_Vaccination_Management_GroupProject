@@ -1,0 +1,102 @@
+.section-title-icon3 {
+  width: 247px;
+  height: 19px;
+  position: relative;
+  object-fit: contain;
+}
+.we-are-a {
+  margin: 0;
+  flex: 1;
+  position: relative;
+  font-size: inherit;
+  line-height: 120%;
+  font-weight: 700;
+  font-family: inherit;
+  display: inline-block;
+  min-width: 459px;
+  max-width: 100%;
+}
+.aenean-faucibus-nibh,
+.lorem-ipsum-dolor5 {
+  align-self: stretch;
+  position: relative;
+  line-height: 150%;
+}
+.lorem-ipsum-dolor5 {
+  font-size: var(--paragraph-size);
+  line-height: 160%;
+  color: var(--color-gray-400);
+}
+.lorem-ipsum-dolor-sit-amet-con,
+.we-are-a-governmental-organiza {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.lorem-ipsum-dolor-sit-amet-con {
+  width: 465px;
+  flex-direction: column;
+  gap: 2px 0;
+  min-width: 465px;
+  font-size: var(--typography-h6-size);
+}
+.we-are-a-governmental-organiza {
+  width: 1184px;
+  flex-direction: row;
+  gap: 0 1px;
+}
+.we-are-a-governmental-organiza-wrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  max-width: 100%;
+}
+.section-title-group {
+  width: 1320px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+  gap: 32px 0;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--h1-size);
+  color: var(--color-gray-100);
+  font-family: var(--paragraph);
+}
+@media screen and (max-width: 1050px) {
+  .we-are-a {
+    font-size: var(--font-size-26xl);
+    line-height: 54px;
+  }
+  .lorem-ipsum-dolor-sit-amet-con {
+    flex: 1;
+  }
+  .we-are-a-governmental-organiza {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 750px) {
+  .lorem-ipsum-dolor-sit-amet-con,
+  .we-are-a {
+    min-width: 100%;
+  }
+  .section-title-group {
+    gap: 32px 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .we-are-a {
+    font-size: var(--typography-h4-size);
+    line-height: 40px;
+  }
+  .aenean-faucibus-nibh {
+    font-size: var(--paragraph-size);
+    line-height: 24px;
+  }
+}

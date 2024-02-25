@@ -1,0 +1,26 @@
+.frame-container {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-mini) var(--padding-97xl) 0;
+  box-sizing: border-box;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-45xl);
+  color: var(--components-switch-slidefill);
+  font-family: var(--paragraph);
+}
+@media screen and (max-width: 1125px) {
+  .frame-container {
+    padding-bottom: var(--padding-56xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .frame-container {
+    padding-bottom: var(--padding-30xl);
+    box-sizing: border-box;
+  }
+}

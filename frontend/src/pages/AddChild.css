@@ -1,0 +1,97 @@
+.input-text-label {
+  align-self: stretch;
+  height: 18px;
+  position: relative;
+  line-height: 18px;
+  font-weight: 600;
+  display: inline-block;
+}
+.icon,
+.typing {
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+}
+.typing {
+  width: 304px;
+  line-height: 24px;
+  display: inline-block;
+}
+.icon {
+  width: 24px;
+  overflow: hidden;
+}
+.input-field,
+.text {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+}
+.text {
+  flex-direction: row;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.input-field {
+  height: 58px;
+  border-radius: var(--br-5xs);
+  background-color: var(--background-paper-elevation-0);
+  border: 2px solid var(--color-mediumslateblue-100);
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--padding-base) var(--padding-lg) var(--padding-base)
+    var(--padding-sm);
+  font-size: var(--paragraph-size);
+  color: var(--color-darkslategray-200);
+}
+.assistive-text {
+  align-self: stretch;
+  height: 18px;
+  position: relative;
+  line-height: 18px;
+  display: inline-block;
+}
+.text-inputs {
+  width: 1046px;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px 0;
+  max-width: 100%;
+}
+.linked-in-link {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  background-color: var(--color-goldenrod);
+  max-width: 100%;
+}
+.add-child,
+.blog-link {
+  display: flex;
+  align-items: flex-start;
+}
+.blog-link {
+  align-self: stretch;
+  height: 109px;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0 0 var(--padding-32xl) 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.add-child {
+  width: 100%;
+  position: relative;
+  background-color: var(--background-paper-elevation-0);
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: flex-start;
+  letter-spacing: normal;
+  text-align: left;
+  font-size: var(--typography-caption-size);
+  color: var(--color-dimgray-200);
+  font-family: var(--font-noto-sans);
+}

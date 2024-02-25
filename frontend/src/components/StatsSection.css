@@ -1,0 +1,192 @@
+.bg4 {
+  height: 567px;
+  width: 1500px;
+  position: relative;
+  background-color: var(--components-switch-slidefill);
+  display: none;
+  max-width: 100%;
+}
+.how-is-the,
+.we-understand-that {
+  align-self: stretch;
+  position: relative;
+  z-index: 1;
+}
+.how-is-the {
+  margin: 0;
+  font-size: inherit;
+  line-height: 120%;
+  font-weight: 700;
+  font-family: inherit;
+}
+.we-understand-that {
+  font-size: var(--paragraph-size);
+  line-height: 160%;
+  color: var(--color-gray-800);
+}
+.childrens-health-benefits {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px 0;
+}
+.text-block-line {
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  border-radius: var(--br-9xs);
+  z-index: 1;
+}
+.frame-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 var(--padding-11xs);
+}
+.years2 {
+  position: relative;
+  line-height: 160%;
+  font-weight: 500;
+  z-index: 1;
+}
+.frame-line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0 8px;
+}
+.details-for-vaccine,
+.frame-with-header-and-text {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.frame-with-header-and-text {
+  width: 560px;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+  font-size: var(--paragraph-size);
+}
+.details-for-vaccine {
+  width: 626px;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 32px 0;
+  min-width: 626px;
+}
+.frame-details,
+.frame-details1,
+.frame-details2,
+.frame-details3,
+.frame-details4 {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--green-secondary);
+  max-width: 100%;
+}
+.frame-details1,
+.frame-details2,
+.frame-details3,
+.frame-details4 {
+  background-color: var(--color-mediumpurple);
+  z-index: 1;
+  margin-left: -375px;
+}
+.frame-details2,
+.frame-details3,
+.frame-details4 {
+  background-color: var(--color-blanchedalmond-100);
+  z-index: 2;
+}
+.frame-details3,
+.frame-details4 {
+  background-color: var(--color-khaki);
+  z-index: 3;
+}
+.frame-details4 {
+  background-color: var(--color-palevioletred);
+  z-index: 4;
+}
+.chart,
+.stats-section {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+}
+.chart {
+  height: 375px;
+  width: 375px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 375px;
+  z-index: 1;
+}
+.stats-section {
+  position: absolute;
+  top: 3491px;
+  left: 0;
+  background-color: var(--components-switch-slidefill);
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--padding-77xl) var(--padding-91xl);
+  box-sizing: border-box;
+  gap: var(--gap-xl);
+  text-align: left;
+  font-size: var(--h2-size);
+  color: var(--background-paper-elevation-0);
+  font-family: var(--paragraph);
+}
+@media screen and (max-width: 1250px) {
+  .chart,
+  .details-for-vaccine {
+    flex: 1;
+  }
+  .stats-section {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .details-for-vaccine {
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .how-is-the {
+    font-size: var(--font-size-19xl);
+    line-height: 46px;
+  }
+  .details-for-vaccine {
+    gap: 32px 0;
+  }
+  .chart {
+    min-width: 100%;
+  }
+  .stats-section {
+    padding-left: var(--padding-36xl);
+    padding-right: var(--padding-36xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .how-is-the {
+    font-size: var(--font-size-10xl);
+    line-height: 35px;
+  }
+  .frame-with-header-and-text {
+    flex-wrap: wrap;
+  }
+  .stats-section {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}

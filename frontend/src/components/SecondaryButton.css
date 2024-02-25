@@ -1,0 +1,236 @@
+.you-can-take-advice {
+  width: 198px;
+  height: 73px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+.bg7 {
+  height: 576px;
+  width: 1280px;
+  position: relative;
+  border-radius: var(--br-xl);
+  background-color: var(--color-goldenrod);
+  display: none;
+  max-width: 100%;
+}
+.our-journey1 {
+  position: relative;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  z-index: 1;
+}
+.how-we-raised {
+  margin: 0;
+  position: relative;
+  font-size: var(--h2-size);
+  line-height: 120%;
+  font-weight: 700;
+  font-family: inherit;
+  display: inline-block;
+  max-width: 100%;
+  z-index: 1;
+}
+.lorem-ipsum-dolor7 {
+  align-self: stretch;
+  position: relative;
+  line-height: 160%;
+  color: var(--text-secondary);
+  z-index: 1;
+}
+.our-journey {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px 0;
+  max-width: 100%;
+}
+.donation-received,
+.m {
+  position: relative;
+  line-height: 160%;
+  font-weight: 500;
+  z-index: 1;
+}
+.donation-received {
+  font-size: var(--typography-caption-size);
+  color: var(--text-secondary);
+}
+.facebook-negative {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.div,
+.volunters {
+  position: relative;
+  line-height: 160%;
+  font-weight: 500;
+  z-index: 1;
+}
+.div {
+  white-space: nowrap;
+}
+.volunters {
+  font-size: var(--typography-caption-size);
+  color: var(--text-secondary);
+}
+.facebook-negative1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.care-homes,
+.div1 {
+  position: relative;
+  line-height: 160%;
+  font-weight: 500;
+  z-index: 1;
+}
+.care-homes {
+  font-size: var(--typography-caption-size);
+  color: var(--text-secondary);
+}
+.facebook-negative2,
+.social-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.social-row {
+  width: 285px;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 var(--padding-12xs) 0 0;
+  box-sizing: border-box;
+  gap: var(--gap-xl);
+  font-size: var(--icon-medium-size);
+}
+.mission-section,
+.vision-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.vision-section {
+  align-self: stretch;
+  gap: 32px 0;
+}
+.mission-section {
+  width: 488px;
+  padding: 0 0 var(--padding-lg);
+  box-sizing: border-box;
+  min-width: 488px;
+}
+.image-icon {
+  height: 448px;
+  flex: 1;
+  position: relative;
+  border-radius: var(--br-xl);
+  max-width: 100%;
+  overflow: hidden;
+  object-fit: cover;
+  min-width: 398px;
+  z-index: 1;
+}
+.our-journey-section {
+  align-self: stretch;
+  border-radius: var(--br-xl);
+  background-color: var(--color-goldenrod);
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-45xl) var(--padding-17xl) var(--padding-45xl)
+    var(--padding-77xl);
+  box-sizing: border-box;
+  gap: var(--gap-29xl);
+}
+.b-g,
+.our-journey-section,
+.secondary-button5 {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.b-g {
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px 0;
+}
+.secondary-button5 {
+  width: 1338px;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0 var(--padding-19xl) var(--padding-32xl) var(--padding-xl);
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--paragraph-size);
+  color: var(--components-switch-slidefill);
+  font-family: var(--paragraph);
+}
+@media screen and (max-width: 1200px) {
+  .mission-section {
+    flex: 1;
+  }
+  .our-journey-section {
+    flex-wrap: wrap;
+    padding-left: var(--padding-29xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .how-we-raised {
+    font-size: var(--font-size-19xl);
+    line-height: 46px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .vision-section {
+    gap: 32px 0;
+  }
+  .image-icon,
+  .mission-section {
+    min-width: 100%;
+  }
+  .our-journey-section {
+    gap: var(--gap-29xl);
+    padding-left: var(--padding-5xl);
+    padding-top: var(--padding-23xl);
+    padding-bottom: var(--padding-23xl);
+    box-sizing: border-box;
+  }
+  .b-g {
+    gap: 64px 0;
+  }
+  .secondary-button5 {
+    padding-bottom: var(--padding-14xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .how-we-raised {
+    font-size: var(--font-size-10xl);
+    line-height: 35px;
+  }
+  .div,
+  .div1,
+  .m {
+    font-size: var(--font-size-lgi);
+    line-height: 31px;
+  }
+  .b-g {
+    gap: 64px 0;
+  }
+  .secondary-button5 {
+    padding-bottom: var(--padding-2xl);
+    box-sizing: border-box;
+  }
+}

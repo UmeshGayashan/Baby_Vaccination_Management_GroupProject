@@ -1,0 +1,123 @@
+.bg-image-icon1 {
+  width: 100%;
+  height: calc(100% - 22.5px);
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 22.5px;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.get-your-childrens1,
+.vaccine1,
+.we-remind-you1 {
+  margin: 0;
+}
+.get-your-childrens-container1,
+.the-safety-of {
+  position: relative;
+  line-height: 120%;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.get-your-childrens-container1 {
+  margin: 0;
+  align-self: stretch;
+  height: 208.5px;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+}
+.the-safety-of {
+  width: 594px;
+  height: 157.1px;
+  font-size: var(--text-body-2-size);
+  max-width: 100%;
+}
+.label-shape,
+.label-shape1 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.label-shape1 {
+  width: 640px;
+  flex-direction: column;
+  gap: 33px 0;
+}
+.label-shape {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 var(--padding-40xl);
+  box-sizing: border-box;
+}
+.container-wrapper-icon,
+.container-wrapper-icon1,
+.container-wrapper-icon2,
+.container-wrapper-icon3 {
+  height: 25.3px;
+  width: 28px;
+  position: relative;
+  min-height: 25px;
+  z-index: 1;
+}
+.b-g-rectangle,
+.frame-content1 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0 12px;
+}
+.b-g-rectangle {
+  align-self: stretch;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: var(--padding-97xl) var(--padding-32xl) 0;
+  box-sizing: border-box;
+  position: relative;
+  gap: 88px 0;
+  min-height: 686px;
+  max-width: 100%;
+  flex-shrink: 0;
+  margin-top: -25px;
+  text-align: left;
+  font-size: var(--font-size-45xl);
+  color: var(--background-paper-elevation-0);
+  font-family: var(--paragraph);
+}
+@media screen and (max-width: 800px) {
+  .get-your-childrens-container1 {
+    font-size: var(--font-size-32xl);
+    line-height: 61px;
+  }
+  .label-shape1 {
+    gap: 33px 0;
+  }
+  .b-g-rectangle,
+  .label-shape {
+    padding-left: var(--padding-10xl);
+    padding-right: var(--padding-10xl);
+    box-sizing: border-box;
+  }
+  .b-g-rectangle {
+    gap: 88px 0;
+    padding-left: var(--padding-6xl);
+    padding-right: var(--padding-6xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .get-your-childrens-container1 {
+    font-size: var(--font-size-19xl);
+    line-height: 46px;
+  }
+  .b-g-rectangle {
+    gap: 88px 0;
+  }
+}

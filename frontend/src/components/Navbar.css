@@ -1,0 +1,21 @@
+.navbar,
+.text-home-link {
+  display: flex;
+  flex-direction: row;
+}
+.text-home-link {
+  width: 1537px;
+  align-items: center;
+  justify-content: center;
+  max-width: 102%;
+  flex-shrink: 0;
+}
+.navbar {
+  align-self: stretch;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+  z-index: 2;
+}

@@ -1,0 +1,88 @@
+.bg15,
+.knowledge-of-vaccine2 {
+  position: relative;
+  max-width: 100%;
+}
+.bg15 {
+  width: 1500px;
+  height: 400px;
+  background-color: var(--yellow-light);
+  display: none;
+}
+.knowledge-of-vaccine2 {
+  margin: 0;
+  width: 768px;
+  font-size: inherit;
+  line-height: 120%;
+  font-weight: 700;
+  font-family: inherit;
+  white-space: pre-wrap;
+  display: inline-block;
+  z-index: 1;
+}
+.custom-actions-slot1 {
+  height: 118px;
+  width: 238px;
+  position: relative;
+  object-fit: cover;
+  z-index: 1;
+}
+.frame-footer,
+.frame-header1,
+.header3 {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.frame-footer {
+  width: 430px;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.frame-header1,
+.header3 {
+  align-self: stretch;
+  flex-direction: column;
+}
+.header3 {
+  background-color: var(--yellow-light);
+  align-items: center;
+  padding: var(--padding-114xl) var(--padding-xl) var(--padding-48xl)
+    var(--padding-137xl);
+  box-sizing: border-box;
+  gap: var(--gap-mini);
+  margin-top: -18px;
+}
+.frame-header1 {
+  align-items: flex-start;
+  text-align: left;
+  font-size: var(--h1-size);
+  color: var(--color-gray-100);
+  font-family: var(--paragraph);
+}
+@media screen and (max-width: 1050px) {
+  .knowledge-of-vaccine2 {
+    font-size: var(--font-size-26xl);
+    line-height: 54px;
+  }
+  .header3 {
+    padding-left: var(--padding-59xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 750px) {
+  .header3 {
+    padding-left: var(--padding-20xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .knowledge-of-vaccine2 {
+    font-size: var(--typography-h4-size);
+    line-height: 40px;
+  }
+  .header3 {
+    padding-bottom: var(--padding-25xl);
+    box-sizing: border-box;
+  }
+}

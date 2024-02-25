@@ -1,0 +1,123 @@
+.bg-image-icon2 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 0.7px;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.family,
+.help-them,
+.maintain-your {
+  margin: 0;
+}
+.maintain-your-family-container,
+.the-safety-of1 {
+  position: relative;
+  line-height: 120%;
+  display: inline-block;
+  z-index: 1;
+}
+.maintain-your-family-container {
+  margin: 0;
+  align-self: stretch;
+  height: 225.7px;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  flex-shrink: 0;
+}
+.the-safety-of1 {
+  height: 170px;
+  flex: 1;
+  max-width: 100%;
+}
+.checkbox-frame {
+  width: 614px;
+  flex-direction: row;
+  padding: 0 var(--padding-3xs);
+  box-sizing: border-box;
+  font-size: var(--text-body-2-size);
+}
+.box-stack,
+.checkbox-frame,
+.row-cell {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.row-cell {
+  width: 640px;
+  flex-direction: column;
+  gap: 27px 0;
+}
+.box-stack {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 var(--padding-40xl);
+  box-sizing: border-box;
+}
+.container-frame-icon,
+.container-frame-icon1,
+.container-frame-icon2,
+.container-frame-icon3 {
+  height: 27.4px;
+  width: 28px;
+  position: relative;
+  min-height: 27px;
+  z-index: 1;
+}
+.card-frame,
+.table-header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0 12px;
+}
+.card-frame {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: var(--padding-107xl) var(--padding-32xl) var(--padding-21xl);
+  box-sizing: border-box;
+  position: relative;
+  gap: 103px 0;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-45xl);
+  color: var(--background-paper-elevation-0);
+  font-family: var(--paragraph);
+}
+@media screen and (max-width: 750px) {
+  .maintain-your-family-container {
+    font-size: var(--font-size-32xl);
+    line-height: 61px;
+  }
+  .box-stack {
+    padding-left: var(--padding-10xl);
+    padding-right: var(--padding-10xl);
+    box-sizing: border-box;
+  }
+  .card-frame {
+    gap: 103px 0;
+    padding: var(--padding-63xl) var(--padding-6xl) var(--padding-7xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .maintain-your-family-container {
+    font-size: var(--font-size-19xl);
+    line-height: 46px;
+  }
+  .card-frame {
+    gap: 103px 0;
+  }
+}

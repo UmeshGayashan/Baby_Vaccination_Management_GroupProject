@@ -1,0 +1,46 @@
+.container-icon,
+.custom-integration-switch {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.container-icon {
+  height: 83.33%;
+  width: 83.33%;
+  top: 8.43%;
+  right: 8.33%;
+  bottom: 8.24%;
+  left: 8.33%;
+  z-index: 1;
+}
+.circle-notifications {
+  height: 51px;
+  width: 54px;
+  position: absolute;
+  margin: 0 !important;
+  top: 16px;
+  right: 248px;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 2;
+}
+.rectangle-shape1 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--icon-medium-size);
+  color: var(--components-switch-slidefill);
+  font-family: var(--paragraph);
+}

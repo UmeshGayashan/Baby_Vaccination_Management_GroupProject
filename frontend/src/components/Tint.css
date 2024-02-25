@@ -1,0 +1,76 @@
+.image-icon1 {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-radius: var(--br-xl);
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.back-end,
+.telana {
+  position: relative;
+  line-height: 160%;
+  font-weight: 500;
+}
+.project-manager {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-7xl) 0 var(--padding-5xl);
+}
+.facebook-negative3,
+.linkedin-negative,
+.twitter-negative {
+  height: 20px;
+  width: 20px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  min-height: 20px;
+}
+.social-row1 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-xl);
+  opacity: 0.8;
+}
+.secondary-button6,
+.team-members,
+.tint2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.team-members {
+  gap: 16px 0;
+  font-size: var(--typography-caption-size);
+  color: var(--color-gray-500);
+}
+.secondary-button6,
+.tint2 {
+  gap: 8px 0;
+}
+.tint2 {
+  align-self: stretch;
+  width: 302px;
+  flex-shrink: 0;
+  padding: 0 var(--padding-7xs) 0 0;
+  box-sizing: border-box;
+  gap: 16px 0;
+  text-align: center;
+  font-size: var(--typography-h6-size);
+  color: var(--color-gray-100);
+  font-family: var(--paragraph);
+}
+@media screen and (max-width: 450px) {
+  .telana {
+    font-size: var(--paragraph-size);
+    line-height: 26px;
+  }
+}

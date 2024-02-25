@@ -1,0 +1,31 @@
+.body-frame,
+.high-admin-parants {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.body-frame {
+  align-self: stretch;
+  align-items: flex-end;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+.high-admin-parants {
+  width: 100%;
+  position: relative;
+  background-color: var(--bg);
+  overflow: hidden;
+  align-items: center;
+  gap: 267px 0;
+  letter-spacing: normal;
+}
+@media screen and (max-width: 750px) {
+  .high-admin-parants {
+    gap: 267px 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .high-admin-parants {
+    gap: 267px 0;
+  }
+}

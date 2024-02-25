@@ -1,0 +1,103 @@
+.i5,
+.largerthan5 {
+  position: relative;
+  line-height: 44px;
+  white-space: nowrap;
+}
+.largerthan5 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+}
+.i5 {
+  height: 41px;
+  width: 11.1px;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-courgette);
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 1;
+  margin-left: -19px;
+}
+.largerthan-parent2 {
+  width: 132px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.home5 {
+  position: relative;
+  font-weight: 500;
+}
+.about-us6,
+.media1,
+.what-we-do6 {
+  white-space: nowrap;
+}
+.about-us6,
+.contact5,
+.media1,
+.what-we-do6 {
+  position: relative;
+  font-weight: 500;
+}
+.nav-link2 {
+  width: 521px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--padding-base) var(--padding-xl);
+  box-sizing: border-box;
+  gap: var(--gap-xl);
+  max-width: 100%;
+  font-size: var(--paragraph-size);
+  color: var(--secondary-text);
+}
+.nav-button1 {
+  height: 43px;
+  width: 121px;
+  cursor: pointer;
+}
+.navbar2 {
+  flex: 1;
+  background-color: var(--background-paper-elevation-0);
+  backdrop-filter: blur(30px);
+  border-bottom: 1px solid var(--color-gray-1000);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-lg) var(--padding-xl) var(--padding-lg)
+    var(--padding-37xl);
+  gap: 0 271px;
+  max-width: 100%;
+  z-index: 1;
+  text-align: left;
+  font-size: var(--icon-medium-size);
+  color: var(--components-switch-slidefill);
+  font-family: var(--paragraph);
+}
+@media screen and (max-width: 1325px) {
+  .navbar2 {
+    gap: 0 271px;
+    padding-left: var(--padding-9xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 800px) {
+  .largerthan-parent2 {
+    display: none;
+  }
+  .navbar2 {
+    gap: 0 271px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .navbar2 {
+    gap: 0 271px;
+  }
+}

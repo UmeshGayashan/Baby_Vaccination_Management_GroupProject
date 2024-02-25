@@ -1,0 +1,443 @@
+.hidden {
+  margin: 0;
+  height: 24px;
+  width: 24px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.checkbox,
+.padding {
+  display: flex;
+  flex-direction: row;
+}
+.padding {
+  height: 42px;
+  width: 42px;
+  border-radius: var(--br-81xl);
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-4xs);
+  box-sizing: border-box;
+}
+.checkbox {
+  position: absolute;
+  width: 100%;
+  top: calc(50% - 21px);
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+.body2,
+.height {
+  position: relative;
+}
+.height {
+  height: 20px;
+  width: 42px;
+}
+.body2 {
+  letter-spacing: 0.17px;
+  line-height: 143%;
+  white-space: nowrap;
+}
+.typography {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.body21 {
+  position: relative;
+  letter-spacing: 0.17px;
+  line-height: 143%;
+}
+.typography1 {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.box1,
+.cell-1 {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.cell-1 {
+  flex: 0.9706;
+  align-items: flex-start;
+  padding: var(--padding-base) 0 var(--padding-base) var(--padding-9xs);
+  box-sizing: border-box;
+  min-width: 133px;
+  max-width: 136px;
+}
+.body22 {
+  position: relative;
+  letter-spacing: 0.17px;
+  line-height: 143%;
+}
+.typography2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.body23 {
+  align-self: stretch;
+  height: 20px;
+  position: relative;
+  letter-spacing: 0.17px;
+  line-height: 143%;
+  display: inline-block;
+}
+.box2,
+.cell-2,
+.typography3 {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.typography3 {
+  width: 75px;
+  display: none;
+}
+.box2,
+.cell-2 {
+  flex: 1;
+  display: flex;
+}
+.cell-2 {
+  flex: 0.7647;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-base);
+  box-sizing: border-box;
+  min-width: 133px;
+  max-width: 136px;
+}
+.body24 {
+  position: relative;
+  letter-spacing: 0.17px;
+  line-height: 143%;
+}
+.typography4 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.body25 {
+  align-self: stretch;
+  height: 20px;
+  position: relative;
+  letter-spacing: 0.17px;
+  line-height: 143%;
+  display: inline-block;
+}
+.box3,
+.typography5 {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.typography5 {
+  width: 75px;
+  display: none;
+  justify-content: flex-start;
+}
+.box3 {
+  flex: 1;
+}
+.box3,
+.cell-3,
+.cell-3-wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+.cell-3 {
+  align-self: stretch;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-base);
+}
+.cell-3-wrapper {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  box-sizing: border-box;
+  min-width: 133px;
+  max-width: 136px;
+}
+.badge,
+.min-width {
+  height: 8px;
+  width: 8px;
+  position: relative;
+  border-radius: var(--br-81xl);
+}
+.badge {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--success-main);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.border,
+.op {
+  position: absolute;
+  margin: 0 !important;
+}
+.border {
+  width: 8px;
+  height: 8px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: var(--br-45xl);
+  background-color: var(--background-paper-elevation-0);
+  display: none;
+  z-index: 0;
+}
+.op {
+  width: 17px;
+  top: calc(50% - 10px);
+  left: calc(50% - 8.5px);
+  font-size: var(--typography-caption-size);
+  letter-spacing: 0.4px;
+  line-height: 166%;
+  font-family: var(--paragraph);
+  color: var(--background-paper-elevation-0);
+  text-align: center;
+  display: inline-block;
+  z-index: 1;
+}
+.min-width1 {
+  width: 24px;
+  height: 24px;
+  transform: rotate(-90deg);
+  z-index: 2;
+}
+.avatar,
+.chip1,
+.min-width1 {
+  position: relative;
+}
+.avatar {
+  border-radius: var(--br-81xl);
+  background-color: var(--info-dark);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.chip1 {
+  font-size: var(--chip-label-size);
+  letter-spacing: 0.16px;
+  line-height: 18px;
+  font-family: var(--paragraph);
+  color: var(--background-paper-elevation-0);
+  text-align: left;
+}
+.typography6 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-10xs) var(--padding-7xs);
+}
+.cancelfilled-icon,
+.chip {
+  border-radius: var(--br-81xl);
+  overflow: hidden;
+}
+.cancelfilled-icon {
+  height: 24px;
+  width: 24px;
+  position: relative;
+  flex-shrink: 0;
+  display: none;
+  min-height: 24px;
+}
+.chip {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-9xs);
+  background-color: var(--info-main);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.body26 {
+  align-self: stretch;
+  height: 20px;
+  position: relative;
+  letter-spacing: 0.17px;
+  line-height: 143%;
+  display: inline-block;
+}
+.box4,
+.cell-4,
+.typography7 {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.typography7 {
+  align-self: stretch;
+  display: none;
+}
+.box4,
+.cell-4 {
+  display: flex;
+  padding: 0 var(--padding-9xl) 0 0;
+}
+.cell-4 {
+  flex: 0.7647;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-base);
+  box-sizing: border-box;
+  min-width: 133px;
+  max-width: 136px;
+}
+.body27 {
+  position: relative;
+  letter-spacing: 0.17px;
+  line-height: 143%;
+}
+.typography8 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.body28 {
+  align-self: stretch;
+  height: 20px;
+  position: relative;
+  letter-spacing: 0.17px;
+  line-height: 143%;
+  display: inline-block;
+}
+.box5,
+.cell-5,
+.typography9 {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.typography9 {
+  width: 75px;
+  display: none;
+}
+.box5,
+.cell-5 {
+  flex: 1;
+  display: flex;
+}
+.cell-5 {
+  flex: 0.7647;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-base);
+  box-sizing: border-box;
+  min-width: 133px;
+  max-width: 136px;
+}
+.body29 {
+  position: relative;
+  letter-spacing: 0.17px;
+  line-height: 143%;
+}
+.typography10 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.body210 {
+  align-self: stretch;
+  height: 20px;
+  position: relative;
+  letter-spacing: 0.17px;
+  line-height: 143%;
+  display: inline-block;
+}
+.box6,
+.typography11 {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.typography11 {
+  width: 75px;
+  display: none;
+  justify-content: flex-start;
+}
+.box6 {
+  flex: 1;
+}
+.box6,
+.cell-6,
+.cell-6-wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+.cell-6 {
+  align-self: stretch;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-base);
+}
+.cell-6-wrapper {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  box-sizing: border-box;
+  min-width: 133px;
+  max-width: 136px;
+}
+.row-4 {
+  align-self: stretch;
+  background-color: var(--primary-selected);
+  border-bottom: 1px solid var(--divider);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--padding-9xs) 0 0;
+  row-gap: 20px;
+  text-align: left;
+  font-size: var(--text-body-2-size);
+  color: var(--text-primary);
+  font-family: var(--paragraph);
+}
+@media screen and (max-width: 800px) {
+  .row-4 {
+    flex-wrap: wrap;
+    padding-left: var(--padding-9xs);
+    padding-bottom: var(--padding-9xs);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .cell-1,
+  .cell-2,
+  .cell-4,
+  .cell-5 {
+    flex: 1;
+  }
+}

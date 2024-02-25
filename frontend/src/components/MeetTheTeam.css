@@ -1,0 +1,109 @@
+.tint-icon,
+.unsplashcveoh-jjmee-icon1 {
+  border-radius: var(--br-xl);
+  max-width: 100%;
+  max-height: 100%;
+}
+.unsplashcveoh-jjmee-icon1 {
+  width: 1280px;
+  position: relative;
+  object-fit: cover;
+  display: none;
+  z-index: 0;
+}
+.tint-icon {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  mix-blend-mode: normal;
+  z-index: 1;
+}
+.you-can-take2 {
+  margin: 0;
+  width: 805px;
+  position: relative;
+  font-size: inherit;
+  line-height: 120%;
+  font-weight: 700;
+  font-family: inherit;
+  white-space: pre-wrap;
+  display: inline-block;
+  max-width: 100%;
+  z-index: 2;
+}
+.secondary-button7 {
+  height: 51px;
+  flex: 1;
+  z-index: 2;
+}
+.bg8,
+.links-footer,
+.meet-the-team {
+  display: flex;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+.links-footer {
+  width: 195px;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0 var(--padding-5xs) 0 0;
+}
+.bg8,
+.meet-the-team {
+  max-width: 100%;
+}
+.bg8 {
+  flex: 1;
+  border-radius: var(--br-xl);
+  flex-direction: column;
+  align-items: center;
+  padding: var(--padding-12xl) var(--padding-2xl) var(--padding-70xl)
+    var(--padding-xl);
+  position: relative;
+  gap: var(--gap-20xl);
+  background-image: url(/public/unsplashcveoh-jjmee@2x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.meet-the-team {
+  width: 1338px;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0 var(--padding-19xl) var(--padding-147xl) var(--padding-xl);
+  text-align: center;
+  font-size: var(--h2-size);
+  color: var(--background-paper-elevation-0);
+  font-family: var(--paragraph);
+}
+@media screen and (max-width: 1050px) {
+  .you-can-take2 {
+    font-size: var(--font-size-19xl);
+    line-height: 46px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .meet-the-team {
+    padding-bottom: var(--padding-89xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .you-can-take2 {
+    font-size: var(--font-size-10xl);
+    line-height: 35px;
+  }
+  .bg8 {
+    gap: var(--gap-20xl);
+    padding-top: var(--padding-xl);
+    padding-bottom: var(--padding-39xl);
+    box-sizing: border-box;
+  }
+}

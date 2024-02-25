@@ -1,0 +1,227 @@
+.badge40,
+.min-width67 {
+  height: 8px;
+  width: 8px;
+  position: relative;
+  border-radius: var(--br-81xl);
+}
+.badge40 {
+  position: absolute;
+  height: 66.67%;
+  width: 66.67%;
+  top: 16.67%;
+  right: 16.67%;
+  bottom: 16.67%;
+  left: 16.67%;
+  background-color: var(--success-main);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.border40,
+.op25 {
+  position: absolute;
+  margin: 0 !important;
+}
+.border40 {
+  width: 12px;
+  height: 12px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: var(--br-45xl);
+  background-color: var(--background-paper-elevation-0);
+  display: none;
+  z-index: 0;
+}
+.op25 {
+  width: 27px;
+  top: calc(50% - 10px);
+  left: calc(50% - 13.5px);
+  letter-spacing: 0.14px;
+  line-height: 20px;
+  display: inline-block;
+  z-index: 1;
+}
+.min-width68 {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  transform: rotate(-90deg);
+  z-index: 2;
+}
+.avatar40,
+.min-height83 {
+  position: relative;
+  display: none;
+}
+.avatar40 {
+  border-radius: var(--br-9xs);
+  background-color: var(--components-avatar-fill);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.min-height83 {
+  width: 1px;
+  height: 8px;
+}
+.spacing-vertical45 {
+  height: 8px;
+  width: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.label19 {
+  margin: 0;
+  flex: 1;
+  position: relative;
+  font-size: inherit;
+  letter-spacing: 0.15px;
+  line-height: 160%;
+  font-weight: 500;
+  font-family: inherit;
+  color: var(--text-primary);
+  text-align: left;
+  display: inline-block;
+  min-width: 37px;
+}
+.min-height84 {
+  width: 1px;
+  height: 8px;
+  position: relative;
+}
+.spacing-vertical46 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-mini) 0 0;
+}
+.slide13 {
+  height: 14px;
+  width: 34px;
+  position: relative;
+  border-radius: var(--br-81xl);
+  background-color: var(--components-switch-slidefill);
+}
+.slide12 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-xs);
+  box-sizing: border-box;
+  opacity: 0.38;
+  width: 100%;
+  height: 100%;
+}
+.knob13 {
+  height: 20px;
+  width: 20px;
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--components-switch-knobfillenabled);
+  box-shadow: var(--elevation-1);
+}
+.knob12 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-4xs);
+}
+.switch13 {
+  height: 38px;
+  flex: 1;
+  position: relative;
+}
+.container72,
+.switch12 {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.switch12 {
+  width: 58px;
+  display: none;
+}
+.container72 {
+  align-self: stretch;
+  display: flex;
+  row-gap: 20px;
+}
+.it-is-a6 {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--paragraph-size);
+  letter-spacing: 0.15px;
+  line-height: 150%;
+  color: var(--text-secondary);
+  text-align: left;
+}
+.custom-integration-switch8 {
+  align-self: stretch;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px 0;
+}
+.cardcontent6 {
+  align-self: stretch;
+  padding: var(--padding-base);
+}
+.card10,
+.cardcontent6,
+.paper10 {
+  border-radius: var(--br-9xs);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.paper10 {
+  align-self: stretch;
+  background-color: var(--background-paper-elevation-0);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
+    0 1px 5px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+.card10 {
+  width: 375px;
+  min-height: 168px;
+  max-width: 100%;
+  text-align: center;
+  font-size: var(--typography-h6-size);
+  color: var(--background-paper-elevation-0);
+  font-family: var(--paragraph);
+}
+@media screen and (max-width: 1250px) {
+  .card10 {
+    min-height: auto;
+  }
+}
+@media screen and (max-width: 450px) {
+  .label19,
+  .op25 {
+    font-size: var(--paragraph-size);
+    line-height: 16px;
+  }
+  .label19 {
+    line-height: 26px;
+  }
+  .container72 {
+    flex-wrap: wrap;
+  }
+}

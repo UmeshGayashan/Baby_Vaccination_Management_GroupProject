@@ -1,0 +1,66 @@
+.button-set {
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  border-radius: var(--br-9xs);
+  z-index: 1;
+}
+.frame-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 var(--padding-11xs);
+}
+.years {
+  position: relative;
+  line-height: 160%;
+  font-weight: 500;
+  z-index: 1;
+}
+.vaccine-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0 8px;
+}
+.frame-header {
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  border-radius: var(--br-9xs);
+  z-index: 1;
+}
+.rectangle-shape {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 var(--padding-11xs);
+}
+.years1 {
+  position: relative;
+  line-height: 160%;
+  font-weight: 500;
+  z-index: 1;
+}
+.icon-vector,
+.primary-button2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0 8px;
+}
+.primary-button2 {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px 0;
+  text-align: left;
+  font-size: var(--paragraph-size);
+  color: var(--background-paper-elevation-0);
+  font-family: var(--paragraph);
+}
