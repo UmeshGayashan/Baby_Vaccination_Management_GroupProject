@@ -159,13 +159,13 @@
   color: var(--color-gray-100);
   font-family: var(--paragraph);
 }
-@media screen and (max-width: 1050px) {
+/* @media screen and (max-width: 1050px) {
   .project-row {
     justify-content: center;
     grid-template-columns: repeat(2, minmax(308px, 534px));
   }
-}
-@media screen and (max-width: 750px) {
+} */
+/* @media screen and (max-width: 750px) {
   .most-impotent-vaccination-container {
     font-size: var(--font-size-19xl);
     line-height: 46px;
@@ -183,4 +183,4 @@
     font-size: var(--font-size-3xl);
     line-height: 34px;
   }
-}
+} */

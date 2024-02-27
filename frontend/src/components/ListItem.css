@@ -1,3 +1,145 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup h3{
+  margin-bottom: 50px;
+}
+
+.popup p{
+  font-size: 12px;
+  
+}
+
+.popup-content {
+  background: #fff; /* White background for the popup content */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  text-align: center;
+  width: 30%;
+  
+}
+
+.popup button {
+  margin: 0 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+  background-color: #123058;
+  border: none;
+  color: #fff;
+  fill: #fff;
+  opacity: 0.5;
+  border-radius: 5px;
+  
+}
+
+.popup button:hover {
+  background-color: #123058;
+  opacity: 1;
+  
+}
+
+.button-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+
+}
+
+.closs svg{
+  width: 15px;
+  margin-right: 10px;
+  margin-top: -3px;
+}
+.closs h5{
+  margin-top: 2px;
+  
+}
+
+.closs{
+  display: flex;
+  flex-direction: row;
+  height: 35px;
+}
+
+
+
+
+
+
+
+
+
+/* Add this CSS to your styles */
+.nav-link-v {
+  display: flex;
+  flex-direction: column; /* Adjust to column layout */
+  align-items: flex-start;
+  text-decoration: none;
+}
+
+
+
+
+.home-v {
+  display: flex;
+  align-items: center;
+  width: 100%; 
+  margin-bottom: 10px; 
+  margin-left: 20px;
+}
+
+.svg-icon {
+  height: 30px;
+  width: 50px;
+  margin-right: 10px;
+}
+
+h3 {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  width: 100px;
+  margin: 5px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Add space between yes and no buttons */
+}
+
+.popup-content {
+  padding: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .min-height59 {
   width: 1px;
   height: 24px;
@@ -1266,10 +1408,17 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .ul3 {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
   align-self: stretch;
-  padding: var(--padding-9xs) var(--padding-5xs);
+  padding: var(--padding-2xs) var(--padding-2xs);
 }
+
+
+
 .custom-sidenav3 {
   height: 1640px;
   width: 312px;

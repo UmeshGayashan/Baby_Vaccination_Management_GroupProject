@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+
+import React, { useEffect } from "react";
 import {
   Routes,
   Route,
@@ -19,6 +20,7 @@ import Login from "./pages/Login";
 import Vaccines from "./pages/Vaccines";
 import HighAdminParants from "./pages/HighAdminParants";
 import Notification1 from "./pages/Notification1";
+import VDetails from "./pages/VaccinationDetails";
 
 function App() {
   const action = useNavigationType();
@@ -37,59 +39,68 @@ function App() {
 
     switch (pathname) {
       case "/":
-        title = "";
-        metaDescription = "";
+        title = "bvms";
+        metaDescription = "Your meta description for the home page";
         break;
-      case "/about-us":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/user-page":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/low-admin":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/low-admin-parants":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/add-child":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/update-child":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/add-perant":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/recover-password":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/forgot-password":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/login":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/vaccines":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/high-admin-parants":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/notification":
-        title = "";
+     case "/about-us":
+title = "";
+metaDescription = "";
+break;
+case "/user-page":
+title = "";
+metaDescription = "";
+break;
+case "/low-admin":
+title = "";
+metaDescription = "";
+break;
+case "/v-details":
+title = "";
+metaDescription = "";
+break;
+case "/low-admin-parants":
+title = "";
+metaDescription = "";
+break;
+case "/add-child":
+title = "";
+metaDescription = "";
+break;
+case "/update-child":
+title = "";
+metaDescription = "";
+break;
+case "/add-perant":
+title = "";
+metaDescription = "";
+break;
+case "/recover-password":
+title = "";
+metaDescription = "";
+break;
+case "/forgot-password":
+title = "";
+metaDescription = "";
+break;
+case "/login":
+title = "";
+metaDescription = "";
+break;
+case "/vaccines":
+title = "";
+metaDescription = "";
+break;
+case "/high-admin-parants":
+title = "";
+metaDescription = "";
+break;
+case "/notification":
+title = "";
+metaDescription = "Your meta description for the home page";
+break;
+
+      default:
+        title = ""; 
         metaDescription = "";
         break;
     }
@@ -121,10 +132,12 @@ function App() {
       <Route path="/recover-password" element={<RecoverPassword />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/vaccines" element={<Vaccines />} />
+      <Route path="/vaccines/1" element={<Vaccines />} />
       <Route path="/high-admin-parants" element={<HighAdminParants />} />
       <Route path="/notification" element={<Notification1 />} />
+      <Route path="/v-details" element={<VDetails/>}/>
     </Routes>
   );
 }
+
 export default App;

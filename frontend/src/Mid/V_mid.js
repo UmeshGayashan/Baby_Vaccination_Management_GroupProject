@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 
-import "./PrimaryButton.css";
+import "./V_mid.css";
 
 const projectsData = [
   {
@@ -25,11 +25,67 @@ const projectsData = [
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
   },
 
+  {
+    unsplashImage: "/unsplashcveoh-jjmee@2x.png",
+    vaccineImage: "/unsplashiigovkrty8g@2x.png",
+    name: "Name of Vaccine 4",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+  },
+  {
+    unsplashImage: "/unsplashcveoh-jjmee@2x.png",
+    vaccineImage: "/unsplashiigovkrty8g@2x.png",
+    name: "Name of Vaccine 5",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+  },
+  {
+    unsplashImage: "/unsplashcveoh-jjmee@2x.png",
+    vaccineImage: "/unsplashiigovkrty8g@2x.png",
+    name: "Name of Vaccine 6",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+  },
+  {
+    unsplashImage: "/unsplashcveoh-jjmee@2x.png",
+    vaccineImage: "/unsplashiigovkrty8g@2x.png",
+    name: "Name of Vaccine 7",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+  },
+  {
+    unsplashImage: "/unsplashcveoh-jjmee@2x.png",
+    vaccineImage: "/unsplashiigovkrty8g@2x.png",
+    name: "Name of Vaccine 8",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+  },
+  {
+    unsplashImage: "/unsplashcveoh-jjmee@2x.png",
+    vaccineImage: "/unsplashiigovkrty8g@2x.png",
+    name: "Name of Vaccine 9",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+  },
+  {
+    unsplashImage: "/unsplashcveoh-jjmee@2x.png",
+    vaccineImage: "/unsplashiigovkrty8g@2x.png",
+    name: "Name of Vaccine 10",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+  },
+  {
+    unsplashImage: "/unsplashcveoh-jjmee@2x.png",
+    vaccineImage: "/unsplashiigovkrty8g@2x.png",
+    name: "Name of Vaccine 11",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+  },
+  {
+    unsplashImage: "/unsplashcveoh-jjmee@2x.png",
+    vaccineImage: "/unsplashiigovkrty8g@2x.png",
+    name: "Name of Vaccine 12",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+  },
+ 
+
 
   // Add more projects as needed
 ];
 
-const PrimaryButton = () => {
+const VMid = () => {
   const onProjectRowContainerClick = () => {
     const anchor = document.querySelector("[data-scroll-to='tint']");
     if (anchor) {
@@ -38,22 +94,7 @@ const PrimaryButton = () => {
   };
 
   return (
-    <section className="primary-button3">
-      <div className="frame-navbar1">
-         <img
-          className="section-title-icon"
-          loading="eager"
-          alt=""
-          src="/section-title@2x.png"
-        /> 
-        <div className="nav-link">
-          <h1 className="most-impotent-vaccination-container">
-            <p className="most-impotent">{`Most Impotent   `}</p>
-            <p className="vaccination">Vaccination</p>
-            <p className="details">Details</p>
-          </h1>
-        </div>
-      </div>
+    <section className="primary-button3-2" >
 
       <div className="project-row">
         {projectsData.map((project, index) => (
@@ -89,7 +130,7 @@ const PrimaryButton = () => {
                   }}
                   component={Link}
                   to={`/vaccines/1`} 
-                  // to={`/v-details/${index + 1}`} // You can use a dynamic route if needed
+                //    to={`/vaccines/${index + 1}`} // You can use a dynamic route if needed
                 >
                   Learn more
                 </Button>
@@ -102,4 +143,4 @@ const PrimaryButton = () => {
   );
 };
 
-export default PrimaryButton;
+export default VMid;

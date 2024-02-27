@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { Button } from "@mui/material";
+import { Link } from 'react-router-dom';
 import "./Navbar2.css";
 
 const Navbar2 = ({
@@ -35,14 +36,28 @@ const Navbar2 = ({
         <h3 className="largerthan5">BabyVaxPro</h3>
         <div className="i5" />
       </div>
-      <div className="nav-link2" style={navLinkStyle}>
-        <div className="home5">Home</div>
+      <div className="nav-link2" style={navLinkStyle}>           
+       <Link className="home5" to="/">
+        Home            </Link>
+        <Link className="home5" to="/about-us">
+          About us
+        </Link>
+        <Link className="home5" to="/user-page">
+          What We Do
+        </Link>
+        <Link className="home5" to="/low-admin">
+          Meet Mento
+        </Link>
+        <Link className="home5" to="/add-child">
+          Contact
+        </Link>
+        {/* <div className="home5">Home</div>
         <div className="about-us6" onClick={onAboutUsText1Click}>
           About us
         </div>
         <div className="what-we-do6">What We Do</div>
         <div className="media1">{media}</div>
-        <div className="contact5">Contact</div>
+        <div className="contact5">Contact</div> */}
       </div>
       <Button
         className="nav-button1"
@@ -68,3 +83,48 @@ const Navbar2 = ({
 };
 
 export default Navbar2;
+
+
+
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+// import { Button } from '@mui/material'; 
+// import "./Navbar.css";
+
+// const Navbar = () => {
+//   return (
+//     <div className="navbar">
+//       <div className="navbar-wrapper-p">
+//         <div className="navbar2">
+//           <div className="largerthan-parent2">
+//             <b className="largerthan5">BabyVaxPro</b>
+//             <div className="i5" />
+//           </div>
+//           <div className="nav-link1">
+//             <Link className="home5" to="/">
+//               Home
+//             </Link>
+//             <Link className="home5" to="/about-us">
+//               About us
+//             </Link>
+//             <Link className="home5" to="/user-page">
+//               What We Do
+//             </Link>
+//             <Link className="home5" to="/low-admin">
+//               Meet Mento
+//             </Link>
+//             <Link className="home5" to="/add-child">
+//               Contact
+//             </Link>
+//           </div>
+//           <Button sx={{ backgroundColor: 'black', color: 'white' }} variant="contained" href="/login">
+//             Login
+//           </Button>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Navbar;
+

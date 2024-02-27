@@ -1,5 +1,7 @@
+
 import { useMemo } from "react";
 import { Button } from "@mui/material";
+import { Link } from 'react-router-dom';
 import "./GroupComponent.css";
 
 const GroupComponent = ({
@@ -109,15 +111,20 @@ const GroupComponent = ({
         </div>
       </div>
       <div className="nav-link3" style={navLink1Style}>
-        <div className="home9">Home</div>
-        <div className="about-us11">About us</div>
-        <div className="what-we-do10">What We Do</div>
-        {showMedia && (
-          <div className="media2" style={mediaStyle}>
-            Media
-          </div>
-        )}
-        <div className="contact9">Contact</div>
+      <Link className="home5" to="/">
+        Home            </Link>
+        <Link className="home5" to="/about-us">
+          About us
+        </Link>
+        <Link className="home5" to="/user-page">
+          What We Do
+        </Link>
+        <Link className="home5" to="/low-admin">
+          Meet Mento
+        </Link>
+        <Link className="home5" to="/add-child">
+          Contact
+        </Link>
       </div>
       <div className="spacing-vertical30" style={spacingVerticalStyle}>
         <Button
@@ -139,7 +146,7 @@ const GroupComponent = ({
         >
           {navButton}
         </Button>
-        <Button
+        <Button href="/"
           className="nav-button5"
           disableElevation={true}
           variant="contained"
