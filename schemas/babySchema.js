@@ -1,6 +1,30 @@
-// models/Baby.js
+
 
 const mongoose = require('mongoose');
+
+const vaccinationSchema = new mongoose.Schema({
+  vacname: { 
+    type: String,
+    required: true 
+  },
+  vaccinator: { 
+    type: String, 
+    required: true 
+  },
+  bottle_code: { 
+    type: String 
+  },
+  verification_code: { 
+    type: String 
+  },
+  date: { 
+    type: Date, 
+    required: true 
+  },
+  place: { 
+    type: String 
+  }
+});
 
 const babySchema = new mongoose.Schema({
   name: { 
@@ -41,7 +65,9 @@ const babySchema = new mongoose.Schema({
   hospitalName: { 
     type: String, 
     required: true 
-  }
+  },
+
+  vaccinations: [vaccinationSchema] // Define vaccinations as an array of objects using vaccinationSchema
 });
 
 module.exports = mongoose.model('Baby', babySchema);
