@@ -22,6 +22,7 @@ import HighAdminParants from "./pages/HighAdminParants";
 import Notification1 from "./pages/Notification1";
 import VDetails from "./pages/VaccinationDetails";
 import Table from "./pages/Table";
+//import UpdateParent from "./pages/UpdateParent"
 
 function App() {
   const action = useNavigationType();
@@ -75,6 +76,10 @@ case "/add-perant":
 title = "";
 metaDescription = "";
 break;
+// case "/update-perant":
+// title = "";
+// metaDescription = "";
+// break;
 case "/recover-password":
 title = "";
 metaDescription = "";
@@ -135,6 +140,7 @@ break;
       <Route path="/add-child" element={<AddChild />} />
       <Route path="/update-child" element={<UpdateChild />} />
       <Route path="/add-perant" element={<AddPerant />} />
+      {/* <Route path="/update-perant" element={<UpdatePerant />} /> */}
       <Route path="/recover-password" element={<RecoverPassword />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/login" element={<Login />} />

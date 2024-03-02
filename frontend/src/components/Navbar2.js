@@ -48,7 +48,7 @@ const Navbar2 = ({
         <Link className="home5" to="/low-admin">
           Meet Mento
         </Link>
-        <Link className="home5" to="/add-child">
+        <Link className="home5" to="/high-admin-parants">
           Contact
         </Link>
         {/* <div className="home5">Home</div>

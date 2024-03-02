@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import StackCell from "../components/StackCell";
 import CTAButton from "../components/CTAButton";
 import FrameComponent8 from "../components/FrameComponent8";
-import SpecialNeedsDoctorsContainer from "../components/SpecialNeedsDoctorsContainer";
+// import SpecialNeedsDoctorsContainer from "../components/SpecialNeedsDoctorsContainer";
 import Footer4 from "../components/Footer4";
 import "./HighAdminParants.css";
 
@@ -37,7 +37,7 @@ const HighAdminParants = () => {
         <CTAButton />
         <FrameComponent8 />
       </section>
-      <SpecialNeedsDoctorsContainer />
+      {/* <SpecialNeedsDoctorsContainer /> */}
       <Footer4 />
     </div>
   );

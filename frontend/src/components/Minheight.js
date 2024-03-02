@@ -20,7 +20,6 @@ const Minheight = () => {
   return (
     <div className="minheight">
       <div className="default-slot"><Dropdown_01/></div>
-
       <div className="custom-page-heading">
         <div className="box7">
           <div className="title-and-contents">

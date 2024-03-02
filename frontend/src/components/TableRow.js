@@ -12,7 +12,7 @@ const TableRow = () => {
   }, [navigate]);
 
   const onNavButton1Click = useCallback(() => {
-    navigate("/login");
+    navigate("/");
   }, [navigate]);
 
   const onButtonContainerClick = useCallback(() => {

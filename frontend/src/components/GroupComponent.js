@@ -111,20 +111,11 @@ const GroupComponent = ({
         </div>
       </div>
       <div className="nav-link3" style={navLink1Style}>
-      <Link className="home5" to="/">
-        Home            </Link>
-        <Link className="home5" to="/about-us">
-          About us
-        </Link>
-        <Link className="home5" to="/user-page">
-          What We Do
-        </Link>
-        <Link className="home5" to="/low-admin">
-          Meet Mento
-        </Link>
-        <Link className="home5" to="/add-child">
-          Contact
-        </Link>
+      <Link className="home5" to="/">Home </Link>
+        <Link className="home5" to="/about-us">About us </Link>
+        <Link className="home5" to="/user-page">What We Do</Link>
+        <Link className="home5" to="/low-admin">Meet Mento</Link>
+        <Link className="home5" to="/add-child">Contact</Link>
       </div>
       <div className="spacing-vertical30" style={spacingVerticalStyle}>
         <Button
@@ -146,6 +137,7 @@ const GroupComponent = ({
         >
           {navButton}
         </Button>
+
         <Button href="/"
           className="nav-button5"
           disableElevation={true}

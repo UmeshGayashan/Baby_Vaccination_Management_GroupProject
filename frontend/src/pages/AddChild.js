@@ -1,5 +1,4 @@
-import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+
 import HorizontalSpacing from "../components/AC_navbar";
 import HomeLink from "../components/HomeLink";
 import FacebookLink from "../components/FacebookLink";

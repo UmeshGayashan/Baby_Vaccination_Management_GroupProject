@@ -1,55 +1,83 @@
-import { useCallback } from "react";
-import { TextField, InputAdornment, Icon, IconButton } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import StackCell from "../components/StackCell";
-import SpacingVertical from "../components/SpacingVertical";
-import FrameComponent5 from "../components/FrameComponent5";
-import SpecialNeedsDoctorsContainer from "../components/SpecialNeedsDoctorsContainer";
+
+import TableRow from "../components/TableRow";
 import Footer1 from "../components/Footer1";
-import "./LowAdmin.css";
+import "./LowAdminParants.css";
+import "./UserPage.css";
+import { Button } from "@mui/material";
+import DesktopDatePicker from "../components/DesktopDatePicker";
+import FrameContainer from "../components/FrameContainer";
+import "./UserPage.css";
+import LAdashboard from "../components/LA_Dashboard";
+import LA_MID from "../components/LA_Mid";
 
 const LowAdmin = () => {
-  const navigate = useNavigate();
-
-  const onNavButtonClick = useCallback(() => {
-    navigate("/add-child");
-  }, [navigate]);
-
-  const onNavButton1Click = useCallback(() => {
-    navigate("/login");
-  }, [navigate]);
-
-  const onButtonContainerClick = useCallback(() => {
-    navigate("/add-perant");
-  }, [navigate]);
-
+ 
   return (
-    <div className="low-admin">
-      <TextField
-        className="row-frame"
-        variant="outlined"
-        sx={{
-          "& fieldset": { border: "none" },
-          "& .MuiInputBase-root": {
-            height: "56.7px",
-            backgroundColor: "#f2c94c",
-            borderRadius: "0px 0px 0px 0px",
-          },
-          width: "1500px",
-        }}
-      />
-      <section className="typography-heading">
-        <StackCell
-          onNavButtonClick={onNavButtonClick}
-          onNavButton1Click={onNavButton1Click}
-          onButtonContainerClick={onButtonContainerClick}
-        />
-        <SpacingVertical />
-        <FrameComponent5 />
-      </section>
-      <SpecialNeedsDoctorsContainer />
-      <Footer1 />
-    </div>
+
+    <div className="user-page">
+     
+    <section className="frame-textbox">
+    <TableRow/>
+    <div className="text-area" style={{ marginTop:"-55px"}}  />
+    </section>
+    <section className="image-placeholder">
+
+      {/* dashboard */}
+      <LAdashboard />
+      <div className="label-text">
+       {/* table */}
+        <LA_MID/>
+      </div>
+
+      <div className="text-container">
+        <div className="desktopdatepicker-parent" >
+
+
+          <div className="go-to-calendar">
+            <div className="list">
+              <div className="header-picker">
+                <DesktopDatePicker />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    
+    <FrameContainer /> 
+
+
+    <section className="you-message-frame">
+      <div className="cta">
+        <div className="content">
+          <h1 className="you-can-take">
+            You can take advice from provided doctors for children with
+            special needs!
+          </h1>
+          <Button
+            className="primary-button"
+            variant="contained"
+            sx={{
+              textTransform: "none",
+              color: "#000",
+              fontSize: "16",
+              background: "#f2c94c",
+              borderRadius: "4px",
+              "&:hover": { background: "#f2c94c" },
+              width: 187,
+              height: 51,
+            }}
+          >
+            Meet your doctor
+          </Button>
+        </div>
+      </div>
+    </section>
+   
+    <Footer1/>
+  </div>
+
   );
 };
 

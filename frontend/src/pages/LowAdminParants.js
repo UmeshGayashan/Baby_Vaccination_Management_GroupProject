@@ -1,37 +1,83 @@
-import { TextField, InputAdornment, Icon, IconButton } from "@mui/material";
+
 import TableRow from "../components/TableRow";
-import Property1Default1 from "../components/Property1Default1";
-import FrameComponent5 from "../components/FrameComponent5";
-import SpecialNeedsDoctorsContainer from "../components/SpecialNeedsDoctorsContainer";
 import Footer1 from "../components/Footer1";
 import "./LowAdminParants.css";
+import "./UserPage.css";
+import { Button } from "@mui/material";
+import DesktopDatePicker from "../components/DesktopDatePicker";
+import FrameContainer from "../components/FrameContainer";
+import "./UserPage.css";
+import LAP_MID from "../components/LAP_Mid";
+import LAdashboard from "../components/LA_Dashboard";
+
+
 
 const LowAdminParants = () => {
   return (
-    <div className="low-admin-parants">
-      <TextField
-        className="card-stack"
-        variant="outlined"
-        sx={{
-          "& fieldset": { border: "none" },
-          "& .MuiInputBase-root": {
-            height: "56.7px",
-            backgroundColor: "#f2c94c",
-            borderRadius: "0px 0px 0px 0px",
-          },
-          width: "1500px",
-        }}
-      />
-      <section className="frame-box">
-        <TableRow />
-        <div className="main">
-          <Property1Default1 />
+
+    <div className="user-page">
+     
+    <section className="frame-textbox">
+    <TableRow/>
+    <div className="text-area" style={{ marginTop:"-55px"}}  />
+    </section>
+    <section className="image-placeholder">
+
+      {/* dashboard */}
+      <LAdashboard />
+      <div className="label-text">
+       {/* table */}
+        <LAP_MID/>
+      </div>
+
+      <div className="text-container">
+        <div className="desktopdatepicker-parent" >
+
+
+          <div className="go-to-calendar">
+            <div className="list">
+              <div className="header-picker">
+                <DesktopDatePicker />
+              </div>
+            </div>
+          </div>
+
         </div>
-        <FrameComponent5 />
-      </section>
-      <SpecialNeedsDoctorsContainer />
-      <Footer1 />
-    </div>
+      </div>
+    </section>
+    
+    <FrameContainer /> 
+
+
+    <section className="you-message-frame">
+      <div className="cta">
+        <div className="content">
+          <h1 className="you-can-take">
+            You can take advice from provided doctors for children with
+            special needs!
+          </h1>
+          <Button
+            className="primary-button"
+            variant="contained"
+            sx={{
+              textTransform: "none",
+              color: "#000",
+              fontSize: "16",
+              background: "#f2c94c",
+              borderRadius: "4px",
+              "&:hover": { background: "#f2c94c" },
+              width: 187,
+              height: 51,
+            }}
+          >
+            Meet your doctor
+          </Button>
+        </div>
+      </div>
+    </section>
+   
+    <Footer1/>
+  </div>
   );
 };
 
