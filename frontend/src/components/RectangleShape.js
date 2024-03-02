@@ -18,8 +18,10 @@ const RectangleShape = () => {
         onNavButtonClick={onNavButtonClick}
       />
       <div className="circle-notifications">
-        <img className="custom-integration-switch" alt="" />
+        <a  href="/v-details">
+        <img className="custom-integration-switch" alt=""  />
         <img className="container-icon" alt="" src="/vector-11.svg" />
+        </a>
       </div>
     </header>
   );

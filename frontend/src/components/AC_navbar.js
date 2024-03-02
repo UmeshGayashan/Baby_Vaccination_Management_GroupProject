@@ -1,5 +1,5 @@
 import GroupComponent from "./GroupComponent";
-import "./HorizontalSpacing.css";
+import "./AC_navbar.css";
 
 const HorizontalSpacing = ({ onNavButtonClick }) => {
   return (

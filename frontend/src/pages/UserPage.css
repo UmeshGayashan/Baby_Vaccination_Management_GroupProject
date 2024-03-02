@@ -303,11 +303,13 @@
   gap: 0 16px;
 }
 .list {
+  
   background-color: var(--background-paper-elevation-0);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   flex-direction: column;
   align-items: flex-start;
   min-height: 337px;
+  
 }
 .go-to-calander {
   width: 113px;
@@ -342,10 +344,15 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
+
+
+
 .desktopdatepicker-parent {
   align-self: stretch;
   gap: 56px 0;
 }
+
+
 .image-placeholder,
 .text-container {
   width: 296px;
@@ -509,3 +516,15 @@
     line-height: 35px;
   }
 }
+
+
+.header-picker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Adjust the width as needed */
+  height: 100%; /* Adjust the height as needed */
+  position: relative;
+}
+
+

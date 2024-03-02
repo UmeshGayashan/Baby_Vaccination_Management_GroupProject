@@ -6,11 +6,13 @@ import BackEnd from "../components/BackEnd";
 import MeetTheTeam from "../components/MeetTheTeam";
 import Footer from "../components/Footer";
 import "./AboutUs.css";
+import Navbar from "../components/Navbar";
 
 const AboutUs = () => {
   return (
     <div className="about-us">
-      <FrameComponent2 />
+      <Navbar/>
+
       <section className="media-contact">
         <FrameComponent1 />
         <OurVision />

@@ -1,9 +1,9 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import HorizontalSpacing from "../components/HorizontalSpacing";
+import HorizontalSpacing from "../components/AC_navbar";
 import HomeLink from "../components/HomeLink";
 import FacebookLink from "../components/FacebookLink";
-import FrameComponent6 from "../components/FrameComponent6";
+// import FrameComponent6 from "../components/FrameComponent6";
 import Footer2 from "../components/Footer2";
 import "./UpdateChild.css";
 
@@ -44,7 +44,7 @@ const UpdateChild = () => {
         icon5="pending_I230:7628;1:38"
         icon6="pending_I230:7629;1:38"
       />
-      <FrameComponent6
+      {/* <FrameComponent6
         icon="pending_I230:7650;1:38"
         icon1="pending_I230:7657;1:38"
         icon2="pending_I230:7664;1:38"
@@ -58,7 +58,7 @@ const UpdateChild = () => {
         icon10="pending_I230:7720;1:38"
         icon11="pending_I230:7727;1:38"
         onButtons1Click={onButtons1Click}
-      />
+      /> */}
       <Footer2 />
     </div>
   );

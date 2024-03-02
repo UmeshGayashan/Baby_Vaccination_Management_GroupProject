@@ -21,6 +21,7 @@ import Vaccines from "./pages/Vaccines";
 import HighAdminParants from "./pages/HighAdminParants";
 import Notification1 from "./pages/Notification1";
 import VDetails from "./pages/VaccinationDetails";
+import Table from "./pages/Table";
 
 function App() {
   const action = useNavigationType();
@@ -86,6 +87,11 @@ case "/login":
 title = "";
 metaDescription = "";
 break;
+case "/table":
+title = "";
+metaDescription = "";
+break;
+
 case "/vaccines":
 title = "";
 metaDescription = "";
@@ -136,6 +142,7 @@ break;
       <Route path="/high-admin-parants" element={<HighAdminParants />} />
       <Route path="/notification" element={<Notification1 />} />
       <Route path="/v-details" element={<VDetails/>}/>
+      <Route path="/table" element={<Table/>}/>
     </Routes>
   );
 }

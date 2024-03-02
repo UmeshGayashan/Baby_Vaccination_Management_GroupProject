@@ -28,7 +28,7 @@ const AbFrame = () => {
         </div>
       </div>
       <div className="rectangle">
-        <Button
+        <Button href="/about-us"
           className="primary-button4"
           variant="contained"
           sx={{
