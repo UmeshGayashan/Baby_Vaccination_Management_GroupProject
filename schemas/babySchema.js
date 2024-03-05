@@ -1,44 +1,34 @@
 const mongoose = require("mongoose")
 const guardianSchema = mongoose.Schema({
-    motherorGuardianName: {
-        firstName: {
-            type: String,
-            required: true
-        },
-        lastName: {
-            type: String,
-            required: true
-        }
-    },
     motherorGuardianNIC:{
         type:String,
         required:true,
         unique:true
     },
-    Address:{
-        type:String
+    gender:
+    { 
+        type: String, 
+        required: true 
     },
-    PostalCode:{
-        type:Number,
-        required:true
+    ofc: { 
+        type: String 
+    }, 
+    birthTime: { 
+        type: String, 
+        required: true 
     },
-    guardianEmail:{
-        type:String,
-        unique:true
+    birthDate: { 
+        type: Date, 
+        required: true 
     },
-    guardianTelephoneNumber:{
-        type:Number,
-        required:true,
-        unique:true
+    weight: { 
+        type: Number, 
+        required: true 
     },
-    parentAccountUsername:{
-        type:String,
-        required:true,
-        unique:true
-    },
-    parentAccountPassword:{
-        type:String,
-        required:true
+      hospitalName: { 
+        type: String, 
+        required: true 
     }
-})
- module.exports = mongoose.model("Baby",babySchema)
+});
+
+module.exports = mongoose.model("Baby",babySchema);
