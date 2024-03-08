@@ -4,6 +4,7 @@ require("./database/connections");
 const authRoutes = require('./routes/auth');
 const protectedRoutes = require('./routes/protectedRoute');
 const auth = require('./middleware/auth');
+require('dotenv').config()
 
 
 const app = express();

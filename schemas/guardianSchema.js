@@ -35,6 +35,10 @@ const guardianSchema = mongoose.Schema({
     parentAccountPassword:{
         type:String,
         required:true
+    },
+    isAdmin: {
+        type: Boolean,
+        default:false
     }
 });
 
@@ -54,4 +58,4 @@ guardianSchema.pre('save', async function(next) {
 
  module.exports = mongoose.model("Parent",guardianSchema)
 
- //http://localhost:4000/create-parent-acc
+ 

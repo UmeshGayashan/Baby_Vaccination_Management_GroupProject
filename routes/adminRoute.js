@@ -18,7 +18,8 @@ router.post("/create-health-acc", async (req, res) => {
             hcpPostalCode: postalCode,
             hcpEmail: email,
             hcpUsername: username, // For Login
-            hcpPassword: password
+            hcpPassword: password,
+            isAdmin:false
         });
 
         // Save the new account to the database using async/await
@@ -90,7 +91,8 @@ router.post("/create-parent-acc", async (req, res) => {
           guardianEmail: email,
           guardianTelephoneNumber: telephone,
           parentAccountUsername: username,
-          parentAccountPassword:password
+          parentAccountPassword:password,
+          isAdmin:false
 
       });
       
@@ -247,6 +249,32 @@ router.delete("/delete-baby-acc/:id", async (req, res) => {
       return res.status(500).send("Error while deleting baby account: " + err.message);
   }
 });
+
+//set the isAdmin to adminRoute
+// Example code for updating an existing healthcare professional account to admin
+router.put('/make-admin/:id', async (req, res) => {
+  try {
+    const userId = req.params.id;
+
+    // Find the healthcare professional by ID
+    const healthcarePro = await healthcareProfessionalSchema.findById(userId);
+
+    if (!healthcarePro) {
+      return res.status(404).send('Healthcare professional not found');
+    }
+
+    // Set isAdmin to true
+    healthcarePro.isAdmin = true;
+
+    // Save the updated document
+    await healthcarePro.save();
+
+    res.status(200).send('User promoted to admin successfully');
+  } catch (err) {
+    res.status(500).send('Error promoting user to admin: ' + err.message);
+  }
+});
+
 
 
 module.exports = router; // Export the router instance
