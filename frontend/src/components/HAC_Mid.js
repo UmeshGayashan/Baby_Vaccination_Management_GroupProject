@@ -1,19 +1,18 @@
 
+import LATable from "./LA_table";
 import "./Minheight.css";
-import EditableDataTable from "../pages/Table";
-
-import LAPTable from "./LAP_table";
 import { Button } from "@mui/material";
 
 
-const LAP_MID = () => {
+
+const HAC_MID = () => {
     return (
         <div className="minheight">
 
             <div className="custom-page-heading">
                 <div className="box7">
                     <div className="title-and-contents">
-                        <h1 className="page-header">Parent Collection</h1>
+                        <h1 className="page-header">Child Collection</h1>
                         <div className="stack">
                         </div>
                     </div>
@@ -39,7 +38,7 @@ const LAP_MID = () => {
 
 
                                 <div className="textfield1">
-                                    <Button className="button-row" href="/update-perant"
+                                    <Button className="button-row" href="/update-child"
                                         disableElevation={true}
                                         variant="contained"
                                         sx={{
@@ -59,7 +58,7 @@ const LAP_MID = () => {
                                 </div>
 
                                 <div className="textfield1">
-                                    <Button className="button-row" href="/add-parent"
+                                    <Button className="button-row" 
                                         disableElevation={true}
                                         variant="contained"
                                         sx={{
@@ -73,12 +72,12 @@ const LAP_MID = () => {
                                             "&:hover": { background: "light blue" },
                                             width: 50,
 
-                                        }}>View</Button>
+                                        }}>DELETE</Button>
                                 </div>
                             </div>
                         </div>
                         <div className="table">
-                            <LAPTable />
+                            <LATable/>
                         </div>
                     </div>
                 </div>
@@ -87,4 +86,4 @@ const LAP_MID = () => {
     );
 };
 
-export default LAP_MID;
+export default HAC_MID;

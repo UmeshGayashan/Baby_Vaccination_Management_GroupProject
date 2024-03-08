@@ -118,7 +118,7 @@ const GroupComponent = ({
         <Link className="home5" to="/add-child">Contact</Link>
       </div>
       <div className="spacing-vertical30" style={spacingVerticalStyle}>
-        <Button
+        <Button  
           className="nav-button4"
           disableElevation={true}
           variant="contained"
@@ -138,7 +138,7 @@ const GroupComponent = ({
           {navButton}
         </Button>
 
-        <Button href="/"
+        <Button  href="/"
           className="nav-button5"
           disableElevation={true}
           variant="contained"

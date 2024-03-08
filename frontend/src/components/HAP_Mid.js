@@ -1,19 +1,17 @@
 
 import "./Minheight.css";
-import EditableDataTable from "../pages/Table";
-
-import LAPTable from "./LAP_table";
 import { Button } from "@mui/material";
+import LAPTable from "./LAP_table";
 
 
-const LAP_MID = () => {
+const HAP_MID = () => {
     return (
         <div className="minheight">
 
             <div className="custom-page-heading">
                 <div className="box7">
                     <div className="title-and-contents">
-                        <h1 className="page-header">Parent Collection</h1>
+                        <h1 className="page-header">Parants Collection</h1>
                         <div className="stack">
                         </div>
                     </div>
@@ -59,7 +57,7 @@ const LAP_MID = () => {
                                 </div>
 
                                 <div className="textfield1">
-                                    <Button className="button-row" href="/add-parent"
+                                    <Button className="button-row" 
                                         disableElevation={true}
                                         variant="contained"
                                         sx={{
@@ -73,7 +71,7 @@ const LAP_MID = () => {
                                             "&:hover": { background: "light blue" },
                                             width: 50,
 
-                                        }}>View</Button>
+                                        }}>DELETE</Button>
                                 </div>
                             </div>
                         </div>
@@ -87,4 +85,4 @@ const LAP_MID = () => {
     );
 };
 
-export default LAP_MID;
+export default HAP_MID;

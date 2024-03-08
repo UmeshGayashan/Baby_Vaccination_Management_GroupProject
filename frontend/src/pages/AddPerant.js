@@ -1,17 +1,18 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import GroupComponent from "../components/GroupComponent";
-import EmailField from "../components/EmailField";
 import MothersNameField from "../components/MothersNameField";
 import AddParentFrame from "../components/AddParentFrame";
 import UploadParentImage from "../components/UploadParentImage";
 import "./AddPerant.css";
+import HomeLink from "../components/HomeLink";
+import Footer2 from "../components/Footer2";
 
 const AddPerant = () => {
   const navigate = useNavigate();
 
   const onNavButtonClick = useCallback(() => {
-    navigate("/low-admin");
+    navigate("/low-admin-parants");
   }, [navigate]);
 
   return (
@@ -41,7 +42,12 @@ const AddPerant = () => {
         propWidth1="unset"
         onNavButtonClick={onNavButtonClick}
       />
-      <EmailField />
+      <HomeLink addChild="Add Parant" />
+
+      <section className="blog-link">
+        <div className="linked-in-link" />
+      </section>
+
       <section className="mothers-name-field">
         <MothersNameField />
       </section>
@@ -71,55 +77,8 @@ const AddPerant = () => {
           <UploadParentImage />
         </div>
       </section>
-      <section className="footer">
-        <footer className="contact-link">
-          <div className="footer1">
-            <div className="bg" />
-            <div className="largerthan-parent">
-              <b className="largerthan">Logo</b>
-              <div className="i">i</div>
-            </div>
-            <div className="form">
-              <div className="form-field">
-                <div className="secondary-button">
-                  <div className="secondary-button-text">Subscribe</div>
-                </div>
-                <div className="input" />
-                <div className="your-email">Your email</div>
-              </div>
-              <b className="subscribe-to-get">
-                Subscribe to get latest updates
-              </b>
-            </div>
-            <div className="links">
-              <div className="our-team">
-                <b className="home">Home</b>
-                <div className="about-us1">About us</div>
-                <div className="team">Team</div>
-                <div className="what-we-do">What we do</div>
-                <div className="contact">Contact</div>
-              </div>
-              <div className="projects-text">
-                <div className="more">
-                  <b className="more1">More</b>
-                  <div className="projects">Projects</div>
-                  <div className="events">Events</div>
-                  <div className="donate">Donate</div>
-                  <div className="blog">Blog</div>
-                </div>
-              </div>
-              <div className="connect">
-                <b className="connect1">{`Connect `}</b>
-                <div className="facebook">Facebook</div>
-                <div className="instagram">Instagram</div>
-                <div className="twitter">Twitter</div>
-                <div className="linkdin">{`Linkdin `}</div>
-              </div>
-            </div>
-          </div>
-        </footer>
-        <img className="more-text-icon" alt="" src="/2-10@2x.png" />
-      </section>
+      <Footer2/>
+
     </div>
   );
 };

@@ -1,7 +1,6 @@
 
 import "./HighAdminParants.css";
 import TableRow from "../components/TableRow";
-
 import Footer1 from "../components/Footer1";
 import "./LowAdminParants.css";
 import "./UserPage.css";
@@ -9,12 +8,10 @@ import { Button } from "@mui/material";
 import DesktopDatePicker from "../components/DesktopDatePicker";
 import FrameContainer from "../components/FrameContainer";
 import "./UserPage.css";
-import LAdashboard from "../components/LA_Dashboard";
-import LA_MID from "../components/LA_Mid";
 import HAdashboard from "../components/HA_dashboard";
-import HAP_MID from "../components/HAP_Mid";
+import HAC_MID from "../components/HAC_Mid";
 
-const HighAdminParants = () => {
+const HighAdminChild = () => {
 
 
   return (
@@ -32,7 +29,7 @@ const HighAdminParants = () => {
         <HAdashboard/>
         <div className="label-text">
           {/* table */}
-          <HAP_MID/>
+          <HAC_MID/>
         </div>
 
 
@@ -135,4 +132,4 @@ const HighAdminParants = () => {
 
 
 
-export default HighAdminParants;
+export default HighAdminChild;

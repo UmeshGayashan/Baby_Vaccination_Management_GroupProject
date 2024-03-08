@@ -5,14 +5,14 @@ import MothersNameField from "../components/MothersNameField";
 import AddParentFrame from "../components/AddParentFrame";
 import UploadParentImage from "../components/UploadParentImage";
 import "./AddPerant.css";
-import Footer2 from "../components/Footer2";
 import HomeLink from "../components/HomeLink";
+import Footer2 from "../components/Footer2";
 
-const UpdatePerant = () => {
+const AddProffessions = () => {
   const navigate = useNavigate();
 
   const onNavButtonClick = useCallback(() => {
-    navigate("/low-admin-parants");
+    navigate("/high-admin-proffessions");
   }, [navigate]);
 
   return (
@@ -42,13 +42,12 @@ const UpdatePerant = () => {
         propWidth1="unset"
         onNavButtonClick={onNavButtonClick}
       />
+      <HomeLink addChild="Add Helth Care Proffessions" />
 
-      
-<HomeLink addChild="Update Parant" />
+      <section className="blog-link">
+        <div className="linked-in-link" />
+      </section>
 
-<section className="blog-link">
-  <div className="linked-in-link" />
-</section>
       <section className="mothers-name-field">
         <MothersNameField />
       </section>
@@ -84,4 +83,4 @@ const UpdatePerant = () => {
   );
 };
 
-export default UpdatePerant;
+export default AddProffessions;
