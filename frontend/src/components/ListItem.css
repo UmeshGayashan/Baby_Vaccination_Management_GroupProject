@@ -24,7 +24,7 @@ h3 {
   display: flex;
   align-items: center;
   height: 30px;
-  width: 100px; /* Adjust width based on your longest word */
+  width: 100px; 
   margin: 5px;
   
 }
@@ -58,13 +58,6 @@ h3 {
   margin-right: 10px;
 }
 
-/* h3 {
-  display: flex;
-  align-items: center;
-  height: 30px;
-  width: 100px;
-  margin: 5px;
-} */
 
 .button-container {
   display: flex;
@@ -288,6 +281,7 @@ h3 {
   color: var(--color-gray-100);
   display: inline-block;
   max-width: 100%;
+
 }
 .blank-line5,
 .et-morbi-vitae,
@@ -296,6 +290,7 @@ h3 {
   margin: 0;
 }
 .et-morbi-vitae-container {
+  width: 1100px;
   align-self: stretch;
   height: 260px;
   position: relative;
@@ -303,6 +298,7 @@ h3 {
   display: inline-block;
 }
 .unsplashcveoh-jjmee-icon2 {
+  margin-left: 150px;
   align-self: stretch;
   height: 320px;
   position: relative;
@@ -310,7 +306,9 @@ h3 {
   max-width: 100%;
   overflow: hidden;
   flex-shrink: 0;
-  object-fit: cover;
+  width: 1100px;
+  margin-bottom: 50px;
+  
 }
 .et-morbi-vitae1 {
   align-self: stretch;
@@ -318,6 +316,7 @@ h3 {
   line-height: 160%;
 }
 .about-the-vaccine-parent {
+  
   align-self: stretch;
   display: flex;
   flex-direction: column;
@@ -328,7 +327,7 @@ h3 {
 }
 
 
-.line-icon,
+/* .line-icon,
 .why {
   position: relative;
 }
@@ -356,7 +355,7 @@ h3 {
   max-width: 100%;
   font-size: var(--font-size-21xl);
   color: var(--color-gray-100);
-}
+} */
 
 .frame-parent2,
 .list-item-inner,
@@ -367,9 +366,10 @@ h3 {
   max-width: 100%;
 }
 .frame-parent2 {
+  width:2000px;
   align-self: stretch;
   flex-direction: column;
-  gap: 96px 0;
+  /* gap: 96px 0; */
 }
 
 
@@ -404,7 +404,7 @@ h3 {
   color: var(--text-primary);
   font-family: var(--paragraph);
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 2500px) {
   .list-item-inner {
     padding-top: var(--padding-43xl);
     box-sizing: border-box;
@@ -414,32 +414,32 @@ h3 {
   .custom-sidenav3 {
     flex: 1;
   }
-  .about-the-vaccine {
+  /* .about-the-vaccine {
     font-size: var(--font-size-19xl);
-    line-height: 46px;
-  }
-  .why {
+    line-height: 30px;
+  } */
+  /* .why {
     font-size: var(--font-size-13xl);
     line-height: 48px;
   }
   .frame-parent2 {
     gap: 96px 0;
-  }
+  } */
   .list-item31 {
     flex-wrap: wrap;
   }
 }
 @media screen and (max-width: 750px) {
-  .why-section {
+  /* .why-section {
     flex-wrap: wrap;
-  }
+  } */
   /* .list-item-inner {
     padding-top: var(--padding-21xl);
     box-sizing: border-box;
     min-width: 100%;
   } */
 
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 2000px) {
     .list-item-inner {
       padding-top: var(--padding-21xl);
       box-sizing: border-box;
@@ -451,7 +451,7 @@ h3 {
     gap: 0 42px;
   }
 }
-@media screen and (max-width: 450px) {
+/* @media screen and (max-width: 1000px) {
   .about-the-vaccine {
     font-size: var(--font-size-10xl);
     line-height: 35px;
@@ -466,7 +466,7 @@ h3 {
   .frame-parent2 {
     gap: 96px 0;
   }
-}
+} */
 
 .list-container-v {
   max-height: 0;

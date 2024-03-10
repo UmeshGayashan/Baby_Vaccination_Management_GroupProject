@@ -3,8 +3,8 @@ import "./SecondaryButton.css";
 
 const SecondaryButton = () => {
   return (
-    <section className="secondary-button5">
-      <div className="b-g">
+    <section className="secondary-button5" >
+      <div className="b-g" >
         <div className="you-can-take-advice">
           <Rating />
         </div>
@@ -38,7 +38,7 @@ const SecondaryButton = () => {
               </div>
             </div>
           </div>
-          <img className="image-icon" loading="eager" alt="" />
+          <img className="image-icon" loading="eager" alt="" src="/image.png"/>
         </div>
       </div>
     </section>

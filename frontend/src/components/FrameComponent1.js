@@ -3,6 +3,7 @@ import "./FrameComponent1.css";
 const FrameComponent1 = () => {
   return (
     <div className="section-title-group">
+
       <img
         className="section-title-icon3"
         loading="eager"

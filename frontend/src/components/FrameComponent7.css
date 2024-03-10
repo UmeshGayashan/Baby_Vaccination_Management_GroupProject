@@ -9,7 +9,7 @@
   border: 0;
   background-color: transparent;
   align-self: stretch;
-  height: 55px;
+  height: 45px;
   position: relative;
 }
 .password4 {
@@ -23,7 +23,7 @@
   border: 0;
   background-color: transparent;
   align-self: stretch;
-  height: 55px;
+  height: 45px;
   position: relative;
 }
 .chekbotton {
@@ -85,3 +85,17 @@
     font-size: var(--paragraph-size);
   }
 }
+
+
+.signin1 {
+  color: var(--color-mediumblue);
+}
+.do-you-have-container1 {
+  width: 266px;
+  position: relative;
+  font-size: var(--typography-h6-size);
+  display: inline-block;
+  box-sizing: border-box;
+  padding-right: var(--padding-xl);
+}
+

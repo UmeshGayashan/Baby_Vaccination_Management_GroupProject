@@ -1,10 +1,14 @@
 .video-icon {
-  width: 1280px;
+  width: 1600px;
+  height: 500px;
   position: relative;
-  max-height: 100%;
-  max-width: 100%;
-  z-index: 2;
+  max-height: 500px;
+  max-width: 1500px;
+
 }
+
+
+
 .our-mission-section-child {
   width: 1500px;
   height: 867px;

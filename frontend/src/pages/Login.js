@@ -11,14 +11,15 @@ const Login = () => {
       <div className="login-inner">
         <div className="title-text-parent">
           <div className="title-text">
-            <div className="welcome-to-babyvaxpro-parent">
-              <div className="welcome-to-babyvaxpro">Welcome To BabyVaxPro</div>
+            <div className="welcome-to-babyvaxpro-parent" >
+            
               <img
                 className="icon3"
                 loading="eager"
                 alt=""
                 src="/2-101@2x.png"
               />
+                <div className="welcome-to-babyvaxpro">Welcome To BabyVaxPro</div>
             </div>
           </div>
           <FrameComponent7 />

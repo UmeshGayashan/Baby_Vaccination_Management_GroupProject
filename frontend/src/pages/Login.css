@@ -30,6 +30,7 @@
 }
 .welcome-to-babyvaxpro {
   position: relative;
+  margin-top: 70px;
   font-weight: 500;
 }
 .icon3 {
@@ -37,8 +38,19 @@
   width: 238px;
   position: absolute;
   margin: 0 !important;
-  top: -102px;
   left: 53px;
+  top:-15px;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.icon3-2 {
+  height: 118px;
+  width: 238px;
+  position: absolute;
+  margin: 0 !important;
+  left: 10px;
+  top:-15px;
   object-fit: cover;
   z-index: 1;
 }
@@ -50,6 +62,8 @@
   justify-content: flex-start;
   max-width: 100%;
 }
+
+
 .welcome-to-babyvaxpro-parent {
   position: relative;
 }
@@ -79,6 +93,7 @@
   max-width: 100%;
 }
 .login {
+  height: 740px;
   width: 100%;
   position: relative;
   background-color: var(--background-paper-elevation-0);

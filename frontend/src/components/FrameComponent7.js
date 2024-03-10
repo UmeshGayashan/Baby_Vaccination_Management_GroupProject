@@ -28,7 +28,7 @@ const FrameComponent7 = () => {
         variant="outlined"
         sx={{
           "& fieldset": { borderColor: "#4d4ddb" },
-          "& .MuiInputBase-root": { height: "55px" },
+          "& .MuiInputBase-root": { height: "45px" },
         }}
       />
       <div className="password4">Password</div>
@@ -37,13 +37,17 @@ const FrameComponent7 = () => {
         variant="outlined"
         sx={{
           "& fieldset": { borderColor: "#4d4ddb" },
-          "& .MuiInputBase-root": { height: "55px" },
+          "& .MuiInputBase-root": { height: "45px" },
         }}
       />
-      <div className="check-button">
-        <div className="chekbotton" />
-        <div className="remmber-me">Remmber me</div>
-      </div>
+
+<div className="check-button">
+        <input  className="chekbotton" type="checkbox" />
+        <span className="checkmark"></span>
+      
+      <div className="remmber-me">Remember me</div>
+    </div>
+
       <div className="sign-in-text">
         <div className="change-password" onClick={onChangePasswordTextClick}>
           Change Password

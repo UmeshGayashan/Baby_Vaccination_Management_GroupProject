@@ -3,7 +3,11 @@ import "./OurVision.css";
 const OurVision = () => {
   return (
     <div className="our-vision">
-      <img className="video-icon" loading="eager" alt="" src="/video.svg" />
+
+<video className="video-icon" autoPlay loop controlsList="nodownload noduration">
+  <source src="/aboutvideo.mp4" type="video/mp4" />
+</video>
+
       <div className="our-mission-section">
         <div className="our-mission-section-child" />
         <div className="our-mission">

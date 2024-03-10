@@ -49,15 +49,15 @@ const CustomSidenav = () => {
         <div className="custom-expandable-nav-item9">
           <div className="listitem26">
             <div className="container52">
-              <div className="left-content25">
+              <div className="left-content25" >
 
 
-                <a className='nav-link-v' href="/vaccines/1">
+                <a className='nav-link-v' href="/iv">
                   <button id='button7' className="custom-button">
                     <svg xmlns="http://www.w3.org/2000/svg" className="svg-icon" viewBox="0 -960 960 960">
                       <path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z" />
                     </svg>
-                    <h3>Vaccine_01</h3>
+                    <h3>Knowledge</h3>
                   </button>
                 </a>
 
@@ -82,7 +82,7 @@ const CustomSidenav = () => {
                   <li className="home-vv">
                     <a className='nav-link-v' href="/vaccines/1">
                       <button id='button7' className="custom-button">
-                        <h3>Vaccine_01</h3>
+                        <h3>BCG</h3>
                       </button>
                     </a>
                   </li>

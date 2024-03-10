@@ -6,7 +6,7 @@ import {
   IconButton,
   Button,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,Link} from "react-router-dom";
 import "./RecoverPassword.css";
 
 const RecoverPassword = () => {
@@ -30,9 +30,9 @@ const RecoverPassword = () => {
       <div className="inner-frame">
         <div className="child-frame">
           <div className="recovery-text">
-            <div className="password-input1">
+            <div className="password-input1" style={{marginTop:'90px'}}>
               <div className="recovery-password">Recovery Password</div>
-              <img
+              <img  
                 className="password-icon"
                 loading="eager"
                 alt=""
@@ -46,17 +46,18 @@ const RecoverPassword = () => {
                 variant="outlined"
                 sx={{
                   "& fieldset": { borderColor: "#4d4ddb" },
-                  "& .MuiInputBase-root": { height: "55px" },
+                  "& .MuiInputBase-root": { height: "45px" },
                 }}
               />
-              <div className="reapet-password">Reapet Password</div>
+              <div className="reapet-password" style={{marginTop:"-10px"}}>Reapet Password</div>
               <div className="form-rectangle">
                 <TextField
                   className="form-repeat-password"
                   variant="outlined"
                   sx={{
+                  
                     "& fieldset": { borderColor: "#4d4ddb" },
-                    "& .MuiInputBase-root": { height: "55px" },
+                    "& .MuiInputBase-root": { height: "45px" },
                   }}
                 />
               </div>
@@ -82,9 +83,10 @@ const RecoverPassword = () => {
               </Button>
             </form>
           </div>
-          <div className="do-you-have-container">
-            <span>{`Do you have account `}</span>
-            <span className="signin">SignIn</span>
+          <div className="do-you-have-container" style={{marginTop:'-50px'}} >
+            <span>{`Do you have account?`}</span>
+            <Link to="/login" className="signin1" style={{ display: 'inline' }}>SignIn</Link>
+         
           </div>
         </div>
       </div>

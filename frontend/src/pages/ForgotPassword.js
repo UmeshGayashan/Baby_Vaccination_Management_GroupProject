@@ -1,20 +1,30 @@
 import ChildFrame from "../components/ChildFrame";
-import "./ForgotPassword.css";
+import "./Login.css";
 
 const ForgotPassword = () => {
   return (
-    <div className="forgot-password">
-      <div className="parent-frame">
-        <div className="parent-frame-child" />
-        <img
-          className="child-frame-icon"
-          loading="eager"
-          alt=""
-          src="/55-1@2x.png"
-        />
+    <div className="login">
+      <div className="login-frame">
+        <div className="login-frame-child" />
+        <img className="icon2" loading="eager" alt="" src="/55-1@2x.png" />
       </div>
-      <div className="child-frame1">
-        <ChildFrame />
+      <div className="login-inner">
+        <div className="title-text-parent">
+          <div className="title-text">
+
+            <div className="welcome-to-babyvaxpro-parent" style={{ marginTop:'60px' }}>
+              <div>  <img
+                className="icon3-2"
+                loading="eager"
+                alt=""
+                src="/2-101@2x.png"
+
+              /></div>
+              <div className="welcome-to-babyvaxpro" style={{ marginleft: '-10px', marginTop:'60px' }}>Recovery Password</div>
+            </div>
+          </div>
+          < ChildFrame />
+        </div>
       </div>
     </div>
   );

@@ -21,6 +21,7 @@ import HighAdminProffessions from "./pages/HighAdminProffessions";
 import UpdateParent from "./pages/UpdateParent"
 import UpdateProffessions from "./pages/UpdateProffessions";
 import AddProffessions from "./pages/AddProfessionals";
+import IVaccines from "./pages/Importantvaccines";
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
       <Route path="/notification" element={<Notification1 />} />
       <Route path="/v-details" element={<VDetails/>}/>
       <Route path="/table" element={<Table/>}/>
+      <Route path="/iv" element={<IVaccines/>}/>
     </Routes>
   );
 }
