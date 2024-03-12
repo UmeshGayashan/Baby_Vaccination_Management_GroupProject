@@ -4,7 +4,7 @@ import "./ServiceBox.css";
 const ServiceBox = () => {
   return (
     <section className="service-box">
-      <div className="cta1">
+      <div className="cta1" style={{marginTop:"-600px"}}>
         <img className="bg-icon" loading="eager" alt="" src="/bg@2x.png" />
         <h1 className="you-can-take1">
           You can take advice from provided doctors for children with special

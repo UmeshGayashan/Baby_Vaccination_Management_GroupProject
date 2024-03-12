@@ -27,7 +27,7 @@ const Footer = ({
 
   return (
     <footer className="footer6" style={footerStyle}>
-      <div className="footer7">
+      <div className="footer7" >
         <div className="bg9" />
         <div className="largerthan-parent1">
           <b className="largerthan4" />

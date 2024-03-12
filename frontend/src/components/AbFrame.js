@@ -3,13 +3,13 @@ import "./AbFrame.css";
 
 const AbFrame = () => {
   return (
-    <div className="ab-frame">
+    <div className="ab-frame" >
       <img
         className="section-title-icon2"
         alt=""
         src="/section-title-2@2x.png"
       />
-      <div className="frame-we-provide-details">
+      <div className="frame-we-provide-details"  >
         <div className="text-details-for-vaccines">
           <h1 className="we-provide-a">{`We provide a details for vaccine to children `}</h1>
           <div className="lorem-ipsum-dolor-container1">
