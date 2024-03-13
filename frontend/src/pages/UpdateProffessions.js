@@ -1,12 +1,10 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import GroupComponent from "../components/GroupComponent";
-import MothersNameField from "../components/MothersNameField";
-import AddParentFrame from "../components/AddParentFrame";
-import UploadParentImage from "../components/UploadParentImage";
 import "./AddPerant.css";
 import HomeLink from "../components/HomeLink";
 import Footer2 from "../components/Footer2";
+import ProfessionsNameField from "../components/Professionalsinfo";
 
 const UpdateProffessions = () => {
   const navigate = useNavigate();
@@ -49,34 +47,9 @@ const UpdateProffessions = () => {
       </section>
 
       <section className="mothers-name-field">
-        <MothersNameField />
+        <ProfessionsNameField />
       </section>
-      <AddParentFrame email="Email" emailPlaceholder="Email Address" />
-      <AddParentFrame
-        email="Phone"
-        emailPlaceholder="Phone number"
-        propPadding="0px var(--padding-xl) var(--padding-58xl)"
-        propTextDecoration="unset"
-        propWidth="118px"
-      />
-      <AddParentFrame
-        email="User Name"
-        emailPlaceholder="User Name"
-        propPadding="0px var(--padding-xl) var(--padding-58xl)"
-        propTextDecoration="underline"
-        propWidth="88px"
-      />
-      <section className="password-input">
-        <div className="line-separator">
-          <div className="additional-info-frame">
-            <div className="password">Password</div>
-            <div className="input-field2">
-              <input className="email" placeholder="Password" type="text" />
-            </div>
-          </div>
-          <UploadParentImage />
-        </div>
-      </section>
+      
       <Footer2/>
 
     </div>

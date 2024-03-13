@@ -115,7 +115,7 @@ const GroupComponent = ({
         <Link className="home5" to="/about-us">About us </Link>
         <Link className="home5" to="/user-page">What We Do</Link>
         <Link className="home5" to="/low-admin">Meet Mento</Link>
-        <Link className="home5" to="/add-child">Contact</Link>
+        <Link className="home5" to="/high-admin-parants">Contact</Link>
       </div>
       <div className="spacing-vertical30" style={spacingVerticalStyle}>
         <Button  
