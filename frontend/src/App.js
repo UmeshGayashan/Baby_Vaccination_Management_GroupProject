@@ -22,6 +22,7 @@ import UpdateParent from "./pages/UpdateParent"
 import UpdateProffessions from "./pages/UpdateProffessions";
 import AddProffessions from "./pages/AddProfessionals";
 import IVaccines from "./pages/Importantvaccines";
+import ContactUs from "./pages/ContactUs";
 
 function App() {
 
@@ -49,6 +50,7 @@ function App() {
       <Route path="/v-details" element={<VDetails/>}/>
       <Route path="/table" element={<Table/>}/>
       <Route path="/iv" element={<IVaccines/>}/>
+      <Route path="/contactus" element={<ContactUs/>}/>
     </Routes>
   );
 }

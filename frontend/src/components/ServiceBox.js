@@ -1,5 +1,6 @@
 import { Button } from "@mui/material";
 import "./ServiceBox.css";
+import { Link } from "react-router-dom";
 
 const ServiceBox = () => {
   return (
@@ -11,7 +12,7 @@ const ServiceBox = () => {
           needs!
         </h1>
         <div className="frame-with-title-and-buttons">
-          <Button
+          <Link to="/contactus"><Button
             className="primary-button1"
             variant="contained"
             sx={{
@@ -24,7 +25,7 @@ const ServiceBox = () => {
             }}
           >
             MEET YOUR Mento
-          </Button>
+          </Button></Link>
         </div>
       </div>
       <div className="text-container-with-title">
