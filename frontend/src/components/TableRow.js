@@ -21,7 +21,7 @@ const TableRow = () => {
 
   return (
     <div className="table-row">
-      {/* <StackCell
+      <StackCell
         cTABackgroundPadding="0px var(--padding-12xs) 0px 0px"
         buttonPadding="var(--padding-3xs) var(--padding-35xl) var(--padding-4xs) var(--padding-34xl)"
         maskedIconWidth="unset"
@@ -29,7 +29,7 @@ const TableRow = () => {
         onNavButtonClick={onNavButtonClick}
         onNavButton1Click={onNavButton1Click}
         onButtonContainerClick={onButtonContainerClick}
-      /> */}
+      />
 
       <CardFrame propFlex="unset" propAlignSelf="stretch" />
     </div>
