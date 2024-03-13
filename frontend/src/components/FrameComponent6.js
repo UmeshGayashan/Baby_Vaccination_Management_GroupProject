@@ -986,7 +986,7 @@ const FrameComponent6 = () => {
           <div className="off">Sent Email to Admin and Pearant</div>
         </div>
         <div className="cta3">
-          <Button
+          <Button href="/low-admin"
             className="buttons"
             disableElevation={true}
             variant="contained"
@@ -1003,7 +1003,7 @@ const FrameComponent6 = () => {
           >
             Cancel
           </Button>
-          <Button href="/user-page"
+          <Button href="/low-admin"
             className="buttons1"
             disableElevation={true}
             variant="contained"

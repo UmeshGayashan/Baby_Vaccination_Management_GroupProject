@@ -4,14 +4,14 @@ import React, { useCallback, useState } from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const MothersNameField = () => {
+const ProfessionsNameField = () => {
 
   const navigate = useNavigate();
   const [orderNotes, setOrderNotes] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
 
   const onButtons1Click = useCallback(() => {
-    navigate("low-admin-parants");
+    navigate("/high-admin-proffessions");
   }, [navigate]);
 
   const handleFileChange = (event) => {
@@ -27,7 +27,7 @@ const MothersNameField = () => {
         <div className="postal-code-field1">
           <div className="password-input-field"  style={{width:"300px"}}>
             <div className="mothers-guardians-first" style={{width:"300px"}}>
-              Mother’s \Guardian’s First name
+              First name
             </div>
             <div className="input-field59" >
               <input style={{width:"400px"}}
@@ -41,7 +41,7 @@ const MothersNameField = () => {
         </div>
         <div className="fathers-name-field" style={{marginLeft:"100px ", width:"300px"}}>
           <div className="mothersguardians-last-name" >
-            Mother’s\Guardian’s Last name
+            Last name
           </div>
           <div className="input-field60">
             <input
@@ -53,7 +53,7 @@ const MothersNameField = () => {
           </div>
         </div>
         <div className="fathers-name-field1" style={{marginLeft:"100px ", width:"300px"}}>
-          <div className="mothersguardians-nic">Mother’s\Guardian’s NIC</div>
+          <div className="mothersguardians-nic"> NIC Number</div>
           <div className="input-field61">
             <input
             
@@ -78,6 +78,20 @@ const MothersNameField = () => {
         <div className="postal-code">Postal Code</div>
         <div className="input-field63">
           <input className="code" placeholder="Code" type="text" />
+        </div>
+      </div>
+
+      <div className="footer-frame1">
+        <div className="postal-code">Possition</div>
+        <div className="input-field63">
+          <input className="code" placeholder="Posion" type="text" />
+        </div>
+      </div>
+
+            <div className="footer-frame1">
+        <div className="postal-code">Age</div>
+        <div className="input-field63">
+          <input className="code" placeholder="Age" type="text" />
         </div>
       </div>
 
@@ -131,7 +145,7 @@ const MothersNameField = () => {
 
       
       <div className="about-us-link-instance" style={{ marginTop: "30px" }}>
-        <b className="upload-parant-image">Upload Parent Image</b>
+        <b className="upload-parant-image">Upload a Image</b>
         <div className="image-u" style={{ display: "flex", alignItems: "center" }}>
           <label style={{ marginRight: "20px" }}>
             <input
@@ -168,7 +182,7 @@ const MothersNameField = () => {
       </div>
 
       <div className="cta4">
-        <Button  href="low-admin-parants"
+        <Button href="/high-admin-proffessions"
           className="buttons2"
           disableElevation={true}
           variant="contained"
@@ -211,4 +225,4 @@ const MothersNameField = () => {
   );
 };
 
-export default MothersNameField;
+export default ProfessionsNameField;
