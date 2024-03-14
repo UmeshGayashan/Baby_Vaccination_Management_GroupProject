@@ -177,9 +177,9 @@ input{
 
 .button{
     display: inline-block;
-    color:  hsl(0,0%,93%);
+    color:  hsl(0, 3%, 42%);
     border: 1px solid hsl(59, 76%, 53%);
-    padding: 15px 70px 15px 35px;
+    padding: 7px 70px 15px 35px;
     border-radius: 35px;
     font-family: 'Poppins','sans-serif';
     font-size: 15px;

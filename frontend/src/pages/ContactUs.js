@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar2 from "../components/Navbar2";
 import Footer from "../components/Footer";
 import "./contactus.css";
 import {
@@ -14,6 +13,7 @@ import {
     FaDribbble,
 } from 'react-icons/fa'
 import { FiSend } from 'react-icons/fi'
+import Navbar from "../components/Navbar";
 
 
 
@@ -21,7 +21,7 @@ const Contact = () => {
     return (
        
            <div>
-            <Navbar2/>
+            <Navbar/>
              <section className="contact section">
                 
                 <h2 className="section__title">
@@ -94,7 +94,7 @@ const Contact = () => {
                         </div>
                        
     
-                        <button className="button">
+                        <button className="button" style={{width:"300px"}}>
                             Send Message
                             <span className="button__icon contact__button-icon">
                                 <FiSend/>

@@ -20,11 +20,19 @@ const HomePage = () => {
         <div className="our-supporters">our Supporters</div>
         <div className="section-details-for-vaccines" />
       </div>
+{/* 
+      WhatWeDo frame */}
       <WhatWeDo />
+
+      {/* vaccination boxes */}
       <PrimaryButton />
+      {/* know about us */}
       <AbFrame />
       <img className="ab-1-icon" loading="eager" alt="" src="/ab-1@2x.png" />
+
+      {/* meetmeto box , events */}
       <ServiceBox />
+
       <Footer
         propAlignSelf="unset"
         propPosition="absolute"

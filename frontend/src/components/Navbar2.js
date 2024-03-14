@@ -51,13 +51,7 @@ const Navbar2 = ({
         <Link className="home5" to="/high-admin-parants">
           Contact
         </Link>
-        {/* <div className="home5">Home</div>
-        <div className="about-us6" onClick={onAboutUsText1Click}>
-          About us
-        </div>
-        <div className="what-we-do6">What We Do</div>
-        <div className="media1">{media}</div>
-        <div className="contact5">Contact</div> */}
+
       </div>
       <Button
         className="nav-button1"
