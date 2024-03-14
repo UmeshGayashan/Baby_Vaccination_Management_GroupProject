@@ -1,7 +1,22 @@
 const mongoose = require("mongoose")
-const guardianSchema = mongoose.Schema({
+const babySchema = mongoose.Schema({
+    babyName: {
+        firstName: {
+            type: String,
+            required: true
+        },
+        lastName: {
+            type: String,
+            required: true
+        }
+    },
     motherorGuardianNIC:{
         type:String,
+        required:true,
+        unique:true
+    },
+    Bid:{
+        type:Number,
         required:true,
         unique:true
     },
@@ -10,22 +25,27 @@ const guardianSchema = mongoose.Schema({
         type: String, 
         required: true 
     },
-    ofc: { 
+    ofc: 
+    { 
         type: String 
     }, 
-    birthTime: { 
+    birthTime: 
+    { 
         type: String, 
         required: true 
     },
-    birthDate: { 
+    birthDate: 
+    { 
         type: Date, 
         required: true 
     },
-    weight: { 
+    weight: 
+    { 
         type: Number, 
         required: true 
     },
-      hospitalName: { 
+    hospitalName: 
+    { 
         type: String, 
         required: true 
     }

@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
-
 const vaccinationSchema = new mongoose.Schema({
+  Bid:{
+    type:Number,
+    required:true,
+    unique:true
+  },
   vacname: { 
     type: String,
     required: true 
