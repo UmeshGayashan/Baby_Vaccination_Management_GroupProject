@@ -13,7 +13,6 @@ const babySchema = mongoose.Schema({
     motherorGuardianNIC:{
         type:String,
         required:true,
-        unique:true
     },
     Bid:{
         type:Number,
