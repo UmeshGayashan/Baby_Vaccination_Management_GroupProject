@@ -22,6 +22,7 @@ const Login = () => {
                 <div className="welcome-to-babyvaxpro">Welcome To BabyVaxPro</div>
             </div>
           </div>
+          {/* Information sheet */}
           <FrameComponent7 />
         </div>
       </div>

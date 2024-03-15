@@ -20,6 +20,7 @@ const HighAdminChild = () => {
     <div className="user-page">
 
       <section className="frame-textbox">
+        {/* navbar and header */}
         <TableRow />
         <div className="text-area" style={{ marginTop: "-55px" }} />
       </section>
@@ -32,11 +33,9 @@ const HighAdminChild = () => {
           <HAC_MID/>
         </div>
 
-
+{/* right side div */}
 <div className="text-container">
           <div className="desktopdatepicker-parent" >
-
-
             <div className="go-to-calendar">
               <div className="list">
                 <div className="header-picker">
@@ -83,19 +82,14 @@ const HighAdminChild = () => {
               </div>
               <div className="go-to-calander">Go to calander..</div>
             </div>
-
-
             
           </div>
         </div>
-
-
-
       </section>
-
+{/* knowledge of vaccine label container */}
       <FrameContainer />
 
-
+{/* special need section */}
       <section className="you-message-frame">
         <div className="cta">
           <div className="content">

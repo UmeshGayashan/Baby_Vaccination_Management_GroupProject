@@ -13,7 +13,6 @@ import ForgotPassword from "./pages/ForgotPassword";
 import Login from "./pages/Login";
 import Vaccines from "./pages/Vaccines";
 import HighAdminParants from "./pages/HighAdminParants";
-import Notification1 from "./pages/Notification1";
 import VDetails from "./pages/VaccinationDetails";
 import Table from "./pages/Table";
 import HighAdminChild from "./pages/HighAdminChild";
@@ -46,7 +45,6 @@ function App() {
       <Route path="/high-admin-parants" element={<HighAdminParants />} />
       <Route path="/high-admin-proffessions" element={<HighAdminProffessions />} />
       <Route path="/high-admin-child" element={<HighAdminChild />} />
-      <Route path="/notification" element={<Notification1 />} />
       <Route path="/v-details" element={<VDetails/>}/>
       <Route path="/table" element={<Table/>}/>
       <Route path="/iv" element={<IVaccines/>}/>

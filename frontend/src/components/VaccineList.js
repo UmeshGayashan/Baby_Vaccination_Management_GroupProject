@@ -30,6 +30,7 @@ const ListItem2 = () => {
 
 
     return (
+        // dashboard
         <section className="list-item31">
             <div className="custom-sidenav3-2">
                 <div className="spacing-vertical31">
@@ -190,7 +191,7 @@ const ListItem2 = () => {
                 </div>
             </div>
 
-
+{/* deatils */}
             <div className="list-item-inner" >
                 <div className="frame-parent2"  >
                     <div className="about-the-vaccine-parent">

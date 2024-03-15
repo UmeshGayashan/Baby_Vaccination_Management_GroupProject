@@ -15,6 +15,7 @@ const Vaccines = () => {
 
   return (
     <div className="vaccines">
+      {/* navbar and header */}
       <FrameHeader
         knowledgeOfVaccine="BCG  Vaccine"
         onNavButtonClick={onNavButtonClick}

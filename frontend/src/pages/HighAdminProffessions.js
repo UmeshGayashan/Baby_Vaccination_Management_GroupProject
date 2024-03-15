@@ -13,30 +13,26 @@ import HAHCP_MID from "../components/HAHCP_Mid";
 
 const HighAdminProffessions = () => {
 
-
   return (
-
-
     <div className="user-page">
 
       <section className="frame-textbox">
+        {/* navbar and header */}
         <TableRow />
         <div className="text-area" style={{ marginTop: "-55px" }} />
       </section>
       <section className="image-placeholder">
 
         {/* dashboard */}
-        <HAdashboard/>
+        <HAdashboard />
         <div className="label-text">
           {/* table */}
-          <HAHCP_MID/>
+          <HAHCP_MID />
         </div>
 
-
-<div className="text-container">
+        {/* right section */}
+        <div className="text-container">
           <div className="desktopdatepicker-parent" >
-
-
             <div className="go-to-calendar">
               <div className="list">
                 <div className="header-picker">
@@ -58,7 +54,7 @@ const HighAdminProffessions = () => {
                     <div className="single-line-item">VACCINE NAME</div>
                     <div className="secondary-text">Secondary text</div>
                   </div>
-                 
+
                 </div>
                 <div className="list-item1">
                   <div className="m-icon1">
@@ -68,7 +64,7 @@ const HighAdminProffessions = () => {
                     <div className="single-line-item1">VACCINE NAME</div>
                     <div className="secondary-text1">Secondary text</div>
                   </div>
-                  
+
                 </div>
                 <div className="list-item2">
                   <div className="m-icon2">
@@ -78,24 +74,19 @@ const HighAdminProffessions = () => {
                     <div className="single-line-item2">VACCINE NAME</div>
                     <div className="secondary-text2">Secondary text</div>
                   </div>
-                  
+
                 </div>
               </div>
               <div className="go-to-calander">Go to calander..</div>
             </div>
-
-
-            
           </div>
         </div>
-
-
-
       </section>
 
+      {/* knowledge yellow container */}
       <FrameContainer />
 
-
+      {/* special need section */}
       <section className="you-message-frame">
         <div className="cta">
           <div className="content">
@@ -122,14 +113,10 @@ const HighAdminProffessions = () => {
           </div>
         </div>
       </section>
-
       <Footer1 />
     </div>
 
   );
 };
-
-
-
 
 export default HighAdminProffessions;

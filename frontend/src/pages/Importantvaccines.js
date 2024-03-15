@@ -14,10 +14,12 @@ const IVaccines = () => {
 
   return (
     <div className="vaccines">
+      {/* navbar and header */}
       <FrameHeader
         knowledgeOfVaccine="Knowledge Of Vaccine"
         onNavButtonClick={onNavButtonClick}
       />
+      {/* dashboard and vaccine details */}
       <ListItem />
       <Footer2/>
     </div>

@@ -14,10 +14,13 @@ const AboutUs = () => {
       <Navbar/>
 
       <section className="media-contact">
+
         <FrameComponent1 />
         <OurVision />
       </section>
+      {/* our Jurney */}
       <SecondaryButton />
+      {/* Our Team */}
       <BackEnd />
     
       <section className="you-message-frame">

@@ -23,6 +23,7 @@ const ForgotPassword = () => {
               <div className="welcome-to-babyvaxpro" style={{ marginleft: '-10px', marginTop:'60px' }}>Recovery Password</div>
             </div>
           </div>
+          {/* Input Fields */}
           < ChildFrame />
         </div>
       </div>

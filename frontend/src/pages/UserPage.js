@@ -24,14 +24,12 @@ const UserPage = () => {
         {/* dashboard */}
         <CustomSidenav />
         <div className="label-text">
-         {/* table */}
+          {/* table */}
           <Minheight />
         </div>
-
+        {/* right section */}
         <div className="text-container">
           <div className="desktopdatepicker-parent" >
-
-
             <div className="go-to-calendar">
               <div className="list">
                 <div className="header-picker">
@@ -53,7 +51,7 @@ const UserPage = () => {
                     <div className="single-line-item">VACCINE NAME</div>
                     <div className="secondary-text">Secondary text</div>
                   </div>
-                 
+
                 </div>
                 <div className="list-item1">
                   <div className="m-icon1">
@@ -63,7 +61,7 @@ const UserPage = () => {
                     <div className="single-line-item1">VACCINE NAME</div>
                     <div className="secondary-text1">Secondary text</div>
                   </div>
-                  
+
                 </div>
                 <div className="list-item2">
                   <div className="m-icon2">
@@ -73,7 +71,7 @@ const UserPage = () => {
                     <div className="single-line-item2">VACCINE NAME</div>
                     <div className="secondary-text2">Secondary text</div>
                   </div>
-                  
+
                 </div>
               </div>
               <div className="go-to-calander">Go to calander..</div>
@@ -81,10 +79,10 @@ const UserPage = () => {
           </div>
         </div>
       </section>
-      
-      <FrameContainer /> 
+{/* yellow knowledge label container */}
+      <FrameContainer />
 
-
+{/* special need section */}
       <section className="you-message-frame">
         <div className="cta">
           <div className="content">
@@ -111,8 +109,8 @@ const UserPage = () => {
           </div>
         </div>
       </section>
-     
-      <Footer/>
+
+      <Footer />
     </div>
   );
 };

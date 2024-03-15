@@ -30,6 +30,7 @@ const ListItem = () => {
 
 
   return (
+    // dashboard
     <section className="list-item31">
       <div className="custom-sidenav3-2">
         <div className="spacing-vertical31">
@@ -190,6 +191,7 @@ const ListItem = () => {
         </div>
       </div>
 
+{/* details of vaccines knowledge */}
 
       <div className="list-item-inner" >
         <div className="frame-parent2" style={{height:"2200px"}} >
@@ -281,48 +283,12 @@ const ListItem = () => {
                   of injection. Apart from that, slight fever and rash, lymphadenopathy, myalgia and paraesthesiae are commonly reported.</p>
 
               </p>
-              {/* <p className="blank-line5">&nbsp;</p> */}
-              {/* <p className="viverra-at-diam">
-                Viverra at diam nunc non ornare. Sed ultricies pulvinar nunc,
-                lacus sem. Tellus aliquam ut euismod cursus dui lectus. Ut amet,
-                cras volutpat dui. A bibendum viverra eu cras.
-              </p>
-              <p className="mauris-morbi-sed">
-                Mauris morbi sed dignissim a in nec aliquam fringilla et. Mattis
-                elit dignissim nibh sit. Donec arcu sed elit scelerisque tempor
-                ornare tristique. Integer faucibus duis praesent tempor feugiat
-                ornare in. Erat libero egestas porttitor nunc pellentesque
-                mauris et pulvinar eget.
-              </p> */}
-            </div>
-            {/* <img
-              className="unsplashcveoh-jjmee-icon2"
-              loading="eager"
-              alt=""
-              src="/unsplashcveoh-jjmee@2x.png"
-            /> */}
-            {/* <div className="et-morbi-vitae1">
-              Et morbi vitae lobortis nam odio. Faucibus vitae vel neque nullam
-              in in lorem platea mattis. Euismod aenean rhoncus scelerisque amet
-              tincidunt scelerisque aliquam. Luctus porttitor elit vel sapien,
-              accumsan et id ut est. Posuere molestie in turpis quam.
-              Scelerisque in viverra mi ut quisque. In sollicitudin sapien, vel
-              nulla quisque vitae. Scelerisque eget accumsan, non in. Posuere
-              magna erat bibendum amet, nisi eu id.
-            </div> */}
           </div>
-         
-         
-          {/* <div className="why-section">
-            <h1 className="why">Why?</h1>
-            <img className="line-icon" loading="eager" alt="" src="/line.svg" />
-          </div> */}
+          </div>
         </div>
       
       </div>
     </section>
-
-
   );
 };
 

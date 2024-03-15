@@ -15,6 +15,7 @@ const AddPerant = () => {
 
   return (
     <div className="add-perant">
+      {/* Navbar */}
       <GroupComponent
         rectangle1317="/rectangle-13171.svg"
         navButton="Back"
@@ -47,6 +48,7 @@ const AddPerant = () => {
       </section>
 
       <section className="mothers-name-field">
+        {/* Inputfield */}
         <MothersNameField />
       </section>
 

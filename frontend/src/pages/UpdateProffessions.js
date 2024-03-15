@@ -15,6 +15,7 @@ const UpdateProffessions = () => {
 
   return (
     <div className="add-perant">
+      {/* navbar */}
       <GroupComponent
         rectangle1317="/rectangle-13171.svg"
         navButton="Back"
@@ -40,6 +41,7 @@ const UpdateProffessions = () => {
         propWidth1="unset"
         onNavButtonClick={onNavButtonClick}
       />
+      {/* header */}
       <HomeLink addChild="Update Health Care Proffessions" />
 
       <section className="blog-link">
@@ -47,6 +49,7 @@ const UpdateProffessions = () => {
       </section>
 
       <section className="mothers-name-field">
+        {/* info field */}
         <ProfessionsNameField />
       </section>
       

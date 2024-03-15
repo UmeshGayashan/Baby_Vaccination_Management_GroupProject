@@ -9,9 +9,11 @@ const VDetails = () => {
     <div >
        
         <Navbar/>
+        {/* header */}
         <BGRectangle />
-        <VMid/>
 
+        {/* frame set */}
+        <VMid/>
         <Footer
         propAlignSelf="unset"
         propPosition="absolute"

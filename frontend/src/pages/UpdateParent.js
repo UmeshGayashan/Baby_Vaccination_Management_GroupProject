@@ -15,6 +15,7 @@ const UpdatePerant = () => {
 
   return (
     <div className="add-perant">
+      {/* navbar */}
       <GroupComponent
         rectangle1317="/rectangle-13171.svg"
         navButton="Back"
@@ -40,14 +41,14 @@ const UpdatePerant = () => {
         propWidth1="unset"
         onNavButtonClick={onNavButtonClick}
       />
-
-      
+{/*  header */}
 <HomeLink addChild="Update Parant" />
 
 <section className="blog-link">
   <div className="linked-in-link" />
 </section>
       <section className="mothers-name-field">
+        {/* info field */}
         <MothersNameField />
       </section>
       <Footer2/>

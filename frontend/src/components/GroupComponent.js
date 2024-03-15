@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import "./GroupComponent.css";
 
 const GroupComponent = ({
+  // navbar
   rectangle1317,
   navButton,
   showMedia,

@@ -39,6 +39,8 @@ const RecoverPassword = () => {
                 src="/2-101@2x.png"
               />
             </div>
+
+            {/* info field */}
             <form className="account-sign-in-text">
               <div className="password1">Password</div>
               <TextField

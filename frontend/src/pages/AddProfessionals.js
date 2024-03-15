@@ -15,6 +15,7 @@ const AddProffessions = () => {
 
   return (
     <div className="add-perant">
+      {/* navbar */}
       <GroupComponent
         rectangle1317="/rectangle-13171.svg"
         navButton="Back"
@@ -47,6 +48,7 @@ const AddProffessions = () => {
       </section>
 
       <section className="mothers-name-field">
+        {/* inputfield */}
         <ProfessionsNameField/>
       </section>
 

@@ -14,8 +14,6 @@ const HomePage = () => {
         <Navbar />
         <Header />
       </section>
-      
-      
       <div className="text-supporters">
         <div className="our-supporters">our Supporters</div>
         <div className="section-details-for-vaccines" />
@@ -40,7 +38,6 @@ const HomePage = () => {
         propLeft="0px"
         propWidth="100%"
       />
-
     </div>
   );
 };

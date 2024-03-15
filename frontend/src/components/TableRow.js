@@ -21,6 +21,7 @@ const TableRow = () => {
 
   return (
     <div className="table-row">
+      {/* navbar */}
       <StackCell
         cTABackgroundPadding="0px var(--padding-12xs) 0px 0px"
         buttonPadding="var(--padding-3xs) var(--padding-35xl) var(--padding-4xs) var(--padding-34xl)"
@@ -30,7 +31,7 @@ const TableRow = () => {
         onNavButton1Click={onNavButton1Click}
         onButtonContainerClick={onButtonContainerClick}
       />
-
+{/* header */}
       <CardFrame propFlex="unset" propAlignSelf="stretch" />
     </div>
   );

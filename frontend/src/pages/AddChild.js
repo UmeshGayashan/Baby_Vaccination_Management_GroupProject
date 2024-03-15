@@ -16,7 +16,7 @@ const AddChild = () => {
 
   return (
     <div className="add-child">
-    
+      {/* Navbar */}
       <GroupComponent
         rectangle1317="/rectangle-13171.svg"
         navButton="Back"
@@ -42,14 +42,16 @@ const AddChild = () => {
         propWidth1="unset"
         onNavButtonClick={onNavButtonClick}
       />
-
+      {/* header  */}
       <HomeLink addChild="Add Child" />
 
       <section className="blog-link">
         <div className="linked-in-link" />
       </section>
-      <FacebookLink/>
-      <FrameComponent6/>
+      {/* first Input fields */}
+      <FacebookLink />
+      {/* Second input field */}
+      <FrameComponent6 />
       <Footer2 />
     </div>
   );

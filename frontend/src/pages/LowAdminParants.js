@@ -18,6 +18,7 @@ const LowAdminParants = () => {
     <div className="user-page">
      
     <section className="frame-textbox">
+      {/* navbar and header */}
     <TableRow/>
     <div className="text-area" style={{ marginTop:"-55px"}}  />
     </section>
@@ -45,10 +46,10 @@ const LowAdminParants = () => {
         </div>
       </div>
     </section>
-    
+    {/* yellow knowlede vaccine container */}
     <FrameContainer /> 
 
-
+{/* special need section */}
     <section className="you-message-frame">
       <div className="cta">
         <div className="content">

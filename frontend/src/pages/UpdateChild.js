@@ -16,8 +16,9 @@ const UpdateChild = () => {
 
   return (
 
-      <div className="update-child">
-         <GroupComponent
+    <div className="update-child">
+      {/* navbar */}
+      <GroupComponent
         rectangle1317="/rectangle-13171.svg"
         navButton="Back"
         showMedia
@@ -42,17 +43,20 @@ const UpdateChild = () => {
         propWidth1="unset"
         onNavButtonClick={onNavButtonClick}
       />
+      {/* header */}
+      <HomeLink addChild="Update Child" />
 
-        <HomeLink addChild="Update Child" />
-  
-        <section className="blog-link">
-          <div className="linked-in-link" />
-        </section>
-        <FacebookLink/>
-        <FrameComponent6/>
-        <Footer2 />
-      </div>
-  
+      <section className="blog-link">
+        <div className="linked-in-link" />
+      </section>
+      {/* first data seet */}
+      <FacebookLink />
+
+      {/* second data sheet */}
+      <FrameComponent6 />
+      <Footer2 />
+    </div>
+
   );
 };
 
