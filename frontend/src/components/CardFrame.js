@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import "./CardFrame.css";
+import "./comCss/CardFrame.css";
 
 const CardFrame = ({ propFlex, propAlignSelf }) => {
   const cardFrameStyle = useMemo(() => {

@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import "./FrameComponent5.css";
+import "./comCss/FrameComponent5.css";
 
 const FrameComponent5 = () => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from "../components/Footer";
-import "./contactus.css";
+import "./pageCss/contactus.css";
 import {
     FaEnvelopeOpen,
     FaPhoneSquareAlt,

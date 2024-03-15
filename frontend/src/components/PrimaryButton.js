@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 
-import "./PrimaryButton.css";
+import "./comCss/PrimaryButton.css";
 
 const projectsData = [
   {

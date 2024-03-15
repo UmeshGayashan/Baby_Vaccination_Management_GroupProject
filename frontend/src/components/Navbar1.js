@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import "./Navbar1.css";
+import "./comCss/Navbar1.css";
 
 const Navbar1 = () => {
   const navigate = useNavigate();

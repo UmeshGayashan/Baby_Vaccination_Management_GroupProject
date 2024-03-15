@@ -1,6 +1,6 @@
 import CardFrame from "./CardFrame";
 import Property1Default from "./Property1Default";
-import "./SpacingVertical.css";
+import "./comCss/SpacingVertical.css";
 
 const SpacingVertical = () => {
   return (

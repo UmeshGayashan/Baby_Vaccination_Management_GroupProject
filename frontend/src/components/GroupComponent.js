@@ -2,7 +2,7 @@
 import { useMemo } from "react";
 import { Button } from "@mui/material";
 import { Link } from 'react-router-dom';
-import "./GroupComponent.css";
+import "./comCss/GroupComponent.css";
 
 const GroupComponent = ({
   // navbar

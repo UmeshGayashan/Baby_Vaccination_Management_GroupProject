@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import "./FrameComponent.css";
+import "./comCss/FrameComponent.css";
 
 const FrameComponent = ({
   vectorIconSupport,

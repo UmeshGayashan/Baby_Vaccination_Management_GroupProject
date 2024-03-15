@@ -11,7 +11,7 @@ import {
   IconButton,
   Button,
 } from "@mui/material";
-import "./FrameComponent6.css";
+import "./comCss/FrameComponent6.css";
 
 const FrameComponent6 = () => {
 

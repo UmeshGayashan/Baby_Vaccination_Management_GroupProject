@@ -7,7 +7,7 @@ import {
   Button,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import "./FrameComponent7.css";
+import "./comCss/FrameComponent7.css";
 
 const FrameComponent7 = () => {
   const navigate = useNavigate();

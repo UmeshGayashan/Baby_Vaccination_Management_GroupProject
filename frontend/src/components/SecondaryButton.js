@@ -1,5 +1,5 @@
 import Rating from "./Rating";
-import "./SecondaryButton.css";
+import "./comCss/SecondaryButton.css";
 
 const SecondaryButton = () => {
   return (

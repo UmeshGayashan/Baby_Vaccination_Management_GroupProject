@@ -1,4 +1,4 @@
-import "./HomeLink.css";
+import "./comCss/HomeLink.css";
 
 const HomeLink = ({ addChild }) => {
   return (

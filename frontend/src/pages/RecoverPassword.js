@@ -7,7 +7,7 @@ import {
   Button,
 } from "@mui/material";
 import { useNavigate ,Link} from "react-router-dom";
-import "./RecoverPassword.css";
+import "./pageCss/RecoverPassword.css";
 
 const RecoverPassword = () => {
   const navigate = useNavigate();

@@ -1,12 +1,11 @@
 
 import TableRow from "../components/TableRow";
 import Footer1 from "../components/Footer1";
-import "./LowAdminParants.css";
-import "./UserPage.css";
+import "./pageCss/LowAdminParants.css";
+import "./pageCss/UserPage.css";
 import { Button } from "@mui/material";
 import DesktopDatePicker from "../components/DesktopDatePicker";
 import FrameContainer from "../components/FrameContainer";
-import "./UserPage.css";
 import LAdashboard from "../components/LA_Dashboard";
 import LA_MID from "../components/LA_Mid";
 

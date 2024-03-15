@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar2 from "./Navbar2";
-import "./Navbar.css";
+import "./comCss/Navbar.css";
 
 const Navbar = () => {
   const navigate = useNavigate();

@@ -1,13 +1,12 @@
 
-import "./HighAdminParants.css";
+import "./pageCss/HighAdminParants.css";
 import TableRow from "../components/TableRow";
 import Footer1 from "../components/Footer1";
-import "./LowAdminParants.css";
-import "./UserPage.css";
+import "./pageCss/LowAdminParants.css";
+import "./pageCss/UserPage.css";
 import { Button } from "@mui/material";
 import DesktopDatePicker from "../components/DesktopDatePicker";
 import FrameContainer from "../components/FrameContainer";
-import "./UserPage.css";
 import HAdashboard from "../components/HA_dashboard";
 import HAC_MID from "../components/HAC_Mid";
 

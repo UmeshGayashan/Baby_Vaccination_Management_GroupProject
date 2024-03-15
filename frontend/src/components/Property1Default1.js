@@ -10,7 +10,7 @@ import {
   FormControl,
   Button,
 } from "@mui/material";
-import "./Property1Default1.css";
+import "./comCss/Property1Default1.css";
 
 const Property1Default1 = () => {
   return (

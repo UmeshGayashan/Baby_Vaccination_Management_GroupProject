@@ -1,4 +1,4 @@
-import "./BGRectangle.css";
+import "./comCss/BGRectangle.css";
 
 const BGRectangle = () => {
   return (

@@ -2,7 +2,7 @@ import HomeLink from "../components/HomeLink";
 import FacebookLink from "../components/FacebookLink";
 import FrameComponent6 from "../components/FrameComponent6";
 import Footer2 from "../components/Footer2";
-import "./AddChild.css";
+import "./pageCss/AddChild.css";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import GroupComponent from "../components/GroupComponent";

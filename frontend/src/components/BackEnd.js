@@ -1,5 +1,5 @@
 import Tint from "./Tint";
-import "./BackEnd.css";
+import "./comCss/BackEnd.css";
 
 const BackEnd = () => {
   return (

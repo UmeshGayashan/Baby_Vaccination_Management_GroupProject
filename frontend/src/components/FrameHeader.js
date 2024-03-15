@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import GroupComponent from "./GroupComponent";
-import "./FrameHeader.css";
+import "./comCss/FrameHeader.css";
 
 const FrameHeader = ({
   knowledgeOfVaccine,

@@ -1,4 +1,4 @@
-import "./Rating.css";
+import "./comCss/Rating.css";
 
 const Rating = () => {
   return <div className="rating" />;

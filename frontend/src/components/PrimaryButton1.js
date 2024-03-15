@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import "./PrimaryButton1.css";
+import "./comCss/PrimaryButton1.css";
 
 const PrimaryButton1 = ({ years, years1, propPadding }) => {
   const primaryButtonStyle = useMemo(() => {

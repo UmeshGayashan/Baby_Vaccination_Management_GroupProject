@@ -1,5 +1,5 @@
 import Navbar1 from "./Navbar1";
-import "./FrameComponent2.css";
+import "./comCss/FrameComponent2.css";
 
 const FrameComponent2 = () => {
   return (

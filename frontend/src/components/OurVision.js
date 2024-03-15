@@ -1,4 +1,4 @@
-import "./OurVision.css";
+import "./comCss/OurVision.css";
 
 const OurVision = () => {
   return (

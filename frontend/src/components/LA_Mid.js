@@ -1,5 +1,4 @@
-
-import "./Minheight.css";
+import "./comCss/Minheight.css";
 import { Button } from "@mui/material";
 import LATable from "./LA_table";
 

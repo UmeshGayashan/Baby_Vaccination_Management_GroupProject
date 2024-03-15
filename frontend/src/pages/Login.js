@@ -1,5 +1,5 @@
 import FrameComponent7 from "../components/FrameComponent7";
-import "./Login.css";
+import "./pageCss/Login.css";
 
 const Login = () => {
   return (

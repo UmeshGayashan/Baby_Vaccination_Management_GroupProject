@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import "./Tint.css";
+import "./comCss/Tint.css";
 
 const Tint = ({
   image,

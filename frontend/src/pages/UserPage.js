@@ -5,7 +5,7 @@ import CustomSidenav from "../components/CustomSidenav";
 import Minheight from "../components/Minheight";
 import DesktopDatePicker from "../components/DesktopDatePicker";
 import FrameContainer from "../components/FrameContainer";
-import "./UserPage.css";
+import "./pageCss/UserPage.css";
 import Footer from "../components/Footer";
 
 const UserPage = () => {

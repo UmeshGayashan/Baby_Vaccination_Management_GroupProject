@@ -1,5 +1,5 @@
 import HAHCPTable from "./HAProffesionsTable";
-import "./Minheight.css";
+import "./comCss/Minheight.css";
 import { Button } from "@mui/material";
 
 

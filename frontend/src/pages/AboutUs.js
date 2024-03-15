@@ -4,7 +4,7 @@ import OurVision from "../components/OurVision";
 import SecondaryButton from "../components/SecondaryButton";
 import BackEnd from "../components/BackEnd";
 import Footer from "../components/Footer";
-import "./AboutUs.css";
+import "./pageCss/AboutUs.css";
 import Navbar from "../components/Navbar";
 import { Button } from "@mui/material";
 

@@ -1,4 +1,4 @@
-import "./FrameComponent1.css";
+import "./comCss/FrameComponent1.css";
 
 const FrameComponent1 = () => {
   return (

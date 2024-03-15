@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import GroupComponent from "../components/GroupComponent";
 import MothersNameField from "../components/MothersNameField";
-import "./AddPerant.css";
+import "./pageCss/AddPerant.css";
 import Footer2 from "../components/Footer2";
 import HomeLink from "../components/HomeLink";
 

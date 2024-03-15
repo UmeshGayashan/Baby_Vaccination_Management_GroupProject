@@ -1,7 +1,5 @@
 
-import "./Minheight.css";
-import EditableDataTable from "../pages/Table";
-
+import "./comCss/Minheight.css";
 import LAPTable from "./LAP_table";
 import { Button } from "@mui/material";
 

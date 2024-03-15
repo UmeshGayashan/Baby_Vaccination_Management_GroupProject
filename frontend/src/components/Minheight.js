@@ -1,16 +1,5 @@
-import {
-  Select,
-  InputLabel,
-  MenuItem,
-  FormHelperText,
-  FormControl,
-  InputAdornment,
-  TextField,
-  Icon,
-  IconButton,
-} from "@mui/material";
-import Row from "./Row";
-import "./Minheight.css";
+
+import "./comCss/Minheight.css";
 import EditableDataTable from "../pages/Table";
 import Dropdown from "./dropdown2";
 import Dropdown_01 from "./dropdown";

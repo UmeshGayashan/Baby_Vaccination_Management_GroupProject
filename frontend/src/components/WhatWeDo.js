@@ -1,5 +1,5 @@
 import FrameComponent from "./FrameComponent";
-import "./WhatWeDo.css";
+import "./comCss/WhatWeDo.css";
 
 const WhatWeDo = () => {
   return (

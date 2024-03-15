@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import StackCell from "./StackCell";
 import CardFrame from "./CardFrame";
-import "./TableRow.css";
+import "./comCss/TableRow.css";
 
 const TableRow = () => {
   const navigate = useNavigate();

@@ -11,7 +11,7 @@ import {
   Button,
 } from "@mui/material";
 import DesktopDatePicker from "./DesktopDatePicker";
-import "./Property1Default.css";
+import "./comCss/Property1Default.css";
 
 const Property1Default = () => {
   return (

@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import "./ServiceBox.css";
+import "./comCss/ServiceBox.css";
 import { Link } from "react-router-dom";
 
 const ServiceBox = () => {

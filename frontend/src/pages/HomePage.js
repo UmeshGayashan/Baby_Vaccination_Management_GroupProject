@@ -5,7 +5,7 @@ import WhatWeDo from "../components/WhatWeDo";
 import AbFrame from "../components/AbFrame";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
-import "./HomePage.css";
+import "./pageCss/HomePage.css";
 
 const HomePage = () => {
   return (

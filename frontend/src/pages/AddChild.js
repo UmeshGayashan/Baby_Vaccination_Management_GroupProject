@@ -5,7 +5,7 @@ import FacebookLink from "../components/FacebookLink";
 import FrameComponent6 from "../components/FrameComponent6";
 import Footer2 from "../components/Footer2";
 import GroupComponent from "../components/GroupComponent";
-import "./AddChild.css";
+import "./pageCss/AddChild.css";
 
 const AddChild = () => {
   const navigate = useNavigate();

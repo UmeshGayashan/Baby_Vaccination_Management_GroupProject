@@ -1,12 +1,9 @@
 import { useMemo } from "react";
 import {
   TextField,
-  InputAdornment,
-  Icon,
-  IconButton,
   Button,
 } from "@mui/material";
-import "./Footer.css";
+import "./comCss/Footer.css";
 
 const Footer = ({
   propAlignSelf,

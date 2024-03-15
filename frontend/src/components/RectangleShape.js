@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar2 from "./Navbar2";
-import "./RectangleShape.css";
+import "./comCss/RectangleShape.css";
 
 const RectangleShape = () => {
   const navigate = useNavigate();

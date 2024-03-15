@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { Button } from "@mui/material";
 import { Link } from 'react-router-dom';
-import "./Navbar2.css";
+import "./comCss/Navbar2.css";
 
 const Navbar2 = ({
   media,

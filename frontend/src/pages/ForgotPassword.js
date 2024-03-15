@@ -1,5 +1,5 @@
 import ChildFrame from "../components/ChildFrame";
-import "./Login.css";
+import "./pageCss/Login.css";
 
 const ForgotPassword = () => {
   return (

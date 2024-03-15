@@ -1,4 +1,4 @@
-import "./Card.css";
+import "./comCss/Card.css";
 
 const Card = () => {
   return (
