@@ -1,30 +1,33 @@
 
 import {Routes,Route,} from "react-router-dom";
 import HomePage from "./pages/HomePage";
-import AboutUs from "./pages/AboutUs";
-import UserPage from "./pages/UserPage";
-import LowAdmin from "./pages/LowAdmin";
-import LowAdminParants from "./pages/LowAdminParants";
-import AddChild from "./pages/AddChild";
-import UpdateChild from "./pages/UpdateChild";
-import AddPerant from "./pages/AddPerant";
 import RecoverPassword from "./pages/RecoverPassword";
 import ForgotPassword from "./pages/ForgotPassword";
 import Login from "./pages/Login";
 import Vaccines from "./pages/Vaccines";
-import HighAdminParants from "./pages/HighAdminParants";
 import VDetails from "./pages/VaccinationDetails";
 import Table from "./pages/Table";
-import HighAdminChild from "./pages/HighAdminChild";
-import HighAdminProffessions from "./pages/HighAdminProffessions";
-import UpdateParent from "./pages/UpdateParent"
-import UpdateProffessions from "./pages/UpdateProffessions";
-import AddProffessions from "./pages/AddProfessionals";
 import IVaccines from "./pages/Importantvaccines";
 import ContactUs from "./pages/ContactUs";
+import AboutUs from "./pages/AboutUs";
+import UserPage from "./pages/Parent/UserPage";
+import LowAdmin from "./pages/LowAdmin/LowAdminChild";
+import LowAdminParants from "./pages/LowAdmin/LowAdminParants";
+import AddChild from "./pages/LowAdmin/AddChild";
+import UpdateChild from "./pages/LowAdmin/UpdateChild";
+import AddPerant from "./pages/LowAdmin/AddPerant";
+import UpdateParent from "./pages/LowAdmin/UpdateParent";
+import HighAdminParants from "./pages/HighAdmin/HighAdminParants";
+import HighAdminChild from "./pages/HighAdmin/HighAdminChild";
+import HighAdminProffessions from "./pages/HighAdmin/HighAdminProffessions";
+import UpdateProffessions from "./pages/HighAdmin/UpdateProffessions";
+import AddProffessions from "./pages/HighAdmin/AddProfessionals";
+import HAddChild from "./pages/HighAdmin/AddChild";
+import HUpdateChild from "./pages/HighAdmin/UpdateChild";
+import HAddPerant from "./pages/HighAdmin/AddPerant";
+import HUpdateParent from "./pages/HighAdmin/UpdateParent";
 
 function App() {
-
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
@@ -36,6 +39,10 @@ function App() {
       <Route path="/update-child" element={<UpdateChild />} />
       <Route path="/add-perant" element={<AddPerant />} />
       <Route path="/update-perant" element={<UpdateParent />} />
+      <Route path="/hadd-child" element={<HAddChild />} />
+      <Route path="/hupdate-child" element={<HUpdateChild />} />
+      <Route path="/hadd-perant" element={<HAddPerant />} />
+      <Route path="/hupdate-perant" element={<HUpdateParent />} />
       <Route path="/add-proffession" element={<AddProffessions />} />
       <Route path="/update-proffession" element={<UpdateProffessions />} />
       <Route path="/recover-password" element={<RecoverPassword />} />

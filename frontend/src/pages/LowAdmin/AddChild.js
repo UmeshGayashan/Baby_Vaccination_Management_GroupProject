@@ -1,20 +1,21 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import GroupComponent from "../components/GroupComponent";
-import MothersNameField from "../components/MothersNameField";
-import "./pageCss/AddPerant.css";
-import HomeLink from "../components/HomeLink";
-import Footer2 from "../components/Footer2";
+import HomeLink from "../../components/HomeLink";
+import FacebookLink from "../../components/FacebookLink";
+import FrameComponent6 from "../../components/FrameComponent6";
+import Footer2 from "../../components/Footer2";
+import GroupComponent from "../../components/GroupComponent";
+import "../pageCss/AddChild.css";
 
-const AddPerant = () => {
+const AddChild = () => {
   const navigate = useNavigate();
 
   const onNavButtonClick = useCallback(() => {
-    navigate("/low-admin-parants");
+    navigate("/low-admin");
   }, [navigate]);
 
   return (
-    <div className="add-perant">
+    <div className="add-child">
       {/* Navbar */}
       <GroupComponent
         rectangle1317="/rectangle-13171.svg"
@@ -41,21 +42,19 @@ const AddPerant = () => {
         propWidth1="unset"
         onNavButtonClick={onNavButtonClick}
       />
-      <HomeLink addChild="Add Parant" />
+      {/* header  */}
+      <HomeLink addChild="Add Child" />
 
       <section className="blog-link">
         <div className="linked-in-link" />
       </section>
-
-      <section className="mothers-name-field">
-        {/* Inputfield */}
-        <MothersNameField />
-      </section>
-
-      <Footer2/>
-
+      {/* first Input fields */}
+      <FacebookLink />
+      {/* Second input field */}
+      <FrameComponent6 />
+      <Footer2 />
     </div>
   );
 };
 
-export default AddPerant;
+export default AddChild;

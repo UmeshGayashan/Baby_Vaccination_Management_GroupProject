@@ -1,22 +1,20 @@
-import HomeLink from "../components/HomeLink";
-import FacebookLink from "../components/FacebookLink";
-import FrameComponent6 from "../components/FrameComponent6";
-import Footer2 from "../components/Footer2";
-import "./pageCss/AddChild.css";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import GroupComponent from "../components/GroupComponent";
+import GroupComponent from "../../components/GroupComponent";
+import MothersNameField from "../../components/MothersNameField";
+import "../pageCss/AddPerant.css";
+import Footer2 from "../../components/Footer2";
+import HomeLink from "../../components/HomeLink";
 
-const UpdateChild = () => {
+const HUpdatePerant = () => {
   const navigate = useNavigate();
 
   const onNavButtonClick = useCallback(() => {
-    navigate("/low-admin");
+    navigate("/low-admin-parants");
   }, [navigate]);
 
   return (
-
-    <div className="update-child">
+    <div className="add-perant">
       {/* navbar */}
       <GroupComponent
         rectangle1317="/rectangle-13171.svg"
@@ -43,21 +41,20 @@ const UpdateChild = () => {
         propWidth1="unset"
         onNavButtonClick={onNavButtonClick}
       />
-      {/* header */}
-      <HomeLink addChild="Update Child" />
+{/*  header */}
+<HomeLink addChild="Update Parant" />
 
-      <section className="blog-link">
-        <div className="linked-in-link" />
+<section className="blog-link">
+  <div className="linked-in-link" />
+</section>
+      <section className="mothers-name-field">
+        {/* info field */}
+        <MothersNameField />
       </section>
-      {/* first data seet */}
-      <FacebookLink />
+      <Footer2/>
 
-      {/* second data sheet */}
-      <FrameComponent6 />
-      <Footer2 />
     </div>
-
   );
 };
 
-export default UpdateChild;
+export default HUpdatePerant;

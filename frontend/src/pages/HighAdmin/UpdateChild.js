@@ -1,13 +1,13 @@
+import HomeLink from "../../components/HomeLink";
+import FacebookLink from "../../components/FacebookLink";
+import FrameComponent6 from "../../components/FrameComponent6";
+import Footer2 from "../../components/Footer2";
+import "../pageCss/AddChild.css";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import HomeLink from "../components/HomeLink";
-import FacebookLink from "../components/FacebookLink";
-import FrameComponent6 from "../components/FrameComponent6";
-import Footer2 from "../components/Footer2";
-import GroupComponent from "../components/GroupComponent";
-import "./pageCss/AddChild.css";
+import GroupComponent from "../../components/GroupComponent";
 
-const AddChild = () => {
+const HUpdateChild = () => {
   const navigate = useNavigate();
 
   const onNavButtonClick = useCallback(() => {
@@ -15,8 +15,9 @@ const AddChild = () => {
   }, [navigate]);
 
   return (
-    <div className="add-child">
-      {/* Navbar */}
+
+    <div className="update-child">
+      {/* navbar */}
       <GroupComponent
         rectangle1317="/rectangle-13171.svg"
         navButton="Back"
@@ -42,19 +43,21 @@ const AddChild = () => {
         propWidth1="unset"
         onNavButtonClick={onNavButtonClick}
       />
-      {/* header  */}
-      <HomeLink addChild="Add Child" />
+      {/* header */}
+      <HomeLink addChild="Update Child" />
 
       <section className="blog-link">
         <div className="linked-in-link" />
       </section>
-      {/* first Input fields */}
+      {/* first data seet */}
       <FacebookLink />
-      {/* Second input field */}
+
+      {/* second data sheet */}
       <FrameComponent6 />
       <Footer2 />
     </div>
+
   );
 };
 
-export default AddChild;
+export default HUpdateChild;

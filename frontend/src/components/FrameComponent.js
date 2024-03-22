@@ -34,7 +34,7 @@ const FrameComponent = ({
             style={vectorIconSupportStyle}
           />
         </div>
-        <h3 className="family-support">{familySupport}</h3>
+        <h3 className="family-support" style={{width:"200px"}}>{familySupport}</h3>
       </div>
       <div className="frame-secondary-button">
         <div className="lorem-ipsum-dolor2">

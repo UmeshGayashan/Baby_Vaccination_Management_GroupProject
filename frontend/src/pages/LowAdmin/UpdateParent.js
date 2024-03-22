@@ -1,16 +1,16 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import GroupComponent from "../components/GroupComponent";
-import "./pageCss/AddPerant.css";
-import HomeLink from "../components/HomeLink";
-import Footer2 from "../components/Footer2";
-import ProfessionsNameField from "../components/Professionalsinfo";
+import GroupComponent from "../../components/GroupComponent";
+import MothersNameField from "../../components/MothersNameField";
+import "../pageCss/AddPerant.css";
+import Footer2 from "../../components/Footer2";
+import HomeLink from "../../components/HomeLink";
 
-const UpdateProffessions = () => {
+const UpdatePerant = () => {
   const navigate = useNavigate();
 
   const onNavButtonClick = useCallback(() => {
-    navigate("/high-admin-proffessions");
+    navigate("/low-admin-parants");
   }, [navigate]);
 
   return (
@@ -41,23 +41,20 @@ const UpdateProffessions = () => {
         propWidth1="unset"
         onNavButtonClick={onNavButtonClick}
       />
-      {/* header */}
-      <HomeLink addChild="Update Health Care Proffessions" />
+{/*  header */}
+<HomeLink addChild="Update Parant" />
 
-      <section className="blog-link">
-        <div className="linked-in-link" />
-      </section>
-
+<section className="blog-link">
+  <div className="linked-in-link" />
+</section>
       <section className="mothers-name-field">
         {/* info field */}
-        <ProfessionsNameField />
+        <MothersNameField />
       </section>
-      
       <Footer2/>
 
     </div>
   );
 };
 
-export default UpdateProffessions;
-
+export default UpdatePerant;

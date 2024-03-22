@@ -1,21 +1,21 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import GroupComponent from "../components/GroupComponent";
-import "./pageCss/AddPerant.css";
-import HomeLink from "../components/HomeLink";
-import Footer2 from "../components/Footer2";
-import ProfessionsNameField from "../components/Professionalsinfo";
+import GroupComponent from "../../components/GroupComponent";
+import MothersNameField from "../../components/MothersNameField";
+import "../pageCss/AddPerant.css";
+import HomeLink from "../../components/HomeLink";
+import Footer2 from "../../components/Footer2";
 
-const AddProffessions = () => {
+const AddPerant = () => {
   const navigate = useNavigate();
 
   const onNavButtonClick = useCallback(() => {
-    navigate("/high-admin-proffessions");
+    navigate("/low-admin-parants");
   }, [navigate]);
 
   return (
     <div className="add-perant">
-      {/* navbar */}
+      {/* Navbar */}
       <GroupComponent
         rectangle1317="/rectangle-13171.svg"
         navButton="Back"
@@ -41,22 +41,21 @@ const AddProffessions = () => {
         propWidth1="unset"
         onNavButtonClick={onNavButtonClick}
       />
-      <HomeLink addChild="Add Helth Care Proffessions" />
+      <HomeLink addChild="Add Parant" />
 
       <section className="blog-link">
         <div className="linked-in-link" />
       </section>
 
       <section className="mothers-name-field">
-        {/* inputfield */}
-        <ProfessionsNameField/>
+        {/* Inputfield */}
+        <MothersNameField />
       </section>
 
-      
       <Footer2/>
 
     </div>
   );
 };
 
-export default AddProffessions;
+export default AddPerant;

@@ -1,14 +1,14 @@
 
-import "./pageCss/HighAdminParants.css";
-import TableRow from "../components/TableRow";
-import Footer1 from "../components/Footer1";
-import "./pageCss/LowAdminParants.css";
+import "../pageCss/HighAdminParants.css";
+import TableRow from "../../components/TableRow";
+import Footer1 from "../../components/Footer1";
+import "../pageCss/LowAdminParants.css";
 import { Button } from "@mui/material";
-import DesktopDatePicker from "../components/DesktopDatePicker";
-import FrameContainer from "../components/FrameContainer";
-import "./pageCss/UserPage.css";
-import HAdashboard from "../components/HA_dashboard";
-import HAHCP_MID from "../components/HAHCP_Mid";
+import DesktopDatePicker from "../../components/DesktopDatePicker";
+import FrameContainer from "../../components/FrameContainer";
+import "../pageCss/UserPage.css";
+import HAdashboard from "../../components/HA_dashboard";
+import HAHCP_MID from "../../components/HAHCP_Mid";
 
 const HighAdminProffessions = () => {
 
