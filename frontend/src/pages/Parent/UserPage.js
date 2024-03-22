@@ -6,7 +6,6 @@ import DesktopDatePicker from "../../components/DesktopDatePicker";
 import FrameContainer from "../../components/FrameContainer";
 import "../pageCss/UserPage.css";
 import Footer from "../../components/Footer";
-import "../../components/comCss/Minheight.css";
 import Dropdown from "../../components/dropdown2";
 import Dropdown_01 from "../../components/dropdown";
 import React, { useState } from 'react';

@@ -52,7 +52,7 @@
   height: 4850px;
   position: relative;
   background-color: var(--bg);
-  overflow: hidden;
+  /* overflow: hidden; */
   letter-spacing: normal;
   text-align: left;
   font-size: var(--paragraph-size);
