@@ -58,13 +58,13 @@ router.post("/login", async (req, res) => {
     });
 
     if (user) {
-      return res.status(200).send("User login successful");
+      return res.status(200).json({ userType: "User" });
       //return res.status(200).json({ token: generateToken(user._id) });
     } else if (guardian) {
-      return res.status(200).send("Guardian login successful");
+      return res.status(200).json({ userType: "Guardian" });
       //return res.status(200).json({ token: generateToken(user._id) });
     } else if (healthcareProfessional) {
-      return res.status(200).send("Healthcare Professional login successful");
+      return res.status(200).json({ userType: "Healthcare Professional" });
       //return res.status(200).json({ token: generateToken(user._id) });
     } else {
       return res.status(404).send("User not found");
