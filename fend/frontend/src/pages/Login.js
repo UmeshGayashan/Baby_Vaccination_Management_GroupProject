@@ -29,9 +29,9 @@ const Login = () => {
         <div className="title-text">
 
           <div className="welcome-to-babyvaxpro-parent flex flex-col items-center justify-center">
-          <div className="w-1/2  ">
-            <img className="icon3 h-1/2 w-full object-cover" loading="eager" alt="" src="/2-101@2x.png" />
-            <div style={{marginTop:"-35px", marginBottom:"20px"}} className="welcome-to-babyvaxpro font-bold text-2xl cursor-pointer">Welcome To BabyVaxPro</div>
+            <div className="w-full md:w-1/2">
+              <img className="icon3 h-auto md:h-1/2 w-full object-cover" loading="eager" alt="" src="/2-101@2x.png" />
+              <div style={{ marginTop: "-35px", marginBottom: "20px" }} className="welcome-to-babyvaxpro font-bold text-2xl cursor-pointer">Welcome To BabyVaxPro</div>
             </div>
           </div>
           <div className="username-parent">
