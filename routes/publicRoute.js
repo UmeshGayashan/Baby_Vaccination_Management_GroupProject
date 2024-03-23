@@ -1,6 +1,8 @@
 const express = require("express")
 const router = express.Router()
 const userSchema = require("../schemas/userSchema")
+const guardianSchema = require("../schemas/guardianSchema")
+const healthcareProfessionalSchema = require("../schemas/healthcareProfessional")
 
 // Registration Route
 router.post("/register", async (req, res) => {
@@ -46,13 +48,13 @@ router.post("/login", async (req, res) => {
     });
 
     const guardian = await guardianSchema.findOne({
-      username: username,
-      password: password,
+      parentAccountUsername: username,
+      parentAccountPassword: password,
     });
 
     const healthcareProfessional = await healthcareProfessionalSchema.findOne({
-      username: username,
-      password: password,
+      hcpUsername: username,
+      hcpPassword: password,
     });
 
     if (user) {
