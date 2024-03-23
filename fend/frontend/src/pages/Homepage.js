@@ -1,12 +1,16 @@
 import Footer from "../components/Footer";
-import Footer2 from "../components/Footer2";
+import NavBar from "../components/NavBar";
+
+
 
 
 const HomePage = () => {
   return (
     <div className="home-page">
-        <Footer/>
-        {/* <Footer2/> */}
+
+      <NavBar/>
+      <Footer/>
+       
     </div>
   );
 };
