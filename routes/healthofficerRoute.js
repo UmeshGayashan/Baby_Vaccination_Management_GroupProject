@@ -6,7 +6,7 @@ const ParentSchema = require("../schemas/guardianSchema");
 //Mother or Guardian Account Creation
 router.post("/create-parent-acc", async (req, res) => {
     try {
-        const { mfirstName, mlastName, mnic, address ,postalcode, email,telephone, username, password } = req.body;
+        const { mfirstName, mlastName, mnic, address ,postalcode, email,telephone, username, password ,info} = req.body;
 
         const newParentAcc = new ParentSchema({
             motherorGuardianName: {
@@ -19,8 +19,8 @@ router.post("/create-parent-acc", async (req, res) => {
             guardianEmail: email,
             guardianTelephoneNumber: telephone,
             parentAccountUsername: username,
-            parentAccountPassword:password
-
+            parentAccountPassword:password,
+            additionalInfo:info
         });
 
         // Save the new account to the database using async/await

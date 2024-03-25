@@ -39,6 +39,9 @@ const guardianSchema = mongoose.Schema({
     parentAccountPassword:{
         type:String,
         required:true
+    },
+    additionalInfo:{
+        type:String
     }
 })
  module.exports = mongoose.model("Parent",guardianSchema)
