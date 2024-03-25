@@ -3,6 +3,7 @@ const router = express.Router()
 const userSchema = require("../schemas/userSchema")
 const guardianSchema = require("../schemas/guardianSchema")
 const healthcareProfessionalSchema = require("../schemas/healthcareProfessional")
+const { generateToken } = require("../extra/JWT")
 
 // Registration Route
 router.post("/register", async (req, res) => {
@@ -58,13 +59,16 @@ router.post("/login", async (req, res) => {
     });
 
     if (user) {
-      return res.status(200).json({ userType: "User" });
-      //return res.status(200).json({ token: generateToken(user._id) });
+      // Generate and send JWT token for authentication
+      const token = generateToken(user._id);
+      return res.status(200).json({ userType: "User", token: token });
     } else if (guardian) {
-      return res.status(200).json({ userType: "Guardian" });
+      const token = generateToken(guardian._id);
+      return res.status(200).json({ userType: "Guardian" , token: token});
       //return res.status(200).json({ token: generateToken(user._id) });
     } else if (healthcareProfessional) {
-      return res.status(200).json({ userType: "Healthcare Professional" });
+      const token = generateToken(healthcareProfessional._id);
+      return res.status(200).json({ userType: "Healthcare Professional", token: token });
       //return res.status(200).json({ token: generateToken(user._id) });
     } else {
       return res.status(404).send("User not found");
