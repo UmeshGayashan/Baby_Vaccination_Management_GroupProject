@@ -1,19 +1,64 @@
-import "./pageCss/Login.css";
-import { useCallback } from "react";
-import {TextField,Button,} from "@mui/material";
+import React, { useState } from "react";
+import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+
+import "./pageCss/Login.css";
 import "../components/comCss/FrameComponent7.css";
 
 const Login = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
   const navigate = useNavigate();
 
-  const onChangePasswordTextClick = useCallback(() => {
+  const onChangePasswordTextClick = () => {
     navigate("/forgot-password");
-  }, [navigate]);
+  };
 
-  const onButtonSignInClick = useCallback(() => {
-    navigate("/user-page");
-  }, [navigate]);
+  const handleLogin = async () => {
+    try {
+      const response = await fetch('http://localhost:4000/public/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.status === 200) {
+        // Login successful, redirect based on user type
+        if (data.userType === 'User') {
+          navigate("/high-admin-parants");
+        } else if (data.userType === 'Guardian') {
+          navigate("/user-page");
+        } else if (data.userType === 'Healthcare Professional') {
+          navigate("/low-admin");
+          // window.location.href = "/low-admin";
+        } else {
+          console.error('Unknown user type');
+          setShowAlert(true);
+          setTimeout(() => {
+            setShowAlert(false);
+          }, 2000);
+        }
+      } else {
+        // Handle login error
+        console.error('Login failed');
+        setShowAlert(true);
+        setTimeout(() => {
+          setShowAlert(false);
+        }, 2000);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setShowAlert(true);
+      setTimeout(() => {
+        setShowAlert(false);
+      }, 2000);
+    }
+  };
 
   return (
     <div className="login">
@@ -38,22 +83,24 @@ const Login = () => {
           {/* Information sheet */}
           <div className="username-parent">
             <div className="username41">UserName</div>
-            <TextField
+            <input
               className="email-form"
               variant="outlined"
               sx={{
                 "& fieldset": { borderColor: "#4d4ddb" },
                 "& .MuiInputBase-root": { height: "45px" },
               }}
+              placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}
             />
-            <div className="password4">Password</div>
-            <TextField
+            <div className="password">Password</div>
+            <input
               className="password-form"
               variant="outlined"
               sx={{
                 "& fieldset": { borderColor: "#4d4ddb" },
                 "& .MuiInputBase-root": { height: "45px" },
               }}
+              placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}
             />
 
             <div className="check-button">
@@ -80,9 +127,8 @@ const Login = () => {
                   "&:hover": { background: "#1e1e1e" },
                   height: 55,
                 }}
-                onClick={onButtonSignInClick}
-              >
-                Sign In
+                onClick={handleLogin}>
+                  Sign In
               </Button>
             </div>
           </div>
