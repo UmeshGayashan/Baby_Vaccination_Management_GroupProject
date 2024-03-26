@@ -1,6 +1,7 @@
 const express = require("express")
 const morgan = require("morgan")
 const cors = require("cors")
+const { authMiddleware } = require("./extra/JWT")
 require("./database/connections")
 
 const app = express()
@@ -12,10 +13,10 @@ app.use(express.urlencoded({
     extended:false
 }))
 
-app.use("/public",require("./routes/publicRoute"))
-app.use("/admin",require("./routes/adminRoute"))
-app.use("/helathcare",require("./routes/healthofficerRoute"))
-app.use("/parent",require("./routes/parentRoute"))
+app.use("/public", require("./routes/publicRoute"))
+app.use("/admin",authMiddleware, require("./routes/adminRoute"))
+app.use("/helathcare", require("./routes/healthofficerRoute"))
+app.use("/parent",authMiddleware, require("./routes/parentRoute"))
 
 app.listen(port, ()=>{
     console.log(`Server started at post ${port}`)
