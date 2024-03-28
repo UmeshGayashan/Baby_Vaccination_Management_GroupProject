@@ -1,4 +1,3 @@
-
 import { useNavigate } from "react-router-dom";
 import GroupComponent from "../../components/GroupComponent";
 import "../pageCss/AddPerant.css";

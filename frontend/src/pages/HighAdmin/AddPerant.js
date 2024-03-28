@@ -1,4 +1,3 @@
-
 import { useNavigate } from "react-router-dom";
 import GroupComponent from "../../components/GroupComponent";
 import "../pageCss/AddPerant.css";
@@ -28,6 +27,54 @@ const HAddPerant = () => {
     const file = event.target.files[0];
     setSelectedImage(file);
   };
+
+  const [mfirstName, setFName] = useState('');
+  const [mlastName, setLName] = useState('');
+  const [mnic, setNIC] = useState('');
+  const [address, setAddress] = useState('');
+  const [postalcode, setPostalCode] = useState('');
+  const [email, setEmail] = useState('');
+  const [telephone, settelephoneNo] = useState('');
+  const [username, setusername] = useState('');
+  const [password, setpassword] = useState('');
+  const [info, setinfo] = useState('');
+
+
+   // Function to create an account
+   const createAccount = async () => {
+    try {
+      const response = await fetch('http://localhost:4000/admin/create-parent-acc', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ mfirstName, mlastName, mnic, address, postalcode, email, telephone, username, password, info }),
+      });
+      
+      // if (response.status === 201) {
+      //   const data = await response.json();
+        
+      //   setAccountNo(data.accountNo);
+      //   //Alert
+      //   setShowSuccessAlert(true);
+      //   setTimeout(() => {
+      //   setShowSuccessAlert(false);}, 2000);
+      // } else {
+      //   console.error('Account creation failed');
+      //   //Alert
+      //   setShowFailureAlert(true);
+      //   setTimeout(() => {
+      //   setShowFailureAlert(false);}, 2000);
+      // }
+    } catch (error) {
+      console.error('Error:', error);
+      // //Alert
+      // setShowFailureAlert(true);
+      // setTimeout(() => {
+      // setShowFailureAlert(false);}, 2000);
+    }
+  };
+
 
   return (
     <div className="add-perant">
@@ -83,6 +130,8 @@ const HAddPerant = () => {
                     className="filledgmailcom"
                     placeholder="Your first name"
                     type="text"
+                    value={mfirstName}
+            onChange={(e) => setFName(e.target.value)}
                   />
                 </div>
               </div>
@@ -98,6 +147,8 @@ const HAddPerant = () => {
                   className="filledgmailcom1"
                   placeholder="Your last name"
                   type="text"
+                  value={mlastName}
+            onChange={(e) => setLName(e.target.value)}
                 />
               </div>
             </div>
@@ -108,8 +159,10 @@ const HAddPerant = () => {
 
                   style={{ width: "400px" }}
                   className="filledgmailcom2"
-                  placeholder="NIc No"
+                  placeholder="NIC No"
                   type="text"
+                  value={mnic}
+            onChange={(e) => setNIC(e.target.value)}
                 />
               </div>
             </div>
@@ -121,40 +174,52 @@ const HAddPerant = () => {
               className="filledgmailcom2"
               placeholder="Address"
               type="text"
+              value={address}
+            onChange={(e) => setAddress(e.target.value)}
             />
           </div>
           <div className="footer-frame1">
             <div className="postal-code">Postal Code</div>
             <div className="input-field63">
-              <input className="code" placeholder="Code" type="text" />
+              <input className="code" placeholder="Code" type="text"
+              value={postalcode}
+              onChange={(e) => setPostalCode(e.target.value)} />
             </div>
           </div>
 
           <div className="footer-frame1">
             <div className="postal-code">Email</div>
             <div className="input-field63">
-              <input className="code" placeholder="Email Address" type="Email" />
+              <input className="code" placeholder="Email Address" type="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)} />
             </div>
           </div>
 
           <div className="footer-frame1">
             <div className="postal-code">Phone Number</div>
             <div className="input-field63">
-              <input className="code" placeholder="Phone number" type="number" />
+              <input className="code" placeholder="Phone number" type="number"
+              value={telephone}
+              onChange={(e) => settelephoneNo(e.target.value)} />
             </div>
           </div>
 
           <div className="footer-frame1">
             <div className="postal-code">User Name</div>
             <div className="input-field63">
-              <input className="code" placeholder="User Name" type="text" />
+              <input className="code" placeholder="User Name" type="text"
+              value={username}
+              onChange={(e) => setusername(e.target.value)} />
             </div>
           </div>
 
           <div className="footer-frame1">
             <div className="postal-code">Password</div>
             <div className="input-field63">
-              <input className="code" placeholder="Password" type="text" />
+              <input className="code" placeholder="Password" type="text"
+              value={password}
+              onChange={(e) => setpassword(e.target.value)} />
             </div>
           </div>
 
@@ -171,8 +236,8 @@ const HAddPerant = () => {
                 <textarea
                   className="filledgmailcom3"
                   placeholder="Notes about your order, e.g. special notes for delivery"
-                  value={orderNotes}
-                  onChange={(e) => setOrderNotes(e.target.value)}
+                  value={info}
+                  onChange={(e) => setinfo(e.target.value)}
                   style={{ width: "100%", height: "150px", marginBottom: "-50px" }}
                 />
               </div>
@@ -187,7 +252,7 @@ const HAddPerant = () => {
                     type="file"
                     accept="image/*"
                     style={{ display: "none" }}
-                    onChange={handleFileChange}
+                    // onChange={handleFileChange}
                   />
                   <Button
                     className="small-button"
@@ -248,7 +313,7 @@ const HAddPerant = () => {
                   width: 172,
                   height: 56,
                 }}
-                onClick={onButtons1Click}
+                onClick={createAccount}
               >
                 Save
               </Button>
@@ -265,5 +330,4 @@ const HAddPerant = () => {
   );
 };
 
-export default HAddPerant;
-
+export default AddPerant;
