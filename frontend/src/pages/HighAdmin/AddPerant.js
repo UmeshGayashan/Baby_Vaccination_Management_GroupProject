@@ -330,4 +330,4 @@ const HAddPerant = () => {
   );
 };
 
-export default AddPerant;
+export default HAddPerant;
