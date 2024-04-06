@@ -97,7 +97,7 @@ const Login = () => {
               className="password-form"
               variant="outlined"
               sx={{
-                "& fieldset": { borderColor: "#4d4ddb" },
+                "& fieldset": { borderColor: "#4d4f", },
                 "& .MuiInputBase-root": { height: "45px" },
               }}
               placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}
