@@ -1,7 +1,5 @@
 import { Button } from "@mui/material";
-import RectangleShape from "../../components/RectangleShape";
 import BGRectangle from "../../components/BGRectangle";
-import CustomSidenav from "../../components/CustomSidenav";
 import DesktopDatePicker from "../../components/DesktopDatePicker";
 import FrameContainer from "../../components/FrameContainer";
 import "../pageCss/UserPage.css";
@@ -10,6 +8,8 @@ import Dropdown from "../../components/dropdown2";
 import Dropdown_01 from "../../components/dropdown";
 import React, { useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
+import UserNavBar from "../../components/user_nav";
+import UserDashBoard from "../../components/userdashboard";
 
 const columns = [
   { field: 'vaccination', headerName: 'Vaccination', width: 130, editable: true },
@@ -60,19 +60,13 @@ const UserPage = () => {
   }, []);
 
   return (
+
+    <div>
+   <UserNavBar/>
     <div className="user-page">
-      <section className="frame-textbox">
-        {/* navbar */}
-        <RectangleShape />
-        {/* header */}
-        <BGRectangle />
-
-        <div className="text-area" />
-      </section>
+    <BGRectangle />  
       <section className="image-placeholder">
-
-        {/* dashboard */}
-        <CustomSidenav />
+      <UserDashBoard/>
         <div className="label-text">
           {/* table */}
           <div className="minheight">
@@ -108,6 +102,7 @@ const UserPage = () => {
                       </div>
                     </div>
                   </div>
+
                   <div className="table">
                     <div style={{ height: 500, width: '100%' }}>
                       <DataGrid
@@ -120,8 +115,8 @@ const UserPage = () => {
                         onEditCellChangeCommitted={handleCellEditCommit}
                       />
                     </div>
-
                   </div>
+
                 </div>
               </div>
             </div>
@@ -212,6 +207,7 @@ const UserPage = () => {
       </section>
 
       <Footer />
+    </div>
     </div>
   );
 };

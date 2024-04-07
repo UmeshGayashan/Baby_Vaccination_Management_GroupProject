@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
@@ -12,20 +11,18 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import NotificationsIcon from '@mui/icons-material/Notifications'; 
 
 const pages = [
   { name: 'Home', path: '/' },
   { name: 'About Us', path: '/about-us' },
   { name: 'What we do', path: '/user-page' },
   { name: 'Meet Mento', path: '/low-admin' },
-  { name: 'Contact', path: '/high-admin-child' }
+  { name: 'Contact', path: '/high-admin-child'}
 ];
 
-function Navbar() {
-
-
+function UserNavBar() {
   const [anchorElNav, setAnchorElNav] = useState(null);
-
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -39,7 +36,7 @@ function Navbar() {
     <AppBar position="static" sx={{ backgroundColor: 'white', height: '80px' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 3 }} />
+          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' } }} />
           <Typography
             variant="h6"
             noWrap
@@ -111,6 +108,7 @@ function Navbar() {
           >
             BabyVaxPro
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
@@ -125,6 +123,14 @@ function Navbar() {
             ))}
           </Box>
 
+          {/* Notification Icon */}
+          <IconButton
+            component={Link}
+            to="/about-us"
+            sx={{ color: 'black', mr:3 }}
+          >
+            <NotificationsIcon />
+          </IconButton>
 
           <Button
             sx={{
@@ -139,9 +145,9 @@ function Navbar() {
               },
             }}
             component={Link}
-            to="/login"
+            to="/"
           >
-            Login
+            Logout
           </Button>
 
         </Toolbar>
@@ -150,4 +156,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default UserNavBar;
