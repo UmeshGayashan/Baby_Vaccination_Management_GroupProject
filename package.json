@@ -4,7 +4,8 @@
   "description": "Vaccination Tracking System",
   "main": "main.js",
   "scripts": {
-    "start": "nodemon main.js"
+    "start": "nodemon main.js",
+    "test": "jest"
   },
   "author": "LionCode4x_BabyVaxPro",
   "license": "ISC",
