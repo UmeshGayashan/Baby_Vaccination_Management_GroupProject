@@ -9,6 +9,7 @@ import "./pageCss/HomePage.css";
 
 const HomePage = () => {
   return (
+    <div>
     <div className="home-page">
       <section className="frame-navbar">
         <Navbar />
@@ -30,14 +31,10 @@ const HomePage = () => {
 
       {/* meetmeto box , events */}
       <ServiceBox />
+     
 
-      <Footer
-        propAlignSelf="unset"
-        propPosition="absolute"
-        propTop="4450px"
-        propLeft="0px"
-        propWidth="100%"
-      />
+    </div>
+    <Footer/>
     </div>
   );
 };

@@ -49,10 +49,9 @@
 }
 .home-page {
   width: 100%;
-  height: 4850px;
+  height: 4450px;
   position: relative;
   background-color: var(--bg);
-  /* overflow: hidden; */
   letter-spacing: normal;
   text-align: left;
   font-size: var(--paragraph-size);
@@ -62,11 +61,12 @@
 @media screen and (max-width: 1250px) {
   .home-page {
     height: auto;
-    min-height: 5405;
+    min-height: 5000px;
   }
 }
 @media screen and (max-width: 750px) {
   .section-details-for-vaccines {
     min-width: 100%;
+  
   }
 }

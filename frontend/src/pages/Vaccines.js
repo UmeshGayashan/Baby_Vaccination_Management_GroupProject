@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import FrameHeader from "../components/FrameHeader";
 import "./pageCss/Vaccines.css";
-import Footer2 from "../components/Footer2";
+import Footer from "../components/Footer";
 import ListItem2 from "../components/VaccineList";
 
 const Vaccines = () => {
@@ -20,7 +20,7 @@ const Vaccines = () => {
         onNavButtonClick={onNavButtonClick}
       />
       <ListItem2 />
-      <Footer2/>
+      <Footer/>
     </div>
   );
 };

@@ -1,21 +1,15 @@
 
 import { useNavigate } from "react-router-dom";
-import GroupComponent from "../../components/GroupComponent";
 import "../pageCss/AddPerant.css";
 import HomeLink from "../../components/HomeLink";
-import Footer2 from "../../components/Footer2";
+import Footer from "../../components/Footer";
 import "../../components/comCss/MothersNameField.css";
 import React, { useCallback, useState } from "react";
 import { Button } from "@mui/material";
+import HAAPNavbar from "../../components/HA_addparentnavbar";
 
 
 const HUpdatePerant = () => {
-  const navigate = useNavigate();
-
-  const onNavButtonClick = useCallback(() => {
-    navigate("/high-admin-parants");
-  }, [navigate]);
-
 
   const [orderNotes, setOrderNotes] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
@@ -32,32 +26,8 @@ const HUpdatePerant = () => {
   return (
     <div className="add-perant">
       {/* Navbar */}
-      <GroupComponent
-        rectangle1317="/rectangle-13171.svg"
-        navButton="Back"
-        showMedia
-        aboutUsLinkWidth="1505px"
-        aboutUsLinkPadding="var(--padding-lg) var(--padding-xl) var(--padding-base)"
-        aboutUsLinkPosition="relative"
-        aboutUsLinkTop="unset"
-        aboutUsLinkOverflowX="auto"
-        aboutUsLinkFlex="unset"
-        groupDivLeft="-4px"
-        groupDivRight="unset"
-        groupDivOverflow="unset"
-        babyVaxProWidth="266px"
-        aboutUsWidth="497px"
-        spacingVerticalAlignSelf="unset"
-        spacingVerticalWidth="unset"
-        navButtonWidth="246px"
-        navButtonPadding="unset"
-        propWidth="100px"
-        propFlex="unset"
-        propFlex1="1"
-        propWidth1="unset"
-        onNavButtonClick={onNavButtonClick}
-      />
-      <HomeLink addChild="Add Parant" />
+      <HAAPNavbar/>
+      <HomeLink addChild="Update Parant" />
 
       <section className="blog-link">
         <div className="linked-in-link" />
@@ -259,7 +229,7 @@ const HUpdatePerant = () => {
         </div>
       </section>
 
-      <Footer2 />
+      <Footer />
 
     </div>
   );

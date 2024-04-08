@@ -4,15 +4,16 @@ import DesktopDatePicker from "../../components/DesktopDatePicker";
 import FrameContainer from "../../components/FrameContainer";
 import "../pageCss/UserPage.css";
 import Footer from "../../components/Footer";
-import Dropdown from "../../components/dropdown2";
 import Dropdown_01 from "../../components/dropdown";
 import React, { useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import UserNavBar from "../../components/user_nav";
 import UserDashBoard from "../../components/userdashboard";
+import NotificationList from "../../components/NotificationList";
+import "../../components/comCss/Minheight.css";
 
 const columns = [
-  { field: 'vaccination', headerName: 'Vaccination', width: 130, editable: true },
+  { field: 'vaccination', headerName: 'Vaccination', width: 130,  },
   { field: 'place', headerName: 'Place', width: 180, editable: true },
   { field: 'vaccinator', headerName: 'Vaccinator', width: 130, editable: true },
   { field: 'verification', headerName: 'Verification', width: 130, editable: true },
@@ -83,7 +84,7 @@ const UserPage = () => {
             <div className="card">
               <div className="paper">
                 <div className="custom-users-management-tabl">
-                  <div className="custom-table-toolbar">
+                  {/* <div className="custom-table-toolbar">
                     <div className="queries">
                       <div className="textfield1">
                         <div className="input5">
@@ -101,7 +102,7 @@ const UserPage = () => {
                         <Dropdown />
                       </div>
                     </div>
-                  </div>
+                  </div> */}
 
                   <div className="table">
                     <div style={{ height: 500, width: '100%' }}>
@@ -124,9 +125,13 @@ const UserPage = () => {
 
         </div>
         {/* right section */}
+       
         <div className="text-container">
           <div className="desktopdatepicker-parent" >
-            <div className="go-to-calendar">
+            
+           
+           
+            <div className="go-to-calendar" style={{marginTop:"-30px"}}>
               <div className="list">
                 <div className="header-picker">
                   <DesktopDatePicker />
@@ -134,44 +139,15 @@ const UserPage = () => {
               </div>
             </div>
 
-            <div className="go-to-calendar">
-              <div className="list">
-                <div className="header">
+            <div className="go-to-calendar" style={{height:"150px" , marginTop:"60px", marginBottom:"150px"}}>
+              <div className="list" > 
+              <div className="header">
                   <div className="span">UPCOMING VACCINE</div>
                 </div>
-                <div className="list-item">
-                  <div className="m-icon">
-                    <div className="v-icon">account_box</div>
-                  </div>
-                  <div className="v-list-item-content">
-                    <div className="single-line-item">VACCINE NAME</div>
-                    <div className="secondary-text">Secondary text</div>
-                  </div>
-
-                </div>
-                <div className="list-item1">
-                  <div className="m-icon1">
-                    <div className="v-icon2">account_box</div>
-                  </div>
-                  <div className="v-list-item-content1">
-                    <div className="single-line-item1">VACCINE NAME</div>
-                    <div className="secondary-text1">Secondary text</div>
-                  </div>
-
-                </div>
-                <div className="list-item2">
-                  <div className="m-icon2">
-                    <div className="v-icon4">account_box</div>
-                  </div>
-                  <div className="v-list-item-content2">
-                    <div className="single-line-item2">VACCINE NAME</div>
-                    <div className="secondary-text2">Secondary text</div>
-                  </div>
-
-                </div>
-              </div>
-              <div className="go-to-calander">Go to calander..</div>
+              
+               <NotificationList/></div>
             </div>
+            
           </div>
         </div>
       </section>

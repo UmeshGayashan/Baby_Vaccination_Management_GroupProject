@@ -14,13 +14,7 @@ const VDetails = () => {
 
         {/* frame set */}
         <VMid/>
-        <Footer
-        propAlignSelf="unset"
-        propPosition="absolute"
-        propTop="2700px"
-        propLeft="0px"
-        propWidth="100%"
-      />
+   <Footer/>
    
        
     </div>

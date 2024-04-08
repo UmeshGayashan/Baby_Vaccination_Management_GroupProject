@@ -1,4 +1,4 @@
-import FrameComponent2 from "../components/FrameComponent2";
+
 import FrameComponent1 from "../components/FrameComponent1";
 import OurVision from "../components/OurVision";
 import SecondaryButton from "../components/SecondaryButton";

@@ -1,12 +1,12 @@
 
 import { useNavigate } from "react-router-dom";
-import GroupComponent from "../../components/GroupComponent";
 import "../pageCss/AddPerant.css";
 import HomeLink from "../../components/HomeLink";
-import Footer2 from "../../components/Footer2";
+import Footer from "../../components/Footer";
 import "../../components/comCss/MothersNameField.css";
 import React, { useCallback, useState } from "react";
 import { Button } from "@mui/material";
+import LAAPNavbar from "../../components/LA_addparentnavbar";
 
 
 const UpdatePerant = () => {
@@ -32,32 +32,8 @@ const UpdatePerant = () => {
   return (
     <div className="add-perant">
       {/* Navbar */}
-      <GroupComponent
-        rectangle1317="/rectangle-13171.svg"
-        navButton="Back"
-        showMedia
-        aboutUsLinkWidth="1505px"
-        aboutUsLinkPadding="var(--padding-lg) var(--padding-xl) var(--padding-base)"
-        aboutUsLinkPosition="relative"
-        aboutUsLinkTop="unset"
-        aboutUsLinkOverflowX="auto"
-        aboutUsLinkFlex="unset"
-        groupDivLeft="-4px"
-        groupDivRight="unset"
-        groupDivOverflow="unset"
-        babyVaxProWidth="266px"
-        aboutUsWidth="497px"
-        spacingVerticalAlignSelf="unset"
-        spacingVerticalWidth="unset"
-        navButtonWidth="246px"
-        navButtonPadding="unset"
-        propWidth="100px"
-        propFlex="unset"
-        propFlex1="1"
-        propWidth1="unset"
-        onNavButtonClick={onNavButtonClick}
-      />
-      <HomeLink addChild="Add Parant" />
+     <LAAPNavbar/>
+      <HomeLink addChild="Update Parant" />
 
       <section className="blog-link">
         <div className="linked-in-link" />
@@ -66,8 +42,6 @@ const UpdatePerant = () => {
       <section className="mothers-name-field">
         {/* Inputfield */}
         {/* <MothersNameField /> */}
-
-
         <div className="mothers-name-field1" style={{ marginLeft: "50px" }}>
           <div className="mothers-name-field2">
             <h1 className="information-form1" style={{ marginTop: "30px" }}>Information Form</h1>
@@ -259,7 +233,7 @@ const UpdatePerant = () => {
         </div>
       </section>
 
-      <Footer2 />
+      <Footer />
 
     </div>
   );

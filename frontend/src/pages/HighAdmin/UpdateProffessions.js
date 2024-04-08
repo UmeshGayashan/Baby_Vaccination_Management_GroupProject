@@ -1,13 +1,29 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import GroupComponent from "../../components/GroupComponent";
+
 import "../pageCss/AddPerant.css";
 import HomeLink from "../../components/HomeLink";
-import Footer2 from "../../components/Footer2";
-import ProfessionsNameField from "../../components/Professionalsinfo";
+import Footer from "../../components/Footer";
+import '../../components/comCss/MothersNameField.css';
+import React, { useState } from 'react';
+import Button from '@mui/material/Button';
+import HAAProNavbar from "../../components/ADDprofessionnavbar";
+
 
 const UpdateProffessions = () => {
+
   const navigate = useNavigate();
+  const [orderNotes, setOrderNotes] = useState("");
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const onButtons1Click = useCallback(() => {
+    navigate("/high-admin-proffessions");
+  }, [navigate]);
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    setSelectedImage(file);
+  };
 
   const onNavButtonClick = useCallback(() => {
     navigate("/high-admin-proffessions");
@@ -16,48 +32,225 @@ const UpdateProffessions = () => {
   return (
     <div className="add-perant">
       {/* navbar */}
-      <GroupComponent
-        rectangle1317="/rectangle-13171.svg"
-        navButton="Back"
-        showMedia
-        aboutUsLinkWidth="1505px"
-        aboutUsLinkPadding="var(--padding-lg) var(--padding-xl) var(--padding-base)"
-        aboutUsLinkPosition="relative"
-        aboutUsLinkTop="unset"
-        aboutUsLinkOverflowX="auto"
-        aboutUsLinkFlex="unset"
-        groupDivLeft="-4px"
-        groupDivRight="unset"
-        groupDivOverflow="unset"
-        babyVaxProWidth="266px"
-        aboutUsWidth="497px"
-        spacingVerticalAlignSelf="unset"
-        spacingVerticalWidth="unset"
-        navButtonWidth="246px"
-        navButtonPadding="unset"
-        propWidth="100px"
-        propFlex="unset"
-        propFlex1="1"
-        propWidth1="unset"
-        onNavButtonClick={onNavButtonClick}
-      />
-      {/* header */}
-      <HomeLink addChild="Update Health Care Proffessions" />
+      <HAAProNavbar/>
+      <HomeLink addChild="Update Helth Care Proffessions" />
 
       <section className="blog-link">
         <div className="linked-in-link" />
       </section>
 
       <section className="mothers-name-field">
-        {/* info field */}
-        <ProfessionsNameField />
-      </section>
+        {/* inputfield */}
+        <div className="mothers-name-field1" style={{marginLeft:"50px"}}>
+      <div className="mothers-name-field2">
+        <h1 className="information-form1" style={{marginTop:"30px"}}>Information Form</h1>
+      </div>
+      <div className="mothers-name-field3" style={{width:"1200px"}}>
+        <div className="postal-code-field1">
+          <div className="password-input-field"  style={{width:"300px"}}>
+            <div className="mothers-guardians-first" style={{width:"300px"}}>
+              First name
+            </div>
+            <div className="input-field59" >
+              <input style={{width:"400px"}}
+                className="filledgmailcom"
+                placeholder="Your first name"
+                type="text"
+              />
+            </div>
+          </div>
+          <div className="street-address">Street Address</div>
+        </div>
+        <div className="fathers-name-field" style={{marginLeft:"100px ", width:"300px"}}>
+          <div className="mothersguardians-last-name" >
+            Last name
+          </div>
+          <div className="input-field60">
+            <input
+            style={{width:"400px"}}
+              className="filledgmailcom1"
+              placeholder="Your last name"
+              type="text"
+            />
+          </div>
+        </div>
+        <div className="fathers-name-field1" style={{marginLeft:"100px ", width:"300px"}}>
+          <div className="mothersguardians-nic"> NIC Number</div>
+          <div className="input-field61">
+            <input
+            
+            style={{width:"400px"}}
+              className="filledgmailcom2"
+              placeholder="NIc No"
+              type="text"
+            />
+          </div>
+        </div>
+      </div>
+      <div className="input-field61">
+            <input
+            
+            style={{width:"800px"}}
+              className="filledgmailcom2"
+              placeholder="Address"
+              type="text"
+            />
+          </div>
+      <div className="footer-frame1">
+        <div className="postal-code">Postal Code</div>
+        <div className="input-field63">
+          <input className="code" placeholder="Code" type="text" />
+        </div>
+      </div>
+
+      <div className="footer-frame1">
+        <div className="postal-code">Possition</div>
+        <div className="input-field63">
+          <input className="code" placeholder="Posion" type="text" />
+        </div>
+      </div>
+
+            <div className="footer-frame1">
+        <div className="postal-code">Age</div>
+        <div className="input-field63">
+          <input className="code" placeholder="Age" type="text" />
+        </div>
+      </div>
+
+      <div className="footer-frame1">
+        <div className="postal-code">Email</div>
+        <div className="input-field63">
+          <input className="code" placeholder="Email Address" type="Email" />
+        </div>
+      </div>
+
+      <div className="footer-frame1">
+        <div className="postal-code">Phone Number</div>
+        <div className="input-field63">
+          <input className="code" placeholder="Phone number" type="number" />
+        </div>
+      </div>
+
+      <div className="footer-frame1">
+        <div className="postal-code">User Name</div>
+        <div className="input-field63">
+          <input className="code" placeholder="User Name" type="text" />
+        </div>
+      </div>
+
+      <div className="footer-frame1">
+        <div className="postal-code">Password</div>
+        <div className="input-field63">
+          <input className="code" placeholder="Password" type="text" />
+        </div>
+      </div>
+
+      <div className="upload-parent-image">
+      <div className="small-button-instance">
+        <div className="c-t-a-frame" />
+      </div>
+      <div className="footer-instance1">
+        <h2 className="additional-info">Additional Info</h2>
+      </div>
+      <div className="links-group">
+        <div className="order-notes-optional">Order Notes (Optional)</div>
+        <div className="input-field65">
+        <textarea
+          className="filledgmailcom3"
+          placeholder="Notes about your order, e.g. special notes for delivery"
+          value={orderNotes}
+          onChange={(e) => setOrderNotes(e.target.value)}
+          style={{ width: "100%", height: "150px" ,marginBottom:"-50px" }}
+        />
+      </div>
+      </div>
+
       
-      <Footer2/>
+      <div className="about-us-link-instance" style={{ marginTop: "30px" }}>
+        <b className="upload-parant-image">Upload a Image</b>
+        <div className="image-u" style={{ display: "flex", alignItems: "center" }}>
+          <label style={{ marginRight: "20px" }}>
+            <input
+              type="file"
+              accept="image/*"
+              style={{ display: "none" }}
+              onChange={handleFileChange}
+            />
+            <Button
+              className="small-button"
+              disableElevation={true}
+              variant="contained"
+              component="span"
+              sx={{
+                textTransform: "none",
+                color: "#fff",
+                fontSize: "14",
+                background: "#ffbf00",
+                borderRadius: "4px",
+                "&:hover": { background: "#ffbf00" },
+              }}
+            >
+              Browse
+            </Button>
+          </label>
+          {selectedImage && (
+            <img
+              src={URL.createObjectURL(selectedImage)}
+              alt="Selected Image"
+              style={{ maxWidth: "20%", maxHeight: "10%", marginBottom: "10px", marginTop: "10px", marginLeft: "250px" }}
+            />
+          )}
+        </div>
+      </div>
+
+      <div className="cta4">
+        <Button href="/high-admin-proffessions"
+          className="buttons2"
+          disableElevation={true}
+          variant="contained"
+          sx={{
+            textTransform: "none",
+            color: "#fff",
+            fontSize: "16",
+            background: "#000",
+            borderRadius: "8px",
+            "&:hover": { background: "#000" },
+            width: 173,
+            height: 57,
+          }}
+        >
+          Cancel
+        </Button>
+        <Button
+          className="buttons3"
+          disableElevation={true}
+          variant="contained"
+          sx={{
+            textTransform: "none",
+            color: "#000",
+            fontSize: "16",
+            background: "#ffbf00",
+            borderRadius: "8px",
+            "&:hover": { background: "#ffbf00" },
+            width: 172,
+            height: 56,
+          }}
+          onClick={onButtons1Click}
+        >
+          Save
+        </Button>
+      </div>
+    </div>
+
+      
+    </div>
+      </section>
+
+      
+      <Footer/>
 
     </div>
   );
 };
 
 export default UpdateProffessions;
-

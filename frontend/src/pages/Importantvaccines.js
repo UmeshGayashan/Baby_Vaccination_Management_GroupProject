@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import FrameHeader from "../components/FrameHeader";
 import ListItem from "../components/ListItem";
 import "./pageCss/Vaccines.css";
-import Footer2 from "../components/Footer2";
+import Footer from "../components/Footer";
 
 const IVaccines = () => {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const IVaccines = () => {
       />
       {/* dashboard and vaccine details */}
       <ListItem />
-      <Footer2/>
+      <Footer />
     </div>
   );
 };
