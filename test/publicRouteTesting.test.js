@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 // Importing schemas
 const userSchema = require('../schemas/userSchema');
 const guardianSchema = require('../schemas/guardianSchema');
-// const healthcareProfessionalSchema = require('../schemas/healthcareProfessionalSchema');
+const healthcareProfessionalSchema = require('../schemas/healthcareProfessional');
 
 // Mocking user data for testing
 const mockUser = {
@@ -26,11 +26,28 @@ const mockHealthcareProfessional = {
 // Mocking mongoose findOne method
 jest.mock('../schemas/userSchema');
 jest.mock('../schemas/guardianSchema');
-// jest.mock('../schemas/healthcareProfessionalSchema');
+jest.mock('../schemas/healthcareProfessional');
 
-userSchema.findOne.mockResolvedValue(mockUser);
-guardianSchema.findOne.mockResolvedValue(mockGuardian);
-// healthcareProfessionalSchema.findOne.mockResolvedValue(mockHealthcareProfessional);
+userSchema.findOne.mockImplementation((criteria) => {
+  if (criteria.username === mockUser.username && criteria.password === mockUser.password) {
+    return Promise.resolve(mockUser);
+  }
+  return null;
+});
+
+guardianSchema.findOne.mockImplementation((criteria) => {
+  if (criteria.parentAccountUsername === mockGuardian.parentAccountUsername && criteria.parentAccountPassword === mockGuardian.parentAccountPassword) {
+    return Promise.resolve(mockGuardian);
+  }
+  return null;
+});
+
+healthcareProfessionalSchema.findOne.mockImplementation((criteria) => {
+  if (criteria.hcpUsername === mockHealthcareProfessional.hcpUsername && criteria.hcpPassword === mockHealthcareProfessional.hcpPassword) {
+    return Promise.resolve(mockHealthcareProfessional);
+  }
+  return null;
+});
 
 describe('Login Route Testing', () => {
   test('Login User Testing - Success', async () => {
