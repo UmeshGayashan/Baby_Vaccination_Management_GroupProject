@@ -3,6 +3,7 @@ const router = express.Router();
 const healthcareProfessionalSchema = require("../schemas/healthcareProfessional");
 const ParentSchema = require("../schemas/guardianSchema");
 const babySchema = require("../schemas/babySchema");
+const vaccinationSchema = require("../schemas/vaccinationSchema")
 
 
 //Healthcare Professional Account Creation
@@ -155,7 +156,7 @@ router.delete("/delete-parent-acc/:nic", async (req, res) => {
 //Baby Account Creation
 router.post("/create-baby-acc", async (req, res) => {
   try {
-    const {mfirstName, mlastName, mnic, gender, ofc, birthTime , birthDate ,birthweight , birthHospital} = req.body;
+    const {mfirstName, mlastName, mnic, gender, ofc, birthTime , birthDate ,birthweight , birthHospital, fatherName, fatherNic} = req.body;
     const babyId = Math.floor(Math.random() * 100000000);
 
     const newBabyAcc = new babySchema({
@@ -164,6 +165,8 @@ router.post("/create-baby-acc", async (req, res) => {
         lastName: mlastName,
       },
       motherorGuardianNIC: mnic,
+      fatherName:fatherName,
+      fatherNic: fatherNic,
       bid: babyId,
       gender: gender,
       ofc: ofc,
@@ -212,7 +215,7 @@ router.delete("/delete-baby-acc/:babyId", async (req, res) => {
   const babyId = req.params.babyId;
 
   try {
-    const result = await babySchema.findOneAndDelete({ Bid: babyId });
+    const result = await babySchema.findOneAndDelete({ bid: babyId });
 
     if (!result) {
       return res.status(404).json({ error: "Baby Account not found" });
@@ -243,5 +246,30 @@ router.get("/baby-acc-info/:babyId",async(req,res) => {
     .send("Error while fetching Account Information: "+ err.message);
   }
 })
+
+// Baby Vaccination Adding
+router.post("/vacc-adding", async (req, res) => {
+  try {
+    const { babyId, vaccine, vaccinator, bcode, location } = req.body;
+
+    const newVaccine = new vaccinationSchema({
+      bid: babyId,
+      vacname: vaccine,
+      vaccinator,
+      bottle_code: bcode, // Updated to use shorthand property name
+      "dateTime.date": new Date().toLocaleDateString(),
+      "dateTime.time": new Date().toLocaleTimeString(),
+      location,
+    });
+
+    // Save the new vaccine to the database using async/await
+    const savedVaccination = await newVaccine.save();
+
+    return res.status(201).send(savedVaccination); // Send HTTP 201 for resource creation along with the saved vaccination data
+  } catch (err) {
+    return res.status(500).send("Vaccination Adding failed: " + err.message); // Handle database errors
+  }
+});
+
 
 module.exports = router; // Export the router instance

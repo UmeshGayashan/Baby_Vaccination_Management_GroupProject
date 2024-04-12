@@ -14,6 +14,12 @@ const babySchema = mongoose.Schema({
         type:String,
         required:true,
     },
+    fatherName:{
+        type:String,
+    },
+    fatherNic:{
+        type:String,
+    },
     bid:{
         type:Number,
         required:true,

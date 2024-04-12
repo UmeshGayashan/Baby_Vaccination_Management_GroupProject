@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+
 const vaccinationSchema = new mongoose.Schema({
-  Bid:{
+  bid:{
     type:Number,
-    required:true,
-    unique:true
+    required:true
   },
   vacname: { 
     type: String,
@@ -18,27 +18,18 @@ const vaccinationSchema = new mongoose.Schema({
     required:true,
     unique:true 
   },
-  // verification_code: { 
-  //   type: String 
-  // },
-  date: { 
-    type: Date, 
-    required: true 
+  dateTime:{
+    date:{
+      type: String,
+      required: true
+    },
+    time:{
+      type: String,
+      required: true
+    }
   },
-  place: { 
+  location: { 
     type: String 
-  },
-  // motherorGuardianNIC:{
-  //   type:String,
-  //   required:true,
-  // },
-  // fatherName:{
-  //   type:String,
-  //   required:true,
-  // },
-  name:{
-    type:String,
-    required:true,
   }
 });
 module.exports = mongoose.model("Vaccination",vaccinationSchema);
