@@ -272,4 +272,30 @@ router.post("/vacc-adding", async (req, res) => {
 });
 
 
+//Update Vaccination Details
+router.put("/update-vacc/:bcode", async (req, res) => {
+  try {
+    const bcode = req.params.bcode;
+    //In request body use Schema Attributes
+    const updateData = req.body;
+    console.log(updateData);
+    const details = await vaccinationSchema.findOneAndUpdate(
+      { bottle_code: bcode },
+      updateData,
+      { new: true }
+    );
+
+    if (!details) {
+      return res.status(404).send("Vacc Details not found");
+    }
+
+    return res.status(200).send(details);
+  } catch (err) {
+    return res
+      .status(500)
+      .send("Error while updating vaccination details: " + err.message);
+  }
+});
+
+
 module.exports = router; // Export the router instance
