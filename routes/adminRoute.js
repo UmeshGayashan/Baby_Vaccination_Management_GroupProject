@@ -297,5 +297,24 @@ router.put("/update-vacc/:bcode", async (req, res) => {
   }
 });
 
+//Vaccination Details Deletion
+router.delete("/delete-vacc/:bcode", async (req, res) => {
+  const bcode = req.params.bcode;
+
+  try {
+    const result = await vaccinationSchema.findOneAndDelete({ bottle_code: bcode });
+
+    if (!result) {
+      return res.status(404).json({ error: "Vaccination details not found" });
+    }
+
+    return res.status(200).json({ message: "Vaccination Details removed" });
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ error: "Error while deleting account", message: err.message });
+  }
+});
+
 
 module.exports = router; // Export the router instance
