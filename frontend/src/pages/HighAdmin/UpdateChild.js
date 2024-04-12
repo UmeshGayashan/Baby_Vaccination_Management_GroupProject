@@ -26,7 +26,20 @@ const HUpdateChild = () => {
           <div className="icon-container">
 
           <div className="password3">
-              <div className="input-text-label3">Mother NIC</div>
+              <div className="input-text-label3">Child ID</div>
+              <div className="input-field4">
+                <div className="text3">
+                  <input
+                    className="type-here6"
+                    placeholder="Enter Child ID"
+                    type="text"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="password3">
+              <div className="input-text-label3">Mother/Guardian NIC</div>
               <div className="input-field4">
                 <div className="text3">
                   <input
