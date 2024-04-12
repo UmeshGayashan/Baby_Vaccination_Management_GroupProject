@@ -14,7 +14,7 @@ const babySchema = mongoose.Schema({
         type:String,
         required:true,
     },
-    Bid:{
+    bid:{
         type:Number,
         required:true,
         unique:true

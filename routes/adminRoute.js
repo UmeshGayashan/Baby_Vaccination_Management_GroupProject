@@ -164,7 +164,7 @@ router.post("/create-baby-acc", async (req, res) => {
         lastName: mlastName,
       },
       motherorGuardianNIC: mnic,
-      Bid: babyId,
+      bid: babyId,
       gender: gender,
       ofc: ofc,
       birthTime:birthTime,
@@ -190,7 +190,7 @@ router.put("/update-baby-acc/:babyId", async (req, res) => {
     const updateData = req.body;
     console.log(updateData);
     const account = await babySchema.findOneAndUpdate(
-      { Bid: babyId },
+      { bid: babyId },
       updateData,
       { new: true }
     );
@@ -225,5 +225,23 @@ router.delete("/delete-baby-acc/:babyId", async (req, res) => {
       .json({ error: "Error while deleting account", message: err.message });
   }
 });
+
+// Get Baby Acount Details
+router.get("/baby-acc-info/:babyId",async(req,res) => {
+  try{
+      const {babyId} = req.params;
+      const account = await babySchema.findOne({bid:babyId});
+
+      if(!account){
+        return res.status(400).send("Account not found");
+      }
+      return res.status(200).send(account);
+
+  }catch(err){
+    return res
+    .status(500)
+    .send("Error while fetching Account Information: "+ err.message);
+  }
+})
 
 module.exports = router; // Export the router instance
