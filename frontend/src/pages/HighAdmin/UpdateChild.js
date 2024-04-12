@@ -36,16 +36,16 @@ const HUpdateChild = () => {
 
             <div className='container'>
           <h3>Account Details</h3>
-          <p>Account Number: {accountNo}</p>
+          {/* <p>Account Number: {accountNo}</p> */}
           {/* <button onClick={getAccountInfo}>Get Account Info</button> */}
-          {accountInfo && (
+          {/* {accountInfo && ( */}
             <div>
               <h4>Account Details</h4>
-              <p>Name: {accountInfo.holderName}</p>
-              <p>Email: {accountInfo.holderEmail}</p>
-              <p>Balance: {accountInfo.balance}</p>
+              {/* <p>Name: {accountInfo.holderName}</p> */}
+              {/* <p>Email: {accountInfo.holderEmail}</p> */}
+              {/* <p>Balance: {accountInfo.balance}</p> */}
             </div>
-          )}
+          {/* )} */}
         </div>
       {/* <div className="instagram-link">
         <h1 className="information-form">Information Form</h1>
@@ -266,8 +266,108 @@ const HUpdateChild = () => {
                     placeholder="Enter name"
                     type="text"
                   />
+
                 </div>
               </div>
+
+            {/* </div>
+            <div className="password3">
+              <div className="input-text-label5">Father Name</div>
+              <div className="input-field6">
+                <div className="text5">
+                  <input
+                    className="type-here6"
+                    placeholder="Enter name"
+                    type="text"
+                  />
+
+                </div>
+              </div>
+
+            </div>
+            <div className="password3">
+              <div className="input-text-label6">Father NIC</div>
+              <div className="input-field7">
+                <div className="text6">
+                  <input
+                    className="type-here6"
+                    placeholder="Enter name"
+                    type="text"
+                  />
+
+                </div>
+              </div>
+
+            </div>
+            <div className="password3">
+              <div className="input-text-label7">Hospital Name</div>
+              <div className="input-field8">
+                <div className="text7">
+                  <input
+                    className="type-here6"
+                    placeholder="Enter name"
+                    type="text"
+                  />
+
+                </div>
+              </div>
+
+            </div>
+            <div className="password3">
+              <div className="input-text-label8">Weigh</div>
+              <div className="input-field9">
+                <div className="text8">
+                  <input
+                    className="type-here6"
+                    placeholder="Weigh"
+                    type="text"
+                  />
+
+                </div>
+              </div>
+
+            </div>
+            <div className="password3">
+              <div className="input-text-label9">OFC</div>
+              <div className="input-field10">
+
+                <div className="text8">
+                  <input
+                    className="type-here6"
+                    placeholder="mm"
+                    type="text"
+                  />
+                </div>
+              </div>
+            </div>
+
+
+            <div className="clear-button">
+              <div className="go-button">
+              <div className="input-birth-day">Input Birth Day</div>
+                <div className="spacing-vertical28">
+                </div>
+                <div className="spacing-vertical29">
+                  <div className="min-height57" />
+                </div>
+                <div className="native-chrome-date-picker-2">
+                  <DatePicker2 />
+                </div>
+              </div>
+
+              <div className="go-button">
+              <div className="input-birth-day">Registered Date</div>
+                <div className="spacing-vertical28">
+                </div>
+                <div className="spacing-vertical29">
+                  <div className="min-height57" />
+                </div>
+                <div className="native-chrome-date-picker-2">
+                  <DatePicker2 />
+                </div>
+              </div> */}
+
+
             </div>
           </div>
 
