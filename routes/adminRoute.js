@@ -316,5 +316,25 @@ router.delete("/delete-vacc/:bcode", async (req, res) => {
   }
 });
 
+// Get Vaccinarion Histroy of Child
+router.get("/vacc-history/:babyId", async (req, res) => {
+  const bid = req.params.babyId;
+
+  try {
+    const vaccinations = await vaccinationSchema.find({ bid });
+
+    if (!vaccinations) {
+      return res.status(404).json({ error: "No vaccination history found" });
+    }
+
+    return res.status(200).json(vaccinations);
+  } catch (err) {
+    return res.status(500).json({
+      error: "Error while fetching vaccinations",
+      message: err.message,
+    });
+  }
+});
+
 
 module.exports = router; // Export the router instance
