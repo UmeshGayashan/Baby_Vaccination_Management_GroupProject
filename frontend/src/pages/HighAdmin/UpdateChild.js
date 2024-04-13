@@ -13,40 +13,40 @@ const HUpdateChild = () => {
     <HAACNavbar/>
 
       {/* header  */}
-      <HomeLink addChild="Update Child" />
+      <HomeLink addChild="Add Vaccination Details" />
 
       <section className="blog-link">
         <div className="linked-in-link" />
       </section>
       {/* first Input fields */}
       <section className="facebook-link">
-
       <div className="password3">
-              <div className="input-text-label3">Child ID</div>
-              <div className="input-field4">
-                <div className="text3">
-                  <input
-                    className="type-here6"
-                    placeholder="Enter Child ID"
-                    type="text"
-                  />
-                </div>
-              </div>
+      <div className="password3">
+        <div className="input-text-label3">Child ID</div>
+          <div className="input-field4">
+            <div className="text3">
+              <input
+                className="type-here6"
+                placeholder="Enter Child ID"
+                type="text"
+              />
             </div>
-
-            <div className='container'>
+          </div>
+        </div>
+      </div>
+        {/* <div className='container'>
           <h3>Account Details</h3>
-          {/* <p>Account Number: {accountNo}</p> */}
-          {/* <button onClick={getAccountInfo}>Get Account Info</button> */}
-          {/* {accountInfo && ( */}
+          <p>Account Number: {accountNo}</p>
+          <button onClick={getAccountInfo}>Get Account Info</button>
+          {accountInfo && (
             <div>
               <h4>Account Details</h4>
-              {/* <p>Name: {accountInfo.holderName}</p> */}
-              {/* <p>Email: {accountInfo.holderEmail}</p> */}
-              {/* <p>Balance: {accountInfo.balance}</p> */}
+              <p>Name: {accountInfo.holderName}</p>
+              <p>Email: {accountInfo.holderEmail}</p>
+              <p>Balance: {accountInfo.balance}</p>
             </div>
-          {/* )} */}
-        </div>
+          )} 
+        </div> */}
       {/* <div className="instagram-link">
         <h1 className="information-form">Information Form</h1>
         <div className="text-input">
@@ -269,6 +269,44 @@ const HUpdateChild = () => {
 
                 </div>
               </div>
+
+              <div className="cta3">
+          <Button href="/low-admin"
+            className="buttons"
+            disableElevation={true}
+            variant="contained"
+            sx={{
+              textTransform: "none",
+              color: "#fff",
+              fontSize: "16",
+              background: "#000",
+              borderRadius: "8px",
+              "&:hover": { background: "#000" },
+              width: 173,
+              height: 57,
+            }}
+          >
+            Cancel
+          </Button>
+          <Button href="/low-admin"
+            className="buttons1"
+            disableElevation={true}
+            variant="contained"
+            sx={{
+              textTransform: "none",
+              color: "#000",
+              fontSize: "16",
+              background: "#ffbf00",
+              borderRadius: "8px",
+              "&:hover": { background: "#ffbf00" },
+              width: 172,
+              height: 56,
+            }}
+            
+          >
+            Save
+          </Button>
+        </div>
 
             {/* </div>
             <div className="password3">
