@@ -8,7 +8,7 @@ import "../components/comCss/FrameComponent7.css";
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [showAlert, setShowAlert] = useState(false);
+  // const [showAlert, setShowAlert] = useState(false);
   const navigate = useNavigate();
 
   const onChangePasswordTextClick = () => {
