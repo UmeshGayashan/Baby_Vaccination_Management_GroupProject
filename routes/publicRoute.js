@@ -29,7 +29,7 @@ router.post("/register", async (req, res) => {
       // Save the user to the database using async/await
       const savedUser = await newUser.save();
   
-      return res.send(newUser); // Send HTTP 201 for resource creation along with the saved user's data
+      return res.send(savedUser); // Send HTTP 201 for resource creation along with the saved user's data
     } catch (err) {
       return res.status(500).send("User registration failed: " + err.message); // Handle database errors
     }
