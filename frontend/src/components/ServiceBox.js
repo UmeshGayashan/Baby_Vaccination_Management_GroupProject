@@ -4,30 +4,37 @@ import { Link } from "react-router-dom";
 
 const ServiceBox = () => {
   return (
-    <section className="service-box">
-      <div className="cta1" style={{marginTop:"-600px"}}>
-        <img className="bg-icon" loading="eager" alt="" src="/bg@2x.png" />
-        <h1 className="you-can-take1">
-          You can take advice from provided doctors for children with special
-          needs!
-        </h1>
-        <div className="frame-with-title-and-buttons">
-          <Link to="/contactus"><Button
-            className="primary-button1"
-            variant="contained"
-            sx={{
-              color: "#000",
-              fontSize: "14",
-              background: "#f2c94c",
-              borderRadius: "4px",
-              "&:hover": { background: "#f2c94c" },
-              height: 56,
-            }}
-          >
-            MEET YOUR Mento
-          </Button></Link>
+    <section className="service-box" style={{marginTop:"-650px"}}>
+
+      <section className="you-message-frame" style={{marginBottom:"-150px"}}>
+        <div className="cta">
+          <div className="content">
+            <h1 className="you-can-take">
+              You can take advice from provided doctors for children with
+              special needs!
+            </h1>
+            <Link to="/contactus"><Button
+              className="primary-button"
+
+              variant="contained"
+              sx={{
+                marginTop: "30px",
+                textTransform: "none",
+                color: "#000",
+                fontSize: "16",
+                background: "#f2c94c",
+                borderRadius: "4px",
+                "&:hover": { background: "#f2c94c" },
+                width: 187,
+                height: 51,
+              }}
+            >
+              Meet your Mento
+            </Button></Link>
+          </div>
         </div>
-      </div>
+      </section>
+
       <div className="text-container-with-title">
         <div className="line-element">
           <h1 className="our-events">Our Events</h1>

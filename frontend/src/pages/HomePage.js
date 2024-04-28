@@ -6,37 +6,42 @@ import AbFrame from "../components/AbFrame";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 import "./pageCss/HomePage.css";
+import { Button } from "@mui/material";
+import BackEnd from "../components/BackEnd";
 
 const HomePage = () => {
   return (
     <div>
-    <div className="home-page">
-      <section className="frame-navbar">
-        <Navbar />
-        <Header />
-      </section>
-      <div className="text-supporters">
-        <div className="our-supporters">our Supporters</div>
-        <div className="section-details-for-vaccines" />
-      </div>
-{/* 
+      <div className="home-page">
+        <section className="frame-navbar">
+          <Navbar />
+          <Header />
+        </section>
+
+        {/* know about us */}
+        <AbFrame />
+        <div className="text-supporters">
+          <div className="our-supporters">our Supporters</div>
+          <div className="section-details-for-vaccines" />
+        </div>
+        {/* 
       WhatWeDo frame */}
-      <WhatWeDo />
+        <WhatWeDo />
 
-      {/* vaccination boxes */}
-      <PrimaryButton />
-      {/* know about us */}
-      <AbFrame />
-      <img className="ab-1-icon" loading="eager" alt="" src="/ab-1@2x.png" />
+        {/* vaccination boxes */}
+        <PrimaryButton />
+       
 
-      {/* meetmeto box , events */}
-      <ServiceBox />
-     
+        <img className="ab-1-icon" loading="eager" alt="" src="/ab-1@2x.png" />
 
-    </div>
-    <Footer/>
+        {/* meetmeto box , events */}
+        <ServiceBox />
+
+        
+      </div>
+      <Footer />
     </div>
   );
-};
+}; 
 
 export default HomePage;
