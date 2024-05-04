@@ -179,7 +179,7 @@ router.post("/create-baby-acc", async (req, res) => {
     // Save the new account to the database using async/await
     const savedBabyAccount = await newBabyAcc.save();
 
-    return res.status(201).send(savedBabyAccount); // Send HTTP 201 for resource creation along with the saved account's data
+    return res.status(201).send({savedBabyAccount,babyId}); // Send HTTP 201 for resource creation along with the saved account's data
   } catch (err) {
     return res.status(500).send("Account creation failed: " + err.message); // Handle database errors
   }
