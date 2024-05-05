@@ -18,7 +18,7 @@ pipeline {
                         // Assuming you've fixed permissions on /var/lib/apt/lists/lock
 
                         // Update apt (assuming you have root privileges) - Consider alternative with apt-get if possible
-                        sh 'apt update && apt install -y npm'  // Combined commands
+                        sh 'sudo apt update && sudo apt install -y npm'  // Combined commands
 
                         // Navigate to the directory containing package.json (assuming it's in workspace)
                         dir("${WORKSPACE}") {
