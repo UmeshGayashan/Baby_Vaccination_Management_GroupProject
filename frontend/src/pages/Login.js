@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "@mui/material";
+import { Button, TextField, Input } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import "./pageCss/Login.css";
@@ -13,6 +13,7 @@ const Login = () => {
 
   const onChangePasswordTextClick = () => {
     navigate("/forgot-password");
+   
   };
 
   const handleLogin = async () => {
@@ -83,7 +84,7 @@ const Login = () => {
           {/* Information sheet */}
           <div className="username-parent">
             <div className="username41">UserName</div>
-            <input
+            <Input
               className="email-form"
               variant="outlined"
               sx={{
@@ -92,8 +93,8 @@ const Login = () => {
               }}
               placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}
             />
-            <div className="password">Password</div>
-            <input
+            <div className="username41">Password</div>
+            <Input
               className="password-form"
               variant="outlined"
               sx={{

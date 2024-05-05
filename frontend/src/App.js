@@ -26,6 +26,7 @@ import HAddChild from "./pages/HighAdmin/AddChild";
 import HUpdateChild from "./pages/HighAdmin/UpdateChild";
 import HAddPerant from "./pages/HighAdmin/AddPerant";
 import HUpdateParent from "./pages/HighAdmin/UpdateParent";
+import SignInSide from "./pages/SigninPage";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
       <Route path="/recover-password" element={<RecoverPassword />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/signin" element={<SignInSide />} />
       <Route path="/vaccines/1" element={<Vaccines />} />
       <Route path="/high-admin-parants" element={<HighAdminParants />} />
       <Route path="/high-admin-proffessions" element={<HighAdminProffessions />} />

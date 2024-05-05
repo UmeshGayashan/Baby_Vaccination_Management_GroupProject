@@ -6,40 +6,44 @@ import AbFrame from "../components/AbFrame";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 import "./pageCss/HomePage.css";
-import { Button } from "@mui/material";
+import { Button, Rating } from "@mui/material";
 import BackEnd from "../components/BackEnd";
+import Tint from "../components/Tint";
+import OurVision from "../components/OurVision";
+import FrameComponent1 from "../components/FrameComponent1";
+import SecondaryButton from "../components/SecondaryButton";
+import VCard from "../components/vcard";
+
+
 
 const HomePage = () => {
   return (
     <div>
+
       <div className="home-page">
-        <section className="frame-navbar">
+        <section className="frame-navbar"  >
           <Navbar />
           <Header />
         </section>
+        
 
         {/* know about us */}
-        <AbFrame />
-        <div className="text-supporters">
-          <div className="our-supporters">our Supporters</div>
-          <div className="section-details-for-vaccines" />
-        </div>
+       <AbFrame/>
+
         {/* 
       WhatWeDo frame */}
         <WhatWeDo />
-
-        {/* vaccination boxes */}
-        <PrimaryButton />
        
-
-        <img className="ab-1-icon" loading="eager" alt="" src="/ab-1@2x.png" />
-
-        {/* meetmeto box , events */}
-        <ServiceBox />
-
+        {/* vaccination boxes */}
         
+     <div style={{marginTop:"3000px"}} > <VCard/>
+    
+
+    </div>
       </div>
       <Footer />
+      
+     
     </div>
   );
 }; 

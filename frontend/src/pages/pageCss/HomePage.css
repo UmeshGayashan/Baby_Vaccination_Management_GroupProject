@@ -1,41 +1,4 @@
-.our-supporters {
-  position: relative;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 500;
-  flex-shrink: 0;
-}
-.section-details-for-vaccines {
-  height: 1px;
-  flex: 1;
-  position: relative;
-  border-top: 1px solid var(--border);
-  box-sizing: border-box;
-  min-width: 712px;
-  max-width: 100%;
-}
-.text-supporters {
-  position: absolute;
-  top: 1520px;
-  left: 130px;
-  width: 1280px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0 22px;
-  max-width: 100%;
-}
-.ab-1-icon {
-  position: absolute;
-  top: 877px;
-  left: 807px;
-  width: 599px;
-  height: 676px;
-  object-fit: cover;
-  z-index: 1;
-}
+
 .frame-navbar {
   position: absolute;
   top: 0;
@@ -49,7 +12,8 @@
 }
 .home-page {
   width: 100%;
-  height: 4450px;
+  display: flex;
+  height: auto;
   position: relative;
   background-color: var(--bg);
   letter-spacing: normal;
@@ -61,7 +25,7 @@
 @media screen and (max-width: 1250px) {
   .home-page {
     height: auto;
-    min-height: 5000px;
+    min-height: 4500px;
   }
 }
 @media screen and (max-width: 750px) {
@@ -70,3 +34,7 @@
   
   }
 }
+
+
+
+

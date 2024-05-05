@@ -39,7 +39,7 @@ const PrimaryButton = () => {
 
   return (
     <section className="primary-button3">
-      <div className="frame-navbar1">
+      {/* <div className="frame-navbar1">
          <img
           className="section-title-icon"
           loading="eager"
@@ -53,9 +53,9 @@ const PrimaryButton = () => {
             <p className="details">Details</p>
           </h1>
         </div>
-      </div>
+      </div> */}
 
-      <div className="project-row">
+      {/* <div className="project-row">
         {projectsData.map((project, index) => (
           <div key={index} onClick={onProjectRowContainerClick}>
 
@@ -97,7 +97,7 @@ const PrimaryButton = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </section>
   );
 };

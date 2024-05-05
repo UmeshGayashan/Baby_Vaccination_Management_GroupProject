@@ -3,8 +3,8 @@ import "./comCss/BackEnd.css";
 
 const BackEnd = () => {
   return (
-    <section className="back-end1">
-      <div className="u-i-u-x">
+    <section className="back-end1" >
+      <div className="u-i-u-x" >
         <div className="front-end">
           <div className="socialrow-projectmanager">
             <h1 className="meet-our-team">Meet our team</h1>

@@ -6,6 +6,20 @@
   align-items: flex-start;
   justify-content: flex-end;
 }
+
+.ab-frame {
+  position: absolute;
+  top: 850px;
+  left: 0 px; 
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 32px 0;
+  text-align: left;
+  font-size: var(--h2-size);
+  color: var(--color-gray-100);
+  font-family: var(--paragraph);
+}
 .bg7 {
   height: 576px;
   width: 1280px;
@@ -152,8 +166,20 @@
   box-sizing: border-box;
   gap: var(--gap-29xl);
 }
+
+.our-journey-section-2 {
+  align-self: stretch;
+  border-radius: var(--br-xl);
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-45xl) var(--padding-17xl) var(--padding-45xl)
+  var(--padding-77xl);
+  box-sizing: border-box;
+  gap: var(--gap-29xl);
+}
 .b-g,
 .our-journey-section,
+.our-journey-section-2,
 .secondary-button5 {
   display: flex;
   justify-content: flex-start;
@@ -177,6 +203,19 @@
   color: var(--components-switch-slidefill);
   font-family: var(--paragraph);
 }
+
+.secondary-button5-2 {
+  margin-top: -150px;
+  width: 100%;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0 var(--padding-19xl) var(--padding-32xl) var(--padding-xl);
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--paragraph-size);
+  color: var(--components-switch-slidefill);
+  font-family: var(--paragraph);
+}
 @media screen and (max-width: 1200px) {
   .mission-section {
     flex: 1;
@@ -184,6 +223,16 @@
   .our-journey-section {
     flex-wrap: wrap;
     padding-left: var(--padding-29xl);
+    box-sizing: border-box;
+  }
+  .our-journey-section-2 {
+    flex-wrap: wrap;
+    padding-left: var(--padding-20xl);
+    box-sizing: border-box;
+  }
+  .our-journey-section-3 {
+    flex-wrap: wrap;
+    padding-left: var(--padding-20xl);
     box-sizing: border-box;
   }
 }
@@ -208,10 +257,23 @@
     padding-bottom: var(--padding-23xl);
     box-sizing: border-box;
   }
+
+  .our-journey-section-2 {
+    gap: var(--gap-29xl);
+    padding-left: var(--padding-5xl);
+    padding-top: var(--padding-23xl);
+    padding-bottom: var(--padding-23xl);
+    box-sizing: border-box;
+  }
   .b-g {
     gap: 64px 0;
   }
   .secondary-button5 {
+    padding-bottom: var(--padding-14xl);
+    box-sizing: border-box;
+  }
+
+  .secondary-button5-2 {
     padding-bottom: var(--padding-14xl);
     box-sizing: border-box;
   }
@@ -233,5 +295,16 @@
   .secondary-button5 {
     padding-bottom: var(--padding-2xl);
     box-sizing: border-box;
+  }
+
+  .secondary-button5-2 {
+    padding-bottom: var(--padding-2xl);
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .image-icon-2 {
+    display: none;
   }
 }

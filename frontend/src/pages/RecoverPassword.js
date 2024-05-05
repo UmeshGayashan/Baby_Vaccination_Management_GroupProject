@@ -1,99 +1,129 @@
-import { useCallback } from "react";
-import {
-  TextField,
-  InputAdornment,
-  Icon,
-  IconButton,
-  Button,
-} from "@mui/material";
-import { useNavigate ,Link} from "react-router-dom";
-import "./pageCss/RecoverPassword.css";
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import LinkMui from '@mui/material/Link';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 
-const RecoverPassword = () => {
-  const navigate = useNavigate();
 
-  const onButtonRecoverClick = useCallback(() => {
-    navigate("/login");
-  }, [navigate]);
+
+
+// TODO remove, this demo shouldn't need to reset the theme.
+
+const defaultTheme = createTheme();
+
+export default function RecoverPassword() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      password: data.get('password'),
+      rpassword: data.get('rpassword'),
+    });
+  };
 
   return (
-    <div className="recover-password">
-      <div className="main-frame">
-        <div className="main-frame-child" />
-        <img
-          className="empty-frame-icon"
-          loading="eager"
-          alt=""
-          src="/55-1@2x.png"
+    <ThemeProvider theme={defaultTheme}>
+      <Grid container component="main" sx={{ height: '100vh' }}>
+        <CssBaseline />
+        <Grid
+          item
+          xs={false}
+          sm={4}
+          md={7}
+          sx={{
+            backgroundImage: 'url(/log.png)',
+
+            // backgroundImage: 'src="/log.png"',
+            backgroundRepeat: 'no-repeat',
+            backgroundColor: (t) =>
+              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
         />
-      </div>
-      <div className="inner-frame">
-        <div className="child-frame">
-          <div className="recovery-text">
-            <div className="password-input1" style={{marginTop:'90px'}}>
-              <div className="recovery-password">Recovery Password</div>
-              <img  
-                className="password-icon"
-                loading="eager"
-                alt=""
-                src="/2-101@2x.png"
-              />
-            </div>
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+          <Box
+            sx={{
+              my: 8,
+              mx: 4,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
 
-            {/* info field */}
-            <form className="account-sign-in-text">
-              <div className="password1">Password</div>
+
+            <img src="/2-101@2x.png" alt="logo" style={{ width: '200px', height: '150px', marginBottom: '-30px' }} />
+
+            <Typography component="h1" variant="h5" style={{ marginBottom: '30px' }}>
+              Recovery Password
+            </Typography>
+            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1, marginLeft:"-80px" }}>
+
+              <div>password</div>
               <TextField
-                className="form-password"
-                variant="outlined"
-                sx={{
-                  "& fieldset": { borderColor: "#4d4ddb" },
-                  "& .MuiInputBase-root": { height: "45px" },
-                }}
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+                sx={{ width: '120%' }}
               />
-              <div className="reapet-password" style={{marginTop:"-10px"}}>Reapet Password</div>
-              <div className="form-rectangle">
-                <TextField
-                  className="form-repeat-password"
-                  variant="outlined"
-                  sx={{
-                  
-                    "& fieldset": { borderColor: "#4d4ddb" },
-                    "& .MuiInputBase-root": { height: "45px" },
-                  }}
-                />
-              </div>
-              <div className="recover-button">
-                <div className="password-sterg">Password sterg:</div>
-              </div>
-              <Button
-                className="button-recover"
-                disableElevation={true}
-                variant="contained"
-                sx={{
-                  textTransform: "none",
-                  color: "#fff",
-                  fontSize: "24",
-                  background: "#000",
-                  borderRadius: "8px",
-                  "&:hover": { background: "#000" },
-                  height: 55,
-                }}
-                onClick={onButtonRecoverClick}
-              >
-                Recover
-              </Button>
-            </form>
-          </div>
-          <div className="do-you-have-container" style={{marginTop:'-50px'}} >
-            <span>{`Do you have account?`}</span>
-            <Link to="/login" className="signin1" style={{ display: 'inline' }}>SignIn</Link>
-         
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
-export default RecoverPassword;
+              <div>Repeat Password</div>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="rpassword"
+                label="Repeat Password"
+                autoComplete="rpassword"
+                id="rpassword"
+                autoFocus
+                sx={{ width: '120%' }}
+              />
+
+
+              {/* <FormControlLabel
+                control={<Checkbox value="remember" color="primary" />}
+                label="Remember me"
+              /> */}
+              <Link to="/signin">
+                <Button s
+
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2, width: '120%' }}
+                >
+                  Recover
+                </Button>
+              </Link>
+              <Grid container>
+                <Grid item xs>
+                  <LinkMui href="/signin" variant="body2">
+                    Do you have an account?SignIn
+                  </LinkMui>
+                </Grid>
+              </Grid>
+
+            </Box>
+          </Box>
+        </Grid>
+      </Grid>
+    </ThemeProvider>
+  );
+}

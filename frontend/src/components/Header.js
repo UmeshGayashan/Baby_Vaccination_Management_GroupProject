@@ -11,7 +11,7 @@ const Header = () => {
   }, [navigate]);
 
   return (
-    <div className="header1">
+    <div className="header1" >
       <img className="bg-image-icon" alt="" src="/bg-image@2x.png" />
       <div className="our-supporters1">
         <div className="support-frame">

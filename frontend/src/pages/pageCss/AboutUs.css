@@ -19,7 +19,11 @@
   overflow: hidden;
   gap: 66px 0;
   letter-spacing: normal;
+
+
+
 }
+
 @media screen and (max-width: 1200px) {
   .media-contact {
     padding-bottom: 69px;
