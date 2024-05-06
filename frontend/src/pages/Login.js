@@ -1,142 +1,148 @@
-import React, { useState } from "react";
-import { Button, TextField, Input } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { Button, TextField, Checkbox, Link, Paper, Box, Grid, Typography } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { CssBaseline } from '@mui/material';
+import { FormControlLabel } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
-import "./pageCss/Login.css";
-import "../components/comCss/FrameComponent7.css";
+const defaultTheme = createTheme();
 
-const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  // const [showAlert, setShowAlert] = useState(false);
-  const navigate = useNavigate();
+export default function Login() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
-  const onChangePasswordTextClick = () => {
-    navigate("/forgot-password");
-   
-  };
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
-  const handleLogin = async () => {
-    try {
-      const response = await fetch('http://localhost:4000/public/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-      });
+        try {
+            const response = await fetch('http://localhost:4000/public/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            });
 
-      const data = await response.json();
-
-      if (response.status === 200) {
-        // Login successful, redirect based on user type
-        if (data.userType === 'User') {
-          navigate("/high-admin-parants");
-        } else if (data.userType === 'Guardian') {
-          navigate("/user-page");
-        } else if (data.userType === 'Healthcare Professional') {
-          navigate("/low-admin");
-          // window.location.href = "/low-admin";
-        } else {
-          console.error('Unknown user type');
-          setShowAlert(true);
-          setTimeout(() => {
-            setShowAlert(false);
-          }, 2000);
+            if (response.ok) {
+                // Redirect or update UI accordingly for successful login
+                const data = await response.json();
+                if (data.userType === 'User') {
+                    navigate("/high-admin-parants");
+                } else if (data.userType === 'Guardian') {
+                    navigate("/user-page");
+                } else if (data.userType === 'Healthcare Professional') {
+                    navigate("/low-admin");
+                } else {
+                    console.error('Unknown user type');
+                    setError('Unknown user type');
+                }
+            } else {
+                // Handle login error
+                console.error('Login failed');
+                setError('Invalid username or password');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            setError('Network error occurred');
         }
-      } else {
-        // Handle login error
-        console.error('Login failed');
-        setShowAlert(true);
-        setTimeout(() => {
-          setShowAlert(false);
-        }, 2000);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      setShowAlert(true);
-      setTimeout(() => {
-        setShowAlert(false);
-      }, 2000);
-    }
-  };
+    };
 
-  return (
-    <div className="login">
-      <div className="login-frame">
-        <div className="login-frame-child" />
-        <img className="icon2" loading="eager" alt="" src="/55-1@2x.png" />
-      </div>
-      <div className="login-inner">
-        <div className="title-text-parent">
-          <div className="title-text">
-            <div className="welcome-to-babyvaxpro-parent" >
+    return (
+        <ThemeProvider theme={defaultTheme}>
+            <Grid container component="main" sx={{ height: '100vh' }}>
+                <CssBaseline />
+                <Grid
+                    item
+                    xs={false}
+                    sm={4}
+                    md={7}
+                    sx={{
+                        backgroundImage: 'url(/log.png)',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundColor: (t) =>
+                            t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                    }}
+                />
+                <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+                    <Box
+                        sx={{
+                            my: 8,
+                            mx: 4,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                        }}
+                    >
+                        <img src="/2-101@2x.png" alt="logo" style={{ width: '200px', height: '150px', marginBottom: '-30px' }} />
 
-              <img
-                className="icon3"
-                loading="eager"
-                alt=""
-                src="/2-101@2x.png"
-              />
-              <div className="welcome-to-babyvaxpro">Welcome To BabyVaxPro</div>
-            </div>
-          </div>
-          {/* Information sheet */}
-          <div className="username-parent">
-            <div className="username41">UserName</div>
-            <Input
-              className="email-form"
-              variant="outlined"
-              sx={{
-                "& fieldset": { borderColor: "#4d4ddb" },
-                "& .MuiInputBase-root": { height: "45px" },
-              }}
-              placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}
-            />
-            <div className="username41">Password</div>
-            <Input
-              className="password-form"
-              variant="outlined"
-              sx={{
-                "& fieldset": { borderColor: "#4d4f", },
-                "& .MuiInputBase-root": { height: "45px" },
-              }}
-              placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}
-            />
+                        <Typography component="h1" variant="h5" style={{ marginBottom: '30px' }}>
+                            Welcome To BabyVaxPro
+                        </Typography>
+                        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
 
-            <div className="check-button">
-              <input className="chekbotton" type="checkbox" />
-              <span className="checkmark"></span>
+                            <div>User Name</div>
+                            <TextField
+                                margin="normal"
+                                required
+                                fullWidth
+                                name="username"
+                                label="User Name"
+                                autoComplete="username"
+                                id="username"
+                                autoFocus
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
 
-              <div className="remmber-me">Remember me</div>
-            </div>
+                            <div>Password</div>
+                            <TextField
+                                margin="normal"
+                                required
+                                fullWidth
+                                name="password"
+                                label="Password"
+                                type="password"
+                                id="password"
+                                autoComplete="current-password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
 
-            <div className="sign-in-text">
-              <div className="change-password" onClick={onChangePasswordTextClick}>
-                Change Password
-              </div>
-              <Button
-                className="button-sign-in"
-                disableElevation={true}
-                variant="contained"
-                sx={{
-                  textTransform: "none",
-                  color: "#fff",
-                  fontSize: "24",
-                  background: "#1e1e1e",
-                  borderRadius: "8px",
-                  "&:hover": { background: "#1e1e1e" },
-                  height: 55,
-                }}
-                onClick={handleLogin}>
-                  Sign In
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+                            <FormControlLabel
+                                control={<Checkbox value="remember" color="primary" />}
+                                label="Remember me"
+                            />
 
-export default Login;
+                            {error && (
+                                <Typography variant="body2" color="error" align="center" sx={{ mt: 1 }}>
+                                    {error}
+                                </Typography>
+                            )}
+
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                sx={{ mt: 3, mb: 2 }}
+                            >
+                                Sign In
+                            </Button>
+                            <Grid container>
+                                <Grid item xs>
+                                    <Link href="/forgot-password" variant="body2">
+                                        Forgot password?
+                                    </Link>
+                                </Grid>
+                            </Grid>
+
+                        </Box>
+                    </Box>
+                </Grid>
+            </Grid>
+        </ThemeProvider>
+    );
+}

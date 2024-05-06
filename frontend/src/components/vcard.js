@@ -34,7 +34,7 @@ export default function VCard() {
     const descriptions = ['Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.']; // Titles for the cards
-    const links = ['/signin', '/signin', '/signin']; // Links for the buttons
+    const links = ['/login', '/login', '/login']; // Links for the buttons
 
     return (
         <div style={{ marginBottom: "50px" }}>
