@@ -21,8 +21,8 @@ router.post("/create-health-acc", async (req, res) => {
             hcpNIC: nic,
             hcpPostalCode: postalCode,
             hcpEmail: email,
-            hcpUsername: username, // For Login
-            hcpPassword: hashedPassword
+            username: username, // For Login
+            password: hashedPassword
         });
 
         // Save the new account to the database using async/await
@@ -96,8 +96,8 @@ router.post("/create-parent-acc", async (req, res) => {
           PostalCode: postalcode,
           guardianEmail: email,
           guardianTelephoneNumber: telephone,
-          parentAccountUsername: username,
-          parentAccountPassword:password
+          username: username,
+          password:password
 
       });
       

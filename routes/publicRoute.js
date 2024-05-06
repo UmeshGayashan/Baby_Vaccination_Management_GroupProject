@@ -46,8 +46,8 @@ router.post("/login", async (req, res) => {
 
     // Find user by username
     const user = await userSchema.findOne({ username });
-    const guardian = await userSchema.findOne({ parentAccountUsername: username });
-    const healthcareProfessional = await userSchema.findOne({ hcpPassword: password });
+    const guardian = await guardianSchema.findOne({ username });
+    const healthcareProfessional = await healthcareProfessionalSchema.findOne({ username });
 
     // // Use async/await to find a user by username and password
     // const user = await userSchema.findOne({

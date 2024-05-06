@@ -1,13 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const ParentSchema = require("../schemas/guardianSchema");
-
+const bcrypt = require('bcrypt')
 
 //Mother or Guardian Account Creation
 router.post("/create-parent-acc", async (req, res) => {
     try {
         const { mfirstName, mlastName, mnic, address ,postalcode, email,telephone, username, password ,info} = req.body;
-
+        // Hash the password using bcrypt
+        const hashedPassword = await bcrypt.hash(password, 10);
         const newParentAcc = new ParentSchema({
             motherorGuardianName: {
               firstName: mfirstName,
@@ -18,8 +19,8 @@ router.post("/create-parent-acc", async (req, res) => {
             PostalCode: postalcode,
             guardianEmail: email,
             guardianTelephoneNumber: telephone,
-            parentAccountUsername: username,
-            parentAccountPassword:password,
+            username: username,
+            password: hashedPassword,
             additionalInfo:info
         });
 
