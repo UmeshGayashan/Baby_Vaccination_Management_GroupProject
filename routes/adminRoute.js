@@ -84,8 +84,9 @@ router.delete("/delete-helath-acc/:nic", async (req, res) => {
   //Mother or Guardian Account Creation
 router.post("/create-parent-acc", async (req, res) => {
   try {
-      const { mfirstName, mlastName, mnic, address ,postalcode, email,telephone, username, password } = req.body;
-
+      const { mfirstName, mlastName, mnic, address ,postalcode, email,telephone, username, password,info } = req.body;
+      // Hash the password using bcrypt
+      const hashedPassword = await bcrypt.hash(password, 10);
       const newParentAcc = new ParentSchema({
         motherorGuardianName: {
           firstName: mfirstName,
@@ -97,8 +98,8 @@ router.post("/create-parent-acc", async (req, res) => {
           guardianEmail: email,
           guardianTelephoneNumber: telephone,
           username: username,
-          password:password
-
+          password:hashedPassword,
+          additionalInfo:info
       });
       
 
