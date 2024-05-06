@@ -10,7 +10,8 @@ const vaccinationSchema = require("../schemas/vaccinationSchema")
 router.post("/create-health-acc", async (req, res) => {
     try {
         const { firstName, lastName, nic, postalCode, email, username, password } = req.body;
-
+        // Hash the password using bcrypt
+        const hashedPassword = await bcrypt.hash(password, 10); 
         const newHealthAcc = new healthcareProfessionalSchema({
             hcpName: {
               firstName: firstName,
@@ -20,7 +21,7 @@ router.post("/create-health-acc", async (req, res) => {
             hcpPostalCode: postalCode,
             hcpEmail: email,
             hcpUsername: username, // For Login
-            hcpPassword: password
+            hcpPassword: hashedPassword
         });
 
         // Save the new account to the database using async/await
