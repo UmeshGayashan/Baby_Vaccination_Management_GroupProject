@@ -23,12 +23,12 @@ const healthcareProfessionalSchema = mongoose.Schema({
         type:String,
         required:true
     },
-    hcpUsername:{
+    username:{
         type:String,
         required:true,
         unique:true
     },
-    hcpPassword:{
+    password:{
         type:String,
         required:true
     }

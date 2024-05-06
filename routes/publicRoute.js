@@ -61,7 +61,7 @@ router.post("/login", async (req, res) => {
     // });
 
     // const healthcareProfessional = await healthcareProfessionalSchema.findOne({
-    //   hcpUsername: username,
+    //   hcpUsername: username, 
     //   hcpPassword: password,
     // });
 

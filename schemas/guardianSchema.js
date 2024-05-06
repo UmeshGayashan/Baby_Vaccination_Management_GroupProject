@@ -31,12 +31,12 @@ const guardianSchema = mongoose.Schema({
         required:true,
         unique:true
     },
-    parentAccountUsername:{
+    username:{
         type:String,
         required:true,
         unique:true
     },
-    parentAccountPassword:{
+    password:{
         type:String,
         required:true
     },
