@@ -1,4 +1,4 @@
-
+import { useNavigate } from "react-router-dom";
 import "../pageCss/AddPerant.css";
 import HomeLink from "../../components/HomeLink";
 import Footer from "../../components/Footer";
@@ -10,6 +10,11 @@ import HAAPNavbar from "../../components/HA_addparentnavbar";
 
 const HAddPerant = () => {
 
+  const navigate = useNavigate();
+
+  const onNavButtonClick = useCallback(() => {
+    navigate("/high-admin-parants");
+  }, [navigate]);
   const [orderNotes, setOrderNotes] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
 
