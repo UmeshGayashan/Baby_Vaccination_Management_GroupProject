@@ -4,6 +4,7 @@ const healthcareProfessionalSchema = require("../schemas/healthcareProfessional"
 const ParentSchema = require("../schemas/guardianSchema");
 const babySchema = require("../schemas/babySchema");
 const vaccinationSchema = require("../schemas/vaccinationSchema")
+const bcrypt = require('bcrypt')
 
 
 //Healthcare Professional Account Creation
