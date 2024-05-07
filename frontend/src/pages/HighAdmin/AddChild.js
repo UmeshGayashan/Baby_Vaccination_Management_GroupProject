@@ -145,7 +145,7 @@ const handleGenderChange = (event) => {
                 <div className="text4">
                   <input
                     className="type-here6"
-                    placeholder="Enter NIC"
+                    placeholder="Enter NIC in Uppercase"
                     type="text"
                     value={mnic}
                     onChange={(e) => setNIC(e.target.value)}
@@ -177,7 +177,7 @@ const handleGenderChange = (event) => {
                 <div className="text6">
                   <input
                     className="type-here6"
-                    placeholder="Enter NIC"
+                    placeholder="Enter NIC in Uppercase"
                     type="text"
                     value={fatherNic}
                     onChange={(e) => setFatherNic(e.target.value)}
@@ -326,17 +326,7 @@ const handleGenderChange = (event) => {
                 </div>
               </div>
 
-              <div className="go-button">
-              <div className="input-birth-day">Registered Date</div>
-                <div className="spacing-vertical28">
-                </div>
-                <div className="spacing-vertical29">
-                  <div className="min-height57" />
-                </div>
-                <div className="native-chrome-date-picker-2">
-                  <DatePicker2 />
-                </div>
-              </div>
+              
 
 
             </div>
@@ -350,21 +340,15 @@ const handleGenderChange = (event) => {
       <div className="horizontal-spacing-array-parent">
         <div className="horizontal-spacing-array">
           <div className="gender-frame">
-            <div className="gender1">Gender</div>
-            <div className="radio-button1">
-              <input className="radio" type="radio" name="radioGroup-1" />
-              <div className="radio-selection">Male</div>
-            </div>
+            <div className="gender1"></div>
+            
           </div>
-          <div className="radio-button2">
-          <input className="radio1" type="radio" name="radioGroup-1" />
-              <div className="radio-selection1">Female</div>
-          </div>
+          
         </div>
 
         <div className="toggle1">
         <input className="radio" type="radio" name="radioGroup-1" />
-          <div className="off">Sent Email to Admin and Pearant</div>
+          <div className="off">Sent Email to Admin and Parent</div>
         </div>
         <div className="cta3">
           <Button href="/low-admin"
