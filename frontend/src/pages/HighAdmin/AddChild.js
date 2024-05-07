@@ -297,7 +297,7 @@ const handleGenderChange = (event) => {
                     className="type-here6"
                     placeholder="Male or Female or Other"
                     type="text"
-                    value={birthweight}
+                    value={birthDate}
                     onChange={(e) => setBirthDate(e.target.value)}
                   />
                 </div>
@@ -348,7 +348,7 @@ const handleGenderChange = (event) => {
 
         <div className="toggle1">
         <input className="radio" type="radio" name="radioGroup-1" />
-          <div className="off">Sent Email to Admin and Parent</div>
+          <div className="off">Sent Email to Parent</div>
         </div>
         <div className="cta3">
           <Button href="/low-admin"

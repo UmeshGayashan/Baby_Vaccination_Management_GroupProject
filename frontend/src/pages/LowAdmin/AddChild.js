@@ -1,13 +1,71 @@
-
+import { useNavigate } from "react-router-dom";
 import HomeLink from "../../components/HomeLink";
 import Footer from "../../components/Footer";
 import "../pageCss/AddChild.css";
+import React, { useCallback, useState } from "react";
 import LAACNavbar from "../../components/LA_addchildNavBar";
 import DatePicker2 from "../../components/Datepicker_2";
-import { Button,} from "@mui/material";
-
+import { Button } from "@mui/material";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const AddChild = () => {
+
+  const [mfirstName, setFName] = useState('');
+  const [mlastName, setLName] = useState('');
+  const [mnic, setNIC] = useState('');
+  const [fatherName, setFatherName] = useState('');
+  const [fatherNic, setFatherNic] = useState('');
+  const [bid, setEmail] = useState('');
+  const [gender, setGender] = useState('');
+  const [ofc, setOfc] = useState('');
+  const [birthDate, setBirthDate] = useState('');
+  const [birthweight, setBirthweight] = useState('');
+  const [birthHospital, setBirthHospital] = useState('');
+
+  // Function to create an account
+  const createAccount = async () => {
+    try {
+      console.log(birthweight);
+      const response = await fetch('http://localhost:4000/helathcare/create-baby-acc', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ mfirstName, mlastName, mnic, fatherName, fatherNic, bid, gender, ofc, birthDate,birthweight , birthHospital}),
+      });
+      
+      // if (response.status === 201) {
+      //   const data = await response.json();
+        
+      //   setAccountNo(data.accountNo);
+      //   //Alert
+      //   setShowSuccessAlert(true);
+      //   setTimeout(() => {
+      //   setShowSuccessAlert(false);}, 2000);
+      // } else {
+      //   console.error('Account creation failed');
+      //   //Alert
+      //   setShowFailureAlert(true);
+      //   setTimeout(() => {
+      //   setShowFailureAlert(false);}, 2000);
+      // }
+    } catch (error) {
+      console.error('Error:', error);
+      // //Alert
+      // setShowFailureAlert(true);
+      // setTimeout(() => {
+      // setShowFailureAlert(false);}, 2000);
+    }
+  };
+
+  function onChangeHandler(value) {
+    setBirthDate(value);
+};
+const handleGenderChange = (event) => {
+  setGender(event.target.value);
+};
+
 
   return (
     <div className="add-child">
@@ -28,39 +86,45 @@ const AddChild = () => {
           <div className="icon-container">
 
           <div className="password3">
-              <div className="input-text-label3">Mother NIC</div>
+              <div className="input-text-label3">First Name</div>
               <div className="input-field4">
                 <div className="text3">
                   <input
                     className="type-here6"
                     placeholder="Enter name"
                     type="text"
+                    value={mfirstName}
+                    onChange={(e) => setFName(e.target.value)}
                   />
                 </div>
               </div>
             </div>
   
             <div className="password3">
-              <div className="input-text-label3">Guardian NIC</div>
+              <div className="input-text-label3">Last Name</div>
               <div className="input-field4">
                 <div className="text3">
                   <input
                     className="type-here6"
                     placeholder="Enter name"
-                    type="text"
-                  />
+                   type="text"
+                    value={mlastName}
+                    onChange={(e) => setLName(e.target.value)}
+                   />
                 </div>
               </div>
 
             </div>
             <div className="password3">
-              <div className="input-text-label4">Child Name</div>
+              <div className="input-text-label4">Mother/Guardian’s NIC</div>
               <div className="input-field5">
                 <div className="text4">
                   <input
                     className="type-here6"
-                    placeholder="Enter name"
+                    placeholder="Enter NIC in Uppercase"
                     type="text"
+                    value={mnic}
+                    onChange={(e) => setNIC(e.target.value)}
                   />
 
                 </div>
@@ -75,6 +139,8 @@ const AddChild = () => {
                     className="type-here6"
                     placeholder="Enter name"
                     type="text"
+                    value={fatherName}
+                    onChange={(e) => setFatherName(e.target.value)}
                   />
 
                 </div>
@@ -87,10 +153,11 @@ const AddChild = () => {
                 <div className="text6">
                   <input
                     className="type-here6"
-                    placeholder="Enter name"
+                    placeholder="Enter NIC in Uppercase"
                     type="text"
+                    value={fatherNic}
+                    onChange={(e) => setFatherNic(e.target.value)}
                   />
-
                 </div>
               </div>
 
@@ -101,8 +168,10 @@ const AddChild = () => {
                 <div className="text7">
                   <input
                     className="type-here6"
-                    placeholder="Enter name"
+                    placeholder="Enter Hospital"
                     type="text"
+                    value={birthHospital}
+                    onChange={(e) => setBirthHospital(e.target.value)}
                   />
 
                 </div>
@@ -110,13 +179,15 @@ const AddChild = () => {
 
             </div>
             <div className="password3">
-              <div className="input-text-label8">Weigh</div>
+              <div className="input-text-label8">Weight</div>
               <div className="input-field9">
                 <div className="text8">
                   <input
                     className="type-here6"
                     placeholder="Weigh"
                     type="text"
+                    value={birthweight}
+                    onChange={(e) => setBirthweight(e.target.value)}
                   />
 
                 </div>
@@ -132,11 +203,82 @@ const AddChild = () => {
                     className="type-here6"
                     placeholder="mm"
                     type="text"
+                    value={ofc}
+                    onChange={(e) => setOfc(e.target.value)}
                   />
                 </div>
               </div>
             </div>
 
+            <div className="password3">
+              <div className="input-text-label9">Gender</div>
+              <div className="input-field10">
+
+                <div className="text8">
+                  <input
+                    className="type-here6"
+                    placeholder="Male or Female or Other"
+                    type="text"
+                    value={gender}
+                    onChange={(e) => setGender(e.target.value)}
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="password3" style={{ display: 'flex', alignItems: 'center' }}>
+            <div className="gender1" style={{ marginRight: '20px' }}>Gender:</div>
+            <div className="radio-button1" style={{ marginRight: '10px' }}>
+                <input
+                    className="radio"
+                    type="radio"
+                    name="radioGroup-1"
+                    value="Male"
+                    checked={gender === 'Male'}
+                    onChange={handleGenderChange}
+                />
+                <label className="radio-selection">Male</label>            
+            </div>
+            <div className="radio-button2" style={{ marginRight: '10px' }}>
+                <input
+                    className="radio1"
+                    type="radio"
+                    name="radioGroup-1"
+                    value="Female"
+                    checked={gender === 'Female'}
+                    onChange={handleGenderChange}
+                />
+                <label className="radio-selection1">Female</label>
+            </div>
+            <div className="radio-button2">
+                <input
+                    className="radio"
+                    type="radio"
+                    name="radioGroup-1"
+                    value="Other"
+                    checked={gender === 'Other'}
+                    onChange={handleGenderChange}
+                />
+                <label className="radio-selection">Other</label>
+            </div>
+        </div>
+        
+
+        <div className="password3">
+              <div className="input-text-label9">BirthDay</div>
+              <div className="input-field10">
+
+                <div className="text8">
+                  <input
+                    className="type-here6"
+                    placeholder="Male or Female or Other"
+                    type="text"
+                    value={birthDate}
+                    onChange={(e) => setBirthDate(e.target.value)}
+                  />
+                </div>
+              </div>
+            </div>
 
             <div className="clear-button">
               <div className="go-button">
@@ -147,21 +289,20 @@ const AddChild = () => {
                   <div className="min-height57" />
                 </div>
                 <div className="native-chrome-date-picker-2">
-                  <DatePicker2 />
+                <DatePicker
+            id="dateStartEnd"
+            selected={birthDate}
+            onChange={onChangeHandler}
+            dateFormat="dd MMM yyyy"
+            className={'form-control form-control-sm'}
+            showDisabledMonthNavigation
+            open
+            
+        />
                 </div>
               </div>
 
-              <div className="go-button">
-              <div className="input-birth-day">Registered Date</div>
-                <div className="spacing-vertical28">
-                </div>
-                <div className="spacing-vertical29">
-                  <div className="min-height57" />
-                </div>
-                <div className="native-chrome-date-picker-2">
-                  <DatePicker2 />
-                </div>
-              </div>
+              
 
 
             </div>
@@ -175,928 +316,15 @@ const AddChild = () => {
       <div className="horizontal-spacing-array-parent">
         <div className="horizontal-spacing-array">
           <div className="gender-frame">
-            <div className="gender1">Gender</div>
-            <div className="radio-button1">
-              <input className="radio" type="radio" name="radioGroup-1" />
-              <div className="radio-selection">Male</div>
-            </div>
-          </div>
-          <div className="radio-button2">
-          <input className="radio1" type="radio" name="radioGroup-1" />
-              <div className="radio-selection1">Female</div>
-          </div>
-        </div>
-       
-        <div className="row210">
-          <div className="checkbox31">
-             
-          <input className="checkbox34" type="checkbox" />
-            <div className="checked">Vaccine 01 </div>
-          </div>
-          <div className="username5">
-            <div className="input-text-label10">Date</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Data" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Location</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Location" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Time</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Time" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-        
-
-          <div className="username5">
-            <div className="input-text-label10">Age</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Age" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-       
-          <div className="username5">
-            <div className="input-text-label11">Bottle Code</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Code" type="text" />
-                
-              </div>
-            </div>
-
+            <div className="gender1"></div>
             
           </div>
-          <div className="username5">
-            <div className="input-text-label12">Vaccinator Name</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Name" type="text" />
-                
-              </div>
-            </div>
-
-           
-          </div>
-          <div className="spacing-horizontal12">
-            <div className="frame-spacer-array">
-              <div className="spacer12" />
-            </div>
-          </div>
+          
         </div>
-
-
-        <div className="row211">
-          <div className="checkbox33">
-            <input className="checkbox34" type="checkbox" />
-            <div className="checked1">Vaccine 02 </div>
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Date</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Data" type="text" /> 
-              </div>
-            </div>
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Location</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Location" type="text" />
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Time</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Time" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Age</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Age" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Bottle Code</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Code" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Vaccinator Name</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Name" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-          <div className="spacing-horizontal12">
-            <div className="frame-spacer-array">
-              <div className="spacer12" />
-            </div>
-          </div>
-        </div>
-
-
-        <div className="row212">
-          <div className="checkbox35">
-            <input className="checkbox36" type="checkbox" />
-            <div className="unchecked">Vaccine 03 </div>
-          </div>
-          <div className="username5">
-            <div className="input-text-label10">Date</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Data" type="text" /> 
-              </div>
-            </div>
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Location</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Location" type="text" />
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Time</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Time" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Age</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Age" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Bottle Code</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Code" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Vaccinator Name</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Name" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-          <div className="spacing-horizontal12">
-            <div className="frame-spacer-array">
-              <div className="spacer12" />
-            </div>
-          </div>
-        </div>
-
-
-        <div className="row213">
-          <div className="checkbox37">
-            <input className="checkbox38" type="checkbox" />
-            <div className="unchecked1">Vaccine 04 </div>
-          </div>
-          <div className="username5">
-            <div className="input-text-label10">Date</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Data" type="text" /> 
-              </div>
-            </div>
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Location</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Location" type="text" />
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Time</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Time" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Age</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Age" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Bottle Code</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Code" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Vaccinator Name</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Name" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-          <div className="spacing-horizontal12">
-            <div className="frame-spacer-array">
-              <div className="spacer12" />
-            </div>
-          </div>
-        </div>
-
-
-        <div className="row214">
-          <div className="checkbox39">
-            <input className="checkbox40" type="checkbox" />
-            <div className="unchecked2">Vaccine 05 </div>
-          </div>
-          <div className="username5">
-            <div className="input-text-label10">Date</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Data" type="text" /> 
-              </div>
-            </div>
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Location</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Location" type="text" />
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Time</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Time" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Age</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Age" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Bottle Code</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Code" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Vaccinator Name</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Name" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-          <div className="spacing-horizontal12">
-            <div className="frame-spacer-array">
-              <div className="spacer12" />
-            </div>
-          </div>
-        </div>
-
-
-        <div className="row215">
-          <div className="checkbox41">
-            <input className="checkbox42" type="checkbox" />
-            <div className="unchecked3">Vaccine 06 </div>
-          </div>
-          <div className="username5">
-            <div className="input-text-label10">Date</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Data" type="text" /> 
-              </div>
-            </div>
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Location</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Location" type="text" />
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Time</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Time" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Age</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Age" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Bottle Code</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Code" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Vaccinator Name</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Name" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-          <div className="spacing-horizontal12">
-            <div className="frame-spacer-array">
-              <div className="spacer12" />
-            </div>
-          </div>
-        </div>
-
-
-        <div className="row216">
-          <div className="checkbox43">
-            <input className="checkbox44" type="checkbox" />
-            <div className="unchecked4">Vaccine 07 </div>
-          </div>
-          <div className="username5">
-            <div className="input-text-label10">Date</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Data" type="text" /> 
-              </div>
-            </div>
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Location</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Location" type="text" />
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Time</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Time" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Age</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Age" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Bottle Code</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Code" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Vaccinator Name</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Name" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-          <div className="spacing-horizontal12">
-            <div className="frame-spacer-array">
-              <div className="spacer12" />
-            </div>
-          </div>
-        </div>
-
-
-        <div className="row217">
-          <div className="checkbox45">
-            <input className="checkbox46" type="checkbox" />
-            <div className="unchecked5">Vaccine 08 </div>
-          </div>
-          <div className="username5">
-            <div className="input-text-label10">Date</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Data" type="text" /> 
-              </div>
-            </div>
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Location</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Location" type="text" />
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Time</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Time" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Age</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Age" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Bottle Code</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Code" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Vaccinator Name</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Name" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-          <div className="spacing-horizontal12">
-            <div className="frame-spacer-array">
-              <div className="spacer12" />
-            </div>
-          </div>
-        </div>
-
-
-        <div className="row218">
-          <div className="checkbox47">
-            <input className="checkbox48" type="checkbox" />
-            <div className="unchecked6">Vaccine 09 </div>
-          </div>
-          <div className="username5">
-            <div className="input-text-label10">Date</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Data" type="text" /> 
-              </div>
-            </div>
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Location</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Location" type="text" />
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Time</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Time" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Age</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Age" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Bottle Code</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Code" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Vaccinator Name</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Name" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-          <div className="spacing-horizontal12">
-            <div className="frame-spacer-array">
-              <div className="spacer12" />
-            </div>
-          </div>
-        </div>
-
-
-        <div className="row219">
-          <div className="checkbox49">
-            <input className="checkbox50" type="checkbox" />
-            <div className="unchecked7">Vaccine 10 </div>
-          </div>
-          <div className="username5">
-            <div className="input-text-label10">Date</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Data" type="text" /> 
-              </div>
-            </div>
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Location</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Location" type="text" />
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Time</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Time" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Age</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Age" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Bottle Code</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Code" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Vaccinator Name</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Name" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-          <div className="spacing-horizontal12">
-            <div className="frame-spacer-array">
-              <div className="spacer12" />
-            </div>
-          </div>
-        </div>
-
-
-        <div className="row220">
-          <div className="checkbox51">
-            <input className="checkbox52" type="checkbox" />
-            <div className="unchecked8">Vaccine 11 </div>
-          </div>
-          <div className="username5">
-            <div className="input-text-label10">Date</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Data" type="text" /> 
-              </div>
-            </div>
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Location</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Location" type="text" />
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Time</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Time" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Age</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Age" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Bottle Code</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Code" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Vaccinator Name</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Name" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-          <div className="spacing-horizontal12">
-            <div className="frame-spacer-array">
-              <div className="spacer12" />
-            </div>
-          </div>
-        </div>
-        <div className="row221">
-          <div className="checkbox53">
-            <input className="checkbox54" type="checkbox" />
-            <div className="unchecked9">Vaccine 12 </div>
-          </div>
-          <div className="username5">
-            <div className="input-text-label10">Date</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Data" type="text" /> 
-              </div>
-            </div>
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Location</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Location" type="text" />
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Time</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Time" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Age</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Age" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Bottle Code</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Code" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-
-          <div className="username5">
-            <div className="input-text-label10">Vaccinator Name</div>
-            <div className="input-field11">
-              <div className="text11">
-                <input className="type-here7" placeholder="Name" type="text" />
-                
-              </div>
-            </div>
-           
-          </div>
-          <div className="spacing-horizontal12">
-            <div className="frame-spacer-array">
-              <div className="spacer12" />
-            </div>
-          </div>
-        </div>
-
 
         <div className="toggle1">
         <input className="radio" type="radio" name="radioGroup-1" />
-          <div className="off">Sent Email to Admin and Pearant</div>
+          <div className="off">Sent Email to Admin and Parent</div>
         </div>
         <div className="cta3">
           <Button href="/low-admin"
@@ -1116,7 +344,7 @@ const AddChild = () => {
           >
             Cancel
           </Button>
-          <Button href="/low-admin"
+          <Button
             className="buttons1"
             disableElevation={true}
             variant="contained"
@@ -1130,7 +358,7 @@ const AddChild = () => {
               width: 172,
               height: 56,
             }}
-            
+            onClick={createAccount}
           >
             Save
           </Button>
