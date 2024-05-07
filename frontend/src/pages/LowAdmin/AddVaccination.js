@@ -2,10 +2,72 @@ import HomeLink from "../../components/HomeLink";
 import Footer from "../../components/Footer";
 import "../pageCss/AddChild.css";
 import DatePicker2 from "../../components/Datepicker_2";
+import React, { useCallback, useState } from "react";
 import { Button, } from "@mui/material";
 import HAACNavbar from "../../components/HA_addchildnavbar";
 
 const HVaccination = () => {
+
+  const [babyId, setBabyId] = useState('');
+  const [accountInfo, setAccountInfo] = useState(null);
+  const [vaccine, setVaccineName] = useState('');
+  const [vaccineNo, setVaccineNo] = useState('');
+  const [vaccinator, setVaccinator] = useState('');
+  const [bcode, setBottle_code] = useState('');
+  const [location, setLocation] = useState('');
+  // Function to create an account
+  const createAccount = async () => {
+    try {
+      const response = await fetch('http://localhost:4000/helathcare/vacc-adding', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ babyId, vaccine, vaccineNo, vaccinator, bcode, location}),
+      });
+      
+      // if (response.status === 201) {
+      //   const data = await response.json();
+        
+      //   setAccountNo(data.accountNo);
+      //   //Alert
+      //   setShowSuccessAlert(true);
+      //   setTimeout(() => {
+      //   setShowSuccessAlert(false);}, 2000);
+      // } else {
+      //   console.error('Account creation failed');
+      //   //Alert
+      //   setShowFailureAlert(true);
+      //   setTimeout(() => {
+      //   setShowFailureAlert(false);}, 2000);
+      // }
+    } catch (error) {
+      console.error('Error:', error);
+      // //Alert
+      // setShowFailureAlert(true);
+      // setTimeout(() => {
+      // setShowFailureAlert(false);}, 2000);
+    }
+  };
+
+  // Function to retrieve account information
+  const getAccountInfo = async () => {
+    try {
+      const response = await fetch(`http://localhost:4000/helathcare/baby-acc-info/${babyId}`); // Use the correct API route
+      if (response.status === 200) {
+        const data = await response.json();
+        setAccountInfo(data);
+      } else {
+        console.error('Account information retrieval failed');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  const handleVaccineNameChange = (event) => {
+    setVaccineName(event.target.value);
+  };
 
   return (
     <div className="add-child">
@@ -34,18 +96,49 @@ const HVaccination = () => {
                       className="type-here6"
                       placeholder="Enter Child ID"
                       type="text"
+                      value={babyId}
+                    onChange={(e) => setBabyId(e.target.value)}
                     />
                   </div>
+                  
                 </div>
+                <button className="primary-button"
+                variant="contained"
+                sx={{
+                  textTransform: "none",
+                  color: "#000",
+                  fontSize: "16",
+                  background: "#f2c94c",
+                  borderRadius: "4px",
+                  "&:hover": { background: "#f2c94c" },
+                  width: 187,
+                  height: 51,
+                }} onClick={getAccountInfo}>Get Account Info</button>
+        {accountInfo && (
+        <div className='container'>
+            
+            <div className="password3">
+                <div className="input-text-label3" style={{fontSize:'20px', marginBottom:"10px"}}>Account Information</div>
               </div>
+          
+          {/* <button className="btn btn-danger btn-lg" onClick={deleteAccount}>Delete Account</button> */}
+          {accountInfo && (
+            <div>
 
-              <div className="password3">
-                <div className="input-text-label3" style={{fontSize:'20px', marginBottom:"10px"}}>Child  First Name : </div>
+              <p>First Name: {accountInfo.babyName.firstName}</p>
+              <p>Last Name: {accountInfo.babyName.lastName}</p>
+              <p>Mother's or Guardian’s NIC: {accountInfo.motherorGuardianNIC}</p>
+              <p>Father’s NIC: {accountInfo.fatherNic}</p>
+            </div>
+          )}
+        </div>
+      )}
               </div>
+        
 
-              <div className="password3">
-                <div className="input-text-label3" style={{fontSize:'20px', marginBottom:"10px"}}>Child  Last Name : </div>
-              </div>
+              
+
+              
             </div>
           </div>
         </div>
@@ -65,49 +158,101 @@ const HVaccination = () => {
                   <div className="text3">
                     <input
                       className="type-here6"
-                      placeholder="Enter Child ID"
+                      placeholder="Enter Another Vaccination Name"
                       type="text"
+                      value={vaccine}
+                    onChange={(e) => setVaccineName(e.target.value)}
                     />
                   </div>
                 </div>
               </div>
 
               <div className="password3" style={{ display: 'flex', alignItems: 'center' }}>
-            <div className="gender1" style={{ marginRight: '20px' }}>Gender:</div>
+            <div className="gender1" style={{ marginRight: '20px' }}>Vaccine Name:</div>
             <div className="radio-button1" style={{ marginRight: '10px' }}>
                 <input
                     className="radio"
                     type="radio"
                     name="radioGroup-1"
-                    value="Male"
-                    checked={gender === 'Male'}
-                    onChange={handleGenderChange}
+                    value="BCG"
+                    checked={vaccine === 'BCG'}
+                    onChange={handleVaccineNameChange}
                 />
-                <label className="radio-selection">Male</label>            
+                <label className="radio-selection">BCG</label>            
+            </div>
+            <div className="radio-button1" style={{ marginRight: '10px' }}>
+                <input
+                    className="radio"
+                    type="radio"
+                    name="radioGroup-1"
+                    value="DPT-HepB-Hib or OPV & DTP"
+                    checked={vaccine === 'DPT-HepB-Hib or OPV & DTP'}
+                    onChange={handleVaccineNameChange}
+                />
+                <label className="radio-selection">OPV & Pentavalent</label>            
             </div>
             <div className="radio-button2" style={{ marginRight: '10px' }}>
                 <input
                     className="radio1"
                     type="radio"
                     name="radioGroup-1"
-                    value="Female"
-                    checked={gender === 'Female'}
-                    onChange={handleGenderChange}
+                    value="MMR"
+                    checked={vaccine === 'MMR'}
+                    onChange={handleVaccineNameChange}
                 />
-                <label className="radio-selection1">Female</label>
+                <label className="radio-selection1">MMR</label>
             </div>
-            <div className="radio-button2">
+            <div className="radio-button2" style={{ marginRight: '10px' }}>
                 <input
                     className="radio"
                     type="radio"
                     name="radioGroup-1"
-                    value="Other"
-                    checked={gender === 'Other'}
-                    onChange={handleGenderChange}
+                    value="Live JE"
+                    checked={vaccine === 'Live JE'}
+                    onChange={handleVaccineNameChange}
                 />
-                <label className="radio-selection">Other</label>
+                <label className="radio-selection">Live JE</label>
+            </div>
+            <div className="radio-button2" style={{ marginRight: '10px' }}>
+                <input
+                    className="radio"
+                    type="radio"
+                    name="radioGroup-1"
+                    value="HPV"
+                    checked={vaccine === 'HPV'}
+                    onChange={handleVaccineNameChange}
+                />
+                <label className="radio-selection">HPV</label>
+            </div>
+
+            <div className="radio-button2" style={{ marginRight: '10px' }}>
+                <input
+                    className="radio"
+                    type="radio"
+                    name="radioGroup-1"
+                    value="Adult Tetanus Diphtheria"
+                    checked={vaccine === 'Adult Tetanus Diphtheria'}
+                    onChange={handleVaccineNameChange}
+                />
+                <label className="radio-selection">aTd</label>
             </div>
         </div>
+
+
+        <div className="password3">
+                <div className="input-text-label3">Dose Number</div>
+                <div className="input-field4">
+                  <div className="text3">
+                    <input
+                      className="type-here6"
+                      placeholder="Enter Number"
+                      type="number"
+                      value={vaccineNo}
+                    onChange={(e) => setVaccineNo(e.target.value)}
+                    />
+                  </div>
+                </div>
+              </div>
 
               <div className="password3">
                 <div className="input-text-label3">Vaccinator</div>
@@ -117,6 +262,8 @@ const HVaccination = () => {
                       className="type-here6"
                       placeholder="Enter name"
                       type="text"
+                      value={vaccinator}
+                    onChange={(e) => setVaccinator(e.target.value)}
                     />
                   </div>
                 </div>
@@ -128,8 +275,10 @@ const HVaccination = () => {
                   <div className="text3">
                     <input
                       className="type-here6"
-                      placeholder="Enter name"
+                      placeholder="Enter Code"
                       type="text"
+                      value={bcode}
+                    onChange={(e) => setBottle_code(e.target.value)}
                     />
                   </div>
                 </div>
@@ -141,8 +290,10 @@ const HVaccination = () => {
                   <div className="text4">
                     <input
                       className="type-here6"
-                      placeholder="Enter name"
+                      placeholder="Enter Location"
                       type="text"
+                      value={location}
+                    onChange={(e) => setLocation(e.target.value)}
                     />
 
                   </div>
@@ -166,7 +317,7 @@ const HVaccination = () => {
                   >
                     Cancel
                   </Button>
-                  <Button href="/low-admin"
+                  <Button
                     className="buttons1"
                     disableElevation={true}
                     variant="contained"
@@ -180,7 +331,7 @@ const HVaccination = () => {
                       width: 172,
                       height: 56,
                     }}
-
+                    onClick={createAccount}
                   >
                     Save
                   </Button>
