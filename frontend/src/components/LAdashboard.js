@@ -37,6 +37,14 @@ function LAdminDashBoard() {
         <ListItemText primary=" Why Vaccines" />
       </ListItemButton> */}
 
+            <ListItemButton component={Link} to="/hVacctination">
+                <ListItemIcon>
+                    <GradeIcon />
+                </ListItemIcon>
+                <ListItemText primary=" Add Vaccination" />
+            </ListItemButton>
+
+
             <ListItemButton component={Link} to="/add-child">
                 <ListItemIcon>
                     <GradeIcon />

@@ -26,6 +26,7 @@ import HAddChild from "./pages/HighAdmin/AddChild";
 import HUpdateChild from "./pages/HighAdmin/UpdateChild";
 import HAddPerant from "./pages/HighAdmin/AddPerant";
 import HUpdateParent from "./pages/HighAdmin/UpdateParent";
+import HVaccination from "./pages/LowAdmin/AddVaccination";
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
       <Route path="/table" element={<Table/>}/>
       <Route path="/iv" element={<IVaccines/>}/>
       <Route path="/contactus" element={<ContactUs/>}/>
+      <Route path="/hVacctination" element ={<HVaccination/>}/>
     </Routes>
   );
 }

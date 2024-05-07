@@ -37,6 +37,13 @@ function HAdminDashBoard() {
         <ListItemText primary=" Why Vaccines" />
       </ListItemButton> */}
 
+              <ListItemButton component={Link} to="/hupdate-child">
+                <ListItemIcon>
+                    <GradeIcon />
+                </ListItemIcon>
+                <ListItemText primary=" Add Vaccination" />
+            </ListItemButton>
+
             <ListItemButton component={Link} to="/hadd-child">
                 <ListItemIcon>
                     <GradeIcon />
