@@ -57,9 +57,9 @@ const HAddPerant = () => {
       //   //Alert
       //   setShowSuccessAlert(true);
       //   setTimeout(() => {
-      //   setShowSuccessAlert(false);}, 2000);
+      //   setShowSuccessAlert(fse);}, 2000);
       // } else {
-      //   console.error('Account creation failed');
+      //   console.erralor('Account creation failed');
       //   //Alert
       //   setShowFailureAlert(true);
       //   setTimeout(() => {
