@@ -73,7 +73,6 @@ router.post("/create-baby-acc", async (req, res) => {
       Bid: babyId,
       gender: gender,
       ofc: ofc,
-      birthTime:birthTime,
       birthDate: birthDate,
       weight: birthweight,
       hospitalName: birthHospital

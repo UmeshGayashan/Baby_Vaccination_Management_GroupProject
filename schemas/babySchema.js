@@ -33,11 +33,6 @@ const babySchema = mongoose.Schema({
     ofc: 
     { 
         type: String 
-    }, 
-    birthTime: 
-    { 
-        type: String, 
-        required: true 
     },
     birthDate: 
     { 

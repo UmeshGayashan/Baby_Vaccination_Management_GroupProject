@@ -159,7 +159,7 @@ router.delete("/delete-parent-acc/:nic", async (req, res) => {
 //Baby Account Creation
 router.post("/create-baby-acc", async (req, res) => {
   try {
-    const {mfirstName, mlastName, mnic, gender, ofc, birthTime , birthDate ,birthweight , birthHospital, fatherName, fatherNic} = req.body;
+    const {mfirstName, mlastName, mnic, gender, ofc , birthDate ,birthweight , birthHospital, fatherName, fatherNic} = req.body;
     const babyId = Math.floor(Math.random() * 100000000);
 
     const newBabyAcc = new babySchema({
@@ -173,7 +173,6 @@ router.post("/create-baby-acc", async (req, res) => {
       bid: babyId,
       gender: gender,
       ofc: ofc,
-      birthTime:birthTime,
       birthDate: birthDate,
       weight: birthweight,
       hospitalName: birthHospital
