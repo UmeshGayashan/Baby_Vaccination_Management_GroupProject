@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const ParentSchema = require("../schemas/guardianSchema");
+const babySchema = require("../schemas/babySchema");
 const bcrypt = require('bcrypt')
 
 //Mother or Guardian Account Creation
@@ -58,10 +59,10 @@ router.put("/update-parent-acc/:nic", async (req, res) => {
     }
   });
 
-  //Baby Account Creation
+//Baby Account Creation
 router.post("/create-baby-acc", async (req, res) => {
   try {
-    const {mfirstName, mlastName, mnic, gender, ofc, birthTime , birthDate ,birthweight , birthHospital} = req.body;
+    const {mfirstName, mlastName, mnic, gender, ofc , birthDate ,birthweight , birthHospital, fatherName, fatherNic} = req.body;
     const babyId = Math.floor(Math.random() * 100000000);
 
     const newBabyAcc = new babySchema({
@@ -70,7 +71,9 @@ router.post("/create-baby-acc", async (req, res) => {
         lastName: mlastName,
       },
       motherorGuardianNIC: mnic,
-      Bid: babyId,
+      fatherName:fatherName,
+      fatherNic: fatherNic,
+      bid: babyId,
       gender: gender,
       ofc: ofc,
       birthDate: birthDate,
@@ -81,7 +84,7 @@ router.post("/create-baby-acc", async (req, res) => {
     // Save the new account to the database using async/await
     const savedBabyAccount = await newBabyAcc.save();
 
-    return res.status(201).send(savedBabyAccount); // Send HTTP 201 for resource creation along with the saved account's data
+    return res.status(201).send({savedBabyAccount,babyId}); // Send HTTP 201 for resource creation along with the saved account's data
   } catch (err) {
     return res.status(500).send("Account creation failed: " + err.message); // Handle database errors
   }
