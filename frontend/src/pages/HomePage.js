@@ -37,9 +37,8 @@ const HomePage = () => {
         {/* vaccination boxes */}
         
      <div style={{marginTop:"3000px"}} > <VCard/>
-    
-
     </div>
+    
       </div>
       <Footer />
       

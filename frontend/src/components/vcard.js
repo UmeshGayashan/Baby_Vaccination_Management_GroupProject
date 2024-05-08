@@ -73,7 +73,6 @@ export default function VCard() {
                     ))}
                 </div>
             </div>
-
         </div>
     );
 }
