@@ -13,6 +13,10 @@ const vaccinationSchema = new mongoose.Schema({
     type: String, 
     required: true 
   },
+  vaccineNo: { 
+    type: Number, 
+    required: true 
+  },
   bottle_code: { 
     type: String,
     required:true,

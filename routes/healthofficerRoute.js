@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const ParentSchema = require("../schemas/guardianSchema");
 const babySchema = require("../schemas/babySchema");
+const vaccinationSchema = require("../schemas/vaccinationSchema");
 const bcrypt = require('bcrypt')
 
 //Mother or Guardian Account Creation
@@ -114,4 +115,74 @@ router.put("/update-baby-acc/:babyId", async (req, res) => {
       .send("Error while updating account information: " + err.message);
   }
 });
+
+// Get Baby Acount Details
+router.get("/baby-acc-info/:babyId",async(req,res) => {
+  try{
+      const {babyId} = req.params;
+      const account = await babySchema.findOne({bid:babyId});
+
+      if(!account){
+        return res.status(400).send("Account not found");
+      }
+      return res.status(200).send(account);
+
+  }catch(err){
+    return res
+    .status(500)
+    .send("Error while fetching Account Information: "+ err.message);
+  }
+})
+
+// Baby Vaccination Adding
+router.post("/vacc-adding", async (req, res) => {
+  try {
+    const { babyId, vaccine,vaccineNo, vaccinator, bcode, location } = req.body;
+
+    const newVaccine = new vaccinationSchema({
+      bid: babyId,
+      vacname: vaccine,
+      vaccineNo,
+      vaccinator,
+      bottle_code: bcode, // Updated to use shorthand property name
+      "dateTime.date": new Date().toLocaleDateString(),
+      "dateTime.time": new Date().toLocaleTimeString(),
+      location,
+    });
+
+    // Save the new vaccine to the database using async/await
+    const savedVaccination = await newVaccine.save();
+
+    return res.status(201).send(savedVaccination); // Send HTTP 201 for resource creation along with the saved vaccination data
+  } catch (err) {
+    return res.status(500).send("Vaccination Adding failed: " + err.message); // Handle database errors
+  }
+});
+
+//Update Vaccination Details
+router.put("/update-vacc/:bcode", async (req, res) => {
+  try {
+    const bcode = req.params.bcode;
+    //In request body use Schema Attributes
+    const updateData = req.body;
+    console.log(updateData);
+    const details = await vaccinationSchema.findOneAndUpdate(
+      { bottle_code: bcode },
+      updateData,
+      { new: true }
+    );
+
+    if (!details) {
+      return res.status(404).send("Vacc Details not found");
+    }
+
+    return res.status(200).send(details);
+  } catch (err) {
+    return res
+      .status(500)
+      .send("Error while updating vaccination details: " + err.message);
+  }
+});
+
+
 module.exports = router; // Export the router instance
