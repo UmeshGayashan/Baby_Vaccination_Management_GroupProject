@@ -73,8 +73,11 @@ router.post("/login", async (req, res) => {
         return res.status(401).send("Invalid password");
       }
       else{
-        // Generate and send JWT token for authentication
-      const token = generateToken(user._id);
+      // Generate and send JWT token for authentication
+      const token = generateToken(user._id,"User");
+      //sending the cookie
+      res.cookie('jwt', token, { httpOnly: true, maxAge: 3600000 });
+      console.log(token);
       return res.status(200).json({ userType: "User", token: token });
       }
       
@@ -85,9 +88,9 @@ router.post("/login", async (req, res) => {
         return res.status(401).send("Invalid password");
       }
       else{
-        const token = generateToken(guardian._id);
-        return res.status(200).json({ userType: "Guardian" , token: token});
-      //return res.status(200).json({ token: generateToken(user._id) });
+        const token = generateToken(guardian._id,"Guardian");
+        res.cookie('jwt', token, { httpOnly: true, maxAge: 3600000 });
+        return res.status(200).json({ userType: "Guardian" , token: token, guardian});
       }
       
     } else if (healthcareProfessional) {
@@ -97,7 +100,8 @@ router.post("/login", async (req, res) => {
         return res.status(401).send("Invalid password");
       }
       else{
-        const token = generateToken(healthcareProfessional._id);
+        const token = generateToken(healthcareProfessional._id,"Healthcare Professional");
+        res.cookie('jwt', token, { httpOnly: true, maxAge: 3600000 });
       return res.status(200).json({ userType: "Healthcare Professional", token: token });
       //return res.status(200).json({ token: generateToken(user._id) });
       }
