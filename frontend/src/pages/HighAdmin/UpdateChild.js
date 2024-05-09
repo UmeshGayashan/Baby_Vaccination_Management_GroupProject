@@ -13,7 +13,7 @@ const HUpdateChild = () => {
       <HAACNavbar />
 
       {/* header  */}
-      <HomeLink addChild="Add Vaccination Details" />
+      <HomeLink addChild="Update Child Details" />
 
       <section className="blog-link">
         <div className="linked-in-link" />
@@ -158,5 +158,7 @@ const HUpdateChild = () => {
     </div >
   );
 };
+
+
 
 export default HUpdateChild;

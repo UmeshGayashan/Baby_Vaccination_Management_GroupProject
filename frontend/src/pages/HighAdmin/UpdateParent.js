@@ -6,16 +6,22 @@ import Footer from "../../components/Footer";
 import "../../components/comCss/MothersNameField.css";
 import React, { useCallback, useState } from "react";
 import { Button } from "@mui/material";
-import HAAPNavbar from "../../components/HA_addparentnavbar";
+import LAAPNavbar from "../../components/LA_addparentnavbar";
 
 
 const HUpdatePerant = () => {
+  const navigate = useNavigate();
+
+  const onNavButtonClick = useCallback(() => {
+    navigate("/low-admin-parants");
+  }, [navigate]);
+
 
   const [orderNotes, setOrderNotes] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
 
   const onButtons1Click = useCallback(() => {
-    navigate("high-admin-parants");
+    navigate("low-admin-parants");
   }, [navigate]);
 
   const handleFileChange = (event) => {
@@ -26,7 +32,7 @@ const HUpdatePerant = () => {
   return (
     <div className="add-perant">
       {/* Navbar */}
-      <HAAPNavbar/>
+     <LAAPNavbar/>
       <HomeLink addChild="Update Parant" />
 
       <section className="blog-link">
@@ -36,8 +42,6 @@ const HUpdatePerant = () => {
       <section className="mothers-name-field">
         {/* Inputfield */}
         {/* <MothersNameField /> */}
-
-
         <div className="mothers-name-field1" style={{ marginLeft: "50px" }}>
           <div className="mothers-name-field2">
             <h1 className="information-form1" style={{ marginTop: "30px" }}>Information Form</h1>

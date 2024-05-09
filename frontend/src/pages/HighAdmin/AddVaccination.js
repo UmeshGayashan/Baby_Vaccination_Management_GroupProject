@@ -1,12 +1,11 @@
 import HomeLink from "../../components/HomeLink";
 import Footer from "../../components/Footer";
 import "../pageCss/AddChild.css";
-import DatePicker2 from "../../components/Datepicker_2";
 import React, { useCallback, useState } from "react";
 import { Button, } from "@mui/material";
 import HAACNavbar from "../../components/HA_addchildnavbar";
 
-const LAVaccination = () => {
+const HAVaccination = () => {
 
   const [babyId, setBabyId] = useState('');
   const [accountInfo, setAccountInfo] = useState(null);
@@ -18,7 +17,7 @@ const LAVaccination = () => {
   // Function to create an account
   const createAccount = async () => {
     try {
-      const response = await fetch('http://localhost:4000/helathcare/vacc-adding', {
+      const response = await fetch('http://localhost:4000/helathcare/hvacc-adding', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -343,4 +342,4 @@ const LAVaccination = () => {
   );
 };
 
-export default LAVaccination;
+export default HAVaccination;

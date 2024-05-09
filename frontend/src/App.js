@@ -25,7 +25,8 @@ import HAddChild from "./pages/HighAdmin/AddChild";
 import HUpdateChild from "./pages/HighAdmin/UpdateChild";
 import HAddPerant from "./pages/HighAdmin/AddPerant";
 import HUpdateParent from "./pages/HighAdmin/UpdateParent";
-import HVaccination from "./pages/LowAdmin/AddVaccination";
+import LAVaccination from "./pages/LowAdmin/AddVaccination";
+import HAVaccination from "./pages/HighAdmin/AddVaccination";
 import BCG from "./pages/BCG";
 import HepB from "./pages/HepB";
 import Polio from "./pages/polio";
@@ -63,7 +64,8 @@ function App() {
       <Route path="/table" element={<Table/>}/>
       <Route path="/iv" element={<IVaccines/>}/>
       <Route path="/contactus" element={<ContactUs/>}/>
-      <Route path="/hVacctination" element ={<HVaccination/>}/>
+      <Route path="/laVacctination" element ={<LAVaccination/>}/>
+      <Route path="/haVacctination" element ={<HAVaccination/>}/>
       <Route path="/vaccines/1" element={<BCG />} />
       <Route path="/vaccines/2" element={<HepB />} />
       <Route path="/vaccines/3" element={<Polio/>} />
