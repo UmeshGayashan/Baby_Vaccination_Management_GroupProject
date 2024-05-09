@@ -26,10 +26,12 @@ export default function Login() {
             });
 
             if (response.ok) {
+                
                 // Redirect or update UI accordingly for successful login
                 const data = await response.json();
                 if (data.userType === 'User') {
                     navigate("/high-admin-parants");
+                    console.log(data);
                 } else if (data.userType === 'Guardian') {
                     navigate("/user-page");
                 } else if (data.userType === 'Healthcare Professional') {
