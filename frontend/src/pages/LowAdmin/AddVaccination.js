@@ -90,7 +90,7 @@ const HVaccination = () => {
 
               <div className="password3">
                 <div className="input-text-label3" style={{fontSize:'20px', marginBottom:"10px"}}>Child ID</div>
-                <div className="input-field4">
+                <div className="input-field4"  style={{marginBottom:"20px"}}>
                   <div className="text3">
                     <input
                       className="type-here6"
@@ -102,7 +102,7 @@ const HVaccination = () => {
                   </div>
                   
                 </div>
-                <button className="primary-button"
+                <Button className="primary-button"
                 variant="contained"
                 sx={{
                   textTransform: "none",
@@ -113,17 +113,17 @@ const HVaccination = () => {
                   "&:hover": { background: "#f2c94c" },
                   width: 187,
                   height: 51,
-                }} onClick={getAccountInfo}>Get Account Info</button>
+                }} onClick={getAccountInfo}>Get Account Info</Button>
         {accountInfo && (
         <div className='container'>
             
             <div className="password3">
-                <div className="input-text-label3" style={{fontSize:'20px', marginBottom:"10px"}}>Account Information</div>
+                <div className="input-text-label3" style={{fontSize:'20px', margin:"10px"}}>Account Information : </div>
               </div>
           
           {/* <button className="btn btn-danger btn-lg" onClick={deleteAccount}>Delete Account</button> */}
           {accountInfo && (
-            <div>
+            <div style={{fontSize:'20px', margin:"10px", display:"flex", direction:"column"}} >
 
               <p>First Name: {accountInfo.babyName.firstName}</p>
               <p>Last Name: {accountInfo.babyName.lastName}</p>

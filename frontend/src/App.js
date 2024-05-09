@@ -4,7 +4,6 @@ import HomePage from "./pages/HomePage";
 import RecoverPassword from "./pages/RecoverPassword";
 import ForgotPassword from "./pages/ForgotPassword";
 import Login from "./pages/Login";
-import BCG from "./pages/BCG";
 import VDetails from "./pages/VaccinationDetails";
 import Table from "./pages/Table";
 import IVaccines from "./pages/Importantvaccines";
@@ -27,7 +26,14 @@ import HUpdateChild from "./pages/HighAdmin/UpdateChild";
 import HAddPerant from "./pages/HighAdmin/AddPerant";
 import HUpdateParent from "./pages/HighAdmin/UpdateParent";
 import HVaccination from "./pages/LowAdmin/AddVaccination";
-
+import BCG from "./pages/BCG";
+import HepB from "./pages/HepB";
+import Polio from "./pages/polio";
+import Hib from "./pages/Hib";
+import MMR from "./pages/MMR";
+import ATD from "./pages/atd";
+import Rubella from "./pages/Rubella";
+import JepB from "./pages/JapB"
 
 function App() {
   return (
@@ -50,7 +56,6 @@ function App() {
       <Route path="/recover-password" element={<RecoverPassword />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/vaccines/1" element={<BCG />} />
       <Route path="/high-admin-parants" element={<HighAdminParants />} />
       <Route path="/high-admin-proffessions" element={<HighAdminProffessions />} />
       <Route path="/high-admin-child" element={<HighAdminChild />} />
@@ -59,6 +64,14 @@ function App() {
       <Route path="/iv" element={<IVaccines/>}/>
       <Route path="/contactus" element={<ContactUs/>}/>
       <Route path="/hVacctination" element ={<HVaccination/>}/>
+      <Route path="/vaccines/1" element={<BCG />} />
+      <Route path="/vaccines/2" element={<HepB />} />
+      <Route path="/vaccines/3" element={<Polio/>} />
+      <Route path="/vaccines/4" element={<Hib />} />
+      <Route path="/vaccines/5" element={<ATD/>} />
+      <Route path="/vaccines/6" element={<JepB/>} />
+      <Route path="/vaccines/7" element={<Rubella/>} />
+      <Route path="/vaccines/8" element={<MMR />} />
     </Routes>
   );
 }
