@@ -426,6 +426,7 @@
   font-family: var(--paragraph);
 }
 .user-page {
+  display: flex;
   width: 100%;
   position: relative;
   background-color: var(--bg);

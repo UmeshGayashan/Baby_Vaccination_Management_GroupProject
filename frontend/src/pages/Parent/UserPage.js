@@ -13,7 +13,7 @@ import NotificationList from "../../components/NotificationList";
 import "../../components/comCss/Minheight.css";
 
 const columns = [
-  { field: 'vaccination', headerName: 'Vaccination', width: 130,  },
+  { field: 'vaccination', headerName: 'Vaccination', width: 130, },
   { field: 'place', headerName: 'Place', width: 180, editable: true },
   { field: 'vaccinator', headerName: 'Vaccinator', width: 130, editable: true },
   { field: 'verification', headerName: 'Verification', width: 130, editable: true },
@@ -63,28 +63,28 @@ const UserPage = () => {
   return (
 
     <div>
-   <UserNavBar/>
-    <div className="user-page">
-    <BGRectangle />  
-      <section className="image-placeholder">
-      <UserDashBoard/>
-        <div className="label-text">
-          {/* table */}
-          <div className="minheight">
-            <div className="default-slot"><Dropdown_01 /></div>
-            <div className="custom-page-heading">
-              <div className="box7">
-                <div className="title-and-contents">
-                  <h1 className="page-header">Track Your Child Vaccinations</h1>
-                  <div className="stack">
+      <UserNavBar />
+      <div className="user-page">
+        <BGRectangle />
+        <section className="image-placeholder">
+          <UserDashBoard />
+          <div className="label-text">
+            {/* table */}
+            <div className="minheight">
+              <div className="default-slot"><Dropdown_01 /></div>
+              <div className="custom-page-heading">
+                <div className="box7">
+                  <div className="title-and-contents">
+                    <h1 className="page-header">Track Your Child Vaccinations</h1>
+                    <div className="stack">
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="card">
-              <div className="paper">
-                <div className="custom-users-management-tabl">
-                  {/* <div className="custom-table-toolbar">
+              <div className="card">
+                <div className="paper">
+                  <div className="custom-users-management-tabl">
+                    {/* <div className="custom-table-toolbar">
                     <div className="queries">
                       <div className="textfield1">
                         <div className="input5">
@@ -104,86 +104,86 @@ const UserPage = () => {
                     </div>
                   </div> */}
 
-                  <div className="table">
-                    <div style={{ height: 500, width: '100%' }}>
-                      <DataGrid
-                        rows={rows}
-                        columns={columns}
-                        pageSize={12}
-                        rowsPerPageOptions={[12]}
-                        checkboxSelection
-                        disableSelectionOnClick
-                        onEditCellChangeCommitted={handleCellEditCommit}
-                      />
+                    <div className="table">
+                      <div style={{ height: 500, width: '100%' }}>
+                        <DataGrid
+                          rows={rows}
+                          columns={columns}
+                          pageSize={12}
+                          rowsPerPageOptions={[12]}
+                          checkboxSelection
+                          disableSelectionOnClick
+                          onEditCellChangeCommitted={handleCellEditCommit}
+                        />
+                      </div>
                     </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          {/* right section */}
+
+          <div className="text-container">
+            <div className="desktopdatepicker-parent" >
+
+
+
+              <div className="go-to-calendar" style={{ marginTop: "-30px" }}>
+                <div className="list">
+                  <div className="header-picker">
+                    <DesktopDatePicker />
+                  </div>
+                </div>
+              </div>
+
+              <div className="go-to-calendar" style={{ height: "150px", marginTop: "60px", marginBottom: "150px" }}>
+                <div className="list" >
+                  <div className="header">
+                    <div className="span">UPCOMING VACCINE</div>
                   </div>
 
-                </div>
+                  <NotificationList /></div>
               </div>
+
             </div>
           </div>
+        </section>
+        {/* yellow knowledge label container */}
+        <FrameContainer />
 
-        </div>
-        {/* right section */}
-       
-        <div className="text-container">
-          <div className="desktopdatepicker-parent" >
-            
-           
-           
-            <div className="go-to-calendar" style={{marginTop:"-30px"}}>
-              <div className="list">
-                <div className="header-picker">
-                  <DesktopDatePicker />
-                </div>
-              </div>
+        {/* special need section */}
+        <section className="you-message-frame">
+          <div className="cta">
+            <div className="content">
+              <h1 className="you-can-take">
+                You can take advice from provided doctors for children with
+                special needs!
+              </h1>
+              <Button
+                className="primary-button"
+                variant="contained"
+                sx={{
+                  textTransform: "none",
+                  color: "#000",
+                  fontSize: "16",
+                  background: "#f2c94c",
+                  borderRadius: "4px",
+                  "&:hover": { background: "#f2c94c" },
+                  width: 187,
+                  height: 51,
+                }}
+              >
+                Meet your doctor
+              </Button>
             </div>
-
-            <div className="go-to-calendar" style={{height:"150px" , marginTop:"60px", marginBottom:"150px"}}>
-              <div className="list" > 
-              <div className="header">
-                  <div className="span">UPCOMING VACCINE</div>
-                </div>
-              
-               <NotificationList/></div>
-            </div>
-            
           </div>
-        </div>
-      </section>
-      {/* yellow knowledge label container */}
-      <FrameContainer />
+        </section>
 
-      {/* special need section */}
-      <section className="you-message-frame">
-        <div className="cta">
-          <div className="content">
-            <h1 className="you-can-take">
-              You can take advice from provided doctors for children with
-              special needs!
-            </h1>
-            <Button
-              className="primary-button"
-              variant="contained"
-              sx={{
-                textTransform: "none",
-                color: "#000",
-                fontSize: "16",
-                background: "#f2c94c",
-                borderRadius: "4px",
-                "&:hover": { background: "#f2c94c" },
-                width: 187,
-                height: 51,
-              }}
-            >
-              Meet your doctor
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
+        <Footer />
+      </div>
     </div>
   );
 };

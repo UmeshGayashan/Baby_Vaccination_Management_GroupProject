@@ -1,4 +1,3 @@
-
 .custom-button {
   width: calc(100% - 20px); /* Adjust the width based on your needs */
   height: 30px;
@@ -26,9 +25,7 @@ h3 {
   height: 30px;
   width: 100px; 
   margin: 5px;
-  
 }
-
 
 .up-arrow,
 .down-arrow {
@@ -44,9 +41,6 @@ h3 {
   color: blue;
 }
 
-
-
-
 .custom-button h3 {
   margin-left: 0;
   text-decoration: none;
@@ -58,7 +52,6 @@ h3 {
   margin-right: 10px;
 }
 
-
 .button-container {
   display: flex;
   justify-content: space-between;
@@ -68,12 +61,12 @@ h3 {
   padding: 20px;
 }
 
-
 .min-height59 {
   width: 1px;
   height: 24px;
   position: relative;
 }
+
 .spacing-vertical31 {
   display: flex;
   flex-direction: column;
@@ -81,6 +74,7 @@ h3 {
   justify-content: flex-start;
   padding: 0 var(--padding-2xs) 0 0;
 }
+
 .spacer24 {
   position: absolute;
   height: 100%;
@@ -90,8 +84,6 @@ h3 {
   width: 100%;
 }
 
-
-
 .box175,
 .spacing-horizontal27 {
   display: flex;
@@ -99,16 +91,19 @@ h3 {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .box175 {
   align-self: stretch;
   height: 40px;
   flex-direction: row;
 }
+
 .min-height62 {
   width: 1px;
   height: 16px;
   position: relative;
 }
+
 .spacing-vertical34 {
   display: flex;
   flex-direction: column;
@@ -116,6 +111,7 @@ h3 {
   justify-content: flex-start;
   padding: 0 var(--padding-6xs) 0 0;
 }
+
 .starsharp-icon52 {
   height: 24px;
   width: 24px;
@@ -131,18 +127,21 @@ h3 {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .left-content25 {
   flex-direction: column;
   padding: 0 var(--padding-13xl) 0 0;
   box-sizing: border-box;
   min-width: 56px;
 }
+
 .list-item32 {
   align-self: stretch;
   position: relative;
   letter-spacing: 0.15px;
   line-height: 150%;
 }
+
 .secondary25 {
   width: 132px;
   position: relative;
@@ -152,6 +151,7 @@ h3 {
   color: var(--text-secondary);
   display: none;
 }
+
 .listitem-text25 {
   flex: 1;
   display: flex;
@@ -160,6 +160,7 @@ h3 {
   justify-content: flex-start;
   padding: var(--padding-9xs) 0;
 }
+
 .expandlessfilled-icon2 {
   height: 24px;
   width: 24px;
@@ -167,18 +168,21 @@ h3 {
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .icon113 {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .container52,
 .right-action9 {
   overflow: hidden;
   display: flex;
   align-items: center;
 }
+
 .right-action9 {
   height: 34px;
   width: 34px;
@@ -189,6 +193,7 @@ h3 {
   padding: var(--padding-8xs);
   box-sizing: border-box;
 }
+
 .container52 {
   align-self: stretch;
   flex-direction: row;
@@ -202,6 +207,7 @@ h3 {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .divider-horizontal28 {
   width: 100%;
   height: 1px;
@@ -213,6 +219,7 @@ h3 {
   display: none;
   z-index: 1;
 }
+
 .listitem26 {
   align-self: stretch;
   border-radius: var(--br-9xs);
@@ -229,7 +236,6 @@ h3 {
   position: relative;
 }
 
-
 .custom-expandable-nav-item10,
 .listitem31 {
   align-self: stretch;
@@ -238,7 +244,6 @@ h3 {
   align-items: flex-start;
   justify-content: flex-start;
 }
-
 
 .custom-sidenav3,
 .listitem35,
@@ -250,11 +255,9 @@ h3 {
 }
 
 .ul3 {
-
   align-self: stretch;
   padding: var(--padding-2xs) var(--padding-2xs);
 }
-
 
 .custom-sidenav3-2 {
   height: 1500px;
@@ -271,6 +274,7 @@ h3 {
   box-shadow: var(--elevation-1);
   min-width: 220px;
 }
+
 .about-the-vaccine {
   margin: 0;
   position: relative;
@@ -281,42 +285,44 @@ h3 {
   color: var(--color-gray-100);
   display: inline-block;
   max-width: 100%;
-
 }
+
 .blank-line5,
 .et-morbi-vitae,
 .mauris-morbi-sed,
 .viverra-at-diam {
   margin: 0;
 }
+
 .et-morbi-vitae-container {
-  width: 1100px;
+  width: 100%; /* Adjust width based on your layout */
   align-self: stretch;
-  height: 260px;
   position: relative;
   line-height: 160%;
   display: inline-block;
 }
+
 .unsplashcveoh-jjmee-icon2 {
-  margin-left: 150px;
+  margin-left: auto; /* Align to the right */
+  margin-right: auto; /* Align to the left */
   align-self: stretch;
-  height: 320px;
+  height: auto; /* Adjust height based on content */
   position: relative;
   border-radius: var(--br-xl);
   max-width: 100%;
   overflow: hidden;
   flex-shrink: 0;
-  width: 1100px;
+  width: 100%; /* Adjust width based on your layout */
   margin-bottom: 50px;
-  
 }
+
 .et-morbi-vitae1 {
   align-self: stretch;
   position: relative;
   line-height: 160%;
 }
+
 .about-the-vaccine-parent {
-  
   align-self: stretch;
   display: flex;
   flex-direction: column;
@@ -326,37 +332,6 @@ h3 {
   max-width: 100%;
 }
 
-
-/* .line-icon,
-.why {
-  position: relative;
-}
-.why {
-  margin: 0;
-  font-size: inherit;
-  line-height: 150%;
-  font-weight: 700;
-  font-family: inherit;
-}
-.line-icon {
-  width: 514px;
-  max-height: 100%;
-  object-fit: contain;
-  max-width: 100%;
-  margin-top: -1px;
-}
-.why-section {
-  align-self: stretch;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--gap-xl);
-  max-width: 100%;
-  font-size: var(--font-size-21xl);
-  color: var(--color-gray-100);
-} */
-
 .frame-parent2,
 .list-item-inner,
 .list-item31 {
@@ -365,127 +340,30 @@ h3 {
   justify-content: flex-start;
   max-width: 100%;
 }
+
 .frame-parent2 {
-  width:2000px;
+  width: 100%; /* Adjust width based on your layout */
   align-self: stretch;
   flex-direction: column;
-  /* gap: 96px 0; */
 }
-
 
 .list-item-inner,
 .list-item31 {
   box-sizing: border-box;
 }
-/* .list-item-inner {
-  flex: 1;
-  flex-direction: column;
-  padding: var(--padding-77xl) 0 0;
-  min-width: 600px;
-  color: var(--secondary-text);
-} */
 
 .list-item-inner {
   flex: 1;
   flex-direction: column;
-  padding: var(--padding-77xl) var(--padding-xl) 0 0; /* Updated padding */
+  padding: 2% 4%; /* Adjust padding based on your layout */
   color: var(--secondary-text);
   min-width: 0; /* Allow the element to shrink beyond its content width */
+  width: 100%; /* Ensure it takes up the full width */
+  max-width: 100%; /* Ensure it doesn't exceed the container width */
 }
 
-
-.list-item31 {
-  width: 1142px;
-  flex-direction: row;
-  padding: 0 var(--padding-xl) 0 0;
-  gap: 0 42px;
-  text-align: left;
-  font-size: var(--paragraph-size);
-  color: var(--text-primary);
-  font-family: var(--paragraph);
-}
-@media screen and (max-width: 2500px) {
+@media screen and (max-width: 768px) {
   .list-item-inner {
-    padding-top: var(--padding-43xl);
-    box-sizing: border-box;
+    padding: 4% 6%; /* Adjust padding based on your layout */
   }
 }
-@media screen and (max-width: 1050px) {
-  .custom-sidenav3 {
-    flex: 1;
-  }
-  /* .about-the-vaccine {
-    font-size: var(--font-size-19xl);
-    line-height: 30px;
-  } */
-  /* .why {
-    font-size: var(--font-size-13xl);
-    line-height: 48px;
-  }
-  .frame-parent2 {
-    gap: 96px 0;
-  } */
-  .list-item31 {
-    flex-wrap: wrap;
-  }
-}
-@media screen and (max-width: 750px) {
-  /* .why-section {
-    flex-wrap: wrap;
-  } */
-  /* .list-item-inner {
-    padding-top: var(--padding-21xl);
-    box-sizing: border-box;
-    min-width: 100%;
-  } */
-
-  @media screen and (max-width: 2000px) {
-    .list-item-inner {
-      padding-top: var(--padding-21xl);
-      box-sizing: border-box;
-      min-width: 100%;
-      padding-right: var(--padding-xl); /* Add padding to the right for better spacing */
-    }
-  }
-  .list-item31 {
-    gap: 0 42px;
-  }
-}
-/* @media screen and (max-width: 1000px) {
-  .about-the-vaccine {
-    font-size: var(--font-size-10xl);
-    line-height: 35px;
-  }
-  .about-the-vaccine-parent {
-    gap: 32px 0;
-  }
-  .why {
-    font-size: var(--icon-medium-size);
-    line-height: 36px;
-  }
-  .frame-parent2 {
-    gap: 96px 0;
-  }
-} */
-
-.list-container-v {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease;
-}
-
-.list-container-v.open {
-  max-height: 600px; 
-}
-
-.up-arrow,
-.down-arrow {
-  transition: transform 0.3s ease-in-out;
-}
-
-.up-arrow {
-  transform: rotate(0deg);
-}
-
-
-

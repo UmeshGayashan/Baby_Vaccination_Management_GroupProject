@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage";
 import RecoverPassword from "./pages/RecoverPassword";
 import ForgotPassword from "./pages/ForgotPassword";
 import Login from "./pages/Login";
-import Vaccines from "./pages/Vaccines";
+import BCG from "./pages/BCG";
 import VDetails from "./pages/VaccinationDetails";
 import Table from "./pages/Table";
 import IVaccines from "./pages/Importantvaccines";
@@ -50,7 +50,7 @@ function App() {
       <Route path="/recover-password" element={<RecoverPassword />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/vaccines/1" element={<Vaccines />} />
+      <Route path="/vaccines/1" element={<BCG />} />
       <Route path="/high-admin-parants" element={<HighAdminParants />} />
       <Route path="/high-admin-proffessions" element={<HighAdminProffessions />} />
       <Route path="/high-admin-child" element={<HighAdminChild />} />
