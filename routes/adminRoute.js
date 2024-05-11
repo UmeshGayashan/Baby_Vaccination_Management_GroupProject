@@ -6,6 +6,7 @@ const babySchema = require("../schemas/babySchema");
 const vaccinationSchema = require("../schemas/vaccinationSchema")
 const bcrypt = require('bcrypt')
 
+module.exports = router;
 
 //Healthcare Professional Account Creation
 router.post("/create-health-acc", async (req, res) => {
