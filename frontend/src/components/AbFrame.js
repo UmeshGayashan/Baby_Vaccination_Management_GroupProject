@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from "@mui/material";
-import Rating from "./Rating";
-
+import WhatWeDo from './WhatWeDo';
 const AbFrame = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -18,34 +17,33 @@ const AbFrame = () => {
   }, []);
 
   return (
-    <div className="ab-frame">
-      <section className="secondary-button5">
-        <div className="b-g">
+    <div className="ab-frame" style={{ maxWidth: '100%', overflowX: 'hidden' }}>
+      <section className="secondary-button5" style={{ width: '100%', marginTop:"-60px" }}>
+        <div >
           <div className="you-can-take-advice">
-            <Rating />
           </div>
-          <div className="our-journey-section-2">
-            <div className="bg7" />
-            <div className="mission-section">
-              <div className="vision-section">
-                <div className="our-journey">
-                  <b className="our-journey1" style={{ marginLeft: "30px", marginTop:"-10px" }}>{`______ Know About Us`}</b>
-                  <h2 className="how-we-raised" style={{ marginLeft: "60px" }}> We provide details about vaccines for children </h2>
+          <div className="our-journey-section-2" style={{ width: '100%' }}>
+            <div />
+            <div className="mission-section" style={{ width: '100%' }}>
+              <div className="vision-section" style={{ width: '100%' }}>
+                <div className="our-journey" style={{ marginLeft: windowWidth <= 750 ? "-20px" : "-50px", width: '100%' }}>
+                  <b className="our-journey1" style={{ marginLeft: windowWidth <= 750 ? "10px" : "30px", marginTop: "-10px" }}>{`______ Know About Us`}</b>
+                  <h2 className="how-we-raised" style={{ marginLeft: windowWidth <= 750 ? "20px" : "60px" }}> We provide details about vaccines for children </h2>
 
-                  <div className="lorem-ipsum-dolor7" style={{ marginLeft: "60px" }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
-                  </div>
-                  <div className="lorem-ipsum-dolor7" style={{ marginLeft: "60px" }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
-                  </div>
-                  <div className="lorem-ipsum-dolor7" style={{ marginLeft: "60px" }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
-                  </div>
-                  <div className="lorem-ipsum-dolor7" style={{ marginLeft: "60px" }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+                  <div className="lorem-ipsum-dolor7" style={{ marginLeft: windowWidth <= 750 ? "20px" : "60px" }}>
+                  Driven by a commitment to innovation and child health advocacy, we strive to make vaccination management a
+                   seamless and stress-free experience for families everywhere. Join us in
+                   our mission to protect the most vulnerable members of our community and ensure a healthier future for generations to come.
                   </div>
 
-                  <div className="rectangle">
+                  <div className="lorem-ipsum-dolor7" style={{ marginLeft: windowWidth <= 750 ? "20px" : "60px" }}>
+                  At BabyVaxPro, we understand the importance of timely vaccinations in safeguarding children against preventable diseases. Our
+                  user-friendly interface empowers parents and guardians to stay
+                  informed about their child's vaccination schedule, receive timely reminders, and easily manage appointments with healthcare providers.
+                  </div>
+                  
+
+                  <div className="rectangle" style={{ marginLeft: windowWidth <= 750 ? "20px" : "60px" }}>
                     <Button href="/about-us"
                       className="primary-button4"
                       variant="contained"
@@ -58,7 +56,6 @@ const AbFrame = () => {
                         "&:hover": { background: "#f2c94c" },
                         width: 146,
                         height: 51,
-                        marginLeft:"60px"
                       }}
                     >
                       Learn more
@@ -68,20 +65,25 @@ const AbFrame = () => {
               </div>
             </div>
             <img
+
               className="image-icon-2"
               loading="eager"
               alt=""
               src="/baby.png"
               style={{
-                display: windowWidth <= 750 ? 'none' : 'block',
-                width: '100%',
-                height: 'auto',
-                marginRight: "-80px"
+                display: windowWidth <= 1200 ? 'none' : 'block',
+                width: '100%', // Adjust image width to be responsive
+                height: '700px',
+                marginRight: windowWidth <= 1200? "0px" : "-80px" // Adjust margin for smaller screens
               }}
             />
           </div>
         </div>
+       
       </section>
+
+      <WhatWeDo/>
+     
     </div>
   );
 };

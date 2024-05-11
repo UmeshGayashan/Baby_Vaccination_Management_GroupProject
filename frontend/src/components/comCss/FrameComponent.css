@@ -8,6 +8,7 @@
   height: 100%;
   display: none;
 }
+
 .vector-icon-support {
   position: absolute;
   top: 6px;
@@ -16,23 +17,27 @@
   height: 15px;
   z-index: 1;
 }
+
 .family-support,
 .icon5 {
   position: relative;
   z-index: 1;
 }
+
 .icon5 {
   height: 28px;
   width: 28px;
   border-radius: var(--br-9xs);
   background-color: var(--components-switch-slidefill);
 }
+
 .family-support {
   margin: 0;
   font-size: inherit;
   font-weight: 700;
   font-family: inherit;
 }
+
 .icon4 {
   height: 29px;
   display: flex;
@@ -41,8 +46,9 @@
   justify-content: flex-start;
   gap: 0 24px;
 }
+
 .lorem-ipsum-dolor2 {
-  width: 384px;
+  width: 100%; /* Adjusted width to be responsive */
   position: relative;
   line-height: 160%;
   display: inline-block;
@@ -50,6 +56,7 @@
   max-width: 100%;
   z-index: 1;
 }
+
 .frame-secondary-button,
 .icon-parent {
   align-self: stretch;
@@ -61,6 +68,7 @@
   font-size: var(--paragraph-size);
   color: var(--secondary-text);
 }
+
 .icon-parent {
   flex-direction: column;
   justify-content: flex-start;
@@ -70,6 +78,7 @@
   color: var(--color-gray-100);
   font-family: var(--paragraph);
 }
+
 @media screen and (max-width: 450px) {
   .family-support {
     font-size: var(--font-size-lgi);

@@ -4,7 +4,6 @@ import HomePage from "./pages/HomePage";
 import RecoverPassword from "./pages/RecoverPassword";
 import ForgotPassword from "./pages/ForgotPassword";
 import Login from "./pages/Login";
-import VDetails from "./pages/VaccinationDetails";
 import Table from "./pages/Table";
 import IVaccines from "./pages/Importantvaccines";
 import ContactUs from "./pages/ContactUs";
@@ -35,6 +34,8 @@ import MMR from "./pages/MMR";
 import ATD from "./pages/atd";
 import Rubella from "./pages/Rubella";
 import JepB from "./pages/JapB"
+import MCard from "./pages/meetmento";
+
 
 function App() {
   return (
@@ -60,7 +61,6 @@ function App() {
       <Route path="/high-admin-parants" element={<HighAdminParants />} />
       <Route path="/high-admin-proffessions" element={<HighAdminProffessions />} />
       <Route path="/high-admin-child" element={<HighAdminChild />} />
-      <Route path="/v-details" element={<VDetails/>}/>
       <Route path="/table" element={<Table/>}/>
       <Route path="/iv" element={<IVaccines/>}/>
       <Route path="/contactus" element={<ContactUs/>}/>
@@ -74,6 +74,8 @@ function App() {
       <Route path="/vaccines/6" element={<JepB/>} />
       <Route path="/vaccines/7" element={<Rubella/>} />
       <Route path="/vaccines/8" element={<MMR />} />
+      <Route path="/mcard" element={<MCard />} />
+
     </Routes>
   );
 }

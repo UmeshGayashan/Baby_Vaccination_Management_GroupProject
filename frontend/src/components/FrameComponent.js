@@ -4,6 +4,7 @@ import "./comCss/FrameComponent.css";
 const FrameComponent = ({
   vectorIconSupport,
   familySupport,
+  paragraphContent,
   propGap,
   propWidth,
   propHeight,
@@ -38,8 +39,7 @@ const FrameComponent = ({
       </div>
       <div className="frame-secondary-button">
         <div className="lorem-ipsum-dolor2">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          varius enim in eros.
+          {paragraphContent}
         </div>
       </div>
     </div>
