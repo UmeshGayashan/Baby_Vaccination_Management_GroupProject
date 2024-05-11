@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import FrameComponent from "./FrameComponent";
 import "./comCss/WhatWeDo.css";
 import Footer from './Footer';
+import MCard from '../pages/meetmento';
+import VCard from '../pages/VCard';
 
 const WhatWeDo = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -96,6 +98,7 @@ const WhatWeDo = () => {
           </div>
         </div>
       </section>
+      <div style={{margin:"10px"}}> <VCard/></div>
       <Footer/>
     </div>
   );

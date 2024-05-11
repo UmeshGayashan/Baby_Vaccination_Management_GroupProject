@@ -16,9 +16,9 @@ import AdbIcon from '@mui/icons-material/Adb';
 const pages = [
   { name: 'Home', path: '/' },
   { name: 'About Us', path: '/about-us' },
-  { name: 'What we do', path: '/user-page' },
+  { name: 'What we do', path: '/' },
   { name: 'Meet Mento', path: '/mcard' },
-  { name: 'Contact', path: '/high-admin-child' }
+  { name: 'Contact', path: '/contact' }
 ];
 
 function Navbar() {

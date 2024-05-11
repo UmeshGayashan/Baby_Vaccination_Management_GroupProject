@@ -35,6 +35,9 @@ import ATD from "./pages/atd";
 import Rubella from "./pages/Rubella";
 import JepB from "./pages/JapB"
 import MCard from "./pages/meetmento";
+import Contact from "./pages/ContactUs";
+
+
 
 
 function App() {
@@ -75,6 +78,9 @@ function App() {
       <Route path="/vaccines/7" element={<Rubella/>} />
       <Route path="/vaccines/8" element={<MMR />} />
       <Route path="/mcard" element={<MCard />} />
+      <Route path="/contact" element={<Contact />} />
+
+      
 
     </Routes>
   );
