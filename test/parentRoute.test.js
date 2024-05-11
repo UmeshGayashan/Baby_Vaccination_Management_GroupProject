@@ -14,7 +14,7 @@ router.get("/get/:motherorGuardianNIC", async (req, res) => {
     try {
       const babies = await babySchema.find({ motherorGuardianNIC });
 
-      if (!babies || babies.length === 0) {  // Check for no babies
+      if (!babies || babies.length === 0) {
         return res.status(404).json({ error: "No Babies found" });
       }
 
