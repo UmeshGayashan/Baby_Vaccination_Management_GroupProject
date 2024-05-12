@@ -29,6 +29,8 @@ export default function Login() {
                 
                 // Redirect or update UI accordingly for successful login
                 const data = await response.json();
+                // Set the JWT in a cookie
+                document.cookie = `jwt=${data.token}; path=/; max-age=3600;`; // Expires in 1 hour
                 if (data.userType === 'User') {
                     navigate("/high-admin-parants");
                     console.log(data);
