@@ -13,189 +13,75 @@ import GradeIcon from '@mui/icons-material/Grade';
 import { Link } from 'react-router-dom';
 
 function LAdminDashBoard() {
-    const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
 
-    const handleClick = () => {
-        setOpen(!open);
-    };
+  const handleClick = () => {
+    setOpen(!open);
+  };
 
-    return (
-        <List
-            sx={{ width: '100%', maxWidth: 250, bgcolor: 'background.paper' }}
-            component="nav"
-            aria-labelledby="nested-list-subheader"
-            subheader={
-                <ListSubheader component="div" id="nested-list-subheader" sx={{ fontSize: 20 }}>
-                    BabyVaxPro
-                </ListSubheader>
-            }
-        >
-            {/* <ListItemButton component={Link} to="/iv">
+  return (
+    <List
+      sx={{ width: '100%', maxWidth: 250, bgcolor: 'background.paper' }}
+      component="nav"
+      aria-labelledby="nested-list-subheader"
+      subheader={
+        <ListSubheader component="div" id="nested-list-subheader" sx={{ fontSize: 20 }}>
+          BabyVaxPro
+        </ListSubheader>
+      }
+    >
+      {/* <ListItemButton component={Link} to="/iv">
         <ListItemIcon>
           <GradeIcon />
         </ListItemIcon>
         <ListItemText primary=" Why Vaccines" />
       </ListItemButton> */}
 
-            <ListItemButton component={Link} to="/hVacctination">
-                <ListItemIcon>
-                    <GradeIcon />
-                </ListItemIcon>
-                <ListItemText primary=" Add Vaccination" />
-            </ListItemButton>
+      <ListItemButton component={Link} to="/laVacctination">
+        <ListItemIcon>
+          <GradeIcon />
+        </ListItemIcon>
+        <ListItemText primary=" Add Vaccination" />
+      </ListItemButton>
 
 
-            <ListItemButton component={Link} to="/add-child">
-                <ListItemIcon>
-                    <GradeIcon />
-                </ListItemIcon>
-                <ListItemText primary=" Add Child" />
-            </ListItemButton>
+      <ListItemButton component={Link} to="/add-child">
+        <ListItemIcon>
+          <GradeIcon />
+        </ListItemIcon>
+        <ListItemText primary=" Add Child" />
+      </ListItemButton>
 
-            <ListItemButton component={Link} to="/add-perant">
-                <ListItemIcon>
-                    <GradeIcon />
-                </ListItemIcon>
-                <ListItemText primary=" Add Parent" />
-            </ListItemButton>
+      <ListItemButton component={Link} to="/add-perant">
+        <ListItemIcon>
+          <GradeIcon />
+        </ListItemIcon>
+        <ListItemText primary=" Add Parent" />
+      </ListItemButton>
 
-            <ListItemButton component={Link} to="/low-admin">
-                <ListItemIcon>
-                    <GradeIcon />
-                </ListItemIcon>
-                <ListItemText primary=" child Collection" />
-            </ListItemButton>
+      <ListItemButton component={Link} to="/low-admin">
+        <ListItemIcon>
+          <GradeIcon />
+        </ListItemIcon>
+        <ListItemText primary=" child Collection" />
+      </ListItemButton>
 
-            <ListItemButton component={Link} to="/low-admin-parants">
-                <ListItemIcon>
-                    <GradeIcon />
-                </ListItemIcon>
-                <ListItemText primary=" Parent Collection" />
-            </ListItemButton>
+      <ListItemButton component={Link} to="/low-admin-parants">
+        <ListItemIcon>
+          <GradeIcon />
+        </ListItemIcon>
+        <ListItemText primary=" Parent Collection" />
+      </ListItemButton>
 
-
-            {/* <ListItemButton onClick={handleClick}>
-                <ListItemIcon>
-                    <GradeIcon />
-                </ListItemIcon>
-                <ListItemText primary="Vaccines" />
-                {open ? <ExpandLess /> : <ExpandMore />}
-            </ListItemButton> */}
-            {/* <Collapse in={open} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding> */}
-                    {/* <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/1">
-                        <ListItemIcon>
-                            <StarBorder />
-                        </ListItemIcon>
-                        <ListItemText primary="BCG" />
-                    </ListItemButton> */}
-
-                    {/* <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/1">
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary="Vaccine 2" />
-          </ListItemButton>
-
-          <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/1">
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary="BCG" />
-          </ListItemButton>
-
-          <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/1">
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary="BCG" />
-          </ListItemButton>
-          <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/1">
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary="BCG" />
-          </ListItemButton>
-          <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/1">
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary="BCG" />
-          </ListItemButton>
-          <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/1">
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary="BCG" />
-          </ListItemButton>
-          <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/1">
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary="BCG" />
-          </ListItemButton>
-          <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/1">
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary="BCG" />
-          </ListItemButton>
-
-          <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/1">
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary="BCG" />
-          </ListItemButton>
-
-          <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/1">
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary="BCG" />
-          </ListItemButton>
-
-          <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/1">
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary="BCG" />
-          </ListItemButton>
-
-          <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/1">
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary="BCG" />
-          </ListItemButton>
-          <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/1">
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary="BCG" />
-          </ListItemButton>
-          <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/1">
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary="BCG" />
-          </ListItemButton>
-          <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/1">
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary="BCG" />
-          </ListItemButton> */}
-                    {/* <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/1">
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary="BCG" />
-          </ListItemButton> */}
-                {/* </List>
-
-            </Collapse> */}
-        </List>
-    );
+      {/* <ListItemButton onClick={handleClick}>
+        <ListItemIcon>
+          <GradeIcon />
+        </ListItemIcon>
+        <ListItemText primary="Vaccines" />
+        {open ? <ExpandLess /> : <ExpandMore />}
+      </ListItemButton> */}
+    
+    </List>
+  );
 }
 export default LAdminDashBoard;

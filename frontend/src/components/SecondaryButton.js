@@ -1,4 +1,4 @@
-import Rating from "./Rating";
+
 import "./comCss/SecondaryButton.css";
 
 const SecondaryButton = () => {
@@ -6,15 +6,14 @@ const SecondaryButton = () => {
     <section className="secondary-button5" >
       <div className="b-g" >
         <div className="you-can-take-advice">
-          <Rating />
         </div>
         <div className="our-journey-section">
           <div className="bg7" />
           <div className="mission-section">
             <div className="vision-section">
-              <div className="our-journey">
+              <div className="our-journey" style={{marginLeft:"50px"}}>
                 <b className="our-journey1">{`OUR JOURNEY `}</b>
-                <h1 className="how-we-raised">How we raised 34M</h1>
+                <h1 className="how-we-raised" >How we raised 34M</h1>
                 <div className="lorem-ipsum-dolor7">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Suspendisse varius enim in eros elementum tristique. Duis

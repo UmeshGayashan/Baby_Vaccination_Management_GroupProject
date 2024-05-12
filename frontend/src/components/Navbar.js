@@ -16,9 +16,9 @@ import AdbIcon from '@mui/icons-material/Adb';
 const pages = [
   { name: 'Home', path: '/' },
   { name: 'About Us', path: '/about-us' },
-  { name: 'What we do', path: '/user-page' },
-  { name: 'Meet Mento', path: '/low-admin' },
-  { name: 'Contact', path: '/high-admin-child' }
+  { name: 'What we do', path: '/' },
+  { name: 'Meet Mento', path: '/mcard' },
+  { name: 'Contact', path: '/contact' }
 ];
 
 function Navbar() {
@@ -36,7 +36,7 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'white', height: '80px' }}>
+    <AppBar position="static" sx={{ backgroundColor: 'white', height: '100px' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 3 }} />
