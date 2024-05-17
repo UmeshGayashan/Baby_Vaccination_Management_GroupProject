@@ -5,8 +5,6 @@ import RecoverPassword from "./pages/RecoverPassword";
 import ForgotPassword from "./pages/ForgotPassword";
 import Login from "./pages/Login";
 import Table from "./pages/Table";
-import IVaccines from "./pages/Importantvaccines";
-import ContactUs from "./pages/ContactUs";
 import AboutUs from "./pages/AboutUs";
 import UserPage from "./pages/Parent/UserPage";
 import LowAdmin from "./pages/LowAdmin/LowAdminChild";
@@ -36,6 +34,7 @@ import Rubella from "./pages/Rubella";
 import JepB from "./pages/JapB"
 import MCard from "./pages/meetmento";
 import Contact from "./pages/ContactUs";
+import IVaccines from "./pages/Importantvaccines";
 
 
 
@@ -66,7 +65,6 @@ function App() {
       <Route path="/high-admin-child" element={<HighAdminChild />} />
       <Route path="/table" element={<Table/>}/>
       <Route path="/iv" element={<IVaccines/>}/>
-      <Route path="/contactus" element={<ContactUs/>}/>
       <Route path="/laVacctination" element ={<LAVaccination/>}/>
       <Route path="/haVacctination" element ={<HAVaccination/>}/>
       <Route path="/vaccines/1" element={<BCG />} />
