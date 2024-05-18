@@ -34,6 +34,9 @@ import Rubella from "./pages/Rubella";
 import JepB from "./pages/JapB"
 import MCard from "./pages/meetmento";
 import Contact from "./pages/ContactUs";
+import IVaccines from "./pages/Importantvaccines";
+import ContactUs from "./pages/ContactUs";
+import ParentDashboard from './pages/Parent/parentdashboard';
 
 
 
@@ -64,6 +67,7 @@ function App() {
       <Route path="/high-admin-child" element={<HighAdminChild />} />
       <Route path="/table" element={<Table/>}/>
       <Route path="/iv" element={<IVaccines/>}/>
+      <Route path="/contactus" element={<ContactUs/>}/>
       <Route path="/laVacctination" element ={<LAVaccination/>}/>
       <Route path="/haVacctination" element ={<HAVaccination/>}/>
       <Route path="/vaccines/1" element={<BCG />} />
