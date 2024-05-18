@@ -74,7 +74,7 @@ const UserPage = () => {
         }
       }));
       setBabies(babiesWithVaccinations);
-    };
+};
 
     if (user && user.userType === 'Guardian') {
       fetchBabies();
