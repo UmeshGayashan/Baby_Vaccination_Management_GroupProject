@@ -16,8 +16,8 @@ app.use(express.urlencoded({
 }))
 
 app.use("/public", require("./routes/publicRoute"))
-app.use("/admin",authMiddleware,router);
-// app.use("/admin",authMiddleware, require("./routes/adminRoute"))
+// app.use("/admin",authMiddleware,router);
+app.use("/admin", require("./routes/adminRoute"))
 app.use("/helathcare", require("./routes/healthofficerRoute"))
 app.use("/parent", require("./routes/parentRoute"))
 

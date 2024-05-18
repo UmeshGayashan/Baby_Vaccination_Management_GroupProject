@@ -90,7 +90,7 @@ router.post("/login", async (req, res) => {
       else{
         const token = generateToken(guardian._id,"Guardian");
         res.cookie('jwt', token, { httpOnly: true, maxAge: 3600000 });
-        return res.status(200).json({ userType: "Guardian" , token: token, guardian});
+        return res.status(200).json({ userType: "Guardian" , token: token, guardian, nic:guardian.motherorGuardianNIC });
       }
       
     } else if (healthcareProfessional) {

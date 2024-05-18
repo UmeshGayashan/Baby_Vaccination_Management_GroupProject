@@ -41,7 +41,8 @@ describe('GET /get/:motherorGuardianNIC', () => {
 
     expect(response.body).toEqual(babies);
     expect(babySchema.find).toHaveBeenCalledWith({ motherorGuardianNIC: '123456789V' });
-  });
+  }
+);
 
   test('should return 404 if no babies are found', async () => {
     babySchema.find.mockResolvedValue([]);
