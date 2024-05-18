@@ -32,7 +32,7 @@ const ParentDashboard = () => {
 
         const fetchVaccinationsForBabies = async (babies) => {
             const babiesWithVaccinations = await Promise.all(babies.map(async (baby) => {
-                const vacResponse = await fetch(`http://localhost:4000/vac/${baby.bid}`, {
+                const vacResponse = await fetch(`http://localhost:4000/parent/vac/${baby.bid}`, {
                     headers: {
                         'Authorization': `Bearer ${user.token}`
                     }

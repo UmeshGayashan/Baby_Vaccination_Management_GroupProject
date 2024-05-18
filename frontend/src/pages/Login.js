@@ -39,7 +39,7 @@ export default function Login() {
                     navigate("/high-admin-parants");
                     console.log(data);
                 } else if (data.userType === 'Guardian') {
-                    navigate("/ParentDashboard");
+                    navigate("/user-page");
                     console.log(data);
                 } else if (data.userType === 'Healthcare Professional') {
                     navigate("/low-admin");
