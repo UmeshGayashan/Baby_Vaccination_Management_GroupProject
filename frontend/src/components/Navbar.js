@@ -16,7 +16,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 const pages = [
   { name: 'Home', path: '/' },
   { name: 'About Us', path: '/about-us' },
-  { name: 'What we do', path: '/' },
+  { name: 'Knowledge Of Vaccines', path: '/iv' },
   { name: 'Meet Mento', path: '/mcard' },
   { name: 'Contact', path: '/contact' }
 ];
