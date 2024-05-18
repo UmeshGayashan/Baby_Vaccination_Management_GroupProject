@@ -36,7 +36,7 @@ import Rubella from "./pages/Rubella";
 import JepB from "./pages/JapB"
 import MCard from "./pages/meetmento";
 import Contact from "./pages/ContactUs";
-
+import ParentDashboard from './pages/Parent/parentdashboard';
 
 
 
@@ -79,6 +79,7 @@ function App() {
       <Route path="/vaccines/8" element={<MMR />} />
       <Route path="/mcard" element={<MCard />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/parentDashboard" element={<ParentDashboard />} />
 
       
 

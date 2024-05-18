@@ -4,6 +4,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 import { FormControlLabel } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const defaultTheme = createTheme();
 
@@ -12,6 +13,7 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
+    const { login } = useAuth();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -31,11 +33,14 @@ export default function Login() {
                 const data = await response.json();
                 // Set the JWT in a cookie
                 document.cookie = `jwt=${data.token}; path=/; max-age=3600;`; // Expires in 1 hour
+                login(data.userType, data.token, data.username, data.nic);
+
                 if (data.userType === 'User') {
                     navigate("/high-admin-parants");
                     console.log(data);
                 } else if (data.userType === 'Guardian') {
-                    navigate("/user-page");
+                    navigate("/ParentDashboard");
+                    console.log(data);
                 } else if (data.userType === 'Healthcare Professional') {
                     navigate("/low-admin");
                 } else {
