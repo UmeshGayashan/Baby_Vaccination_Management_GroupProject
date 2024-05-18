@@ -16,19 +16,35 @@ const ParentDashboard = () => {
                     }
                 });
                 const data = await response.json();
-                console.log('API response:', data); // Log the response data
 
                 if (response.ok) {
                     setBabies(data);
+                    fetchVaccinationsForBabies(data);
                 } else {
                     throw new Error(data.error || 'Invalid response format');
                 }
             } catch (error) {
-                console.error('Error:', error);
                 setError('Error fetching data');
             } finally {
                 setLoading(false);
             }
+        };
+
+        const fetchVaccinationsForBabies = async (babies) => {
+            const babiesWithVaccinations = await Promise.all(babies.map(async (baby) => {
+                const vacResponse = await fetch(`http://localhost:4000/vac/${baby.bid}`, {
+                    headers: {
+                        'Authorization': `Bearer ${user.token}`
+                    }
+                });
+                const vacData = await vacResponse.json();
+                if (vacResponse.ok) {
+                    return { ...baby, vaccinations: vacData };
+                } else {
+                    return { ...baby, vaccinations: [] }; // No vaccinations found or error occurred
+                }
+            }));
+            setBabies(babiesWithVaccinations);
         };
 
         if (user && user.userType === 'Guardian') {
@@ -57,6 +73,14 @@ const ParentDashboard = () => {
                                     <p><strong>Weight:</strong> {baby.weight} kg</p>
                                     <p><strong>Gender:</strong> {baby.gender}</p>
                                     <p><strong>BabyID:</strong> {baby.bid}</p>
+                                    <div>
+                                        <h4>Vaccinations:</h4>
+                                        <ul>
+                                            {baby.vaccinations && baby.vaccinations.length > 0 ? baby.vaccinations.map((vaccination, vIndex) => (
+                                                <li key={vIndex}>{vaccination.name} - {new Date(vaccination.date).toLocaleDateString()}</li>
+                                            )) : <li>No vaccinations recorded.</li>}
+                                        </ul>
+                                    </div>
                                 </div>
                             ))}
                         </div>

@@ -17,7 +17,7 @@ const HAVaccination = () => {
   // Function to create an account
   const createAccount = async () => {
     try {
-      const response = await fetch('http://localhost:4000/helathcare/hvacc-adding', {
+      const response = await fetch('http://localhost:4000/admin/vacc-adding', {
         method: 'POST',
         headers: {  
           'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ const HAVaccination = () => {
   // Function to retrieve account information
   const getAccountInfo = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/helathcare/baby-acc-info/${babyId}`); // Use the correct API route
+      const response = await fetch(`http://localhost:4000/admin/baby-acc-info/${babyId}`); // Use the correct API route
       if (response.status === 200) {
         const data = await response.json();
         setAccountInfo(data);
