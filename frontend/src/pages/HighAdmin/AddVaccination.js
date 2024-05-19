@@ -4,6 +4,7 @@ import "../pageCss/AddChild.css";
 import React, { useCallback, useState } from "react";
 import { Button, } from "@mui/material";
 import HAACNavbar from "../../components/HA_addchildnavbar";
+import DatePicker from 'react-datepicker';
 
 const HAVaccination = () => {
 
@@ -14,6 +15,13 @@ const HAVaccination = () => {
   const [vaccinator, setVaccinator] = useState('');
   const [bcode, setBottle_code] = useState('');
   const [location, setLocation] = useState('');
+  const [status] = useState("Pending");
+  const [nextDate, setnextDate] = useState('');
+
+  function onChangeHandler(value) {
+    setnextDate(value);
+};
+
   // Function to create an account
   const createAccount = async () => {
     try {
@@ -22,7 +30,7 @@ const HAVaccination = () => {
         headers: {  
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ babyId, vaccine, vaccineNo, vaccinator, bcode, location}),
+        body: JSON.stringify({ babyId, vaccine, vaccineNo, vaccinator, bcode, location,nextDate}),
       });
       
       // if (response.status === 201) {
@@ -291,8 +299,12 @@ const HAVaccination = () => {
                     onChange={(e) => setLocation(e.target.value)}
                     />
 
+                    
+
                   </div>
                 </div>
+
+                
 
                 <div className="cta3" style={{marginTop:"60px"}}>
                   <Button href="/low-admin"

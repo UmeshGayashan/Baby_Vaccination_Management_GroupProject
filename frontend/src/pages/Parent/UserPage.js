@@ -1,32 +1,43 @@
+import React, { useState, useEffect } from 'react';
 import { Button } from "@mui/material";
+import { DataGrid } from '@mui/x-data-grid';
 import BGRectangle from "../../components/BGRectangle";
 import DesktopDatePicker from "../../components/DesktopDatePicker";
 import FrameContainer from "../../components/FrameContainer";
-import "../pageCss/UserPage.css";
 import Footer from "../../components/Footer";
 import Dropdown_01 from "../../components/dropdown";
-import React, { useState, useEffect } from 'react';
-import { DataGrid } from '@mui/x-data-grid';
 import UserNavBar from "../../components/user_nav";
 import UserDashBoard from "../../components/userdashboard";
 import NotificationList from "../../components/NotificationList";
-import "../../components/comCss/Minheight.css";
 import { useAuth } from '../../context/AuthContext';
+import "../pageCss/UserPage.css";
+import "../../components/comCss/Minheight.css";
 
 const columns = [
-  { field: 'vacname', headerName: 'Vaccination', width: 130 },
+  { field: 'vacname', headerName: 'Vaccination', width: 180 },
   { field: 'location', headerName: 'Place', width: 180 },
   { field: 'vaccinator', headerName: 'Vaccinator', width: 130 },
-  { field: 'verification', headerName: 'Verification', width: 130 },
+  { field: 'status', headerName: 'Verification', width: 130 },
   { field: 'bottle_code', headerName: 'Bottle Code', width: 130 },
   { field: 'vaccineNo', headerName: 'Vaccine No', width: 90 },
   {
     field: 'date',
     headerName: 'Date',
     width: 120,
-    valueGetter: (params) => new Date(params.row.dateTime.date).toLocaleDateString(),
+    valueGetter: (params) => params.row.dateTime?.date ? new Date(params.row.dateTime.date).toLocaleDateString() : 'N/A',
   },
-  { field: 'email', headerName: 'E-mail', width: 180 },
+  {
+    field: 'nextDate',
+    headerName: 'Next Date',
+    width: 120,
+    valueGetter: (params) => params.row.nextDateTime?.date ? new Date(params.row.nextDateTime.date).toLocaleDateString() : 'N/A',
+  },
+  {
+    field: 'nextTime',
+    headerName: 'Next Time',
+    width: 120,
+    valueGetter: (params) => params.row.nextDateTime?.time || 'N/A',
+  }
 ];
 
 const UserPage = () => {
@@ -74,7 +85,7 @@ const UserPage = () => {
         }
       }));
       setBabies(babiesWithVaccinations);
-};
+    };
 
     if (user && user.userType === 'Guardian') {
       fetchBabies();
@@ -208,8 +219,7 @@ const UserPage = () => {
           <div className="cta">
             <div className="content">
               <h1 className="you-can-take">
-                You can take advice from provided doctors for children with
-                special needs!
+                You can take advice from provided doctors for children with special needs!
               </h1>
               <Button
                 className="primary-button"
@@ -217,7 +227,7 @@ const UserPage = () => {
                 sx={{
                   textTransform: "none",
                   color: "#000",
-                  fontSize: "16",
+                  fontSize: 16,
                   background: "#f2c94c",
                   borderRadius: "4px",
                   "&:hover": { background: "#f2c94c" },

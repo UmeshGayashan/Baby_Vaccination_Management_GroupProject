@@ -314,25 +314,18 @@ const handleGenderChange = (event) => {
                 </div>
                 <div className="native-chrome-date-picker-2">
                 <DatePicker
-            id="dateStartEnd"
-            selected={birthDate}
-            onChange={onChangeHandler}
-            dateFormat="dd MMM yyyy"
-            className={'form-control form-control-sm'}
-            showDisabledMonthNavigation
-            open
-            
-        />
+                    id="dateStartEnd"
+                    selected={birthDate}
+                    onChange={onChangeHandler}
+                    dateFormat="dd MMM yyyy"
+                    className={'form-control form-control-sm'}
+                    showDisabledMonthNavigation
+                    open            
+                />
                 </div>
-              </div>
-
-              
-
-
+              </div> 
             </div>
           </div>
-
-
         </div>
       </div>
     </section>
