@@ -137,17 +137,20 @@ router.get("/baby-acc-info/:babyId",async(req,res) => {
 // Baby Vaccination Adding
 router.post("/vacc-adding", async (req, res) => {
   try {
-    const { babyId, vaccine,vaccineNo, vaccinator, bcode, location } = req.body;
+    const { babyId, vaccine,vaccineNo, vaccinator, bcode, location, nextTime, nextDate, status } = req.body;
 
     const newVaccine = new vaccinationSchema({
       bid: babyId,
       vacname: vaccine,
       vaccineNo,
       vaccinator,
-      bottle_code: bcode, // Updated to use shorthand property name
+      bottle_code: bcode,
       "dateTime.date": new Date().toLocaleDateString(),
       "dateTime.time": new Date().toLocaleTimeString(),
       location,
+      "nextDateTime.date": nextDate,
+      "nextDateTime.time": nextTime,
+      status: "Pending"
     });
 
     // Save the new vaccine to the database using async/await

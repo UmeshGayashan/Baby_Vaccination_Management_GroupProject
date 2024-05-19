@@ -34,6 +34,17 @@ const vaccinationSchema = new mongoose.Schema({
   },
   location: { 
     type: String 
+  },
+  nextDateTime:{
+    date:{
+      type: String
+    },
+    time:{
+      type: String
+    }
+  },
+  status:{
+    type:String
   }
 });
 module.exports = mongoose.model("Vaccination",vaccinationSchema);
