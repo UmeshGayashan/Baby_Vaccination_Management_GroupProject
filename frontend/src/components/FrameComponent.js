@@ -38,7 +38,7 @@ const FrameComponent = ({
         <h3 className="family-support" style={{width:"200px"}}>{familySupport}</h3>
       </div>
       <div className="frame-secondary-button">
-        <div className="lorem-ipsum-dolor2">
+        <div className="lorem-ipsum-dolor2" style={{fontSize:"20px"}}>
           {paragraphContent}
         </div>
       </div>

@@ -1,6 +1,5 @@
 import { Button } from "@mui/material";
 import DesktopDatePicker from "../../components/DesktopDatePicker";
-import FrameContainer from "../../components/FrameContainer";
 import "../pageCss/UserPage.css";
 import Footer from "../../components/Footer";
 import React, { useState } from 'react';
@@ -176,8 +175,7 @@ const HighAdminChild = () => {
             </div>
           </div>
         </section>
-        {/* yellow knowledge label container */}
-        <FrameContainer />
+     
 
         {/* special need section */}
         <section className="you-message-frame">

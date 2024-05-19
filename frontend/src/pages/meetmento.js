@@ -5,9 +5,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import Navbar from '../components/Navbar';
-import Header from '../components/Header';
 import MHeader from '../components/meetmentoheader';
 import Footer from '../components/Footer';
+import { MdArrowRight } from 'react-icons/md';
 
 export default function MCard() {
   const cardData = [
@@ -31,11 +31,11 @@ export default function MCard() {
   ];
 
   return (
-    <div style={{backgroundColor:"lightblue"}}>
+    <div style={{backgroundColor:"#fff9c7"}}>
             <Navbar/>
             <MHeader/>
         
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px', marginBottom:"80px" , backgroundColor:"lightblue" }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px', marginBottom:"80px" , backgroundColor:"#fff9c7",  marginLeft:"20px", marginRight:"20px"}}>
         
       {cardData.map(card => (
         <Card key={card.id}>

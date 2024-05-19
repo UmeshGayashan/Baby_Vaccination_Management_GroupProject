@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import "./comCss/Tint.css";
+import { BiFontSize } from "react-icons/bi";
 
 const Tint = ({
   image,
@@ -26,6 +27,7 @@ const Tint = ({
   const backEndStyle = useMemo(() => {
     return {
       textAlign: propTextAlign,
+      fontSize:"20px",
     };
   }, [propTextAlign]);
 

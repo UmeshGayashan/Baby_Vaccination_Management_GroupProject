@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from "@mui/material";
 import { DataGrid } from '@mui/x-data-grid';
 import BGRectangle from "../../components/BGRectangle";
 import DesktopDatePicker from "../../components/DesktopDatePicker";
-import FrameContainer from "../../components/FrameContainer";
 import Footer from "../../components/Footer";
-import Dropdown_01 from "../../components/dropdown";
 import UserNavBar from "../../components/user_nav";
 import UserDashBoard from "../../components/userdashboard";
 import NotificationList from "../../components/NotificationList";
@@ -117,42 +114,44 @@ const UserPage = () => {
   };
 
   return (
-    <div>
+    <div >
       <UserNavBar />
-      <div className="user-page">
+      <div className="user-page" >
         <BGRectangle />
         <section className="image-placeholder">
           <UserDashBoard />
           <div className="label-text">
             <div className="minheight">
-              <div className="default-slot"><Dropdown_01 /></div>
               <div className="custom-page-heading">
                 <div className="box7">
-                  <div className="title-and-contents">
+                  <div className="title-and-contents" style={{ marginTop: "-30px" }}>
                     <h1 className="page-header">Track Your Child Vaccinations</h1>
                     <div className="stack"></div>
                   </div>
                 </div>
               </div>
-              <div className="card">
+              <div className="card" >
                 <div className="paper">
-                  <div className="custom-users-management-tabl">
-                    <div>
-                      <h1>Welcome, {user?.username}</h1>
+                  <div className="custom-users-management-tabl" style={{ backgroundColor: "#fff9c7" }} >
+                    <div style={{ alignContent: "center", marginLeft: "40px", marginBottom: "20px" }}>
+                      <div style={{ fontSize: "30px", fontWeight: "600", marginTop: "20px" }}>Welcome {user?.username}</div>
                       {loading ? (
                         <p>Loading...</p>
                       ) : error ? (
                         <p>{error}</p>
                       ) : (
                         <>
-                          <h2>Your Babies:</h2>
+                          <div style={{ fontSize: "30px", fontWeight: "500", marginTop: "20px" }}>Your Babies:</div>
                           {babies.length > 0 ? (
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', marginTop: "20px" }}>
                               {babies.map((baby, index) => (
                                 <div
                                   key={index}
                                   style={{
-                                    border: '1px solid #ccc',
+
+                                    backgroundColor: "#fff494",
+                                    fontSize: "18px",
+                                    border: '2px solid #ccc',
                                     padding: '10px',
                                     borderRadius: '5px',
                                     cursor: 'pointer',
@@ -161,11 +160,13 @@ const UserPage = () => {
                                   onClick={() => onBabyClick(baby)}
                                 >
                                   <h3>{baby.babyName.firstName} {baby.babyName.lastName}</h3>
-                                  <p><strong>Birth Date:</strong> {new Date(baby.birthDate).toLocaleDateString()}</p>
-                                  <p><strong>Hospital:</strong> {baby.hospitalName}</p>
-                                  <p><strong>Weight:</strong> {baby.weight} kg</p>
-                                  <p><strong>Gender:</strong> {baby.gender}</p>
-                                  <p><strong>BabyID:</strong> {baby.bid}</p>
+                                  <div style={{ marginTop: "20px", marginBottom: "20px" }}>
+                                    <p><strong>Birth Date:</strong> {new Date(baby.birthDate).toLocaleDateString()}</p>
+                                    <p><strong>Hospital:</strong> {baby.hospitalName}</p>
+                                    <p><strong>Weight:</strong> {baby.weight} kg</p>
+                                    <p><strong>Gender:</strong> {baby.gender}</p>
+                                    <p><strong>BabyID:</strong> {baby.bid}</p>
+                                  </div>
                                 </div>
                               ))}
                             </div>
@@ -175,7 +176,7 @@ const UserPage = () => {
                         </>
                       )}
                     </div>
-                    <div className="table">
+                    {/* <div className="table" style={{marginTop:"50px", marginLeft:"20px", marginRight:"20px", marginBottom:"50px"}}>
                       <div style={{ height: 500, width: '100%' }}>
                         <DataGrid
                           rows={selectedBabyVaccinations}
@@ -188,15 +189,15 @@ const UserPage = () => {
                           getRowId={(row) => row._id}
                         />
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="text-container">
+          <div className="text-container" style={{ marginLeft: "25px" }}>
             <div className="desktopdatepicker-parent">
-              <div className="go-to-calendar" style={{ marginTop: "-30px" }}>
+              <div className="go-to-calendar" style={{ marginTop: "50px" }}>
                 <div className="list">
                   <div className="header-picker">
                     <DesktopDatePicker />
@@ -214,34 +215,23 @@ const UserPage = () => {
             </div>
           </div>
         </section>
-        <FrameContainer />
-        <section className="you-message-frame">
-          <div className="cta">
-            <div className="content">
-              <h1 className="you-can-take">
-                You can take advice from provided doctors for children with special needs!
-              </h1>
-              <Button
-                className="primary-button"
-                variant="contained"
-                sx={{
-                  textTransform: "none",
-                  color: "#000",
-                  fontSize: 16,
-                  background: "#f2c94c",
-                  borderRadius: "4px",
-                  "&:hover": { background: "#f2c94c" },
-                  width: 187,
-                  height: 51,
-                }}
-              >
-                Meet your doctor
-              </Button>
-            </div>
+
+        <div className="table" style={{ margin: "50px", backgroundColor: "#fff9c7" }}>
+          <div style={{ height: 500, width: '100%' }}>
+            <DataGrid
+              rows={selectedBabyVaccinations}
+              columns={columns}
+              pageSize={12}
+              rowsPerPageOptions={[12]}
+              checkboxSelection
+              disableSelectionOnClick
+              onEditCellChangeCommitted={handleCellEditCommit}
+              getRowId={(row) => row._id}
+            />
           </div>
-        </section>
-        <Footer />
+        </div>
       </div>
+      <div style={{ marginTop: "50px" }}>  <Footer /></div>
     </div>
   );
 };

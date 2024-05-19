@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from "@mui/material";
 import WhatWeDo from './WhatWeDo';
-import MCard from '../pages/meetmento';
 const AbFrame = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -31,16 +30,16 @@ const AbFrame = () => {
                   <b className="our-journey1" style={{ marginLeft: windowWidth <= 750 ? "10px" : "30px", marginTop: "-10px" }}>{`______ Know About Us`}</b>
                   <h2 className="how-we-raised" style={{ marginLeft: windowWidth <= 750 ? "20px" : "60px" }}> We provide details about vaccines for children </h2>
 
-                  <div className="lorem-ipsum-dolor7" style={{ marginLeft: windowWidth <= 750 ? "20px" : "60px" }}>
+                  <div className="lorem-ipsum-dolor7" style={{ fontSize:"22px", color:"grey", marginLeft: windowWidth <= 750 ? "20px" : "60px" }}>
+                    
                   Driven by a commitment to innovation and child health advocacy, we strive to make vaccination management a
                    seamless and stress-free experience for families everywhere. Join us in
                    our mission to protect the most vulnerable members of our community and ensure a healthier future for generations to come.
+                   
                   </div>
 
-                  <div className="lorem-ipsum-dolor7" style={{ marginLeft: windowWidth <= 750 ? "20px" : "60px" }}>
-                  At BabyVaxPro, we understand the importance of timely vaccinations in safeguarding children against preventable diseases. Our
-                  user-friendly interface empowers parents and guardians to stay
-                  informed about their child's vaccination schedule, receive timely reminders, and easily manage appointments with healthcare providers.
+                  <div className="lorem-ipsum-dolor7" style={{ fontSize:"22px", color:"grey",marginLeft: windowWidth <= 750 ? "20px" : "60px" }}>
+                  At BabyVaxPro, we understand the importance of timely vaccinations in safeguarding children against preventable diseases.
                   </div>
                   
 

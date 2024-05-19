@@ -1,7 +1,6 @@
 import { Button } from "@mui/material";
 import BGRectangle from "../../components/BGRectangle";
 import DesktopDatePicker from "../../components/DesktopDatePicker";
-import FrameContainer from "../../components/FrameContainer";
 import "../pageCss/UserPage.css";
 import Footer from "../../components/Footer";
 import React, { useState } from 'react';
@@ -176,8 +175,7 @@ const LowAdminParants = () => {
             </div>
           </div>
         </section>
-        {/* yellow knowledge label container */}
-        <FrameContainer />
+       
 
         {/* special need section */}
         <section className="you-message-frame">

@@ -20,7 +20,7 @@ const OurVision = () => {
                   vaccination, promoting the health and well-being of every
                   child
                 </h2>
-                <div className="we-believe-that">
+                <div className="we-believe-that" style={{fontSize:"20px"}}>
                   {" "}
                   We believe that informed decisions lead to healthier
                   communities, and we are committed to being a reliable resource
@@ -34,13 +34,13 @@ const OurVision = () => {
                   <h2 className="provide-more-inclusive">
                     Provide more inclusive care to children around the world
                   </h2>
-                  <div className="lorem-ipsum-dolor6">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse varius enim in eros elementum tristique. Duis
-                    cursus, mi quis viverra ornare, eros dolor interdum nulla,
-                    ut commodo diam libero vitae erat. Aenean faucibus nibh et
-                    justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae
-                    risus tristique posuere.
+                  <div className="lorem-ipsum-dolor6" style={{fontSize:"20px"}}>
+                  Our vision is to create a world where every child is protected
+                   from preventable diseases through comprehensive
+                   vaccination programs. We strive to foster a healthier future by 
+                   ensuring timely immunizations, 
+                  educating families, and providing support, ultimately empowering 
+                  communities to thrive in health and well-being.
                   </div>
                 </div>
               </div>

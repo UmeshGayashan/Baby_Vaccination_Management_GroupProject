@@ -32,7 +32,7 @@ export default function VCard() {
                 <Typography gutterBottom variant="h5" component="div">
                   {card.title}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" color="text.secondary" fontSize="18px">
                   {card.description}
                 </Typography>
               </CardContent>

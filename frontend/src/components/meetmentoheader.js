@@ -11,7 +11,7 @@ const MHeader = () => {
     <div className="header1" style={{ marginBottom:"80px"}} >
       <img className="bg-image-icon" alt="" src="/mento.jpg" />
       <div className="our-supporters1">
-        <div className="support-frame">
+        <div className="support-frame" >
           <h1 className="get-your-childrens-container">
             <p className="get-your-childrens">We Are Ready  </p>
             <p className="vaccine">To Help</p>
@@ -20,8 +20,8 @@ const MHeader = () => {
           
         </div>
       </div>
-      <div className="button-row1">
-        <div className="children-under-our">230 children under our care</div>
+      <div className="button-row1" style={{color:"black"}}>
+        <div className="children-under-our" >230 children under our care</div>
         <div className="line-separator1">
           <div className="donations-collected" />
         </div>

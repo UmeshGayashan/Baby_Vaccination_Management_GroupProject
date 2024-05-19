@@ -1,6 +1,6 @@
 import "./comCss/FrameComponent1.css";
 
-const FrameComponent1 = () => {
+const AboutHeader = () => {
   return (
     <div className="section-title-group">
 
@@ -15,14 +15,13 @@ const FrameComponent1 = () => {
           <h1 className="we-are-a">We are a governmental organization</h1>
           <div className="lorem-ipsum-dolor-sit-amet-con">
             <b className="aenean-faucibus-nibh">
-              Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet.
-              Nunc ut sem vitae risus tristique posuere.
+            We ensure children's health through timely vaccinations,
+             offering comprehensive immunization programs for a healthier future.
             </b>
             <div className="lorem-ipsum-dolor5">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse varius enim in eros elementum tristique. Duis cursus,
-              mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam
-              libero vitae erat. Suspendisse varius enim elementum tristique.
+            We are dedicated to safeguarding children's health through comprehensive
+             vaccination programs, ensuring timely immunizations and promoting a
+              healthier future for all.
             </div>
           </div>
         </div>
@@ -31,4 +30,4 @@ const FrameComponent1 = () => {
   );
 };
 
-export default FrameComponent1;
+export default AboutHeader;

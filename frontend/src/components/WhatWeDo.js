@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import FrameComponent from "./FrameComponent";
 import "./comCss/WhatWeDo.css";
 import Footer from './Footer';
-import MCard from '../pages/meetmento';
 import VCard from '../pages/VCard';
 
 const WhatWeDo = () => {
@@ -21,19 +20,20 @@ const WhatWeDo = () => {
   }, []);
 
   return (
-    <div>
-      <section className="what-we-do33" style={{marginBottom:"100px" }}>
+    <div > 
+      <section className="what-we-do33" style={{marginBottom:"100px" , paddingBottom:"0px" }}>
         <div className="secondary-button5 b-g">
           <div className="you-can-take-advice"></div>
           <div className="our-journey-section-2">
             <div className="bg7"></div>
-            <div className="mission-section">
+            <div className="mission-section" >
               <div className="vision-section">
-                <div className="our-journey" style={{marginTop:"20px"}}>
-                  <b className="our-journey1" >{`______ What we do`}</b>
+                <div className="our-journey-22" style={{marginTop:"80px", marginLeft:"-80px"}}>
+                  <div  style={{marginBottom:"20px"}}> <b className="our-journey1" >{`______ What we do`}</b></div>
+                  
                   <h2 className="how-we-raised"> Some services we provide for our children</h2>
 
-                  <div className="lorem-ipsum-dolor7">
+                  <div className="lorem-ipsum-dolor7" style={{fontSize:"22px", marginRight:"-50px", marginTop:"20px"}}>
                   Investing in your baby's health begins with timely vaccinations.
                    Our comprehensive vaccination program ensures your child receives
                     essential immunizations, protecting them from harmful diseases. 

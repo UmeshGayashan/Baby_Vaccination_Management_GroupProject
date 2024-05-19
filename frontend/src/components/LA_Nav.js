@@ -36,7 +36,7 @@ function LANavbar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'white', height: '100px' }}>
+    <AppBar position="static" sx={{ backgroundColor: 'white', height: '80px' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 3 }} />

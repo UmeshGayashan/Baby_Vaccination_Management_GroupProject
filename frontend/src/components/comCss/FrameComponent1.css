@@ -23,7 +23,7 @@
   line-height: 150%;
 }
 .lorem-ipsum-dolor5 {
-  font-size: var(--paragraph-size);
+  font-size: 20px;
   line-height: 160%;
   color: var(--color-gray-400);
 }
@@ -39,7 +39,7 @@
   flex-direction: column;
   gap: 2px 0;
   min-width: 465px;
-  font-size: var(--typography-h6-size);
+  font-size: 25px;
 }
 .we-are-a-governmental-organiza {
   width: 1184px;

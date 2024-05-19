@@ -12,11 +12,7 @@ const BGRectangle = () => {
             <p className="we-remind-you1">We remind You</p>
           </h1>
           <b className="the-safety-of">
-            The safety of your child is our top priority. We prioritize
-            evidence-based information, staying abreast of the latest research
-            and guidelines from reputable health organizations. Rest assured,
-            the information provided on [Your Website Name] is designed to help
-            you make the best decisions for your child's health.
+    
           </b>
         </div>
       </div>

@@ -8,16 +8,16 @@ const BackEnd = () => {
         <div className="front-end">
           <div className="socialrow-projectmanager">
             <h1 className="meet-our-team">Meet our team</h1>
-            <div className="lorem-ipsum-dolor8">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse varius enim in eros elementum tristique.
+            <div className="lorem-ipsum-dolor8"  style={{fontSize:"20px"}}>
+            Reach out to us for reliable information, personalized care,
+             and expert guidance to ensure your child's health and well-being.
             </div>
           </div>
         </div>
         <div className="b-g1">
-          <Tint image="/image-1@2x.png" telana="Telana" backEnd="Back End" />
+          <Tint image="/telana.jpeg" telana="Telana" backEnd="Back End" />
           <Tint
-            image="/image-2@2x.png"
+            image="/maleesha.jpeg"
             telana="Maleesha"
             backEnd="UI UX"
             propWidth="296px"
@@ -25,8 +25,8 @@ const BackEnd = () => {
             propPadding1="0px var(--padding-3xs)"
             propTextAlign="left"
           />
-          <Tint
-            image="/image-3@2x.png"
+          <Tint 
+            image="/chethana.jpeg"
             telana="Chethana"
             backEnd="Front End"
             propWidth="296px"
@@ -35,11 +35,11 @@ const BackEnd = () => {
             propTextAlign="left"
           />
           <div className="tint3">
-            <img className="image-icon2" alt="" src="/image-4@2x.png" />
+            <img className="image-icon2" alt="" src="/umesh.jpeg" />
             <div className="umesh-parent">
               <div className="umesh">Umesh</div>
               <div className="project-manager-parent">
-                <div className="project-manager1">Project manager</div>
+                <div className="project-manager1" style={{fontSize:"20px"}}>Project manager</div>
                 <div className="social-row2">
                   <img
                     className="facebook-negative4"

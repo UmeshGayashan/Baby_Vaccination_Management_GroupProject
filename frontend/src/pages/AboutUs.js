@@ -1,12 +1,12 @@
 
-import FrameComponent1 from "../components/FrameComponent1";
 import OurVision from "../components/OurVision";
-import SecondaryButton from "../components/SecondaryButton";
+import OurJurney from "../components/OurJurney";
 import BackEnd from "../components/BackEnd";
 import Footer from "../components/Footer";
 import "./pageCss/AboutUs.css";
 import Navbar from "../components/Navbar";
 import { Button } from "@mui/material";
+import AboutHeader from "../components/AboutHeader";
 
 const AboutUs = () => {
   return (
@@ -15,11 +15,11 @@ const AboutUs = () => {
 
       <section className="media-contact">
 
-        <FrameComponent1 />
+        <AboutHeader />
         <OurVision />
       </section>
       {/* our Jurney */}
-      <SecondaryButton />
+      <OurJurney />
       {/* Our Team */}
       <BackEnd />
     
@@ -30,7 +30,7 @@ const AboutUs = () => {
               You can take advice from provided doctors for children with
               special needs!
             </h1>
-            <Button
+            <Button href="/mcard"
               className="primary-button"
               
               variant="contained"
