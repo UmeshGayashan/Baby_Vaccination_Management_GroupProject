@@ -12,9 +12,7 @@ const AboutUs = () => {
   return (
     <div className="about-us">
       <Navbar/>
-
       <section className="media-contact">
-
         <AboutHeader />
         <OurVision />
       </section>

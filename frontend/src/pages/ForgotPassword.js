@@ -103,7 +103,7 @@ export default function ForgotPassword() {
               </Link>
               <Grid container>
                 <Grid item xs>
-                  <LinkMui href="/signin" variant="body2">
+                  <LinkMui href="/login" variant="body2">
                     Do you have an account?SignIn
                   </LinkMui>
                 </Grid>

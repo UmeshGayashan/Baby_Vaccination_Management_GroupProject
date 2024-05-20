@@ -101,7 +101,7 @@ export default function RecoverPassword() {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               /> */}
-              <Link to="/signin">
+              <Link to="/login">
                 <Button s
 
                   type="submit"
