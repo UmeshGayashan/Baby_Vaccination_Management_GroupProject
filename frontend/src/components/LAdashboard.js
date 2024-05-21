@@ -5,13 +5,8 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Collapse from '@mui/material/Collapse';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
-import StarBorder from '@mui/icons-material/StarBorder';
 import GradeIcon from '@mui/icons-material/Grade';
 import { Link } from 'react-router-dom';
-import DesktopDatePicker from './DesktopDatePicker';
 
 function LAdminDashBoard() {
   const [open, setOpen] = React.useState(false);
@@ -82,16 +77,8 @@ function LAdminDashBoard() {
         <ListItemText primary="Vaccines" />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton> */}
-    
     </List>
-
-    {/* <div className="go-to-calendar" >
-    <div className="list">
-      <div className="header-picker">
-        <DesktopDatePicker />
-      </div>
-    </div>
-  </div> */}
+ 
   </div>
   );
 }

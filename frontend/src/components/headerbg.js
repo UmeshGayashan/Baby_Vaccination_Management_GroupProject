@@ -11,12 +11,8 @@ const BGRectangle2 = () => {
             <p className="vaccine1">Family</p>
             <p className="we-remind-you1">Help Them...!</p>
           </h1>
-          <b className="the-safety-of">
-          The safety of your child is our top priority. We prioritize
-              evidence-based information, staying abreast of the latest research
-              and guidelines from reputable health organizations. Rest assured,
-              the information provided on [Your Website Name] is designed to
-              help you make the best decisions for your child's health.
+          <b className="the-safety-of" style={{ fontSize: "40px" }}>
+            Welcome to Child collection
           </b>
         </div>
       </div>

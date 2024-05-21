@@ -2,9 +2,8 @@ import { Button } from "@mui/material";
 import DesktopDatePicker from "../../components/DesktopDatePicker";
 import "../pageCss/UserPage.css";
 import Footer from "../../components/Footer";
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import UserNavBar from "../../components/user_nav";
 import "../../components/comCss/Minheight.css";
 import LAdminDashBoard from "../../components/LAdashboard";
 import BGRectangle2 from "../../components/headerbg";
@@ -69,82 +68,60 @@ const LowAdmin = () => {
     <div>
       <LANavbar />
       <div className="user-page">
-        <BGRectangle2/>
-        <section className="image-placeholder" style={{marginBottom:"50px"}}>
+        <BGRectangle2 />
+        <section className="image-placeholder" style={{ marginBottom: "50px", marginTop: "20px" }}>
           <LAdminDashBoard />
           <div className="label-text">
             {/* table */}
-            <div className="minheight" >
+            <div className="minheight" style={{ marginTop: "-35px" }} >
               <div className="default-slot"> <h1 className="page-header">Child Collection</h1></div>
               <div className="card">
                 <div className="paper">
                   <div className="custom-users-management-tabl" >
                     <div className="custom-table-toolbar">
                       <div className="queries">
-                        <div className="textfield1">
-                          <div className="input5">
-                            <input
-                              className="content2"
-                              placeholder="Name, email, etc..."
-                              type="text"
-                            />
-                            <div className="label-container1">
-                              <div className="label1">Search</div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="textfield1">
-                          <Button className="button-row" href="/update-child"
+                        <div >
+                          <Button href="/update-perant"
                             disableElevation={true}
                             variant="contained"
                             sx={{
-                              marginLeft: "200px",
+                              marginTop: "20px",
+                              marginLeft: "20px",
                               extTransform: "none",
                               color: "#1d2130",
                               fontSize: "14px",
-                              background: "#fff",
+                              background: "#fff9c7",
                               borderRadius: "10x 10px 10px 10px",
                               borderColor: "black",
                               borderWidth: "2px",
                               borderStyle: "solid",
                               "&:hover": { background: "#fff" },
-                              width: 50,
+                              width: 300,
 
-                            }}>Update</Button>
+                            }}>Update Parents</Button>
+                          <div style={{ marginTop: "20px", marginBottom: "20px" }}>
+                            <Button href="/update-child"
+                              disableElevation={true}
+                              variant="contained"
+                              sx={{
+
+                                extTransform: "none",
+                                marginLeft: "20px",
+                                color: "#1d2130",
+                                fontSize: "14px",
+                                background: "#fff9c7",
+                                borderRadius: "10x 10px 10px 10px",
+                                borderColor: "black",
+                                borderWidth: "2px",
+                                borderStyle: "solid",
+                                "&:hover": { background: "#fff" },
+                                width: 300,
+
+                              }}>Update child</Button>
+                          </div>
                         </div>
 
-                        <div className="textfield1">
-                          <Button className="button-row"
-                            disableElevation={true}
-                            variant="contained"
-                            sx={{
-                              marginLeft: "10px",
-                              extTransform: "none",
-                              color: "white",
-                              fontSize: "14px",
-                              background: "light blue",
-                              borderRadius: "10x 10px 10px 10px",
-                              borderColor: "black",
-                              "&:hover": { background: "light blue" },
-                              width: 50,
 
-                            }}>View</Button>
-                        </div>
-
-                      </div>
-                    </div>
-
-                    <div className="table">
-                      <div style={{ height: 500, width: '100%' }}>
-                        <DataGrid
-                          rows={rows}
-                          columns={columns}
-                          pageSize={12}
-                          rowsPerPageOptions={[12]}
-                          checkboxSelection
-                          disableSelectionOnClick
-                        />
                       </div>
                     </div>
 
@@ -155,14 +132,12 @@ const LowAdmin = () => {
 
           </div>
           {/* right section */}
-          <div className="text-container">
+          <div className="text-container" >
             <div className="desktopdatepicker-parent" >
 
-
-
-              <div className="go-to-calendar" >
-                <div className="list">
-                  <div className="header-picker">
+              <div className="go-to-calendar" style={{ height: "flex", marginTop: "-50px" }} >
+                <div className="list" >
+                  <div className="header-picker" style={{ marginTop: "-20px", marginBottom: "50px" }}>
                     <DesktopDatePicker />
                   </div>
                 </div>
@@ -180,36 +155,19 @@ const LowAdmin = () => {
             </div>
           </div>
         </section>
-       
 
-        {/* special need section */}
-        <section className="you-message-frame">
-          <div className="cta">
-            <div className="content">
-              <h1 className="you-can-take">
-                You can take advice from provided doctors for children with
-                special needs!
-              </h1>
-              <Button
-                className="primary-button"
-                variant="contained"
-                sx={{
-                  textTransform: "none",
-                  color: "#000",
-                  fontSize: "16",
-                  background: "#f2c94c",
-                  borderRadius: "4px",
-                  "&:hover": { background: "#f2c94c" },
-                  width: 187,
-                  height: 51,
-                }}
-              >
-                Meet your doctor
-              </Button>
-            </div>
+        <div className="table" style={{ marginBottom: "50px", marginLeft: "50px", marginRight: "50px", backgroundColor: "#fff9c7" }}>
+          <div style={{ height: 500, width: '100%' }}>
+            <DataGrid
+              rows={rows}
+              columns={columns}
+              pageSize={12}
+              rowsPerPageOptions={[12]}
+              checkboxSelection
+              disableSelectionOnClick
+            />
           </div>
-        </section>
-
+        </div>
         <Footer />
       </div>
     </div>
