@@ -2,30 +2,27 @@ import { Button } from "@mui/material";
 import DesktopDatePicker from "../../components/DesktopDatePicker";
 import "../pageCss/UserPage.css";
 import Footer from "../../components/Footer";
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import "../../components/comCss/Minheight.css";
 import BGRectangle2 from "../../components/headerbg";
 import LANavbar from "../../components/LA_Nav";
 import HAdminDashBoard from "../../components/HighAdminDashboard";
 import ANotificationList from "../../components/AdminNotification";
+import React, { useState, useEffect } from 'react';
 
 const columns = [
-  { field: 'vaccination', headerName: 'Vaccination', width: 130, editable: true },
-  { field: 'place', headerName: 'Place', width: 180, editable: true },
-  { field: 'vaccinator', headerName: 'Vaccinator', width: 130, editable: true },
-  { field: 'verification', headerName: 'Verification', width: 130, editable: true },
-  { field: 'bottelcode', headerName: 'Bottle Code', width: 130, editable: true },
-  { field: 'age', headerName: 'Age', type: 'number', width: 90, editable: true },
-  {
-    field: 'date',
-    headerName: 'Date',
-    type: 'date',
-    width: 120,
-    valueGetter: (params) => new Date(params.row.date),
-    editable: true,
-  },
-  { field: 'email', headerName: 'E-mail', width: 180, editable: true },
+  { field: 'firstName', headerName: 'First Name', width: 150 },
+  { field: 'lastName', headerName: 'Last Name', width: 150 },
+  { field: 'motherorGuardianNIC', headerName: 'Mother/Guardian NIC', width: 180 },
+  { field: 'fatherName', headerName: 'Father Name', width: 150 },
+  { field: 'fatherNic', headerName: 'Father NIC', width: 150 },
+  { field: 'bid', headerName: 'BID', width: 100 },
+  { field: 'gender', headerName: 'Gender', width: 100 },
+  { field: 'ofc', headerName: 'OFC', width: 100 },
+  { field: 'birthDate', headerName: 'Birth Date', width: 150, type: 'date' },
+  { field: 'weight', headerName: 'Weight', width: 100 },
+  { field: 'hospitalName', headerName: 'Hospital Name', width: 180 },
 ];
 
 const initialRows = [
@@ -48,6 +45,34 @@ const initialRows = [
 
 const HighAdminChild = () => {
   const [rows, setRows] = useState(initialRows);
+
+  useEffect(() => {
+    const fetchBabies = async () => {
+      try {
+        const response = await fetch('http://localhost:4000/admin/babies');
+        const data = await response.json();
+        const formattedData = data.map(baby => ({
+          id: baby._id,
+          firstName: baby.babyName.firstName,
+          lastName: baby.babyName.lastName,
+          motherorGuardianNIC: baby.motherorGuardianNIC,
+          fatherName: baby.fatherName,
+          fatherNic: baby.fatherNic,
+          bid: baby.bid,
+          gender: baby.gender,
+          ofc: baby.ofc,
+          birthDate: new Date(baby.birthDate),
+          weight: baby.weight,
+          hospitalName: baby.hospitalName,
+        }));
+        setRows(formattedData);
+      } catch (error) {
+        console.error('Error fetching baby data:', error);
+      }
+    };
+
+    fetchBabies();
+  }, []);
 
   const handleCellEditCommit = React.useCallback(({ id, field, props }) => {
     setRows((prevRows) => {
@@ -129,7 +154,7 @@ const HighAdminChild = () => {
                       </div>
                     </div>
 
-                    <div className="table" >
+                    {/* <div className="table" >
                       <div style={{ height: 500, width: '100%' }}>
                         <DataGrid
                           rows={rows}
@@ -141,7 +166,21 @@ const HighAdminChild = () => {
                           onEditCellChangeCommitted={handleCellEditCommit}
                         />
                       </div>
+                    </div> */}
+
+                    <div className="table">
+                      <div style={{ height: 500, width: '100%' }}>
+                        <DataGrid
+                          rows={rows}
+                          columns={columns}
+                          pageSize={12}
+                          rowsPerPageOptions={[12]}
+                          checkboxSelection
+                          disableSelectionOnClick
+                        />
+                      </div>
                     </div>
+                    
 
                   </div>
                 </div>

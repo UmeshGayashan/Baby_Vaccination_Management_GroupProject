@@ -4,8 +4,82 @@ import "../pageCss/AddChild.css";
 import DatePicker2 from "../../components/Datepicker_2";
 import { Button, } from "@mui/material";
 import HAACNavbar from "../../components/HA_addchildnavbar";
+import React, { useState, useEffect } from 'react';
 
 const HUpdateChild = () => {
+
+  const [bid, setBid] = useState('');
+  const [mfirstName, setFirstName] = useState('');
+  const [mlastName, setLastName] = useState('');
+  const [gender, setGender] = useState('');
+  const [mnic, setNic] = useState('');
+  const [fatherName, setFatherName] = useState('');
+  const [fatherNic, setFatherNic] = useState('');
+  const [ofc, setOfc] = useState('');
+  const [birthDate, setBirthday] = useState('');
+  const [weight, setWeight] = useState('');
+  const [hospitalName, setHospitalName] = useState('');
+  const [accountInfo, setAccountInfo] = useState(null);
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+  const [showFailureAlert, setShowFailureAlert] = useState(false);
+
+  // Function to update account information
+  const updateAccount = async () => {
+    try {
+      const response = await fetch(`http://localhost:4000/admin/update-acc/${bid}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        // body: JSON.stringify({ babyName.firstName: mfirstName, babyName.lastName: mlastName,gender,mnic,fatherName,fatherNic,ofc,birthDate,weight,hospitalName, }),
+      });
+
+      if (response.status === 200) {
+        const data = await response.json();
+        //Alert
+        setShowSuccessAlert(true);
+        setTimeout(() => {
+        setShowSuccessAlert(false);}, 2000);
+
+        setAccountInfo(data);
+      } else {
+        console.error('Account update failed');
+        //Alert
+        setShowFailureAlert(true);
+        setTimeout(() => {
+        setShowFailureAlert(false);}, 2000);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      //Alert
+      setShowFailureAlert(true);
+      setTimeout(() => {
+      setShowFailureAlert(false);}, 2000);
+    }
+  };
+
+  // Function to retrieve account information
+  const getAccountInfo = async () => {
+    try {
+      const response = await fetch(`http://localhost:4000/admin/baby-acc-info/${bid}`);
+      if (response.status === 200) {
+        const data = await response.json();
+        setAccountInfo(data);
+        console.log(data)
+      } else {
+        console.error('Account information retrieval failed');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  useEffect(() => {
+    if (accountNo) {
+      getAccountInfo();
+    }
+  }, [accountNo]);
+
 
   return (
     <div className="add-child">
