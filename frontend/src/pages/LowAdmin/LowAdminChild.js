@@ -79,7 +79,7 @@ const LowAdmin = () => {
                 <div className="paper">
                   <div className="custom-users-management-tabl" >
                     <div className="custom-table-toolbar">
-                      <div className="queries">
+                      <div className="queries"  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <div >
                           <Button href="/update-perant"
                             disableElevation={true}
