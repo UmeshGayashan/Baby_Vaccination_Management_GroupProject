@@ -373,4 +373,20 @@ router.get("/healthcares", async (req, res) => {
   }
 });
 
+// Fetch parent information based on NIC
+router.get('/get-parent-acc/:nic', async (req, res) => {
+  try {
+    const nic = req.params.nic;
+    const account = await ParentSchema.findOne({ motherorGuardianNIC: nic });
+
+    if (!account) {
+      return res.status(404).send('Account not found');
+    }
+
+    return res.status(200).send(account);
+  } catch (err) {
+    return res.status(500).send('Error while fetching account information: ' + err.message);
+  }
+});
+
 module.exports = router; // Export the router instance
