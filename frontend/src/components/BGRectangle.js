@@ -11,8 +11,8 @@ const BGRectangle = () => {
             <p className="vaccine1">Vaccine</p>
             <p className="we-remind-you1">We remind You</p>
           </h1>
-          <b className="the-safety-of">
-    
+          <b className="the-safety-of" style={{ fontSize: "40px" }}>
+            Welcome to Parent collection
           </b>
         </div>
       </div>

@@ -65,11 +65,11 @@ const LowAdminParants = () => {
       <LANavbar />
       <div className="user-page">
         <BGRectangle />
-        <section className="image-placeholder" style={{ marginBottom: "50px" , marginTop:"20px" }}>
+        <section className="image-placeholder" style={{ marginBottom: "50px", marginTop: "20px" }}>
           <LAdminDashBoard />
-          <div className="label-text" style={{marginBottom:"10px"}}>
-           
-            <div className="minheight" style={{marginTop:"-35px"}} >
+          <div className="label-text" style={{ marginBottom: "10px" }}>
+
+            <div className="minheight" style={{ marginTop: "-35px" }} >
               <div className="default-slot"> <h1 className="page-header">Parent Collection</h1></div>
               <div className="card">
                 <div className="paper">
@@ -78,12 +78,12 @@ const LowAdminParants = () => {
                       <div className="queries">
 
                         <div >
-                          <Button  href="/update-perant"
+                          <Button href="/update-perant"
                             disableElevation={true}
                             variant="contained"
                             sx={{
-                              marginTop:"20px",
-                              marginLeft:"20px",
+                              marginTop: "20px",
+                              marginLeft: "20px",
                               extTransform: "none",
                               color: "#1d2130",
                               fontSize: "14px",
@@ -96,26 +96,26 @@ const LowAdminParants = () => {
                               width: 300,
 
                             }}>Update Parents</Button>
-                            <div style={{marginTop:"20px" , marginBottom:"20px"}}>
-                            <Button  href="/update-child"
-                            disableElevation={true}
-                            variant="contained"
-                            sx={{
-                          
-                              extTransform: "none",
-                              marginLeft:"20px",
-                              color: "#1d2130",
-                              fontSize: "14px",
-                              background: "#fff9c7",
-                              borderRadius: "10x 10px 10px 10px",
-                              borderColor: "black",
-                              borderWidth: "2px",
-                              borderStyle: "solid",
-                              "&:hover": { background: "#fff" },
-                              width: 300,
+                          <div style={{ marginTop: "20px", marginBottom: "20px" }}>
+                            <Button href="/update-child"
+                              disableElevation={true}
+                              variant="contained"
+                              sx={{
 
-                            }}>Update child</Button>
-                            </div>
+                                extTransform: "none",
+                                marginLeft: "20px",
+                                color: "#1d2130",
+                                fontSize: "14px",
+                                background: "#fff9c7",
+                                borderRadius: "10x 10px 10px 10px",
+                                borderColor: "black",
+                                borderWidth: "2px",
+                                borderStyle: "solid",
+                                "&:hover": { background: "#fff" },
+                                width: 300,
+
+                              }}>Update child</Button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -127,12 +127,12 @@ const LowAdminParants = () => {
 
           </div>
           {/* right section */}
-          <div className="text-container" style={{height:"-100px"}}>
+          <div className="text-container" style={{ height: "-100px" }}>
             <div className="desktopdatepicker-parent" >
 
-            <div className="go-to-calendar"   style={{height:"flex" , marginTop:"-50px"}} >
+              <div className="go-to-calendar" style={{ height: "flex", marginTop: "-50px" }} >
                 <div className="list" >
-                  <div className="header-picker" style={{marginTop:"-20px" , marginBottom:"50px"}}>
+                  <div className="header-picker" style={{ marginTop: "-20px", marginBottom: "50px" }}>
                     <DesktopDatePicker />
                   </div>
                 </div>
@@ -141,8 +141,8 @@ const LowAdminParants = () => {
             </div>
           </div>
         </section>
- {/* table */}
-        <div className="table" style={{marginBottom:"50px", marginLeft:"50px" , marginRight:"50px", backgroundColor:"#fff9c7"}}>
+        {/* table */}
+        <div className="table" style={{ marginBottom: "50px", marginLeft: "50px", marginRight: "50px", backgroundColor: "#fff9c7" }}>
           <div style={{ height: 500, width: '100%' }}>
             <DataGrid
               rows={rows}
@@ -154,19 +154,6 @@ const LowAdminParants = () => {
             />
           </div>
         </div>
-
-
-        {/* special need section */}
-        <section className="you-message-frame">
-          <div className="cta">
-            <div className="content">
-              <h1 className="you-can-take">
-                You can take advice from provided doctors for children with
-                special needs!
-              </h1>
-            </div>
-          </div>
-        </section>
 
         <Footer />
       </div>
