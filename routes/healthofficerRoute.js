@@ -187,5 +187,45 @@ router.put("/update-vacc/:bcode", async (req, res) => {
   }
 });
 
+// Get Vaccinarion Histroy of Child
+router.get("/vacc-history/:babyId", async (req, res) => {
+  const bid = req.params.babyId;
+
+  try {
+    const vaccinations = await vaccinationSchema.find({ bid });
+
+    if (!vaccinations) {
+      return res.status(404).json({ error: "No vaccination history found" });
+    }
+
+    return res.status(200).json(vaccinations);
+  } catch (err) {
+    return res.status(500).json({
+      error: "Error while fetching vaccinations",
+      message: err.message,
+    });
+  }
+});
+
+// Route to get all babies
+router.get("/babies", async (req, res) => {
+  try {
+      const babies = await babySchema.find();
+      res.status(200).json(babies);
+  } catch (err) {
+      res.status(500).json({ message: err.message });
+  }
+});
+
+// Route to get all parents
+router.get("/parents", async (req, res) => {
+  try {
+      const parents = await ParentSchema.find();
+      res.status(200).json(parents);
+  } catch (err) {
+      res.status(500).json({ message: err.message });
+  }
+});
+
 
 module.exports = router; // Export the router instance

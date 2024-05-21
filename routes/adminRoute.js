@@ -343,5 +343,25 @@ router.get("/vacc-history/:babyId", async (req, res) => {
   }
 });
 
+// Route to get all babies
+router.get("/babies", async (req, res) => {
+  try {
+      const babies = await babySchema.find();
+      res.status(200).json(babies);
+  } catch (err) {
+      res.status(500).json({ message: err.message });
+  }
+});
+
+// Route to get all parents
+router.get("/parents", async (req, res) => {
+  try {
+      const parents = await ParentSchema.find();
+      res.status(200).json(parents);
+  } catch (err) {
+      res.status(500).json({ message: err.message });
+  }
+});
+
 
 module.exports = router; // Export the router instance
