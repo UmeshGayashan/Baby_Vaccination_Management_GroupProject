@@ -37,7 +37,7 @@ const HUpdatePerant = () => {
 
   //==================
   const handleFetchParentInfo = () => {
-    const url = `http://localhost:4000/admin/get-parent-acc/${parentNIC}`; // Use the full URL
+    const url = `http://localhost:4000/admin/get-parent-acc/${parentNIC}`; 
     axios.get(url)
       .then(response => {
         const data = response.data;
@@ -61,7 +61,7 @@ const HUpdatePerant = () => {
 
 
   const handleUpdateParentInfo = () => {
-    const url = `http://localhost:4000/admin/update-parent-acc/${parentNIC}`; // Use the full URL
+    const url = `http://localhost:4000/admin/update-parent-acc/${parentNIC}`; 
     axios.put(url, {
       motherorGuardianName: {
         firstName: parentData.firstName,
@@ -78,7 +78,7 @@ const HUpdatePerant = () => {
     })
       .then(response => {
         console.log("Parent information updated successfully:", response.data);
-        navigate("/low-admin-parants"); // Navigate to another page after successful update
+        navigate("/low-admin-parants"); 
       })
       .catch(error => {
         console.error("Error updating parent information:", error);
