@@ -4,9 +4,10 @@ import "../pageCss/AddPerant.css";
 import HomeLink from "../../components/HomeLink";
 import Footer from "../../components/Footer";
 import '../../components/comCss/MothersNameField.css';
-import React, { useState } from 'react';
+import React, { useState,  } from 'react';
 import Button from '@mui/material/Button';
 import HAAProNavbar from "../../components/ADDprofessionnavbar";
+
 
 
 
@@ -30,11 +31,79 @@ const AddProffessions = () => {
     navigate("/high-admin-proffessions");
   }, [navigate]);
 
+  const [firstName, setFName] = useState('');
+  const [lastName, setLName] = useState('');
+  const [nic, setNIC] = useState('');
+  const [address, setAddress] = useState('');
+  const [postalCode, setPostalCode] = useState('');
+  const [position, setPosition] = useState('');
+  const [age, setAge] = useState('');
+  const [email, setEmail] = useState('');
+  const [telephone, settelephoneNo] = useState('');
+  const [username, setusername] = useState('');
+  const [password, setpassword] = useState('');
+  const [info, setinfo] = useState('');
+
+
+   // Function to create an account
+   const createAccount = async () => {
+    try {
+      const response = await fetch('http://localhost:4000/admin/create-health-acc', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ firstName, lastName, nic, address, postalCode,position,age, email, telephone, username, password, info }),
+      });
+
+      // if (response.status === 201) {
+      //   const data = await response.json();
+      //   //handle success
+      // }else {
+      //   console.error('Account creation failed');
+      // }
+    }catch (error) {
+      console.error('Error:', error);
+    }
+      
+      // if (response.status === 201) {
+      //   const data = await response.json();
+        
+      //   setAccountNo(data.accountNo);
+      //   //Alert
+      //   setShowSuccessAlert(true);
+      //   setTimeout(() => {
+      //   setShowSuccessAlert(fse);}, 2000);
+      // } else {
+      //   console.erralor('Account creation failed');
+      //   //Alert
+      //   setShowFailureAlert(true);
+      //   setTimeout(() => {
+      //   setShowFailureAlert(false);}, 2000);
+      // }
+    // } catch (error) {
+    //   console.error('Error:', error);
+    //   // //Alert
+    //   // setShowFailureAlert(true);
+    //   // setTimeout(() => {
+    //   // setShowFailureAlert(false);}, 2000);
+    // }
+  };
+
+ 
+
+
+
+
+
+
+
+
   return (
     <div className="add-perant">
       {/* navbar */}
       <HAAProNavbar/>
-      <HomeLink addChild="Add Helth Care Proffessions" />
+      <HomeLink addChild="Add Health Care Professions" />
 
       <section className="blog-link">
         <div className="linked-in-link" />
@@ -57,6 +126,8 @@ const AddProffessions = () => {
                 className="filledgmailcom"
                 placeholder="Your first name"
                 type="text"
+                value={firstName}
+            onChange={(e) => setFName(e.target.value)}
               />
             </div>
           </div>
@@ -72,6 +143,8 @@ const AddProffessions = () => {
               className="filledgmailcom1"
               placeholder="Your last name"
               type="text"
+              value={lastName}
+            onChange={(e) => setLName(e.target.value)}
             />
           </div>
         </div>
@@ -84,6 +157,8 @@ const AddProffessions = () => {
               className="filledgmailcom2"
               placeholder="NIc No"
               type="text"
+              value={nic}
+            onChange={(e) => setNIC(e.target.value)}
             />
           </div>
         </div>
@@ -95,54 +170,70 @@ const AddProffessions = () => {
               className="filledgmailcom2"
               placeholder="Address"
               type="text"
+              value={address}
+            onChange={(e) => setAddress(e.target.value)}
             />
           </div>
       <div className="footer-frame1">
         <div className="postal-code">Postal Code</div>
         <div className="input-field63">
-          <input className="code" placeholder="Code" type="text" />
+          <input className="code" placeholder="Code" type="text"
+           value={postalCode}
+           onChange={(e) => setPostalCode(e.target.value)} />
         </div>
       </div>
 
       <div className="footer-frame1">
-        <div className="postal-code">Possition</div>
+        <div className="postal-code">Position</div>
         <div className="input-field63">
-          <input className="code" placeholder="Posion" type="text" />
+          <input className="code" placeholder="Posion" type="text" 
+           value={position}
+           onChange={(e) => setPosition(e.target.value)}/>
         </div>
       </div>
 
             <div className="footer-frame1">
         <div className="postal-code">Age</div>
         <div className="input-field63">
-          <input className="code" placeholder="Age" type="text" />
+          <input className="code" placeholder="Age" type="text"
+          value={age}
+          onChange={(e) => setAge(e.target.value)} />
         </div>
       </div>
 
       <div className="footer-frame1">
         <div className="postal-code">Email</div>
         <div className="input-field63">
-          <input className="code" placeholder="Email Address" type="Email" />
+          <input className="code" placeholder="Email Address" type="Email" 
+           value={email}
+           onChange={(e) => setEmail(e.target.value)} />
         </div>
       </div>
 
       <div className="footer-frame1">
         <div className="postal-code">Phone Number</div>
         <div className="input-field63">
-          <input className="code" placeholder="Phone number" type="number" />
+          <input className="code" placeholder="Phone number" type="number" 
+          value={telephone}
+          onChange={(e) => settelephoneNo(e.target.value)}/>
         </div>
       </div>
 
       <div className="footer-frame1">
         <div className="postal-code">User Name</div>
         <div className="input-field63">
-          <input className="code" placeholder="User Name" type="text" />
+          <input className="code" placeholder="User Name" type="text" 
+           value={username}
+           onChange={(e) => setusername(e.target.value)}/>
         </div>
       </div>
 
       <div className="footer-frame1">
         <div className="postal-code">Password</div>
         <div className="input-field63">
-          <input className="code" placeholder="Password" type="text" />
+          <input className="code" placeholder="Password" type="text"
+           value={password}
+           onChange={(e) => setpassword(e.target.value)} />
         </div>
       </div>
 
@@ -159,8 +250,8 @@ const AddProffessions = () => {
         <textarea
           className="filledgmailcom3"
           placeholder="Notes about your order, e.g. special notes for delivery"
-          value={orderNotes}
-          onChange={(e) => setOrderNotes(e.target.value)}
+          value={info}
+          onChange={(e) => setinfo(e.target.value)}
           style={{ width: "100%", height: "150px" ,marginBottom:"-50px" }}
         />
       </div>
@@ -236,7 +327,8 @@ const AddProffessions = () => {
             width: 172,
             height: 56,
           }}
-          onClick={onButtons1Click}
+          // onClick={onButtons1Click}
+          onClick={createAccount}
         >
           Save
         </Button>

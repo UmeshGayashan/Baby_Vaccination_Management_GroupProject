@@ -1,5 +1,6 @@
 
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "../pageCss/AddPerant.css";
 import HomeLink from "../../components/HomeLink";
 import Footer from "../../components/Footer";
@@ -15,10 +16,78 @@ const HUpdatePerant = () => {
   const onNavButtonClick = useCallback(() => {
     navigate("/low-admin-parants");
   }, [navigate]);
+//==============
+  const [parentNIC, setParentNIC] = useState("");
+  const [parentData, setParentData] = useState({
+    firstName: "",
+    lastName: "",
+    nic: "",
+    address: "",
+    postalCode: "",
+    email: "",
+    phoneNumber: "",
+    userName: "",
+    password: "",
+    additionalInfo: ""
+  });
 
-
+//=======================
   const [orderNotes, setOrderNotes] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
+
+  //==================
+  const handleFetchParentInfo = () => {
+    const url = `http://localhost:4000/admin/get-parent-acc/${parentNIC}`; // Use the full URL
+    axios.get(url)
+      .then(response => {
+        const data = response.data;
+        setParentData({
+          firstName: data.motherorGuardianName.firstName,
+          lastName: data.motherorGuardianName.lastName,
+          nic: data.motherorGuardianNIC,
+          address: data.Address,
+          postalCode: data.PostalCode,
+          email: data.guardianEmail,
+          phoneNumber: data.guardianTelephoneNumber,
+          userName: data.username,
+          password: "",
+          additionalInfo: data.additionalInfo
+        });
+      })
+      .catch(error => {
+        console.error("Error fetching parent information:", error);
+      });
+  };
+
+
+  const handleUpdateParentInfo = () => {
+    const url = `http://localhost:4000/admin/update-parent-acc/${parentNIC}`; // Use the full URL
+    axios.put(url, {
+      motherorGuardianName: {
+        firstName: parentData.firstName,
+        lastName: parentData.lastName
+      },
+      motherorGuardianNIC: parentData.nic,
+      Address: parentData.address,
+      PostalCode: parentData.postalCode,
+      guardianEmail: parentData.email,
+      guardianTelephoneNumber: parentData.phoneNumber,
+      username: parentData.userName,
+      password: parentData.password,
+      additionalInfo: parentData.additionalInfo
+    })
+      .then(response => {
+        console.log("Parent information updated successfully:", response.data);
+        navigate("/low-admin-parants"); // Navigate to another page after successful update
+      })
+      .catch(error => {
+        console.error("Error updating parent information:", error);
+      });
+  };
+
+
+
+//=========================
 
   const onButtons1Click = useCallback(() => {
     navigate("low-admin-parants");
@@ -39,6 +108,29 @@ const HUpdatePerant = () => {
         <div className="linked-in-link" />
       </section>
 
+         {/* Input field and button */}
+    <div style={{ display: "flex", alignItems: "center", marginBottom: "20px" }}>
+      <input
+        type="text"
+        placeholder="Enter Parent NIC"
+        value={parentNIC}
+        onChange={(e) => setParentNIC(e.target.value)}
+        style={{ marginRight: "10px", padding: "10px", width: "300px" }}
+      />
+      <Button
+        variant="contained"
+        onClick={handleFetchParentInfo}
+        sx={{
+          textTransform: "none",
+          color: "#fff",
+          background: "#000",
+          "&:hover": { background: "#555" },
+        }}
+      >
+        Show Information
+      </Button>
+    </div>
+
       <section className="mothers-name-field">
         {/* Inputfield */}
         {/* <MothersNameField /> */}
@@ -57,6 +149,8 @@ const HUpdatePerant = () => {
                     className="filledgmailcom"
                     placeholder="Your first name"
                     type="text"
+                    value={parentData.firstName}
+                    onChange={(e) => setParentData({ ...parentData, firstName: e.target.value })}
                   />
                 </div>
               </div>
@@ -72,6 +166,8 @@ const HUpdatePerant = () => {
                   className="filledgmailcom1"
                   placeholder="Your last name"
                   type="text"
+                  value={parentData.lastName}
+                  onChange={(e) => setParentData({ ...parentData, lastName: e.target.value })}
                 />
               </div>
             </div>
@@ -84,6 +180,8 @@ const HUpdatePerant = () => {
                   className="filledgmailcom2"
                   placeholder="NIc No"
                   type="text"
+                  value={parentData.nic}
+                  onChange={(e) => setParentData({ ...parentData, nic: e.target.value })}
                 />
               </div>
             </div>
@@ -95,40 +193,53 @@ const HUpdatePerant = () => {
               className="filledgmailcom2"
               placeholder="Address"
               type="text"
+              value={parentData.address}
+              onChange={(e) => setParentData({ ...parentData, address: e.target.value })}
             />
           </div>
           <div className="footer-frame1">
             <div className="postal-code">Postal Code</div>
             <div className="input-field63">
-              <input className="code" placeholder="Code" type="text" />
+              <input className="code" placeholder="Code" type="text"
+              value={parentData.postalCode}
+              onChange={(e) => setParentData({ ...parentData, postalCode: e.target.value })} />
             </div>
           </div>
 
           <div className="footer-frame1">
             <div className="postal-code">Email</div>
             <div className="input-field63">
-              <input className="code" placeholder="Email Address" type="Email" />
+              <input className="code" placeholder="Email Address" type="Email" 
+              value={parentData.email}
+              onChange={(e) => setParentData({ ...parentData, email: e.target.value })}/>
             </div>
           </div>
 
           <div className="footer-frame1">
             <div className="postal-code">Phone Number</div>
             <div className="input-field63">
-              <input className="code" placeholder="Phone number" type="number" />
+              <input className="code" placeholder="Phone number" type="number" 
+              value={parentData.phoneNumber}
+              onChange={(e) => setParentData({ ...parentData, phoneNumber: e.target.value })}/>
             </div>
           </div>
 
           <div className="footer-frame1">
             <div className="postal-code">User Name</div>
             <div className="input-field63">
-              <input className="code" placeholder="User Name" type="text" />
+              <input className="code" placeholder="User Name" type="text" 
+              value={parentData.userName}
+              onChange={(e) => setParentData({ ...parentData, userName: e.target.value })}/>
             </div>
           </div>
 
           <div className="footer-frame1">
             <div className="postal-code">Password</div>
             <div className="input-field63">
-              <input className="code" placeholder="Password" type="text" />
+              <input className="code" placeholder="Password" type="text" 
+              value={parentData.password}
+              onChange={(e) => setParentData({ ...parentData, password: e.target.value })}
+           />
             </div>
           </div>
 
@@ -145,8 +256,8 @@ const HUpdatePerant = () => {
                 <textarea
                   className="filledgmailcom3"
                   placeholder="Notes about your order, e.g. special notes for delivery"
-                  value={orderNotes}
-                  onChange={(e) => setOrderNotes(e.target.value)}
+                  value={parentData.additionalInfo}
+                  onChange={(e) => setParentData({ ...parentData, additionalInfo: e.target.value })}
                   style={{ width: "100%", height: "150px", marginBottom: "-50px" }}
                 />
               </div>
@@ -222,7 +333,7 @@ const HUpdatePerant = () => {
                   width: 172,
                   height: 56,
                 }}
-                onClick={onButtons1Click}
+                onClick={handleUpdateParentInfo}
               >
                 Save
               </Button>
@@ -240,4 +351,3 @@ const HUpdatePerant = () => {
 };
 
 export default HUpdatePerant;
-

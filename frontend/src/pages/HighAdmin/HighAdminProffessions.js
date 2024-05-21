@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import DesktopDatePicker from "../../components/DesktopDatePicker";
 import "../pageCss/UserPage.css";
 import Footer from "../../components/Footer";
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import "../../components/comCss/Minheight.css";
 import BGRectangle2 from "../../components/headerbg";
@@ -11,68 +11,82 @@ import HAdminDashBoard from "../../components/HighAdminDashboard";
 import ANotificationList from "../../components/AdminNotification";
 
 const columns = [
-  { field: 'vaccination', headerName: 'Vaccination', width: 130, editable: true },
-  { field: 'place', headerName: 'Place', width: 180, editable: true },
-  { field: 'vaccinator', headerName: 'Vaccinator', width: 130, editable: true },
-  { field: 'verification', headerName: 'Verification', width: 130, editable: true },
-  { field: 'bottelcode', headerName: 'Bottle Code', width: 130, editable: true },
-  { field: 'age', headerName: 'Age', type: 'number', width: 90, editable: true },
-  {
-    field: 'date',
-    headerName: 'Date',
-    type: 'date',
-    width: 120,
-    valueGetter: (params) => new Date(params.row.date),
-    editable: true,
-  },
-  { field: 'email', headerName: 'E-mail', width: 180, editable: true },
+  { field: 'hcpFirstName', headerName: 'First Name', width: 130, editable: true },
+  { field: 'hcpLastName', headerName: 'Last Name', width: 130, editable: true },
+  { field: 'hcpNIC', headerName: 'NIC', width: 130, editable: true },
+  { field: 'hcpPostalCode', headerName: 'Postal Code', width: 130, editable: true },
+  { field: 'hcpEmail', headerName: 'E-mail', width: 180, editable: true },
+  { field: 'hcpTelephone', headerName: 'Telephone', width: 130, editable: true },
+  { field: 'hcpAddress', headerName: 'Address', width: 180, editable: true },
+  { field: 'hcpPosition', headerName: 'Position', width: 130, editable: true },
+  { field: 'hcpAge', headerName: 'Age', type: 'number', width: 90, editable: true },
+  { field: 'username', headerName: 'Username', width: 130, editable: true },
+  { field: 'hcpinfo', headerName: 'Additional Info', width: 180, editable: true },
 ];
-
-const initialRows = [
-  { id: 1, vaccination: 'Vaccine_01', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Verified', age: 1, date: '2021-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 2, vaccination: 'Vaccine_02', place: 'MOH-Beliatta', vaccinator: 'Mr.amal', verification: 'Verified', age: 6, date: '2021-06-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 3, vaccination: 'Vaccine_03', place: 'MOH-Beliatta', vaccinator: 'Mr.Nimal', verification: 'Verified', age: 3, date: '2023-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 4, vaccination: 'Vaccine_04', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 5, vaccination: 'Vaccine_05', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 6, vaccination: 'Vaccine_06', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 7, vaccination: 'Vaccine_07', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 8, vaccination: 'Vaccine_08', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 9, vaccination: 'Vaccine_09', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 10, vaccination: 'Vaccine_10', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 11, vaccination: 'Vaccine_11', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 12, vaccination: 'Vaccine_12', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-
-  // Add the rest of your data here
-];
-
 
 const HighAdminProfession = () => {
-  const [rows, setRows] = useState(initialRows);
+  const [rows, setRows] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const handleCellEditCommit = React.useCallback(({ id, field, props }) => {
+  useEffect(() => {
+    // Function to fetch healthcare professionals
+    const fetchHealthcareProfessionals = async () => {
+      try {
+        const response = await fetch('http://localhost:4000/admin/all-health-acc');
+        const data = await response.json();
+        console.log(data);
+
+        // Format the data to fit the DataGrid rows structure
+        const formattedData = data.map((hcp, index) => ({
+          id: index + 1, // Assign an id for each row
+          hcpFirstName: hcp.hcpName.firstName,
+          hcpLastName: hcp.hcpName.lastName,
+          hcpNIC: hcp.hcpNIC,
+          hcpPostalCode: hcp.hcpPostalCode,
+          hcpEmail: hcp.hcpEmail,
+          hcpTelephone: hcp.hcpTelephone,
+          hcpAddress: hcp.hcpAddress,
+          hcpPosition: hcp.hcpPosition,
+          hcpAge: hcp.hcpAge,
+          username: hcp.username,
+          hcpinfo: hcp.hcpinfo
+        }));
+
+        setRows(formattedData);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching healthcare professionals:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchHealthcareProfessionals();
+  }, []);
+
+  const handleCellEditCommit = useCallback(({ id, field, value }) => {
     setRows((prevRows) => {
-      const index = prevRows.findIndex((row) => row.id === id);
       const updatedRows = [...prevRows];
-      updatedRows[index] = { ...updatedRows[index], [field]: props.value };
+      const index = updatedRows.findIndex((row) => row.id === id);
+      updatedRows[index] = { ...updatedRows[index], [field]: value };
       return updatedRows;
     });
   }, []);
 
   return (
-
     <div>
       <LANavbar />
       <div className="user-page">
         <BGRectangle2 />
-        <section className="image-placeholder" >
+        <section className="image-placeholder">
           <HAdminDashBoard />
           <div className="label-text">
-            {/* table */}
-            <div className="minheight" >
-              <div className="default-slot"> <h1 className="page-header">Professionals Collection</h1></div>
+            <div className="minheight">
+              <div className="default-slot">
+                <h1 className="page-header">Professionals Collection</h1>
+              </div>
               <div className="card">
                 <div className="paper">
-                  <div className="custom-users-management-tabl" >
+                  <div className="custom-users-management-tabl">
                     <div className="custom-table-toolbar">
                       <div className="queries">
                         <div className="textfield1">
@@ -89,47 +103,53 @@ const HighAdminProfession = () => {
                         </div>
 
                         <div className="textfield1">
-                          <Button className="button-row" href="/update-proffession"
+                          <Button
+                            className="button-row"
+                            href="/update-proffession"
                             disableElevation={true}
                             variant="contained"
                             sx={{
                               marginLeft: "200px",
-                              extTransform: "none",
+                              textTransform: "none",
                               color: "#1d2130",
                               fontSize: "14px",
                               background: "#fff",
-                              borderRadius: "10x 10px 10px 10px",
+                              borderRadius: "10px",
                               borderColor: "black",
                               borderWidth: "2px",
                               borderStyle: "solid",
                               "&:hover": { background: "#fff" },
                               width: 50,
-
-                            }}>Update</Button>
+                            }}
+                          >
+                            Update
+                          </Button>
                         </div>
 
                         <div className="textfield1">
-                          <Button className="button-row"
+                          <Button
+                            className="button-row"
                             disableElevation={true}
                             variant="contained"
                             sx={{
                               marginLeft: "10px",
-                              extTransform: "none",
+                              textTransform: "none",
                               color: "white",
                               fontSize: "14px",
                               background: "light blue",
-                              borderRadius: "10x 10px 10px 10px",
+                              borderRadius: "10px",
                               borderColor: "black",
                               "&:hover": { background: "light blue" },
                               width: 50,
-
-                            }}>DELETE</Button>
+                            }}
+                          >
+                            DELETE
+                          </Button>
                         </div>
-
                       </div>
                     </div>
 
-                    <div className="table" >
+                    <div className="table">
                       <div style={{ height: 500, width: '100%' }}>
                         <DataGrid
                           rows={rows}
@@ -138,24 +158,19 @@ const HighAdminProfession = () => {
                           rowsPerPageOptions={[12]}
                           checkboxSelection
                           disableSelectionOnClick
-                          onEditCellChangeCommitted={handleCellEditCommit}
+                          onCellEditCommit={handleCellEditCommit}
+                          loading={loading}
                         />
                       </div>
                     </div>
-
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
-          {/* right section */}
           <div className="text-container">
-            <div className="desktopdatepicker-parent" >
-
-
-
-              <div className="go-to-calendar" style={{ marginTop: "-30px" }} >
+            <div className="desktopdatepicker-parent">
+              <div className="go-to-calendar" style={{ marginTop: "-30px" }}>
                 <div className="list">
                   <div className="header-picker">
                     <DesktopDatePicker />
@@ -164,20 +179,16 @@ const HighAdminProfession = () => {
               </div>
 
               <div className="go-to-calendar" style={{ height: "130px", marginTop: "60px", marginBottom: "150px" }}>
-                <div className="list" >
+                <div className="list">
                   <div className="header">
                     <div className="span">NOTIFICATIONS</div>
                   </div>
-
-                  <ANotificationList /></div>
+                  <ANotificationList />
+                </div>
               </div>
-
             </div>
           </div>
         </section>
-       
-
-        {/* special need section */}
         <section className="you-message-frame">
           <div className="cta">
             <div className="content">
@@ -204,7 +215,6 @@ const HighAdminProfession = () => {
             </div>
           </div>
         </section>
-
         <Footer />
       </div>
     </div>
