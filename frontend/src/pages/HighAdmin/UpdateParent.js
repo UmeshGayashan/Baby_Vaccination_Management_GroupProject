@@ -109,29 +109,42 @@ const HUpdatePerant = () => {
         <div className="linked-in-link" />
       </section>
 
-         {/* Input field and button */}
-    <div style={{ display: "flex", alignItems: "center", marginBottom: "20px" }}>
-      <input
-        type="text"
-        placeholder="Enter Parent NIC"
-        value={parentNIC}
-        onChange={(e) => setParentNIC(e.target.value)}
-        style={{ marginRight: "10px", padding: "10px", width: "300px" }}
-      />
-      <Button
-        variant="contained"
-        onClick={handleFetchParentInfo}
-        sx={{
-          textTransform: "none",
-          color: "#fff",
-          background: "#000",
-          "&:hover": { background: "#555" },
-        }}
-      >
-        Show Information
-      </Button>
-    </div>
+      
 
+    <section className="facebook-link">
+        <div className="instagram-link">
+          <div className="text-input">
+            <div className="icon-container">
+              <div className="password3">
+                <div className="input-text-label3" style={{ fontSize: '20px', marginBottom: "10px" }}>Parent NIC</div>
+                <div className="input-field4">
+                  <div className="text3">
+                    <input
+                      className="type-here6"
+                      placeholder="Enter Parent NIC"
+                      type="text"
+                      value={parentNIC}
+                      onChange={(e) => setParentNIC(e.target.value)}
+                    />
+                  </div>
+                </div>
+                <Button className="primary-button"
+                  variant="contained"
+                  sx={{
+                    textTransform: "none",
+                    color: "#000",
+                    fontSize: "16",
+                    background: "#f2c94c",
+                    borderRadius: "4px",
+                    "&:hover": { background: "#f2c94c" },
+                    width: 187,
+                    height: 51,
+                  }} onClick={handleFetchParentInfo}>Get Account Info</Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="mothers-name-field">
         {/* Inputfield */}
         {/* <MothersNameField /> */}
