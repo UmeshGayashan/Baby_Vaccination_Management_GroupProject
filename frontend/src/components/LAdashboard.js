@@ -5,10 +5,6 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Collapse from '@mui/material/Collapse';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
-import StarBorder from '@mui/icons-material/StarBorder';
 import GradeIcon from '@mui/icons-material/Grade';
 import { Link } from 'react-router-dom';
 
@@ -20,6 +16,7 @@ function LAdminDashBoard() {
   };
 
   return (
+    <div>             
     <List
       sx={{ width: '100%', maxWidth: 250, bgcolor: 'background.paper' }}
       component="nav"
@@ -80,8 +77,9 @@ function LAdminDashBoard() {
         <ListItemText primary="Vaccines" />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton> */}
-    
     </List>
+ 
+  </div>
   );
 }
 export default LAdminDashBoard;

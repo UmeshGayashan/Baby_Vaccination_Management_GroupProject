@@ -2,52 +2,57 @@ import { Button } from "@mui/material";
 import DesktopDatePicker from "../../components/DesktopDatePicker";
 import "../pageCss/UserPage.css";
 import Footer from "../../components/Footer";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import UserNavBar from "../../components/user_nav";
 import "../../components/comCss/Minheight.css";
 import LAdminDashBoard from "../../components/LAdashboard";
 import BGRectangle2 from "../../components/headerbg";
 import LANavbar from "../../components/LA_Nav";
 
 const columns = [
-  { field: 'vaccination', headerName: 'Vaccination', width: 130, editable: true },
-  { field: 'place', headerName: 'Place', width: 180, editable: true },
-  { field: 'vaccinator', headerName: 'Vaccinator', width: 130, editable: true },
-  { field: 'verification', headerName: 'Verification', width: 130, editable: true },
-  { field: 'bottelcode', headerName: 'Bottle Code', width: 130, editable: true },
-  { field: 'age', headerName: 'Age', type: 'number', width: 90, editable: true },
-  {
-    field: 'date',
-    headerName: 'Date',
-    type: 'date',
-    width: 120,
-    valueGetter: (params) => new Date(params.row.date),
-    editable: true,
-  },
-  { field: 'email', headerName: 'E-mail', width: 180, editable: true },
+  { field: 'firstName', headerName: 'First Name', width: 150 },
+  { field: 'lastName', headerName: 'Last Name', width: 150 },
+  { field: 'motherorGuardianNIC', headerName: 'Mother/Guardian NIC', width: 180 },
+  { field: 'fatherName', headerName: 'Father Name', width: 150 },
+  { field: 'fatherNic', headerName: 'Father NIC', width: 150 },
+  { field: 'bid', headerName: 'BID', width: 100 },
+  { field: 'gender', headerName: 'Gender', width: 100 },
+  { field: 'ofc', headerName: 'OFC', width: 100 },
+  { field: 'birthDate', headerName: 'Birth Date', width: 150, type: 'date' },
+  { field: 'weight', headerName: 'Weight', width: 100 },
+  { field: 'hospitalName', headerName: 'Hospital Name', width: 180 },
 ];
-
-const initialRows = [
-  { id: 1, vaccination: 'Vaccine_01', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Verified', age: 1, date: '2021-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 2, vaccination: 'Vaccine_02', place: 'MOH-Beliatta', vaccinator: 'Mr.amal', verification: 'Verified', age: 6, date: '2021-06-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 3, vaccination: 'Vaccine_03', place: 'MOH-Beliatta', vaccinator: 'Mr.Nimal', verification: 'Verified', age: 3, date: '2023-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 4, vaccination: 'Vaccine_04', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 5, vaccination: 'Vaccine_05', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 6, vaccination: 'Vaccine_06', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 7, vaccination: 'Vaccine_07', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 8, vaccination: 'Vaccine_08', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 9, vaccination: 'Vaccine_09', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 10, vaccination: 'Vaccine_10', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 11, vaccination: 'Vaccine_11', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 12, vaccination: 'Vaccine_12', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-
-  // Add the rest of your data here
-];
-
 
 const LowAdmin = () => {
-  const [rows, setRows] = useState(initialRows);
+  const [rows, setRows] = useState([]);
+
+  useEffect(() => {
+    const fetchBabies = async () => {
+      try {
+        const response = await fetch('http://localhost:4000/healthcare/babies');
+        const data = await response.json();
+        const formattedData = data.map(baby => ({
+          id: baby._id,
+          firstName: baby.babyName.firstName,
+          lastName: baby.babyName.lastName,
+          motherorGuardianNIC: baby.motherorGuardianNIC,
+          fatherName: baby.fatherName,
+          fatherNic: baby.fatherNic,
+          bid: baby.bid,
+          gender: baby.gender,
+          ofc: baby.ofc,
+          birthDate: new Date(baby.birthDate),
+          weight: baby.weight,
+          hospitalName: baby.hospitalName,
+        }));
+        setRows(formattedData);
+      } catch (error) {
+        console.error('Error fetching baby data:', error);
+      }
+    };
+
+    fetchBabies();
+  }, []);
 
   const handleCellEditCommit = React.useCallback(({ id, field, props }) => {
     setRows((prevRows) => {
@@ -63,83 +68,60 @@ const LowAdmin = () => {
     <div>
       <LANavbar />
       <div className="user-page">
-        <BGRectangle2/>
-        <section className="image-placeholder" style={{marginBottom:"50px"}}>
+        <BGRectangle2 />
+        <section className="image-placeholder" style={{ marginBottom: "50px", marginTop: "20px" }}>
           <LAdminDashBoard />
           <div className="label-text">
             {/* table */}
-            <div className="minheight" >
+            <div className="minheight" style={{ marginTop: "-35px" }} >
               <div className="default-slot"> <h1 className="page-header">Child Collection</h1></div>
               <div className="card">
                 <div className="paper">
                   <div className="custom-users-management-tabl" >
                     <div className="custom-table-toolbar">
-                      <div className="queries">
-                        <div className="textfield1">
-                          <div className="input5">
-                            <input
-                              className="content2"
-                              placeholder="Name, email, etc..."
-                              type="text"
-                            />
-                            <div className="label-container1">
-                              <div className="label1">Search</div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="textfield1">
-                          <Button className="button-row" href="/update-child"
+                      <div className="queries"  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <div >
+                          <Button href="/update-perant"
                             disableElevation={true}
                             variant="contained"
                             sx={{
-                              marginLeft: "200px",
+                              marginTop: "20px",
+                              marginLeft: "20px",
                               extTransform: "none",
                               color: "#1d2130",
                               fontSize: "14px",
-                              background: "#fff",
+                              background: "#fff9c7",
                               borderRadius: "10x 10px 10px 10px",
                               borderColor: "black",
                               borderWidth: "2px",
                               borderStyle: "solid",
                               "&:hover": { background: "#fff" },
-                              width: 50,
+                              width: 300,
 
-                            }}>Update</Button>
+                            }}>Update Parents</Button>
+                          <div style={{ marginTop: "20px", marginBottom: "20px" }}>
+                            <Button href="/update-child"
+                              disableElevation={true}
+                              variant="contained"
+                              sx={{
+
+                                extTransform: "none",
+                                marginLeft: "20px",
+                                color: "#1d2130",
+                                fontSize: "14px",
+                                background: "#fff9c7",
+                                borderRadius: "10x 10px 10px 10px",
+                                borderColor: "black",
+                                borderWidth: "2px",
+                                borderStyle: "solid",
+                                "&:hover": { background: "#fff" },
+                                width: 300,
+
+                              }}>Update child</Button>
+                          </div>
                         </div>
 
-                        <div className="textfield1">
-                          <Button className="button-row"
-                            disableElevation={true}
-                            variant="contained"
-                            sx={{
-                              marginLeft: "10px",
-                              extTransform: "none",
-                              color: "white",
-                              fontSize: "14px",
-                              background: "light blue",
-                              borderRadius: "10x 10px 10px 10px",
-                              borderColor: "black",
-                              "&:hover": { background: "light blue" },
-                              width: 50,
 
-                            }}>View</Button>
-                        </div>
-
-                      </div>
-                    </div>
-
-                    <div className="table" >
-                      <div style={{ height: 500, width: '100%' }}>
-                        <DataGrid
-                          rows={rows}
-                          columns={columns}
-                          pageSize={12}
-                          rowsPerPageOptions={[12]}
-                          checkboxSelection
-                          disableSelectionOnClick
-                          onEditCellChangeCommitted={handleCellEditCommit}
-                        />
                       </div>
                     </div>
 
@@ -150,14 +132,12 @@ const LowAdmin = () => {
 
           </div>
           {/* right section */}
-          <div className="text-container">
+          <div className="text-container" >
             <div className="desktopdatepicker-parent" >
 
-
-
-              <div className="go-to-calendar" >
-                <div className="list">
-                  <div className="header-picker">
+              <div className="go-to-calendar" style={{ height: "flex", marginTop: "-50px" }} >
+                <div className="list" >
+                  <div className="header-picker" style={{ marginTop: "-20px", marginBottom: "50px" }}>
                     <DesktopDatePicker />
                   </div>
                 </div>
@@ -175,36 +155,19 @@ const LowAdmin = () => {
             </div>
           </div>
         </section>
-       
 
-        {/* special need section */}
-        <section className="you-message-frame">
-          <div className="cta">
-            <div className="content">
-              <h1 className="you-can-take">
-                You can take advice from provided doctors for children with
-                special needs!
-              </h1>
-              <Button
-                className="primary-button"
-                variant="contained"
-                sx={{
-                  textTransform: "none",
-                  color: "#000",
-                  fontSize: "16",
-                  background: "#f2c94c",
-                  borderRadius: "4px",
-                  "&:hover": { background: "#f2c94c" },
-                  width: 187,
-                  height: 51,
-                }}
-              >
-                Meet your doctor
-              </Button>
-            </div>
+        <div className="table" style={{ marginBottom: "50px", marginLeft: "50px", marginRight: "50px", backgroundColor: "#fff9c7" }}>
+          <div style={{ height: 500, width: '100%' }}>
+            <DataGrid
+              rows={rows}
+              columns={columns}
+              pageSize={12}
+              rowsPerPageOptions={[12]}
+              checkboxSelection
+              disableSelectionOnClick
+            />
           </div>
-        </section>
-
+        </div>
         <Footer />
       </div>
     </div>

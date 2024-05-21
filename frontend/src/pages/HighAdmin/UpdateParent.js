@@ -8,6 +8,7 @@ import "../../components/comCss/MothersNameField.css";
 import React, { useCallback, useState } from "react";
 import { Button } from "@mui/material";
 import LAAPNavbar from "../../components/LA_addparentnavbar";
+import HAACNavbar from "../../components/HA_addchildnavbar";
 
 
 const HUpdatePerant = () => {
@@ -101,7 +102,7 @@ const HUpdatePerant = () => {
   return (
     <div className="add-perant">
       {/* Navbar */}
-     <LAAPNavbar/>
+     <HAACNavbar/>
       <HomeLink addChild="Update Parant" />
 
       <section className="blog-link">

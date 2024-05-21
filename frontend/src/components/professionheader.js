@@ -1,18 +1,18 @@
 import "./comCss/BGRectangle.css";
 
-const BGRectangle = () => {
+const BGRectangle3 = () => {
   return (
     <div className="b-g-rectangle">
       <img className="bg-image-icon1" alt="" src="/bg-image@2x.png" />
       <div className="label-shape">
         <div className="label-shape1">
           <h1 className="get-your-childrens-container1">
-            <p className="get-your-childrens1">Get Your Children's</p>
-            <p className="vaccine1">Vaccine</p>
-            <p className="we-remind-you1">We remind You</p>
+            <p className="get-your-childrens1">Maintain Your</p>
+            <p className="vaccine1">Family</p>
+            <p className="we-remind-you1">Help Them...!</p>
           </h1>
           <b className="the-safety-of" style={{ fontSize: "40px" }}>
-            Welcome to Parent collection
+            Welcome to Professional's collection
           </b>
         </div>
       </div>
@@ -46,4 +46,4 @@ const BGRectangle = () => {
   );
 };
 
-export default BGRectangle;
+export default BGRectangle3;

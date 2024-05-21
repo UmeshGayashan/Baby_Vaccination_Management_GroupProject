@@ -1,11 +1,11 @@
 import HomeLink from "../../components/HomeLink";
 import Footer from "../../components/Footer";
 import "../pageCss/AddChild.css";
-import DatePicker2 from "../../components/Datepicker_2";
 import React, { useCallback, useState } from "react";
 import { Button, } from "@mui/material";
 import HAACNavbar from "../../components/HA_addchildnavbar";
-
+import DatePicker from 'react-datepicker';
+import LAACNavbar from "../../components/LA_addchildNavBar";
 const LAVaccination = () => {
 
   const [babyId, setBabyId] = useState('');
@@ -15,20 +15,25 @@ const LAVaccination = () => {
   const [vaccinator, setVaccinator] = useState('');
   const [bcode, setBottle_code] = useState('');
   const [location, setLocation] = useState('');
+  const [nextDate, setnextDate] = useState('');
+
+  function onChangeHandler(value) {
+    setnextDate(value);
+  };
   // Function to create an account
   const createAccount = async () => {
     try {
-      const response = await fetch('http://localhost:4000/helathcare/vacc-adding', {
+      const response = await fetch('http://localhost:4000/healthcare/vacc-adding', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ babyId, vaccine, vaccineNo, vaccinator, bcode, location}),
+        body: JSON.stringify({ babyId, vaccine, vaccineNo, vaccinator, bcode, location }),
       });
-      
+
       // if (response.status === 201) {
       //   const data = await response.json();
-        
+
       //   setAccountNo(data.accountNo);
       //   //Alert
       //   setShowSuccessAlert(true);
@@ -53,7 +58,7 @@ const LAVaccination = () => {
   // Function to retrieve account information
   const getAccountInfo = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/helathcare/baby-acc-info/${babyId}`); // Use the correct API route
+      const response = await fetch(`http://localhost:4000/healthcare/baby-acc-info/${babyId}`); // Use the correct API route
       if (response.status === 200) {
         const data = await response.json();
         setAccountInfo(data);
@@ -72,7 +77,7 @@ const LAVaccination = () => {
   return (
     <div className="add-child">
       {/* Navbar */}
-      <HAACNavbar />
+      <LAACNavbar />
 
       {/* header  */}
       <HomeLink addChild="Add Vaccination Details" />
@@ -80,61 +85,61 @@ const LAVaccination = () => {
       <section className="blog-link">
         <div className="linked-in-link" />
       </section>
-    
 
-          < section className="facebook-link" >
+
+      < section className="facebook-link" >
         <div className="instagram-link">
-        
+
           <div className="text-input">
             <div className="icon-container">
 
               <div className="password3">
-                <div className="input-text-label3" style={{fontSize:'20px', marginBottom:"10px"}}>Child ID</div>
-                <div className="input-field4"  style={{marginBottom:"20px"}}>
+                <div className="input-text-label3" style={{ fontSize: '20px', marginBottom: "10px" }}>Child ID</div>
+                <div className="input-field4" style={{ marginBottom: "20px" }}>
                   <div className="text3">
                     <input
                       className="type-here6"
                       placeholder="Enter Child ID"
                       type="text"
                       value={babyId}
-                    onChange={(e) => setBabyId(e.target.value)}
+                      onChange={(e) => setBabyId(e.target.value)}
                     />
                   </div>
-                  
+
                 </div>
                 <Button className="primary-button"
-                variant="contained"
-                sx={{
-                  textTransform: "none",
-                  color: "#000",
-                  fontSize: "16",
-                  background: "#f2c94c",
-                  borderRadius: "4px",
-                  "&:hover": { background: "#f2c94c" },
-                  width: 187,
-                  height: 51,
-                }} onClick={getAccountInfo}>Get Account Info</Button>
-        {accountInfo && (
-        <div className='container'>
-            
-            <div className="password3">
-                <div className="input-text-label3" style={{fontSize:'20px', margin:"10px"}}>Account Information : </div>
-              </div>
-          
-          {/* <button className="btn btn-danger btn-lg" onClick={deleteAccount}>Delete Account</button> */}
-          {accountInfo && (
-            <div style={{fontSize:'18px', margin:"10px"}} >
+                  variant="contained"
+                  sx={{
+                    textTransform: "none",
+                    color: "#000",
+                    fontSize: "16",
+                    background: "#f2c94c",
+                    borderRadius: "4px",
+                    "&:hover": { background: "#f2c94c" },
+                    width: 187,
+                    height: 51,
+                  }} onClick={getAccountInfo}>Get Account Info</Button>
+                {accountInfo && (
+                  <div className='container'>
 
-              <p>First Name: <span style={{marginLeft:"147px", fontWeight:"600"}}>{accountInfo.babyName.firstName}</span></p>
-              <p>Last Name:<span style={{marginLeft:"147px", fontWeight:"600"}}> {accountInfo.babyName.lastName}</span></p>
-              <p>Mother's or Guardian’s NIC:<span style={{marginLeft:"10px", fontWeight:"600"}}> {accountInfo.motherorGuardianNIC}</span></p>
-              <p>Father’s NIC:<span style={{marginLeft:"135px", fontWeight:"600"}}> {accountInfo.fatherNic}</span></p>
-            </div>
-          )}
-        </div>
-      )}
+                    <div className="password3">
+                      <div className="input-text-label3" style={{ fontSize: '20px', margin: "10px" }}>Account Information : </div>
+                    </div>
+
+                    {/* <button className="btn btn-danger btn-lg" onClick={deleteAccount}>Delete Account</button> */}
+                    {accountInfo && (
+                      <div style={{ fontSize: '18px', margin: "10px" }} >
+
+                        <p>First Name: <span style={{ marginLeft: "147px", fontWeight: "600" }}>{accountInfo.babyName.firstName}</span></p>
+                        <p>Last Name:<span style={{ marginLeft: "147px", fontWeight: "600" }}> {accountInfo.babyName.lastName}</span></p>
+                        <p>Mother's or Guardian’s NIC:<span style={{ marginLeft: "10px", fontWeight: "600" }}> {accountInfo.motherorGuardianNIC}</span></p>
+                        <p>Father’s NIC:<span style={{ marginLeft: "135px", fontWeight: "600" }}> {accountInfo.fatherNic}</span></p>
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
-                 
+
             </div>
           </div>
         </div>
@@ -142,7 +147,7 @@ const LAVaccination = () => {
 
       {/* Vaccination Form */}
 
-      < section className="facebook-link"  style={{marginTop:"-60px" }}>
+      < section className="facebook-link" style={{ marginTop: "-60px" }}>
         <div className="instagram-link">
           <h1 className="information-form">Vaccination Form</h1>
           <div className="text-input">
@@ -157,85 +162,85 @@ const LAVaccination = () => {
                       placeholder="Enter Another Vaccination Name"
                       type="text"
                       value={vaccine}
-                    onChange={(e) => setVaccineName(e.target.value)}
+                      onChange={(e) => setVaccineName(e.target.value)}
                     />
                   </div>
                 </div>
               </div>
 
               <div className="password3" style={{ display: 'flex', alignItems: 'center' }}>
-            <div className="gender1" style={{ marginRight: '20px' }}>Vaccine Name:</div>
-            <div className="radio-button1" style={{ marginRight: '10px' }}>
-                <input
+                <div className="gender1" style={{ marginRight: '20px' }}>Vaccine Name:</div>
+                <div className="radio-button1" style={{ marginRight: '10px' }}>
+                  <input
                     className="radio"
                     type="radio"
                     name="radioGroup-1"
                     value="BCG"
                     checked={vaccine === 'BCG'}
                     onChange={handleVaccineNameChange}
-                />
-                <label className="radio-selection">BCG</label>            
-            </div>
-            <div className="radio-button1" style={{ marginRight: '10px' }}>
-                <input
+                  />
+                  <label className="radio-selection">BCG</label>
+                </div>
+                <div className="radio-button1" style={{ marginRight: '10px' }}>
+                  <input
                     className="radio"
                     type="radio"
                     name="radioGroup-1"
                     value="DPT-HepB-Hib or OPV & DTP"
                     checked={vaccine === 'DPT-HepB-Hib or OPV & DTP'}
                     onChange={handleVaccineNameChange}
-                />
-                <label className="radio-selection">OPV & Pentavalent</label>            
-            </div>
-            <div className="radio-button2" style={{ marginRight: '10px' }}>
-                <input
+                  />
+                  <label className="radio-selection">OPV & Pentavalent</label>
+                </div>
+                <div className="radio-button2" style={{ marginRight: '10px' }}>
+                  <input
                     className="radio1"
                     type="radio"
                     name="radioGroup-1"
                     value="MMR"
                     checked={vaccine === 'MMR'}
                     onChange={handleVaccineNameChange}
-                />
-                <label className="radio-selection1">MMR</label>
-            </div>
-            <div className="radio-button2" style={{ marginRight: '10px' }}>
-                <input
+                  />
+                  <label className="radio-selection1">MMR</label>
+                </div>
+                <div className="radio-button2" style={{ marginRight: '10px' }}>
+                  <input
                     className="radio"
                     type="radio"
                     name="radioGroup-1"
                     value="Live JE"
                     checked={vaccine === 'Live JE'}
                     onChange={handleVaccineNameChange}
-                />
-                <label className="radio-selection">Live JE</label>
-            </div>
-            <div className="radio-button2" style={{ marginRight: '10px' }}>
-                <input
+                  />
+                  <label className="radio-selection">Live JE</label>
+                </div>
+                <div className="radio-button2" style={{ marginRight: '10px' }}>
+                  <input
                     className="radio"
                     type="radio"
                     name="radioGroup-1"
                     value="HPV"
                     checked={vaccine === 'HPV'}
                     onChange={handleVaccineNameChange}
-                />
-                <label className="radio-selection">HPV</label>
-            </div>
+                  />
+                  <label className="radio-selection">HPV</label>
+                </div>
 
-            <div className="radio-button2" style={{ marginRight: '10px' }}>
-                <input
+                <div className="radio-button2" style={{ marginRight: '10px' }}>
+                  <input
                     className="radio"
                     type="radio"
                     name="radioGroup-1"
                     value="Adult Tetanus Diphtheria"
                     checked={vaccine === 'Adult Tetanus Diphtheria'}
                     onChange={handleVaccineNameChange}
-                />
-                <label className="radio-selection">aTd</label>
-            </div>
-        </div>
+                  />
+                  <label className="radio-selection">aTd</label>
+                </div>
+              </div>
 
 
-        <div className="password3">
+              <div className="password3">
                 <div className="input-text-label3">Dose Number</div>
                 <div className="input-field4">
                   <div className="text3">
@@ -244,7 +249,7 @@ const LAVaccination = () => {
                       placeholder="Enter Number"
                       type="number"
                       value={vaccineNo}
-                    onChange={(e) => setVaccineNo(e.target.value)}
+                      onChange={(e) => setVaccineNo(e.target.value)}
                     />
                   </div>
                 </div>
@@ -259,7 +264,7 @@ const LAVaccination = () => {
                       placeholder="Enter name"
                       type="text"
                       value={vaccinator}
-                    onChange={(e) => setVaccinator(e.target.value)}
+                      onChange={(e) => setVaccinator(e.target.value)}
                     />
                   </div>
                 </div>
@@ -274,7 +279,7 @@ const LAVaccination = () => {
                       placeholder="Enter Code"
                       type="text"
                       value={bcode}
-                    onChange={(e) => setBottle_code(e.target.value)}
+                      onChange={(e) => setBottle_code(e.target.value)}
                     />
                   </div>
                 </div>
@@ -289,13 +294,34 @@ const LAVaccination = () => {
                       placeholder="Enter Location"
                       type="text"
                       value={location}
-                    onChange={(e) => setLocation(e.target.value)}
+                      onChange={(e) => setLocation(e.target.value)}
                     />
 
                   </div>
                 </div>
 
-                <div className="cta3" style={{marginTop:"60px"}}>
+                <div style={{ height: "120px", backgroundColor: "#fff9c7" }}>
+                  <div className="clear-button">
+                    <div className="go-button">
+                      <div className="input-birth-day" style={{ textAlign: "center" }} >Input Next Day</div>
+                      <div style={{ margin: "20px" }}>
+                        <DatePicker
+                          id="dateStartEnd"
+                          selected={nextDate}
+                          onChange={onChangeHandler}
+                          dateFormat="dd MMM yyyy"
+                          className={'form-control form-control-sm'}
+                          showIcon
+
+                        />
+                      </div>
+
+
+                    </div>
+                  </div>
+                </div>
+
+                <div className="cta3" style={{ marginTop: "60px" }}>
                   <Button href="/low-admin"
                     className="buttons"
                     disableElevation={true}
@@ -338,7 +364,7 @@ const LAVaccination = () => {
           </div>
         </div>
       </section >
-   <Footer />
+      <Footer />
     </div >
   );
 };
