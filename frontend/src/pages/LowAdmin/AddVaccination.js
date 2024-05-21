@@ -5,6 +5,7 @@ import DatePicker2 from "../../components/Datepicker_2";
 import React, { useCallback, useState } from "react";
 import { Button, } from "@mui/material";
 import HAACNavbar from "../../components/HA_addchildnavbar";
+import DatePicker from 'react-datepicker';
 
 const LAVaccination = () => {
 
@@ -15,15 +16,21 @@ const LAVaccination = () => {
   const [vaccinator, setVaccinator] = useState('');
   const [bcode, setBottle_code] = useState('');
   const [location, setLocation] = useState('');
+  const [nextDate, setnextDate] = useState('');
+
+  function onChangeHandler(value) {
+    setnextDate(value);
+  };
+
   // Function to create an account
   const createAccount = async () => {
     try {
-      const response = await fetch('http://localhost:4000/helathcare/vacc-adding', {
+      const response = await fetch('http://localhost:4000/healthcare/vacc-adding', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ babyId, vaccine, vaccineNo, vaccinator, bcode, location}),
+        body: JSON.stringify({ babyId, vaccine, vaccineNo, vaccinator, bcode, location, nextDate}),
       });
       
       // if (response.status === 201) {
@@ -53,7 +60,7 @@ const LAVaccination = () => {
   // Function to retrieve account information
   const getAccountInfo = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/helathcare/baby-acc-info/${babyId}`); // Use the correct API route
+      const response = await fetch(`http://localhost:4000/healthcare/baby-acc-info/${babyId}`); // Use the correct API route
       if (response.status === 200) {
         const data = await response.json();
         setAccountInfo(data);
@@ -292,8 +299,31 @@ const LAVaccination = () => {
                     onChange={(e) => setLocation(e.target.value)}
                     />
 
+                    
+
                   </div>
                 </div>
+
+                <div style={{ height: "120px", backgroundColor: "#fff9c7" }}>
+                <div className="clear-button">
+                  <div className="go-button">
+                    <div className="input-birth-day" style={{ textAlign: "center" }} >Input Next Day</div>
+                    <div style={{margin:"20px"}}>
+                    <DatePicker
+                        id="dateStartEnd"
+                        selected={nextDate}
+                        onChange={onChangeHandler}
+                        dateFormat="dd MMM yyyy"
+                        className={'form-control form-control-sm'}
+                        showIcon
+                        
+                      />
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
 
                 <div className="cta3" style={{marginTop:"60px"}}>
                   <Button href="/low-admin"
