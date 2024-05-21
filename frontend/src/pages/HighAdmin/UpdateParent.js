@@ -278,7 +278,7 @@ const HUpdatePerant = () => {
             </div>
 
 
-            <div className="about-us-link-instance" style={{ marginTop: "30px" }}>
+            {/* <div className="about-us-link-instance" style={{ marginTop: "30px" }}>
               <b className="upload-parant-image">Upload Parent Image</b>
               <div className="image-u" style={{ display: "flex", alignItems: "center" }}>
                 <label style={{ marginRight: "20px" }}>
@@ -313,7 +313,7 @@ const HUpdatePerant = () => {
                   />
                 )}
               </div>
-            </div>
+            </div> */}
 
             <div className="cta4">
               <Button href="low-admin-parants"
