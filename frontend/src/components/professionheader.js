@@ -10,6 +10,7 @@ const BGRectangle3 = () => {
             <p className="get-your-childrens1">Maintain Your</p>
             <p className="vaccine1">Family</p>
             <p className="we-remind-you1">Help Them...!</p>
+          </h1>
           <b className="the-safety-of" style={{ fontSize: "40px" }}>
             Welcome to Professional's collection
           </b>
