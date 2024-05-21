@@ -363,5 +363,14 @@ router.get("/parents", async (req, res) => {
   }
 });
 
+// Route to get all healthcare
+router.get("/healthcares", async (req, res) => {
+  try {
+      const healthcares = await healthcareProfessionalSchema.find();
+      res.status(200).json(healthcares);
+  } catch (err) {
+      res.status(500).json({ message: err.message });
+  }
+});
 
 module.exports = router; // Export the router instance
