@@ -101,7 +101,7 @@ const UpdatePerant = () => {
     <div className="add-perant">
       {/* Navbar */}
      <LAAPNavbar/>
-      <HomeLink addChild="Update Parant" />
+      <HomeLink addChild="Update Parent" />
 
       <section className="blog-link">
         <div className="linked-in-link" />
@@ -109,13 +109,13 @@ const UpdatePerant = () => {
 
       
 
-    <section className="facebook-link">
+    <section className="facebook-link" style={{marginLeft:"50px"}}>
         <div className="instagram-link">
           <div className="text-input">
             <div className="icon-container">
               <div className="password3">
                 <div className="input-text-label3" style={{ fontSize: '20px', marginBottom: "10px" }}>Parent NIC</div>
-                <div className="input-field4">
+                <div className="input-field4" style={{ marginBottom: "20px" }}>
                   <div className="text3">
                     <input
                       className="type-here6"
@@ -143,10 +143,10 @@ const UpdatePerant = () => {
           </div>
         </div>
       </section>
-      <section className="mothers-name-field">
+      <section className="mothers-name-field" style={{ marginTop: "-60px" }}>
         {/* Inputfield */}
         {/* <MothersNameField /> */}
-        <div className="mothers-name-field1" style={{ marginLeft: "50px" }}>
+        <div className="mothers-name-field1" >
           <div className="mothers-name-field2">
             <h1 className="information-form1" style={{ marginTop: "30px" }}>Information Form</h1>
           </div>
@@ -313,7 +313,7 @@ const UpdatePerant = () => {
               </div>
             </div> */}
 
-            <div className="cta4">
+            <div className="cta4" style={{marginTop:"30px"}}>
               <Button href="low-admin-parants"
                 className="buttons2"
                 disableElevation={true}
