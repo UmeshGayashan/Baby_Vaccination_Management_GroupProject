@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import DesktopDatePicker from "../../components/DesktopDatePicker";
 import "../pageCss/UserPage.css";
 import Footer from "../../components/Footer";
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import UserNavBar from "../../components/user_nav";
 import "../../components/comCss/Minheight.css";
@@ -11,43 +11,49 @@ import BGRectangle2 from "../../components/headerbg";
 import LANavbar from "../../components/LA_Nav";
 
 const columns = [
-  { field: 'vaccination', headerName: 'Vaccination', width: 130, editable: true },
-  { field: 'place', headerName: 'Place', width: 180, editable: true },
-  { field: 'vaccinator', headerName: 'Vaccinator', width: 130, editable: true },
-  { field: 'verification', headerName: 'Verification', width: 130, editable: true },
-  { field: 'bottelcode', headerName: 'Bottle Code', width: 130, editable: true },
-  { field: 'age', headerName: 'Age', type: 'number', width: 90, editable: true },
-  {
-    field: 'date',
-    headerName: 'Date',
-    type: 'date',
-    width: 120,
-    valueGetter: (params) => new Date(params.row.date),
-    editable: true,
-  },
-  { field: 'email', headerName: 'E-mail', width: 180, editable: true },
+  { field: 'firstName', headerName: 'First Name', width: 150 },
+  { field: 'lastName', headerName: 'Last Name', width: 150 },
+  { field: 'motherorGuardianNIC', headerName: 'Mother/Guardian NIC', width: 180 },
+  { field: 'fatherName', headerName: 'Father Name', width: 150 },
+  { field: 'fatherNic', headerName: 'Father NIC', width: 150 },
+  { field: 'bid', headerName: 'BID', width: 100 },
+  { field: 'gender', headerName: 'Gender', width: 100 },
+  { field: 'ofc', headerName: 'OFC', width: 100 },
+  { field: 'birthDate', headerName: 'Birth Date', width: 150, type: 'date' },
+  { field: 'weight', headerName: 'Weight', width: 100 },
+  { field: 'hospitalName', headerName: 'Hospital Name', width: 180 },
 ];
-
-const initialRows = [
-  { id: 1, vaccination: 'Vaccine_01', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Verified', age: 1, date: '2021-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 2, vaccination: 'Vaccine_02', place: 'MOH-Beliatta', vaccinator: 'Mr.amal', verification: 'Verified', age: 6, date: '2021-06-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 3, vaccination: 'Vaccine_03', place: 'MOH-Beliatta', vaccinator: 'Mr.Nimal', verification: 'Verified', age: 3, date: '2023-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 4, vaccination: 'Vaccine_04', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 5, vaccination: 'Vaccine_05', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 6, vaccination: 'Vaccine_06', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 7, vaccination: 'Vaccine_07', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 8, vaccination: 'Vaccine_08', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 9, vaccination: 'Vaccine_09', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 10, vaccination: 'Vaccine_10', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 11, vaccination: 'Vaccine_11', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-  { id: 12, vaccination: 'Vaccine_12', place: 'MOH-Beliatta', vaccinator: 'Mr.Kamal', verification: 'Not-Verified', age: 61, date: '2011-04-25', bottelcode: 'mcd00234#45', email: 't.nixon@datatables.net' },
-
-  // Add the rest of your data here
-];
-
 
 const LowAdmin = () => {
-  const [rows, setRows] = useState(initialRows);
+  const [rows, setRows] = useState([]);
+
+  useEffect(() => {
+    const fetchBabies = async () => {
+      try {
+        const response = await fetch('http://localhost:4000/healthcare/babies');
+        const data = await response.json();
+        const formattedData = data.map(baby => ({
+          id: baby._id,
+          firstName: baby.babyName.firstName,
+          lastName: baby.babyName.lastName,
+          motherorGuardianNIC: baby.motherorGuardianNIC,
+          fatherName: baby.fatherName,
+          fatherNic: baby.fatherNic,
+          bid: baby.bid,
+          gender: baby.gender,
+          ofc: baby.ofc,
+          birthDate: new Date(baby.birthDate),
+          weight: baby.weight,
+          hospitalName: baby.hospitalName,
+        }));
+        setRows(formattedData);
+      } catch (error) {
+        console.error('Error fetching baby data:', error);
+      }
+    };
+
+    fetchBabies();
+  }, []);
 
   const handleCellEditCommit = React.useCallback(({ id, field, props }) => {
     setRows((prevRows) => {
@@ -129,7 +135,7 @@ const LowAdmin = () => {
                       </div>
                     </div>
 
-                    <div className="table" >
+                    <div className="table">
                       <div style={{ height: 500, width: '100%' }}>
                         <DataGrid
                           rows={rows}
@@ -138,7 +144,6 @@ const LowAdmin = () => {
                           rowsPerPageOptions={[12]}
                           checkboxSelection
                           disableSelectionOnClick
-                          onEditCellChangeCommitted={handleCellEditCommit}
                         />
                       </div>
                     </div>

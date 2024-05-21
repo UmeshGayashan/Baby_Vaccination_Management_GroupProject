@@ -3,7 +3,7 @@ import BGRectangle from "../../components/BGRectangle";
 import DesktopDatePicker from "../../components/DesktopDatePicker";
 import "../pageCss/UserPage.css";
 import Footer from "../../components/Footer";
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import UserNavBar from "../../components/user_nav";
 import "../../components/comCss/Minheight.css";
@@ -11,21 +11,20 @@ import LAdminDashBoard from "../../components/LAdashboard";
 import LANavbar from "../../components/LA_Nav";
 
 const columns = [
-  { field: 'vaccination', headerName: 'Vaccination', width: 130, editable: true },
-  { field: 'place', headerName: 'Place', width: 180, editable: true },
-  { field: 'vaccinator', headerName: 'Vaccinator', width: 130, editable: true },
-  { field: 'verification', headerName: 'Verification', width: 130, editable: true },
-  { field: 'bottelcode', headerName: 'Bottle Code', width: 130, editable: true },
-  { field: 'age', headerName: 'Age', type: 'number', width: 90, editable: true },
-  {
-    field: 'date',
-    headerName: 'Date',
-    type: 'date',
-    width: 120,
-    valueGetter: (params) => new Date(params.row.date),
-    editable: true,
-  },
-  { field: 'email', headerName: 'E-mail', width: 180, editable: true },
+  { field: 'motherorGuardianName', 
+  headerName: 'Guardian Name', 
+  width: 200, 
+  valueGetter: (params) => {
+    const name = params.row.motherorGuardianName;
+    return name ? `${name.firstName} ${name.lastName}` : 'N/A';
+  }  },
+  { field: 'motherorGuardianNIC', headerName: 'NIC', width: 150 },
+  { field: 'Address', headerName: 'Address', width: 200 },
+  { field: 'PostalCode', headerName: 'Postal Code', width: 100 },
+  { field: 'guardianEmail', headerName: 'Email', width: 200 },
+  { field: 'guardianTelephoneNumber', headerName: 'Telephone', width: 150 },
+  { field: 'username', headerName: 'Username', width: 150 },
+  { field: 'additionalInfo', headerName: 'Additional Info', width: 200 },
 ];
 
 const initialRows = [
@@ -47,16 +46,33 @@ const initialRows = [
 
 
 const LowAdminParants = () => {
-  const [rows, setRows] = useState(initialRows);
+  const [rows, setRows] = useState([]);
 
-  const handleCellEditCommit = React.useCallback(({ id, field, props }) => {
-    setRows((prevRows) => {
-      const index = prevRows.findIndex((row) => row.id === id);
-      const updatedRows = [...prevRows];
-      updatedRows[index] = { ...updatedRows[index], [field]: props.value };
-      return updatedRows;
-    });
+  useEffect(() => {
+    const fetchParents = async () => {
+      try {
+        const response = await fetch('http://localhost:4000/admin/parents');
+        const data = await response.json();
+        const formattedData = data.map(parent => ({
+          id: parent._id,
+          motherorGuardianName: parent.motherorGuardianName,
+          motherorGuardianNIC: parent.motherorGuardianNIC,
+          Address: parent.Address,
+          PostalCode: parent.PostalCode,
+          guardianEmail: parent.guardianEmail,
+          guardianTelephoneNumber: parent.guardianTelephoneNumber,
+          username: parent.username,
+          additionalInfo: parent.additionalInfo || '',
+        }));
+        setRows(formattedData);
+      } catch (error) {
+        console.error('Error fetching parent data:', error);
+      }
+    };
+
+    fetchParents();
   }, []);
+
 
   return (
 
@@ -129,7 +145,7 @@ const LowAdminParants = () => {
                       </div>
                     </div>
 
-                    <div className="table" >
+                    <div className="table">
                       <div style={{ height: 500, width: '100%' }}>
                         <DataGrid
                           rows={rows}
@@ -138,7 +154,6 @@ const LowAdminParants = () => {
                           rowsPerPageOptions={[12]}
                           checkboxSelection
                           disableSelectionOnClick
-                          onEditCellChangeCommitted={handleCellEditCommit}
                         />
                       </div>
                     </div>
