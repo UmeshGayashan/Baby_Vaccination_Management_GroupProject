@@ -143,7 +143,7 @@ const UpdatePerant = () => {
           </div>
         </div>
       </section>
-      <section className="mothers-name-field" style={{ marginTop: "-60px" }}>
+      <section className="mothers-name-field" style={{ marginTop: "-150px" }}>
         {/* Inputfield */}
         {/* <MothersNameField /> */}
         <div className="mothers-name-field1" >

@@ -79,7 +79,7 @@ const HUpdatePerant = () => {
     })
       .then(response => {
         console.log("Parent information updated successfully:", response.data);
-        navigate("/low-admin-parants"); 
+        navigate("/high-admin-parants"); 
       })
       .catch(error => {
         console.error("Error updating parent information:", error);
@@ -145,7 +145,7 @@ const HUpdatePerant = () => {
           </div>
         </div>
       </section>
-      <section className="mothers-name-field" style={{ marginTop: "-60px" }}>
+      <section className="mothers-name-field" style={{ marginTop: "-150px" }}>
         {/* Inputfield */}
         {/* <MothersNameField /> */}
         <div className="mothers-name-field1" >
@@ -316,7 +316,7 @@ const HUpdatePerant = () => {
             </div> */}
 
             <div className="cta4" style={{marginTop:"30px"}}>
-              <Button href="low-admin-parants"
+              <Button href="/high-admin-parants"
                 className="buttons2"
                 disableElevation={true}
                 variant="contained"
@@ -333,6 +333,8 @@ const HUpdatePerant = () => {
               >
                 Cancel
               </Button>
+
+
               <Button
                 className="buttons3"
                 disableElevation={true}
