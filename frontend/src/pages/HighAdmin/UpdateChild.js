@@ -5,6 +5,7 @@ import DatePicker2 from "../../components/Datepicker_2";
 import { Button } from "@mui/material";
 import HAACNavbar from "../../components/HA_addchildnavbar";
 import React, { useState, useEffect } from 'react';
+import axios from "axios";
 
 const HUpdateChild = () => {
   const [bid, setBid] = useState('');
@@ -102,6 +103,18 @@ const HUpdateChild = () => {
     }
   }, [bid]);
 
+  const handleDeleteBabyInfo = () => {
+    const url = `http://localhost:4000/admin/delete-baby-acc/${bid}`;
+    axios.delete(url)
+      .then(response => {
+        console.log("Baby account deleted successfully:", response.data);
+        navigate("/high-admin-parants");
+      })
+      .catch(error => {
+        console.error("Error deleting parent account:", error);
+      });
+  };
+
   return (
     <div className="add-child">
       {/* Navbar */}
@@ -131,6 +144,18 @@ const HUpdateChild = () => {
                     />
                   </div>
                 </div>
+                <Button className="primary-button"
+                  variant="contained"
+                  sx={{
+                    textTransform: "none",
+                    color: "#fff",
+                    fontSize: "16",
+                    background: "#f44336",
+                    borderRadius: "4px",
+                    "&:hover": { background: "#d32f2f" },
+                    width: 187,
+                    height: 51,
+                  }} onClick={handleDeleteBabyInfo}>Delete Baby</Button>
                 <Button className="primary-button"
                   variant="contained"
                   sx={{
