@@ -79,7 +79,7 @@ const HUpdatePerant = () => {
     })
       .then(response => {
         console.log("Parent information updated successfully:", response.data);
-        navigate("/low-admin-parants"); 
+        navigate("/high-admin-parants"); 
       })
       .catch(error => {
         console.error("Error updating parent information:", error);
@@ -114,7 +114,7 @@ const HUpdatePerant = () => {
     <div className="add-perant">
       {/* Navbar */}
      <HAACNavbar/>
-      <HomeLink addChild="Update Parant" />
+      <HomeLink addChild="Update Parent" />
 
       <section className="blog-link">
         <div className="linked-in-link" />
@@ -122,13 +122,13 @@ const HUpdatePerant = () => {
 
       
 
-    <section className="facebook-link">
+    <section className="facebook-link" style={{marginLeft:"50px"}}>
         <div className="instagram-link">
           <div className="text-input">
             <div className="icon-container">
               <div className="password3">
                 <div className="input-text-label3" style={{ fontSize: '20px', marginBottom: "10px" }}>Parent NIC</div>
-                <div className="input-field4">
+                <div className="input-field4" style={{ marginBottom: "20px" }}>
                   <div className="text3">
                     <input
                       className="type-here6"
@@ -168,10 +168,10 @@ const HUpdatePerant = () => {
           </div>
         </div>
       </section>
-      <section className="mothers-name-field">
+      <section className="mothers-name-field" style={{ marginTop: "-150px" }}>
         {/* Inputfield */}
         {/* <MothersNameField /> */}
-        <div className="mothers-name-field1" style={{ marginLeft: "50px" }}>
+        <div className="mothers-name-field1" >
           <div className="mothers-name-field2">
             <h1 className="information-form1" style={{ marginTop: "30px" }}>Information Form</h1>
           </div>
@@ -338,8 +338,8 @@ const HUpdatePerant = () => {
               </div>
             </div> */}
 
-            <div className="cta4">
-              <Button href="high-admin-parants"
+            <div className="cta4" style={{marginTop:"30px"}}>
+              <Button href="/high-admin-parants"
                 className="buttons2"
                 disableElevation={true}
                 variant="contained"
@@ -356,6 +356,8 @@ const HUpdatePerant = () => {
               >
                 Cancel
               </Button>
+
+
               <Button
                 className="buttons3"
                 disableElevation={true}

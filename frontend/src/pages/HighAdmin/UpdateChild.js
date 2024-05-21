@@ -133,7 +133,7 @@ const HUpdateChild = () => {
             <div className="icon-container">
               <div className="password3">
                 <div className="input-text-label3" style={{ fontSize: '20px', marginBottom: "10px" }}>Child ID</div>
-                <div className="input-field4">
+                <div className="input-field4" style={{ marginBottom: "20px" }}>
                   <div className="text3">
                     <input
                       className="type-here6"
