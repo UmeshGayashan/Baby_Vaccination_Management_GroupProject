@@ -26,7 +26,7 @@ const HUpdateChild = () => {
   // Function to update account information
   const updateAccount = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/healthcare/update-baby-acc/${bid}`, {
+      const response = await fetch(`http://localhost:4000/admin/update-baby-acc/${bid}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
