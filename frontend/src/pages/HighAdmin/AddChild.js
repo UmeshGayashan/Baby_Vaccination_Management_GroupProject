@@ -56,21 +56,13 @@ const HAddChild = () => {
         body: JSON.stringify({ mfirstName, mlastName, mnic, fatherName, fatherNic, bid, gender, ofc, birthDate,birthweight , birthHospital}),
       });
       
-      // if (response.status === 201) {
-      //   const data = await response.json();
-        
-      //   setAccountNo(data.accountNo);
-      //   //Alert
-      //   setShowSuccessAlert(true);
-      //   setTimeout(() => {
-      //   setShowSuccessAlert(false);}, 2000);
-      // } else {
-      //   console.error('Account creation failed');
-      //   //Alert
-      //   setShowFailureAlert(true);
-      //   setTimeout(() => {
-      //   setShowFailureAlert(false);}, 2000);
-      // }
+      if (response.ok) {
+        const data = await response.json();
+        return data.token;
+      } else {
+        console.error('Failed to get token');
+        return null;
+      }
     } catch (error) {
       console.error('Error:', error);
       // //Alert
