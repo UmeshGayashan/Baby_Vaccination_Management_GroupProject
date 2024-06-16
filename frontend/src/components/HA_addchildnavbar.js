@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -21,11 +20,14 @@ const pages = [
   { name: 'Contact', path: '/high-admin-child' }
 ];
 
+// Utility function to delete a cookie by name
+const deleteCookie = (name) => {
+  document.cookie = `${name}=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT;`;
+};
+
 function HAACNavbar() {
-
-
   const [anchorElNav, setAnchorElNav] = useState(null);
-
+  const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -35,8 +37,13 @@ function HAACNavbar() {
     setAnchorElNav(null);
   };
 
+  const handleLogout = () => {
+    deleteCookie('jwt'); // Delete the JWT cookie
+    navigate('/'); // Redirect to the home page
+  };
+
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'white', height: '80px' }}>
+    <AppBar position = "static" sx={{ backgroundColor: 'white', height: '80px' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 3 }} />
@@ -127,14 +134,12 @@ function HAACNavbar() {
 
           <Button
             sx={{
-                mr:5,
-              
+              mr: 5,
               backgroundColor: 'black',
               color: 'white',
               '&:hover': {
                 backgroundColor: 'black',
                 opacity: 0.8,
-               
               },
               '&:focus': {
                 backgroundColor: 'black',
@@ -148,20 +153,17 @@ function HAACNavbar() {
 
           <Button
             sx={{
-              
               backgroundColor: 'black',
               color: 'white',
               '&:hover': {
                 backgroundColor: 'black',
                 opacity: 0.8,
-               
               },
               '&:focus': {
                 backgroundColor: 'black',
               },
             }}
-            component={Link}
-            to="/"
+            onClick={handleLogout}
           >
             Logout
           </Button>
