@@ -5,7 +5,7 @@ import "../pageCss/AddChild.css";
 import LAACNavbar from "../../components/LA_addchildNavBar";
 import DatePicker2 from "../../components/Datepicker_2";
 import React, { useCallback, useState } from "react";
-import { Button } from "@mui/material";
+import { Button, Snackbar, Alert } from "@mui/material";
 import HAACNavbar from "../../components/HA_addchildnavbar";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -37,12 +37,13 @@ const HAddChild = () => {
   const [mnic, setNIC] = useState('');
   const [fatherName, setFatherName] = useState('');
   const [fatherNic, setFatherNic] = useState('');
-  const [bid, setEmail] = useState('');
+  const [bid, setBid] = useState('');
   const [gender, setGender] = useState('');
   const [ofc, setOfc] = useState('');
   const [birthDate, setBirthDate] = useState('');
   const [birthweight, setBirthweight] = useState('');
   const [birthHospital, setBirthHospital] = useState('');
+  const [notification, setNotification] = useState({ open: false, message: '', severity: '' });
 
   // Utility function to get a cookie by name
 function getCookie(name) {
@@ -72,18 +73,14 @@ function getCookie(name) {
       });
       
       if (response.ok) {
-        const data = await response.json();
-        return data.token;
+        setNotification({ open: true, message: 'Account created successfully', severity: 'success' });
       } else {
-        console.error('Failed to get token');
-        return null;
+        console.error('Failed to create account');
+        setNotification({ open: true, message: 'Failed to create account', severity: 'error' });
       }
     } catch (error) {
       console.error('Error:', error);
-      // //Alert
-      // setShowFailureAlert(true);
-      // setTimeout(() => {
-      // setShowFailureAlert(false);}, 2000);
+      setNotification({ open: true, message: 'An error occurred', severity: 'error' });
     }
   };
 
@@ -94,6 +91,9 @@ const handleGenderChange = (event) => {
   setGender(event.target.value);
 };
 
+const handleCloseNotification = () => {
+  setNotification({ ...notification, open: false });
+};
    
   
 
@@ -241,7 +241,7 @@ const handleGenderChange = (event) => {
               </div>
             </div>
 
-            <div className="password3">
+            {/* <div className="password3">
               <div className="input-text-label9">Gender</div>
               <div className="input-field10">
 
@@ -255,7 +255,7 @@ const handleGenderChange = (event) => {
                   />
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className="password3" style={{ display: 'flex', alignItems: 'center' }}>
             <div className="gender1" style={{ marginRight: '20px' }}>Gender:</div>
@@ -297,18 +297,18 @@ const handleGenderChange = (event) => {
 
         <div className="password3">
               <div className="input-text-label9">BirthDay</div>
-              <div className="input-field10">
+              {/* <div className="input-field10">
 
                 <div className="text8">
                   <input
                     className="type-here6"
-                    placeholder="Male or Female or Other"
+                    placeholder="BirthDay"
                     type="text"
                     value={birthDate}
                     onChange={(e) => setBirthDate(e.target.value)}
                   />
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div className="clear-button">
@@ -391,6 +391,15 @@ const handleGenderChange = (event) => {
     </section>
       
       <Footer />
+      <Snackbar
+        open={notification.open}
+        autoHideDuration={6000}
+        onClose={handleCloseNotification}
+      >
+        <Alert onClose={handleCloseNotification} severity={notification.severity} sx={{ width: '100%' }}>
+          {notification.message}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };
