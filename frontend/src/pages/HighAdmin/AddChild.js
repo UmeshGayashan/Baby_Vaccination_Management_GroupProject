@@ -44,14 +44,29 @@ const HAddChild = () => {
   const [birthweight, setBirthweight] = useState('');
   const [birthHospital, setBirthHospital] = useState('');
 
+  // Utility function to get a cookie by name
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null; // Return null if the cookie is not found
+}
+
   // Function to create an account
   const createAccount = async () => {
     try {
+      const jwtToken = getCookie('jwt');
+        if (!jwtToken) {
+            console.error('No JWT token found');
+            return null;
+        }
+
       console.log(birthweight);
       const response = await fetch('http://localhost:4000/admin/create-baby-acc', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${jwtToken}`
         },
         body: JSON.stringify({ mfirstName, mlastName, mnic, fatherName, fatherNic, bid, gender, ofc, birthDate,birthweight , birthHospital}),
       });

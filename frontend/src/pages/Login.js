@@ -19,7 +19,7 @@ export default function Login() {
         event.preventDefault();
 
         try {
-            const response = await fetch('https://baby-vaccination-management-groupproject-w51l.onrender.com/public/login', {
+            const response = await fetch('http://localhost:4000/public/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
