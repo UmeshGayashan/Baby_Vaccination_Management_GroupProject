@@ -83,6 +83,18 @@ const UpdatePerant = () => {
         console.error("Error updating parent information:", error);
       });
   };
+  //delete parent info
+  const handleDeleteParentInfo = () => {
+    const url = `http://localhost:4000/admin/delete-parent-acc/${parentNIC}`;
+    axios.delete(url)
+      .then(response => {
+        console.log("Parent account deleted successfully:", response.data);
+        navigate("/high-admin-parants");
+      })
+      .catch(error => {
+        console.error("Error deleting parent account:", error);
+      });
+  };
 
 
 
@@ -138,6 +150,18 @@ const UpdatePerant = () => {
                     width: 187,
                     height: 51,
                   }} onClick={handleFetchParentInfo}>Get Account Info</Button>
+                   <Button className="primary-button"
+                  variant="contained"
+                  sx={{
+                    textTransform: "none",
+                    color: "#fff",
+                    fontSize: "16",
+                    background: "#f44336",
+                    borderRadius: "4px",
+                    "&:hover": { background: "#d32f2f" },
+                    width: 187,
+                    height: 51,
+                  }} onClick={handleDeleteParentInfo}>Delete Parent</Button>
               </div>
             </div>
           </div>
