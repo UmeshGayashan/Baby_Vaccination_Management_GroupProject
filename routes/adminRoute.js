@@ -11,7 +11,7 @@ module.exports = router;
 //Healthcare Professional Account Creation
 router.post("/create-health-acc", async (req, res) => {
     try {
-        const { firstName, lastName, nic, postalCode, email, username, password ,telephone,position,age,info} = req.body;
+        const { firstName, lastName, nic, postalCode, email,address, username, password ,telephone,position,age,info} = req.body;
         // Hash the password using bcrypt
         const hashedPassword = await bcrypt.hash(password, 10); 
         const newHealthAcc = new healthcareProfessionalSchema({
@@ -23,7 +23,7 @@ router.post("/create-health-acc", async (req, res) => {
             hcpPostalCode: postalCode,
             hcpEmail: email,
             hcpTelephone: telephone,
-            hcpAddress: telephone,
+            hcpAddress: address,
             hcpPosition: position,
             hcpAge: age,
             hcpinfo:info,
@@ -67,7 +67,7 @@ router.put("/update-health-acc/:nic", async (req, res) => {
 
 
 //Healthcare Professional Account Deletion
-router.delete("/delete-helath-acc/:nic", async (req, res) => {
+router.delete("/delete-health-acc/:nic", async (req, res) => {
     const nic = req.params.nic;
   
     try {
@@ -383,6 +383,22 @@ router.get('/get-parent-acc/:nic', async (req, res) => {
   try {
     const nic = req.params.nic;
     const account = await ParentSchema.findOne({ motherorGuardianNIC: nic });
+
+    if (!account) {
+      return res.status(404).send('Account not found');
+    }
+
+    return res.status(200).send(account);
+  } catch (err) {
+    return res.status(500).send('Error while fetching account information: ' + err.message);
+  }
+});
+
+// Fetch healthcare information based on nic
+router.get('/get-health-acc/:nic', async (req, res) => {
+  try {
+    const nic = req.params.nic;
+    const account = await healthcareProfessionalSchema.findOne({ hcpNIC: nic });
 
     if (!account) {
       return res.status(404).send('Account not found');
