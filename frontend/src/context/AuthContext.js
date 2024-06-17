@@ -11,13 +11,13 @@ export const AuthProvider = ({ children }) => {
         setUser({ userType, token, username, nic });
     };
 
-    const logout = () => {
-        setUser(null);
-        document.cookie = 'jwt=; path=/; max-age=0;';
-    };
+    // const logout = () => {
+    //     setUser(null);
+    //     document.cookie = 'jwt=; path=/; max-age=0;';
+    // };
 
     return (
-        <AuthContext.Provider value={{ user, login, logout }}>
+        <AuthContext.Provider value={{ user, login }}>
             {children}
         </AuthContext.Provider>
     );
