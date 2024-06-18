@@ -38,8 +38,7 @@ function HAACNavbar() {
   };
 
   const handleLogout = () => {
-    deleteCookie('jwt'); // Delete the JWT cookie
-    navigate('/'); // Redirect to the home page
+    document.cookie = 'jwt=; path=/; max-age=0;';
   };
 
   return (
