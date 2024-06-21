@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useAuth } from '../../context/AuthContext'; // Adjust the import path as necessary
+import { useAuth } from '../../context/AuthContext'; 
 
 const ParentDashboard = () => {
     const { user } = useAuth();
