@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import HomeLink from "../../components/HomeLink";
 import Footer from "../../components/Footer";
 import "../pageCss/AddChild.css";
-import LAACNavbar from "../../components/LA_addchildNavBar";
 import DatePicker2 from "../../components/Datepicker_2";
 import React, { useCallback, useState } from "react";
 import { Button, Snackbar, Alert } from "@mui/material";

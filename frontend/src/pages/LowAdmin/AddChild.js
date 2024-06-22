@@ -5,7 +5,7 @@ import "../pageCss/AddChild.css";
 import React, { useCallback, useState } from "react";
 import LAACNavbar from "../../components/LA_addchildNavBar";
 import DatePicker2 from "../../components/Datepicker_2";
-import { Button } from "@mui/material";
+import { Button, Snackbar, Alert } from "@mui/material";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -22,40 +22,42 @@ const AddChild = () => {
   const [birthDate, setBirthDate] = useState('');
   const [birthweight, setBirthweight] = useState('');
   const [birthHospital, setBirthHospital] = useState('');
+  const [notification, setNotification] = useState({ open: false, message: '', severity: '' });
+
+  // Utility function to get a cookie by name
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null; // Return null if the cookie is not found
+}
 
   // Function to create an account
   const createAccount = async () => {
     try {
-      console.log(birthweight);
-      const response = await fetch('http://localhost:4000/helathcare/create-baby-acc', {
+      const jwtToken = getCookie('jwt');
+        if (!jwtToken) {
+            console.error('No JWT token found');
+            return null;
+        }
+      const response = await fetch('http://localhost:4000/healthcare/create-baby-acc', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${jwtToken}`
         },
         body: JSON.stringify({ mfirstName, mlastName, mnic, fatherName, fatherNic, bid, gender, ofc, birthDate,birthweight , birthHospital}),
       });
       
-      // if (response.status === 201) {
-      //   const data = await response.json();
-        
-      //   setAccountNo(data.accountNo);
-      //   //Alert
-      //   setShowSuccessAlert(true);
-      //   setTimeout(() => {
-      //   setShowSuccessAlert(false);}, 2000);
-      // } else {
-      //   console.error('Account creation failed');
-      //   //Alert
-      //   setShowFailureAlert(true);
-      //   setTimeout(() => {
-      //   setShowFailureAlert(false);}, 2000);
-      // }
+      if (response.ok) {
+        setNotification({ open: true, message: 'Account created successfully', severity: 'success' });
+      } else {
+        console.error('Failed to create account');
+        setNotification({ open: true, message: 'Failed to create account', severity: 'error' });
+      }
     } catch (error) {
       console.error('Error:', error);
-      // //Alert
-      // setShowFailureAlert(true);
-      // setTimeout(() => {
-      // setShowFailureAlert(false);}, 2000);
+      setNotification({ open: true, message: 'An error occurred', severity: 'error' });
     }
   };
 
@@ -64,6 +66,10 @@ const AddChild = () => {
 };
 const handleGenderChange = (event) => {
   setGender(event.target.value);
+};
+
+const handleCloseNotification = () => {
+  setNotification({ ...notification, open: false });
 };
 
 
@@ -367,6 +373,15 @@ const handleGenderChange = (event) => {
     </section>
       
       <Footer />
+      <Snackbar
+        open={notification.open}
+        autoHideDuration={6000}
+        onClose={handleCloseNotification}
+      >
+        <Alert onClose={handleCloseNotification} severity={notification.severity} sx={{ width: '100%' }}>
+          {notification.message}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

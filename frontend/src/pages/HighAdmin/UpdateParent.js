@@ -17,7 +17,7 @@ const HUpdatePerant = () => {
   const onNavButtonClick = useCallback(() => {
     navigate("/low-admin-parants");
   }, [navigate]);
-//==============
+
   const [parentNIC, setParentNIC] = useState("");
   const [parentData, setParentData] = useState({
     firstName: "",
@@ -32,11 +32,17 @@ const HUpdatePerant = () => {
     additionalInfo: ""
   });
 
-//=======================
+  // Utility function to get a cookie by name
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null; // Return null if the cookie is not found
+}
+
   const [orderNotes, setOrderNotes] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
 
-  //==================
   const handleFetchParentInfo = () => {
     const url = `http://localhost:4000/admin/get-parent-acc/${parentNIC}`; 
     axios.get(url)
