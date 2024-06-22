@@ -16,7 +16,7 @@ const AddChild = () => {
   const [mnic, setNIC] = useState('');
   const [fatherName, setFatherName] = useState('');
   const [fatherNic, setFatherNic] = useState('');
-  const [bid, setEmail] = useState('');
+  const [bid, setBid] = useState('');
   const [gender, setGender] = useState('');
   const [ofc, setOfc] = useState('');
   const [birthDate, setBirthDate] = useState('');

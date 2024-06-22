@@ -2,7 +2,7 @@ import HomeLink from "../../components/HomeLink";
 import Footer from "../../components/Footer";
 import "../pageCss/AddChild.css";
 import DatePicker2 from "../../components/Datepicker_2";
-import { Button } from "@mui/material";
+import { Button, Snackbar, Alert  } from "@mui/material";
 import HAACNavbar from "../../components/HA_addchildnavbar";
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
@@ -20,16 +20,31 @@ const HUpdateChild = () => {
   const [weight, setBirthweight] = useState('');
   const [hospitalName, setBirthHospital] = useState('');
   const [accountInfo, setAccountInfo] = useState(null);
-  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
-  const [showFailureAlert, setShowFailureAlert] = useState(false);
+  const [notification, setNotification] = useState({ open: false, message: '', severity: '' });
+
+
+  // Utility function to get a cookie by name
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null; // Return null if the cookie is not found
+}
 
   // Function to update account information
   const updateAccount = async () => {
     try {
+      const jwtToken = getCookie('jwt');
+        if (!jwtToken) {
+            console.error('No JWT token found');
+            return null;
+        }
+
       const response = await fetch(`http://localhost:4000/admin/update-baby-acc/${bid}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${jwtToken}`
         },
         body: JSON.stringify({
           babyId: bid, // Ensure babyId is sent in the request body
@@ -48,28 +63,22 @@ const HUpdateChild = () => {
       if (response.status === 200) {
         const data = await response.json();
         // Alert
-        setShowSuccessAlert(true);
-        setTimeout(() => {
-          setShowSuccessAlert(false);
-        }, 2000);
+        setNotification({ open: true, message: 'Account updated successfully', severity: 'success' });
 
         setAccountInfo(data);
       } else {
         console.error('Account update failed');
         // Alert
-        setShowFailureAlert(true);
-        setTimeout(() => {
-          setShowFailureAlert(false);
-        }, 2000);
+        setNotification({ open: true, message: 'Failed to update account', severity: 'error' });
       }
     } catch (error) {
       console.error('Error:', error);
       // Alert
-      setShowFailureAlert(true);
-      setTimeout(() => {
-        setShowFailureAlert(false);
-      }, 2000);
+      setNotification({ open: true, message: 'An error occurred', severity: 'error' });
     }
+  };
+  const handleCloseNotification = () => {
+    setNotification({ ...notification, open: false });
   };
   // Function to retrieve account information
   const getAccountInfo = async () => {
@@ -107,11 +116,18 @@ const HUpdateChild = () => {
     const url = `http://localhost:4000/admin/delete-baby-acc/${bid}`;
     axios.delete(url)
       .then(response => {
-        console.log("Baby account deleted successfully:", response.data);
-        navigate("/high-admin-parants");
+        if (response.status === 200) {
+          console.log("Baby account deleted successfully:", response.data);
+          setNotification({ open: true, message: 'Account deleted successfully', severity: 'success' });
+          navigate("/high-admin-parents");
+        } else {
+          console.error("Unexpected response status:", response.status);
+          setNotification({ open: true, message: 'Failed to delete account', severity: 'error' });
+        }
       })
       .catch(error => {
         console.error("Error deleting parent account:", error);
+        setNotification({ open: true, message: 'An error occurred', severity: 'error' });
       });
   };
 
@@ -412,6 +428,15 @@ const HUpdateChild = () => {
         </div>
       </section>
       <Footer />
+      <Snackbar
+        open={notification.open}
+        autoHideDuration={6000}
+        onClose={handleCloseNotification}
+      >
+        <Alert onClose={handleCloseNotification} severity={notification.severity} sx={{ width: '100%' }}>
+          {notification.message}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };
