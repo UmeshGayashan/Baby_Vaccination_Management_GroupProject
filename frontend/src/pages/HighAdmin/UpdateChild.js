@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import HomeLink from "../../components/HomeLink";
 import Footer from "../../components/Footer";
 import "../pageCss/AddChild.css";
@@ -8,6 +9,9 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
 const HUpdateChild = () => {
+
+  const navigate = useNavigate();
+
   const [bid, setBid] = useState('');
   const [firstName, setFName] = useState('');
   const [lastName, setLName] = useState('');
@@ -77,9 +81,6 @@ function getCookie(name) {
       setNotification({ open: true, message: 'An error occurred', severity: 'error' });
     }
   };
-  const handleCloseNotification = () => {
-    setNotification({ ...notification, open: false });
-  };
   // Function to retrieve account information
   const getAccountInfo = async () => {
     try {
@@ -117,9 +118,9 @@ function getCookie(name) {
     axios.delete(url)
       .then(response => {
         if (response.status === 200) {
-          console.log("Baby account deleted successfully:", response.data);
           setNotification({ open: true, message: 'Account deleted successfully', severity: 'success' });
-          navigate("/high-admin-parents");
+          console.log("Baby account deleted successfully:", response.data);
+          navigate("/high-admin-parants");
         } else {
           console.error("Unexpected response status:", response.status);
           setNotification({ open: true, message: 'Failed to delete account', severity: 'error' });
@@ -129,6 +130,10 @@ function getCookie(name) {
         console.error("Error deleting parent account:", error);
         setNotification({ open: true, message: 'An error occurred', severity: 'error' });
       });
+  };
+
+  const handleCloseNotification = () => {
+    setNotification({ ...notification, open: false });
   };
 
   return (
