@@ -120,7 +120,7 @@ function getCookie(name) {
         if (response.status === 200) {
           setNotification({ open: true, message: 'Account deleted successfully', severity: 'success' });
           console.log("Baby account deleted successfully:", response.data);
-          navigate("/high-admin-parants");
+          navigate("/high-admin-child");
         } else {
           console.error("Unexpected response status:", response.status);
           setNotification({ open: true, message: 'Failed to delete account', severity: 'error' });
