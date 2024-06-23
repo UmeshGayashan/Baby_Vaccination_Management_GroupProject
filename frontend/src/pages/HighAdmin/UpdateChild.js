@@ -101,9 +101,11 @@ function getCookie(name) {
         setBirthHospital(data.hospitalName);
       } else {
         console.error('Account information retrieval failed');
+        setNotification({ open: true, message: 'Failed to get account details', severity: 'error' });
       }
     } catch (error) {
       console.error('Error:', error);
+      setNotification({ open: true, message: 'An error occurred', severity: 'error' });
     }
   };
 

@@ -1,13 +1,17 @@
+import { useNavigate } from "react-router-dom";
 import HomeLink from "../../components/HomeLink";
 import Footer from "../../components/Footer";
 import "../pageCss/AddChild.css";
 import DatePicker2 from "../../components/Datepicker_2";
-import { Button } from "@mui/material";
+import { Button, Snackbar, Alert} from "@mui/material";
 import HAACNavbar from "../../components/HA_addchildnavbar";
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
 const UpdateChild = () => {
+
+  const navigate = useNavigate();
+
   const [bid, setBid] = useState('');
   const [firstName, setFName] = useState('');
   const [lastName, setLName] = useState('');
@@ -20,16 +24,31 @@ const UpdateChild = () => {
   const [weight, setBirthweight] = useState('');
   const [hospitalName, setBirthHospital] = useState('');
   const [accountInfo, setAccountInfo] = useState(null);
-  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
-  const [showFailureAlert, setShowFailureAlert] = useState(false);
+  const [notification, setNotification] = useState({ open: false, message: '', severity: '' });
+
+    // Utility function to get a cookie by name
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null; // Return null if the cookie is not found
+}
 
   // Function to update account information
   const updateAccount = async () => {
     try {
+
+      const jwtToken = getCookie('jwt');
+        if (!jwtToken) {
+            console.error('No JWT token found');
+            return null;
+        }
+
       const response = await fetch(`http://localhost:4000/admin/update-baby-acc/${bid}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${jwtToken}`
         },
         body: JSON.stringify({
           babyId: bid, // Ensure babyId is sent in the request body
@@ -48,33 +67,24 @@ const UpdateChild = () => {
       if (response.status === 200) {
         const data = await response.json();
         // Alert
-        setShowSuccessAlert(true);
-        setTimeout(() => {
-          setShowSuccessAlert(false);
-        }, 2000);
+        setNotification({ open: true, message: 'Account updated successfully', severity: 'success' });
 
         setAccountInfo(data);
       } else {
         console.error('Account update failed');
         // Alert
-        setShowFailureAlert(true);
-        setTimeout(() => {
-          setShowFailureAlert(false);
-        }, 2000);
+        setNotification({ open: true, message: 'Failed to update account', severity: 'error' });
       }
     } catch (error) {
       console.error('Error:', error);
       // Alert
-      setShowFailureAlert(true);
-      setTimeout(() => {
-        setShowFailureAlert(false);
-      }, 2000);
+      setNotification({ open: true, message: 'An error occurred', severity: 'error' });
     }
   };
   // Function to retrieve account information
   const getAccountInfo = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/admin/baby-acc-info/${bid}`); // Use the correct API route
+      const response = await fetch(`http://localhost:4000/healthcare/baby-acc-info/${bid}`); // Use the correct API route
       if (response.status === 200) {
         const data = await response.json();
         setAccountInfo(data);
@@ -91,9 +101,11 @@ const UpdateChild = () => {
         setBirthHospital(data.hospitalName);
       } else {
         console.error('Account information retrieval failed');
+        setNotification({ open: true, message: 'Failed to get account details', severity: 'error' });
       }
     } catch (error) {
       console.error('Error:', error);
+      setNotification({ open: true, message: 'An error occurred', severity: 'error' });
     }
   };
 
@@ -103,16 +115,20 @@ const UpdateChild = () => {
     }
   }, [bid]);
 
-  const handleDeleteBabyInfo = () => {
-    const url = `http://localhost:4000/admin/delete-baby-acc/${bid}`;
-    axios.delete(url)
-      .then(response => {
-        console.log("Baby account deleted successfully:", response.data);
-        navigate("/high-admin-parants");
-      })
-      .catch(error => {
-        console.error("Error deleting parent account:", error);
-      });
+  // const handleDeleteBabyInfo = () => {
+  //   const url = `http://localhost:4000/admin/delete-baby-acc/${bid}`;
+  //   axios.delete(url)
+  //     .then(response => {
+  //       console.log("Baby account deleted successfully:", response.data);
+  //       navigate("/low-admin");
+  //     })
+  //     .catch(error => {
+  //       console.error("Error deleting parent account:", error);
+  //     });
+  // };
+
+  const handleCloseNotification = () => {
+    setNotification({ ...notification, open: false });
   };
 
   return (
@@ -144,7 +160,7 @@ const UpdateChild = () => {
                     />
                   </div>
                 </div>
-                <Button className="primary-button"
+                {/* <Button className="primary-button"
                   variant="contained"
                   sx={{
                     textTransform: "none",
@@ -155,7 +171,7 @@ const UpdateChild = () => {
                     "&:hover": { background: "#d32f2f" },
                     width: 187,
                     height: 51,
-                  }} onClick={handleDeleteBabyInfo}>Delete Baby</Button>
+                  }} onClick={handleDeleteBabyInfo}>Delete Baby</Button> */}
                 <Button className="primary-button"
                   variant="contained"
                   sx={{
@@ -305,7 +321,7 @@ const UpdateChild = () => {
                   </div>
                 </div>
               </div>
-              <div className="password3">
+              {/* <div className="password3">
                 <div className="input-text-label9">Gender</div>
                 <div className="input-field10">
                   <div className="text8">
@@ -318,7 +334,7 @@ const UpdateChild = () => {
                     />
                   </div>
                 </div>
-              </div>
+              </div> */}
               <div className="password3" style={{ display: 'flex', alignItems: 'center' }}>
                 <div className="gender1" style={{ marginRight: '20px' }}>Gender:</div>
                 <div className="radio-button1" style={{ marginRight: '10px' }}>
@@ -412,6 +428,15 @@ const UpdateChild = () => {
         </div>
       </section>
       <Footer />
+      <Snackbar
+        open={notification.open}
+        autoHideDuration={6000}
+        onClose={handleCloseNotification}
+      >
+        <Alert onClose={handleCloseNotification} severity={notification.severity} sx={{ width: '100%' }}>
+          {notification.message}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };
