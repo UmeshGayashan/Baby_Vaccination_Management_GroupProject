@@ -22,6 +22,18 @@ const columns = [
   { field: 'nextDate', headerName: 'Next Date', width: 150 },
   { field: 'nextTime', headerName: 'Next Time', width: 150 },
   { field: 'status', headerName: 'Status', width: 100 },
+  {
+    field: 'sendMessage', headerName: 'Send Message', width: 200,
+    renderCell: (params) => (
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={() => handleSendMessage(params.row.bottle_code)}
+      >
+        Send Message
+      </Button>
+    ),
+  },
 ];
 
 const initialRows = [];
@@ -34,6 +46,7 @@ const HighAdminVaccination = () => {
       try {
         const response = await fetch('http://localhost:4000/admin/vaccinations');
         const data = await response.json();
+        console.log("Fetched data:", data);  // Log fetched data
         const formattedData = data.map(vaccination => ({
           id: vaccination._id,
           bid: vaccination.bid,
@@ -48,6 +61,7 @@ const HighAdminVaccination = () => {
           nextTime: vaccination.nextDateTime?.time,
           status: vaccination.status,
         }));
+        console.log("Formatted data:", formattedData);  // Log formatted data
         setRows(formattedData);
       } catch (error) {
         console.error('Error fetching vaccination data:', error);
@@ -57,31 +71,43 @@ const HighAdminVaccination = () => {
     fetchVaccinations();
   }, []);
 
-  const handleCellEditCommit = React.useCallback(({ id, field, props }) => {
-    setRows((prevRows) => {
-      const index = prevRows.findIndex((row) => row.id === id);
-      const updatedRows = [...prevRows];
-      updatedRows[index] = { ...updatedRows[index], [field]: props.value };
-      return updatedRows;
-    });
-  }, []);
+  const handleSendMessage = async (bottleCode) => {
+    try {
+      const response = await fetch(`http://localhost:4000/vaccination/${bottleCode}`);
+      const data = await response.json();
+      if (response.ok) {
+        const { nextVaccinationDate, nextVaccinationTime, parentMobileNumber } = data;
+        console.log("Next vaccination date:", nextVaccinationDate);
+        console.log("Next vaccination time:", nextVaccinationTime);
+        console.log("Parent mobile number:", parentMobileNumber);
+        // Add the logic to send the message to the parent's mobile number
+        // For example, you can use a messaging API here to send the message
+      } else {
+        console.error('Error fetching vaccination details:', data.error);
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+    }
+  };
 
   return (
     <div>
       <LANavbar />
       <div className="user-page">
         <BGRectangle2 />
-        <section className="image-placeholder" >
+        <section className="image-placeholder">
           <HAdminDashBoard />
           <div className="label-text">
-            <div className="minheight" >
-              <div className="default-slot"> <h1 className="page-header">Vaccination Collection</h1></div>
+            <div className="minheight">
+              <div className="default-slot">
+                <h1 className="page-header">Vaccination Collection</h1>
+              </div>
               <div className="card">
                 <div className="paper">
-                  <div className="custom-users-management-tabl" >
+                  <div className="custom-users-management-tabl">
                     <div className="custom-table-toolbar">
                       <div className="queries" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        <div >
+                        <div>
                           <Button href="/hupdate-perant"
                             disableElevation={true}
                             variant="contained"
@@ -91,7 +117,7 @@ const HighAdminVaccination = () => {
                               color: "#1d2130",
                               fontSize: "14px",
                               background: "#fff9c7",
-                              borderRadius: "10x 10px 10px 10px",
+                              borderRadius: "10px 10px 10px 10px",
                               borderColor: "black",
                               borderWidth: "2px",
                               borderStyle: "solid",
@@ -108,7 +134,7 @@ const HighAdminVaccination = () => {
                                 color: "#1d2130",
                                 fontSize: "14px",
                                 background: "#fff9c7",
-                                borderRadius: "10x 10px 10px 10px",
+                                borderRadius: "10px 10px 10px 10px",
                                 borderColor: "black",
                                 borderWidth: "2px",
                                 borderStyle: "solid",
@@ -117,7 +143,7 @@ const HighAdminVaccination = () => {
                               }}>Update and delete child</Button>
                           </div>
 
-                          <div style={{marginBottom:"20px"}}>
+                          <div style={{ marginBottom: "20px" }}>
                             <Button href="/update-profession"
                               disableElevation={true}
                               variant="contained"
@@ -126,7 +152,7 @@ const HighAdminVaccination = () => {
                                 color: "#1d2130",
                                 fontSize: "14px",
                                 background: "#fff9c7",
-                                borderRadius: "10x 10px 10px 10px",
+                                borderRadius: "10px 10px 10px 10px",
                                 borderColor: "black",
                                 borderWidth: "2px",
                                 borderStyle: "solid",
@@ -142,9 +168,9 @@ const HighAdminVaccination = () => {
               </div>
             </div>
           </div>
-          <div className="text-container" style={{marginTop:"50px"}}>
-            <div className="desktopdatepicker-parent" >
-              <div className="go-to-calendar" style={{ marginTop: "-30px" }} >
+          <div className="text-container" style={{ marginTop: "50px" }}>
+            <div className="desktopdatepicker-parent">
+              <div className="go-to-calendar" style={{ marginTop: "-30px" }}>
                 <div className="list">
                   <div className="header-picker">
                     <DesktopDatePicker />
@@ -156,7 +182,7 @@ const HighAdminVaccination = () => {
         </section>
 
         <div className="table" style={{ marginBottom: "50px", marginLeft: "50px", marginRight: "50px", backgroundColor: "#fff9c7" }}>
-          <div style={{ height: 500, width: '100%',  }}>
+          <div style={{ height: 500, width: '100%' }}>
             <DataGrid
               rows={rows}
               columns={columns}

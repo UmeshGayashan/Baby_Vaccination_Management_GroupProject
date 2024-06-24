@@ -38,7 +38,7 @@ import IVaccines from "./pages/Importantvaccines";
 import ContactUs from "./pages/ContactUs";
 import ParentDashboard from './pages/Parent/parentdashboard';
 import VaccHistory from './pages/HighAdmin/VaccHistory';
-import HighAdminVaccination from './pages/HighAdmin/HighAdminChild';
+import HighAdminVaccination from './pages/HighAdmin/HighAdminVaccination';
 
 
 
