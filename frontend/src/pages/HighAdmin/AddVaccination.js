@@ -2,7 +2,7 @@ import HomeLink from "../../components/HomeLink";
 import Footer from "../../components/Footer";
 import "../pageCss/AddChild.css";
 import React, { useCallback, useState } from "react";
-import { Button, } from "@mui/material";
+import { Button, Snackbar, Alert} from "@mui/material";
 import HAACNavbar from "../../components/HA_addchildnavbar";
 import DatePicker from 'react-datepicker';
 
@@ -17,6 +17,15 @@ const HAVaccination = () => {
   const [location, setLocation] = useState('');
   const [status] = useState("Pending");
   const [nextDate, setnextDate] = useState('');
+  const [notification, setNotification] = useState({ open: false, message: '', severity: '' });
+
+  // Utility function to get a cookie by name
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null; // Return null if the cookie is not found
+}
 
   function onChangeHandler(value) {
     setnextDate(value);
@@ -25,35 +34,31 @@ const HAVaccination = () => {
   // Function to create an account
   const createAccount = async () => {
     try {
+
+      const jwtToken = getCookie('jwt');
+        if (!jwtToken) {
+            console.error('No JWT token found');
+            return null;
+        }
+
       const response = await fetch('http://localhost:4000/admin/vacc-adding', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${jwtToken}`
         },
         body: JSON.stringify({ babyId, vaccine, vaccineNo, vaccinator, bcode, location, nextDate }),
       });
 
-      // if (response.status === 201) {
-      //   const data = await response.json();
-
-      //   setAccountNo(data.accountNo);
-      //   //Alert
-      //   setShowSuccessAlert(true);
-      //   setTimeout(() => {
-      //   setShowSuccessAlert(false);}, 2000);
-      // } else {
-      //   console.error('Account creation failed');
-      //   //Alert
-      //   setShowFailureAlert(true);
-      //   setTimeout(() => {
-      //   setShowFailureAlert(false);}, 2000);
-      // }
+      if (response.ok) {
+        setNotification({ open: true, message: 'Vaccination added successfully', severity: 'success' });
+      } else {
+        console.error('Failed to add vaccination');
+        setNotification({ open: true, message: 'Failed to add vaccination', severity: 'error' });
+      }
     } catch (error) {
       console.error('Error:', error);
-      // //Alert
-      // setShowFailureAlert(true);
-      // setTimeout(() => {
-      // setShowFailureAlert(false);}, 2000);
+      setNotification({ open: true, message: 'An error occurred', severity: 'error' });
     }
   };
 
@@ -74,6 +79,9 @@ const HAVaccination = () => {
 
   const handleVaccineNameChange = (event) => {
     setVaccineName(event.target.value);
+  };
+  const handleCloseNotification = () => {
+    setNotification({ ...notification, open: false });
   };
 
   return (
@@ -366,6 +374,15 @@ const HAVaccination = () => {
         </div>
       </section >
       <Footer />
+      <Snackbar
+        open={notification.open}
+        autoHideDuration={6000}
+        onClose={handleCloseNotification}
+      >
+        <Alert onClose={handleCloseNotification} severity={notification.severity} sx={{ width: '100%' }}>
+          {notification.message}
+        </Alert>
+      </Snackbar>
     </div >
   );
 };

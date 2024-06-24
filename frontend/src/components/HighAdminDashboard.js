@@ -94,6 +94,13 @@ function HAdminDashBoard() {
         </ListItemIcon>
         <ListItemText primary=" Professionals Collection" />
       </ListItemButton>
+      <ListItemButton component={Link} to="/HighAdminVaccination">
+        <ListItemIcon>
+          <GradeIcon />
+        </ListItemIcon>
+        <ListItemText primary=" Vaccination Collection" />
+      </ListItemButton>
+
 
 
       {/* <ListItemButton onClick={handleClick}>

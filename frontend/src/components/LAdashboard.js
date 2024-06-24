@@ -60,7 +60,7 @@ function LAdminDashBoard() {
         <ListItemIcon>
           <GradeIcon />
         </ListItemIcon>
-        <ListItemText primary=" child Collection" />
+        <ListItemText primary=" Child Collection" />
       </ListItemButton>
 
       <ListItemButton component={Link} to="/low-admin-parants">
@@ -70,6 +70,12 @@ function LAdminDashBoard() {
         <ListItemText primary=" Parent Collection" />
       </ListItemButton>
 
+      <ListItemButton component={Link} to="/VaccHistory">
+        <ListItemIcon>
+          <GradeIcon />
+        </ListItemIcon>
+        <ListItemText primary=" Vaccination History" />
+      </ListItemButton>
       {/* <ListItemButton onClick={handleClick}>
         <ListItemIcon>
           <GradeIcon />

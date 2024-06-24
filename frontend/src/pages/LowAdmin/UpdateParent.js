@@ -1,4 +1,3 @@
-
 import { useNavigate } from "react-router-dom";
 import "../pageCss/AddPerant.css";
 import HomeLink from "../../components/HomeLink";
@@ -8,7 +7,6 @@ import "../../components/comCss/MothersNameField.css";
 import React, { useCallback, useState } from "react";
 import { Button } from "@mui/material";
 import LAAPNavbar from "../../components/LA_addparentnavbar";
-
 
 const UpdatePerant = () => {
   const navigate = useNavigate();
@@ -30,11 +28,9 @@ const UpdatePerant = () => {
     additionalInfo: ""
   });
 
-//=======================
   const [orderNotes, setOrderNotes] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
 
-  //==================
   const handleFetchParentInfo = () => {
     const url = `http://localhost:4000/admin/get-parent-acc/${parentNIC}`; 
     axios.get(url)
@@ -83,22 +79,20 @@ const UpdatePerant = () => {
         console.error("Error updating parent information:", error);
       });
   };
-  //delete parent info
-  const handleDeleteParentInfo = () => {
-    const url = `http://localhost:4000/admin/delete-parent-acc/${parentNIC}`;
-    axios.delete(url)
-      .then(response => {
-        console.log("Parent account deleted successfully:", response.data);
-        navigate("/high-admin-parants");
-      })
-      .catch(error => {
-        console.error("Error deleting parent account:", error);
-      });
-  };
 
+  // //delete parent info
+  // const handleDeleteParentInfo = () => {
+  //   const url = `http://localhost:4000/admin/delete-parent-acc/${parentNIC}`;
+  //   axios.delete(url)
+  //     .then(response => {
+  //       console.log("Parent account deleted successfully:", response.data);
+  //       navigate("/high-admin-parants");
+  //     })
+  //     .catch(error => {
+  //       console.error("Error deleting parent account:", error);
+  //     });
+  // };
 
-
-//=========================
 
   const onButtons1Click = useCallback(() => {
     navigate("low-admin-parants");
@@ -150,7 +144,7 @@ const UpdatePerant = () => {
                     width: 187,
                     height: 51,
                   }} onClick={handleFetchParentInfo}>Get Account Info</Button>
-                   <Button className="primary-button"
+                   {/* <Button className="primary-button"
                   variant="contained"
                   sx={{
                     textTransform: "none",
@@ -161,7 +155,7 @@ const UpdatePerant = () => {
                     "&:hover": { background: "#d32f2f" },
                     width: 187,
                     height: 51,
-                  }} onClick={handleDeleteParentInfo}>Delete Parent</Button>
+                  }} onClick={handleDeleteParentInfo}>Delete Parent</Button> */}
               </div>
             </div>
           </div>
