@@ -34,6 +34,18 @@ const columns = [
       </Button>
     ),
   },
+  {
+    field: 'toggleStatus', headerName: 'Toggle Status', width: 200,
+    renderCell: (params) => (
+      <Button
+        variant="contained"
+        color="secondary"
+        onClick={() => handleToggleStatus(params.row.id)}
+      >
+        {params.row.status === 'Approved' ? 'Set Pending' : 'Set Approved'}
+      </Button>
+    ),
+  },
 ];
 
 const initialRows = [];
@@ -87,6 +99,31 @@ const HighAdminVaccination = () => {
       }
     } catch (error) {
       console.error('Error sending message:', error);
+    }
+  };
+
+  const handleToggleStatus = async (id) => {
+    try {
+      const updatedRows = rows.map(row => {
+        if (row.id === id) {
+          const newStatus = row.status === 'Approved' ? 'Pending' : 'Approved';
+          return { ...row, status: newStatus };
+        }
+        return row;
+      });
+      setRows(updatedRows);
+
+      const updatedRow = updatedRows.find(row => row.id === id);
+
+      await fetch(`http://localhost:4000/admin/vaccination/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ status: updatedRow.status }),
+      });
+    } catch (error) {
+      console.error('Error updating vaccination status:', error);
     }
   };
 
