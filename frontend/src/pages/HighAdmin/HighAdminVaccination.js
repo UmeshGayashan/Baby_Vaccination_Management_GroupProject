@@ -64,8 +64,22 @@ const HighAdminVaccination = () => {
     }
   };
 
+    // Utility function to get a cookie by name
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null; // Return null if the cookie is not found
+}
+
   const handleToggleStatus = async (id) => {
     try {
+      const jwtToken = getCookie('jwt');
+        if (!jwtToken) {
+            console.error('No JWT token found');
+            return null;
+        }
+
       const updatedRows = rows.map(row => {
         if (row.id === id) {
           const newStatus = row.status === 'Approved' ? 'Pending' : 'Approved';
@@ -77,7 +91,7 @@ const HighAdminVaccination = () => {
 
       const updatedRow = updatedRows.find(row => row.id === id);
 
-      await fetch(`http://localhost:4000/admin/vaccination/${id}`, {
+      await fetch(`http://localhost:4000/admin/update-vacc/${updatedRow.bottle_code}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

@@ -11,11 +11,12 @@ import ANotificationList from "../../components/AdminNotification";
 import BGRectangle3 from "../../components/professionheader";
 
 const columns = [
-  { field: 'firstName', headerName: 'First Name', width: 130 },
-  { field: 'lastName', headerName: 'Last Name', width: 130 },
-  { field: 'hcpNIC', headerName: 'NIC', width: 150 },
-  { field: 'hcpPostalCode', headerName: 'Postal Code', width: 130 },
-  { field: 'hcpEmail', headerName: 'Email', width: 180 },
+  { field: 'firstName', headerName: 'First Name', width: 150 },
+  { field: 'lastName', headerName: 'Last Name', width: 150 },
+  { field: 'hcpPosition', headerName: 'Position', width: 130 },
+  { field: 'hcpNIC', headerName: 'NIC', width: 170 },
+  { field: 'hcpPostalCode', headerName: 'Postal Code', width: 150 },
+  { field: 'hcpEmail', headerName: 'Email', width: 280 },
   { field: 'username', headerName: 'Username', width: 130 }
 ];
 
@@ -34,7 +35,8 @@ const HighAdminProfession = () => {
           hcpNIC: hcp.hcpNIC,
           hcpPostalCode: hcp.hcpPostalCode,
           hcpEmail: hcp.hcpEmail,
-          username: hcp.username
+          username: hcp.username,
+          hcpPosition: hcp.hcpPosition
         }));
         setRows(formattedData);
       } catch (error) {
