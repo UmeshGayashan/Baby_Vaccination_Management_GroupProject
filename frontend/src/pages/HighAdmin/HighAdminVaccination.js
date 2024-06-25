@@ -10,44 +10,6 @@ import HAdminDashBoard from "../../components/HighAdminDashboard";
 import ANotificationList from "../../components/AdminNotification";
 import React, { useState, useEffect } from 'react';
 
-const columns = [
-  { field: 'bid', headerName: 'BID', width: 100 },
-  { field: 'vacname', headerName: 'Vaccine Name', width: 180 },
-  { field: 'vaccinator', headerName: 'Vaccinator', width: 150 },
-  { field: 'vaccineNo', headerName: 'Vaccine No', width: 150 },
-  { field: 'bottle_code', headerName: 'Bottle Code', width: 180 },
-  { field: 'date', headerName: 'Date', width: 150 },
-  { field: 'time', headerName: 'Time', width: 150 },
-  { field: 'location', headerName: 'Location', width: 180 },
-  { field: 'nextDate', headerName: 'Next Date', width: 150 },
-  { field: 'nextTime', headerName: 'Next Time', width: 150 },
-  { field: 'status', headerName: 'Status', width: 100 },
-  {
-    field: 'sendMessage', headerName: 'Send Message', width: 200,
-    renderCell: (params) => (
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={() => handleSendMessage(params.row.bottle_code)}
-      >
-        Send Message
-      </Button>
-    ),
-  },
-  {
-    field: 'toggleStatus', headerName: 'Toggle Status', width: 200,
-    renderCell: (params) => (
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={() => handleToggleStatus(params.row.id)}
-      >
-        {params.row.status === 'Approved' ? 'Set Pending' : 'Set Approved'}
-      </Button>
-    ),
-  },
-];
-
 const initialRows = [];
 
 const HighAdminVaccination = () => {
@@ -126,6 +88,44 @@ const HighAdminVaccination = () => {
       console.error('Error updating vaccination status:', error);
     }
   };
+
+  const columns = [
+    { field: 'bid', headerName: 'BID', width: 100 },
+    { field: 'vacname', headerName: 'Vaccine Name', width: 180 },
+    { field: 'vaccinator', headerName: 'Vaccinator', width: 150 },
+    { field: 'vaccineNo', headerName: 'Vaccine No', width: 150 },
+    { field: 'bottle_code', headerName: 'Bottle Code', width: 180 },
+    { field: 'date', headerName: 'Date', width: 150 },
+    { field: 'time', headerName: 'Time', width: 150 },
+    { field: 'location', headerName: 'Location', width: 180 },
+    { field: 'nextDate', headerName: 'Next Date', width: 150 },
+    { field: 'nextTime', headerName: 'Next Time', width: 150 },
+    { field: 'status', headerName: 'Status', width: 100 },
+    {
+      field: 'sendMessage', headerName: 'Send Message', width: 200,
+      renderCell: (params) => (
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => handleSendMessage(params.row.bottle_code)}
+        >
+          Send Message
+        </Button>
+      ),
+    },
+    {
+      field: 'toggleStatus', headerName: 'Toggle Status', width: 200,
+      renderCell: (params) => (
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => handleToggleStatus(params.row.id)}
+        >
+          {params.row.status === 'Approved' ? 'Set Pending' : 'Set Approved'}
+        </Button>
+      ),
+    },
+  ];
 
   return (
     <div>
