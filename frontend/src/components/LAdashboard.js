@@ -60,7 +60,7 @@ function LAdminDashBoard() {
         <ListItemIcon>
           <GradeIcon />
         </ListItemIcon>
-        <ListItemText primary=" Child Collection" />
+        <ListItemText primary=" Child Collection" sx={{ color: 'black' }}  />
         <ListItemText primary=" child Collection" sx={{ color: 'black' }} />
       </ListItemButton>
 
@@ -75,7 +75,7 @@ function LAdminDashBoard() {
         <ListItemIcon>
           <GradeIcon />
         </ListItemIcon>
-        <ListItemText primary=" Vaccination History" />
+        <ListItemText primary=" Vaccination History" sx={{ color: 'black' }} />
       </ListItemButton>
       {/* <ListItemButton onClick={handleClick}>
         <ListItemIcon>
