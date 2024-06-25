@@ -94,7 +94,6 @@ function HAdminDashBoard() {
         </ListItemIcon>
         <ListItemText primary=" Professionals Collection" sx={{ color: 'black' }}/>
       </ListItemButton>
-<<<<<<< Updated upstream
       <ListItemButton component={Link} to="/HighAdminVaccination">
         <ListItemIcon>
           <GradeIcon />
@@ -225,8 +224,6 @@ function HAdminDashBoard() {
       {/* </List>
 
             </Collapse> */}
-=======
->>>>>>> Stashed changes
     </List>
   );
 }

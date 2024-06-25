@@ -60,11 +60,8 @@ function LAdminDashBoard() {
         <ListItemIcon>
           <GradeIcon />
         </ListItemIcon>
-<<<<<<< Updated upstream
         <ListItemText primary=" Child Collection" />
-=======
         <ListItemText primary=" child Collection" sx={{ color: 'black' }} />
->>>>>>> Stashed changes
       </ListItemButton>
 
       <ListItemButton component={Link} to="/low-admin-parants">

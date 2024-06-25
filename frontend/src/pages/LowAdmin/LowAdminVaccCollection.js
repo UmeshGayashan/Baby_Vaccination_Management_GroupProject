@@ -1,4 +1,4 @@
-import { Button, Snackbar, Alert } from "@mui/material";
+import { Button } from "@mui/material";
 import DesktopDatePicker from "../../components/DesktopDatePicker";
 import "../pageCss/UserPage.css";
 import Footer from "../../components/Footer";
@@ -12,14 +12,13 @@ import React, { useState, useEffect } from 'react';
 
 const initialRows = [];
 
-const HighAdminVaccination = () => {
+const LowAdminVaccination = () => {
   const [rows, setRows] = useState(initialRows);
-  const [notification, setNotification] = useState({ open: false, message: '', severity: '' });
 
   useEffect(() => {
     const fetchVaccinations = async () => {
       try {
-        const response = await fetch('http://localhost:4000/admin/vaccinations');
+        const response = await fetch('http://localhost:4000/healthcare/vaccinations');
         const data = await response.json();
         console.log("Fetched data:", data);  // Log fetched data
         const formattedData = data.map(vaccination => ({
@@ -48,7 +47,7 @@ const HighAdminVaccination = () => {
 
   const handleSendMessage = async (bottleCode) => {
     try {
-      const response = await fetch(`http://localhost:4000/admin/vaccination/${bottleCode}`);
+      const response = await fetch(`http://localhost:4000/vaccination/${bottleCode}`);
       const data = await response.json();
       if (response.ok) {
         const { nextVaccinationDate, nextVaccinationTime, parentMobileNumber } = data;
@@ -59,15 +58,10 @@ const HighAdminVaccination = () => {
         // For example, you can use a messaging API here to send the message
       } else {
         console.error('Error fetching vaccination details:', data.error);
-        setNotification({ open: true, message: 'No Parent asign for Child', severity: 'error' });
       }
     } catch (error) {
       console.error('Error sending message:', error);
     }
-  };
-
-  const handleCloseNotification = () => {
-    setNotification({ ...notification, open: false });
   };
 
     // Utility function to get a cookie by name
@@ -251,18 +245,9 @@ function getCookie(name) {
           </div>
         </div>
         <Footer />
-        <Snackbar
-        open={notification.open}
-        autoHideDuration={6000}
-        onClose={handleCloseNotification}
-      >
-        <Alert onClose={handleCloseNotification} severity={notification.severity} sx={{ width: '100%' }}>
-          {notification.message}
-        </Alert>
-      </Snackbar>
       </div>
     </div>
   );
 };
 
-export default HighAdminVaccination;
+export default LowAdminVaccination;
