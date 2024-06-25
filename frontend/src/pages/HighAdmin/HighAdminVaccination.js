@@ -21,7 +21,7 @@ const HighAdminVaccination = () => {
       try {
         const response = await fetch('http://localhost:4000/admin/vaccinations');
         const data = await response.json();
-        console.log("Fetched data:", data);  // Log fetched data
+        console.log("Fetched data:", data);
         const formattedData = data.map(vaccination => ({
           id: vaccination._id,
           bid: vaccination.bid,
@@ -59,7 +59,7 @@ const HighAdminVaccination = () => {
         // For example, you can use a messaging API here to send the message
       } else {
         console.error('Error fetching vaccination details:', data.error);
-        setNotification({ open: true, message: 'No Parent asign for Child', severity: 'error' });
+        setNotification({ open: true, message: data.error, severity: 'error' });
       }
     } catch (error) {
       console.error('Error sending message:', error);
