@@ -34,7 +34,7 @@ function VDashBoard() {
         <ListItemIcon>
           <GradeIcon />
         </ListItemIcon>
-        <ListItemText primary=" Why Vaccines" />
+        <ListItemText primary=" Why Vaccines"  sx={{ color: 'black' }} />
       </ListItemButton>
 
    
@@ -42,7 +42,7 @@ function VDashBoard() {
         <ListItemIcon>
           <GradeIcon />
         </ListItemIcon>
-        <ListItemText primary="Vaccines" />
+        <ListItemText primary="Vaccines"  sx={{ color: 'black' }} />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
 
@@ -52,52 +52,52 @@ function VDashBoard() {
             <ListItemIcon>
               <StarBorder />
             </ListItemIcon>
-            <ListItemText primary="BCG" />
+            <ListItemText primary="BCG"  sx={{ color: 'black' }}/>
           </ListItemButton>
 
           <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/2">
             <ListItemIcon>
               <StarBorder />
             </ListItemIcon>
-            <ListItemText primary="Hep B" />
+            <ListItemText primary="Hep B" sx={{ color: 'black' }}  />
           </ListItemButton>
 
           <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/4">
             <ListItemIcon>
               <StarBorder />
             </ListItemIcon>
-            <ListItemText primary="Hib" />
+            <ListItemText primary="Hib" sx={{ color: 'black' }}  />
           </ListItemButton>
 
           <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/3">
             <ListItemIcon>
               <StarBorder />
             </ListItemIcon>
-            <ListItemText primary="Polio" />
+            <ListItemText primary="Polio" sx={{ color: 'black' }} />
           </ListItemButton>
           <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/6">
             <ListItemIcon>
               <StarBorder />
             </ListItemIcon>
-            <ListItemText primary="Jap B" />
+            <ListItemText primary="Jap B" sx={{ color: 'black' }} />
           </ListItemButton>
           <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/7">
             <ListItemIcon>
               <StarBorder />
             </ListItemIcon>
-            <ListItemText primary="Rubella" />
+            <ListItemText primary="Rubella"sx={{ color: 'black' }}  />
           </ListItemButton>
           <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/8">
             <ListItemIcon>
               <StarBorder />
             </ListItemIcon>
-            <ListItemText primary="MMR" />
+            <ListItemText primary="MMR" sx={{ color: 'black' }} />
           </ListItemButton>
           <ListItemButton sx={{ pl: 4 }} component={Link} to="/vaccines/5">
             <ListItemIcon>
               <StarBorder />
             </ListItemIcon>
-            <ListItemText primary="a T d" />
+            <ListItemText primary="a T d" sx={{ color: 'black' }} />
           </ListItemButton>
         </List>
       </Collapse>

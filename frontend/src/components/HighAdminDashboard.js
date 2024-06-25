@@ -42,7 +42,7 @@ function HAdminDashBoard() {
         <ListItemIcon>
           <GradeIcon />
         </ListItemIcon>
-        <ListItemText primary=" Add Vaccination" />
+        <ListItemText primary=" Add Vaccination" sx={{ color: 'black' }} />
       </ListItemButton>
 
 
@@ -50,50 +50,51 @@ function HAdminDashBoard() {
         <ListItemIcon>
           <GradeIcon />
         </ListItemIcon>
-        <ListItemText primary=" Update Child" />
+        <ListItemText primary=" Update Child" sx={{ color: 'black' }} />
       </ListItemButton>
 
       <ListItemButton component={Link} to="/hadd-child">
         <ListItemIcon>
           <GradeIcon />
         </ListItemIcon>
-        <ListItemText primary=" Add Child" />
+        <ListItemText primary=" Add Child" sx={{ color: 'black' }} />
       </ListItemButton>
 
       <ListItemButton component={Link} to="/hadd-perant">
         <ListItemIcon>
           <GradeIcon />
         </ListItemIcon>
-        <ListItemText primary=" Add Parent" />
+        <ListItemText primary=" Add Parent" sx={{ color: 'black' }}  />
       </ListItemButton>
 
       <ListItemButton component={Link} to="/add-proffession">
         <ListItemIcon>
           <GradeIcon />
         </ListItemIcon>
-        <ListItemText primary=" Add Professionals" />
+        <ListItemText primary=" Add Professionals" sx={{ color: 'black' }} />
       </ListItemButton>
 
       <ListItemButton component={Link} to="/high-admin-child">
         <ListItemIcon>
           <GradeIcon />
         </ListItemIcon>
-        <ListItemText primary=" child Collection" />
+        <ListItemText primary=" child Collection" sx={{ color: 'black' }} />
       </ListItemButton>
 
       <ListItemButton component={Link} to="/high-admin-parants">
         <ListItemIcon>
           <GradeIcon />
         </ListItemIcon>
-        <ListItemText primary=" Parent Collection" />
+        <ListItemText primary=" Parent Collection" sx={{ color: 'black' }} />
       </ListItemButton>
 
       <ListItemButton component={Link} to="/high-admin-proffessions">
         <ListItemIcon>
           <GradeIcon />
         </ListItemIcon>
-        <ListItemText primary=" Professionals Collection" />
+        <ListItemText primary=" Professionals Collection" sx={{ color: 'black' }}/>
       </ListItemButton>
+<<<<<<< Updated upstream
       <ListItemButton component={Link} to="/HighAdminVaccination">
         <ListItemIcon>
           <GradeIcon />
@@ -224,6 +225,8 @@ function HAdminDashBoard() {
       {/* </List>
 
             </Collapse> */}
+=======
+>>>>>>> Stashed changes
     </List>
   );
 }

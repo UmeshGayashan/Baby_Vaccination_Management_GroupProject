@@ -38,7 +38,7 @@ function LAdminDashBoard() {
         <ListItemIcon>
           <GradeIcon />
         </ListItemIcon>
-        <ListItemText primary=" Add Vaccination" />
+        <ListItemText primary=" Add Vaccination" sx={{ color: 'black' }}  />
       </ListItemButton>
 
 
@@ -46,28 +46,32 @@ function LAdminDashBoard() {
         <ListItemIcon>
           <GradeIcon />
         </ListItemIcon>
-        <ListItemText primary=" Add Child" />
+        <ListItemText primary=" Add Child" sx={{ color: 'black' }} />
       </ListItemButton>
 
       <ListItemButton component={Link} to="/add-perant">
         <ListItemIcon>
           <GradeIcon />
         </ListItemIcon>
-        <ListItemText primary=" Add Parent" />
+        <ListItemText primary=" Add Parent" sx={{ color: 'black' }} />
       </ListItemButton>
 
       <ListItemButton component={Link} to="/low-admin">
         <ListItemIcon>
           <GradeIcon />
         </ListItemIcon>
+<<<<<<< Updated upstream
         <ListItemText primary=" Child Collection" />
+=======
+        <ListItemText primary=" child Collection" sx={{ color: 'black' }} />
+>>>>>>> Stashed changes
       </ListItemButton>
 
       <ListItemButton component={Link} to="/low-admin-parants">
         <ListItemIcon>
           <GradeIcon />
         </ListItemIcon>
-        <ListItemText primary=" Parent Collection" />
+        <ListItemText primary=" Parent Collection" sx={{ color: 'black' }} />
       </ListItemButton>
 
       <ListItemButton component={Link} to="/VaccHistory">

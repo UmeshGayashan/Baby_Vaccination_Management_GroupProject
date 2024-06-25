@@ -3,7 +3,7 @@ import FrameComponent from "./FrameComponent";
 import "./comCss/WhatWeDo.css";
 import Footer from './Footer';
 import VCard from '../pages/VCard';
-import EventH from './event';
+
 
 const WhatWeDo = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -100,7 +100,6 @@ const WhatWeDo = () => {
         </div>
       </section>
       <div style={{margin:"10px"}}> <VCard/></div>
-      <div style={{marginBottom:"100px"}}><EventH/></div>
       <Footer/>
     </div>
   );
