@@ -49,6 +49,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "^15.0.7",
+    "gh-pages": "^6.1.1",
     "jest": "^27.5.1"
   }
 }
