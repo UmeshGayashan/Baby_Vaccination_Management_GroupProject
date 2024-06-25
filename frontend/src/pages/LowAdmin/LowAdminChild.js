@@ -29,7 +29,7 @@ const LowAdmin = () => {
   useEffect(() => {
     const fetchBabies = async () => {
       try {
-        const response = await fetch('http://localhost:4000/healthcare/babies');
+        const response = await fetch('https://baby-vaccination-management-groupproject-w51l.onrender.com/healthcare/babies');
         const data = await response.json();
         const formattedData = data.map(baby => ({
           id: baby._id,

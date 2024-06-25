@@ -43,7 +43,7 @@ function getCookie(name) {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const handleFetchParentInfo = () => {
-    const url = `http://localhost:4000/admin/get-parent-acc/${parentNIC}`; 
+    const url = `https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/get-parent-acc/${parentNIC}`; 
     axios.get(url)
       .then(response => {
         const data = response.data;
@@ -67,7 +67,7 @@ function getCookie(name) {
 
 
   const handleUpdateParentInfo = () => {
-    const url = `http://localhost:4000/admin/update-parent-acc/${parentNIC}`; 
+    const url = `https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/update-parent-acc/${parentNIC}`; 
     axios.put(url, {
       motherorGuardianName: {
         firstName: parentData.firstName,
@@ -92,7 +92,7 @@ function getCookie(name) {
   };
 
   const handleDeleteParentInfo = () => {
-    const url = `http://localhost:4000/admin/delete-parent-acc/${parentNIC}`;
+    const url = `https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/delete-parent-acc/${parentNIC}`;
     axios.delete(url)
       .then(response => {
         console.log("Parent account deleted successfully:", response.data);

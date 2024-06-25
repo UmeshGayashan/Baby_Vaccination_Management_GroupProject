@@ -40,7 +40,7 @@ function getCookie(name) {
             console.error('No JWT token found');
             return null;
         }
-      const response = await fetch('http://localhost:4000/healthcare/create-baby-acc', {
+      const response = await fetch('https://baby-vaccination-management-groupproject-w51l.onrender.com/healthcare/create-baby-acc', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

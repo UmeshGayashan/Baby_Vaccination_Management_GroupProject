@@ -18,7 +18,7 @@ const LowAdminVaccination = () => {
   useEffect(() => {
     const fetchVaccinations = async () => {
       try {
-        const response = await fetch('http://localhost:4000/healthcare/vaccinations');
+        const response = await fetch('https://baby-vaccination-management-groupproject-w51l.onrender.com/healthcare/vaccinations');
         const data = await response.json();
         console.log("Fetched data:", data);  // Log fetched data
         const formattedData = data.map(vaccination => ({
@@ -47,7 +47,7 @@ const LowAdminVaccination = () => {
 
   const handleSendMessage = async (bottleCode) => {
     try {
-      const response = await fetch(`http://localhost:4000/vaccination/${bottleCode}`);
+      const response = await fetch(`https://baby-vaccination-management-groupproject-w51l.onrender.com/vaccination/${bottleCode}`);
       const data = await response.json();
       if (response.ok) {
         const { nextVaccinationDate, nextVaccinationTime, parentMobileNumber } = data;
@@ -91,7 +91,7 @@ function getCookie(name) {
 
       const updatedRow = updatedRows.find(row => row.id === id);
 
-      await fetch(`http://localhost:4000/admin/update-vacc/${updatedRow.bottle_code}`, {
+      await fetch(`https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/update-vacc/${updatedRow.bottle_code}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

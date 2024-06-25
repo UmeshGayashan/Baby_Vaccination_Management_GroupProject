@@ -44,7 +44,7 @@ const UpdateProffessions = () => {
  //======================
   const handleFetchHcpInfo = () => {
 
-    const url = `http://localhost:4000/admin/get-health-acc/${hcpNIC}`; 
+    const url = `https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/get-health-acc/${hcpNIC}`; 
     axios.get(url)
      .then(response => {
         const data = response.data;
@@ -71,7 +71,7 @@ const UpdateProffessions = () => {
   //update hcp information
 
   const handleUpdateHcpInfo =() => {
-    const url = `http://localhost:4000/admin/update-health-acc/${hcpNIC}`;
+    const url = `https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/update-health-acc/${hcpNIC}`;
     axios.put(url, {
       hcpName: {
         firstName: hcpData.firstName,
@@ -100,7 +100,7 @@ const UpdateProffessions = () => {
 
   //delete hcp account
   const handleDeleteHcpInfo = () => {
-    const url = `http://localhost:4000/admin/delete-health-acc/${hcpNIC}`;
+    const url = `https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/delete-health-acc/${hcpNIC}`;
     axios.delete(url)
      .then(response => {
         console.log("Healthcare prof. account deleted successfully:", response.data);
