@@ -23,9 +23,21 @@ const columns = [
 const HighAdminProfession = () => {
   const [rows, setRows] = useState([]);
 
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null; // Return null if the cookie is not found
+  }
+
   useEffect(() => {
     const fetchHealthcareProfessionals = async () => {
       try {
+        const jwtToken = getCookie('jwt');
+        if (!jwtToken) {
+            console.error('No JWT token found');
+            return null;
+        }
         const response = await fetch('https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/healthcares');
         const data = await response.json();
         const formattedData = data.map(hcp => ({

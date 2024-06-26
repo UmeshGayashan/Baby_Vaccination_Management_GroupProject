@@ -16,10 +16,10 @@ const columns = [
   { field: 'vaccinator', headerName: 'Vaccinator', width: 130 },
   { field: 'status', headerName: 'Verification', width: 130 },
   { field: 'bottle_code', headerName: 'Bottle Code', width: 130 },
-  { field: 'vaccineNo', headerName: 'Vaccine No', width: 90 },
+  { field: 'vaccineNo', headerName: 'Vaccine No', width: 100 },
   {
     field: 'date',
-    headerName: 'Date',
+    headerName: 'Given Date',
     width: 120,
     valueGetter: (params) => params.row.dateTime?.date ? new Date(params.row.dateTime.date).toLocaleDateString() : 'N/A',
   },
@@ -29,12 +29,6 @@ const columns = [
     width: 120,
     valueGetter: (params) => params.row.nextDateTime?.date ? new Date(params.row.nextDateTime.date).toLocaleDateString() : 'N/A',
   },
-  {
-    field: 'nextTime',
-    headerName: 'Next Time',
-    width: 120,
-    valueGetter: (params) => params.row.nextDateTime?.time || 'N/A',
-  }
 ];
 
 const UserPage = () => {
@@ -195,7 +189,7 @@ const UserPage = () => {
               </div>
             </div>
           </div>
-          <div className="text-container" style={{ marginLeft: "25px" }}>
+          {/* <div className="text-container" style={{ marginLeft: "25px" }}>
             <div className="desktopdatepicker-parent">
               <div className="go-to-calendar" style={{ marginTop: "50px" }}>
                 <div className="list">
@@ -213,7 +207,7 @@ const UserPage = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </section>
 
         <div className="table" style={{ margin: "50px", backgroundColor: "#fff9c7" }}>

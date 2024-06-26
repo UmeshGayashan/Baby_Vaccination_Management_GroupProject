@@ -16,9 +16,24 @@ const HighAdminVaccination = () => {
   const [rows, setRows] = useState(initialRows);
   const [notification, setNotification] = useState({ open: false, message: '', severity: '' });
 
+    // Utility function to get a cookie by name
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null; // Return null if the cookie is not found
+}
+
   useEffect(() => {
     const fetchVaccinations = async () => {
       try {
+
+        const jwtToken = getCookie('jwt');
+        if (!jwtToken) {
+            console.error('No JWT token found');
+            return null;
+        }
+
         const response = await fetch('https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/vaccinations');
         const data = await response.json();
         console.log("Fetched data:", data);
@@ -33,8 +48,12 @@ const HighAdminVaccination = () => {
           time: vaccination.dateTime.time,
           location: vaccination.location,
           nextDate: vaccination.nextDateTime?.date,
-          nextTime: vaccination.nextDateTime?.time,
+          formattedNextDate: vaccination.nextDateTime?.date ? vaccination.nextDateTime.date.substring(0, 10) : null,
+          // nextTime: vaccination.nextDateTime?.time,
+          addedDate: vaccination.dateTime?.date,
+          addedTime: vaccination.dateTime?.time,
           status: vaccination.status,
+          dataEnterd: vaccination.dataEnterd
         }));
         console.log("Formatted data:", formattedData);  // Log formatted data
         setRows(formattedData);
@@ -46,8 +65,16 @@ const HighAdminVaccination = () => {
     fetchVaccinations();
   }, []);
 
+
+
   const handleSendMessage = async (bottleCode) => {
     try {
+      const jwtToken = getCookie('jwt');
+        if (!jwtToken) {
+            console.error('No JWT token found');
+            return null;
+        }
+
       const response = await fetch(`https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/vaccination/${bottleCode}`);
       const data = await response.json();
       if (response.ok) {
@@ -95,14 +122,6 @@ const HighAdminVaccination = () => {
     setNotification({ ...notification, open: false });
   };
 
-    // Utility function to get a cookie by name
-function getCookie(name) {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(';').shift();
-  return null; // Return null if the cookie is not found
-}
-
   const handleToggleStatus = async (id) => {
     try {
       const jwtToken = getCookie('jwt');
@@ -140,11 +159,8 @@ function getCookie(name) {
     { field: 'vaccinator', headerName: 'Vaccinator', width: 150 },
     { field: 'vaccineNo', headerName: 'Vaccine No', width: 150 },
     { field: 'bottle_code', headerName: 'Bottle Code', width: 180 },
-    { field: 'date', headerName: 'Date', width: 150 },
-    { field: 'time', headerName: 'Time', width: 150 },
     { field: 'location', headerName: 'Location', width: 180 },
-    { field: 'nextDate', headerName: 'Next Date', width: 150 },
-    { field: 'nextTime', headerName: 'Next Time', width: 150 },
+    { field: 'formattedNextDate', headerName: 'Next Date', width: 150 },
     { field: 'status', headerName: 'Status', width: 100 },
     {
       field: 'sendMessage', headerName: 'Send Message', width: 200,
@@ -170,6 +186,9 @@ function getCookie(name) {
         </Button>
       ),
     },
+    { field: 'dataEnterd', headerName: 'Data Added', width: 150 },
+    { field: 'addedDate', headerName: 'Data', width: 150 },
+    { field: 'addedTime', headerName: 'Time', width: 150 },
   ];
 
   return (
