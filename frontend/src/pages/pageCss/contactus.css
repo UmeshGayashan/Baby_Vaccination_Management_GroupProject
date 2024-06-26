@@ -81,8 +81,8 @@
 
 .form__control{
     border: 1px solid hsl(0,0%,93%);
-    background-color: hsl(0,0%,93%);
-    color: hsl(0, 3%, 13%);
+    background-color: hsl(60, 9%, 59%);
+    color: hsl(0, 0%, 3%);
     width: 100%;
     padding: 12px 24px;
     border-radius: 30px;
@@ -91,7 +91,7 @@
 }
 
 .form__control:focus{
-    border-color: hsl(59, 76%, 53%);
+    border-color: hsl(59, 65%, 34%);
 }
 
 .textarea{
@@ -121,7 +121,7 @@ textarea{
 
 body{
     background-color: hsl(0,0%,100%);
-    color: hsl(0,0%,50%);
+    color: hsl(0, 3%, 8%);
 }
 
 
