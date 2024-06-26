@@ -212,7 +212,7 @@ function getCookie(name) {
       {/* Vaccination Form */}
       <section className="facebook-link" style={{ marginTop: "-100px" }}>
         <div className="instagram-link">
-          <h1 className="information-form">Vaccination Form</h1>
+          <h1 className="information-form">Child Details Form</h1>
           <div className="text-input">
             <div className="icon-container">
               <div className="password3">

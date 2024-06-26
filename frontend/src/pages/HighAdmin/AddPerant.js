@@ -65,8 +65,11 @@ const HAddPerant = () => {
         body: JSON.stringify({ mfirstName, mlastName, mnic, address, postalcode, email, telephone, username, password, info }),
       });
       
+      
       if (response.ok) {
         setNotification({ open: true, message: 'Account created successfully', severity: 'success' });
+        
+        
       } else {
         console.error('Failed to create account');
         setNotification({ open: true, message: 'Failed to create account', severity: 'error' });
@@ -217,7 +220,7 @@ const HAddPerant = () => {
               <div className="input-field65">
                 <textarea
                   className="filledgmailcom3"
-                  placeholder="Notes about your order, e.g. special notes for delivery"
+                  placeholder="Enter any additional value"
                   value={info}
                   onChange={(e) => setinfo(e.target.value)}
                   style={{ width: "100%", height: "150px", marginBottom: "-50px" }}

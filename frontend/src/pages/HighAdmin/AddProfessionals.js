@@ -54,7 +54,10 @@ const AddProffessions = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ firstName, lastName, nic, address, postalCode,position,age, email, telephone, username, password, info }),
+        
       });
+      
+      // navigate("/high-admin-proffessions");
 
       // if (response.status === 201) {
       //   const data = await response.json();
@@ -66,35 +69,29 @@ const AddProffessions = () => {
       console.error('Error:', error);
     }
       
-      // if (response.status === 201) {
-      //   const data = await response.json();
+    //   if (response.status === 201) {
+    //     const data = await response.json();
         
-      //   setAccountNo(data.accountNo);
-      //   //Alert
-      //   setShowSuccessAlert(true);
-      //   setTimeout(() => {
-      //   setShowSuccessAlert(fse);}, 2000);
-      // } else {
-      //   console.erralor('Account creation failed');
-      //   //Alert
-      //   setShowFailureAlert(true);
-      //   setTimeout(() => {
-      //   setShowFailureAlert(false);}, 2000);
-      // }
+    //     setAccountNo(data.accountNo);
+    //     //Alert
+    //     setShowSuccessAlert(true);
+    //     setTimeout(() => {
+    //     setShowSuccessAlert(fse);}, 2000);
+    //   } else {
+    //     console.erralor('Account creation failed');
+    //     //Alert
+    //     setShowFailureAlert(true);
+    //     setTimeout(() => {
+    //     setShowFailureAlert(false);}, 2000);
+    //   }
     // } catch (error) {
     //   console.error('Error:', error);
-    //   // //Alert
-    //   // setShowFailureAlert(true);
-    //   // setTimeout(() => {
-    //   // setShowFailureAlert(false);}, 2000);
+    //   //Alert
+    //   setShowFailureAlert(true);
+    //   setTimeout(() => {
+    //   setShowFailureAlert(false);}, 2000);
     // }
   };
-
- 
-
-
-
-
 
 
 
@@ -249,7 +246,7 @@ const AddProffessions = () => {
         <div className="input-field65">
         <textarea
           className="filledgmailcom3"
-          placeholder="Notes about your order, e.g. special notes for delivery"
+          placeholder="Enter any additional values of healthcare professionals"
           value={info}
           onChange={(e) => setinfo(e.target.value)}
           style={{ width: "100%", height: "150px" ,marginBottom:"-50px" }}
@@ -258,7 +255,7 @@ const AddProffessions = () => {
       </div>
 
       
-      <div className="about-us-link-instance" style={{ marginTop: "30px" }}>
+      {/* <div className="about-us-link-instance" style={{ marginTop: "30px" }}>
         <b className="upload-parant-image">Upload a Image</b>
         <div className="image-u" style={{ display: "flex", alignItems: "center" }}>
           <label style={{ marginRight: "20px" }}>
@@ -293,7 +290,7 @@ const AddProffessions = () => {
             />
           )}
         </div>
-      </div>
+      </div> */}
 
       <div className="cta4">
         <Button href="/high-admin-proffessions"

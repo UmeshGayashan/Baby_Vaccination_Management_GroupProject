@@ -297,7 +297,7 @@ function getCookie(name) {
               <div className="input-field65">
                 <textarea
                   className="filledgmailcom3"
-                  placeholder="Notes about your order, e.g. special notes for delivery"
+                  placeholder="Enter any additional value of the parent"
                   value={parentData.additionalInfo}
                   onChange={(e) => setParentData({ ...parentData, additionalInfo: e.target.value })}
                   style={{ width: "100%", height: "150px", marginBottom: "-50px" }}
