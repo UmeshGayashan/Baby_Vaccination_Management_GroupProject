@@ -18,13 +18,27 @@ const LAVaccination = () => {
   const [nextDate, setnextDate] = useState(null);
   const [notification, setNotification] = useState({ open: false, message: '', severity: '' });
 
+  // Utility function to get a cookie by name
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null; // Return null if the cookie is not found
+}
+
   const onChangeHandler = (value) => {
     setnextDate(value);
   };
 
   const createAccount = async () => {
     try {
-      const response = await fetch("http://localhost:4000/healthcare/vacc-adding", {
+      const jwtToken = getCookie('jwt');
+        if (!jwtToken) {
+            console.error('No JWT token found');
+            return null;
+        }
+
+      const response = await fetch("https://baby-vaccination-management-groupproject-w51l.onrender.com/healthcare/vacc-adding", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -42,20 +56,23 @@ const LAVaccination = () => {
 
       if (response.status === 201) {
         const data = await response.json();
-        // Handle success case
+        setNotification({ open: true, message: 'Account created successfully', severity: 'success' });
       } else {
         console.error("Account creation failed");
-        // Handle failure case
+        setNotification({ open: true, message: 'Failed to create account', severity: 'error' });
       }
     } catch (error) {
       console.error("Error:", error);
-      // Handle error case
+      setNotification({ open: true, message: 'An error occurred', severity: 'error' });
     }
+  };
+  const handleCloseNotification = () => {
+    setNotification({ ...notification, open: false });
   };
 
   const getAccountInfo = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/healthcare/baby-acc-info/${babyId}`);
+      const response = await fetch(`https://baby-vaccination-management-groupproject-w51l.onrender.com/healthcare/baby-acc-info/${babyId}`);
       if (response.status === 200) {
         const data = await response.json();
         setAccountInfo(data);
@@ -293,6 +310,15 @@ const LAVaccination = () => {
         </div>
       </section>
       <Footer />
+      <Snackbar
+        open={notification.open}
+        autoHideDuration={6000}
+        onClose={handleCloseNotification}
+      >
+        <Alert onClose={handleCloseNotification} severity={notification.severity} sx={{ width: '100%' }}>
+          {notification.message}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };
