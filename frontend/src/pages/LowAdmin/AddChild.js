@@ -216,7 +216,7 @@ const handleCloseNotification = () => {
               </div>
             </div>
 
-            <div className="password3">
+            {/* <div className="password3">
               <div className="input-text-label9">Gender</div>
               <div className="input-field10">
 
@@ -230,7 +230,7 @@ const handleCloseNotification = () => {
                   />
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className="password3" style={{ display: 'flex', alignItems: 'center' }}>
             <div className="gender1" style={{ marginRight: '20px' }}>Gender:</div>
@@ -270,7 +270,7 @@ const handleCloseNotification = () => {
         </div>
         
 
-        <div className="password3">
+        {/* <div className="password3">
               <div className="input-text-label9">BirthDay</div>
               <div className="input-field10">
 
@@ -284,7 +284,7 @@ const handleCloseNotification = () => {
                   />
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className="clear-button">
               <div className="go-button">
@@ -328,10 +328,10 @@ const handleCloseNotification = () => {
           
         </div>
 
-        <div className="toggle1">
+        {/* <div className="toggle1">
         <input className="radio" type="radio" name="radioGroup-1" />
           <div className="off">Sent Email to Admin and Parent</div>
-        </div>
+        </div> */}
         <div className="cta3">
           <Button href="/low-admin"
             className="buttons"
