@@ -73,18 +73,6 @@ function getCookie(name) {
       
       if (response.ok) {
         setNotification({ open: true, message: 'Account created successfully', severity: 'success' });
-        // Reset state variables to blank
-      setFName('');
-      setLName('');
-      setNIC('');
-      setFatherName('');
-      setFatherNic('');
-      setBid('');
-      setGender('');
-      setOfc('');
-      setBirthDate('');
-      setBirthweight('');
-      setBirthHospital('');
       } else {
         console.error('Failed to create account');
         setNotification({ open: true, message: 'Failed to create account', severity: 'error' });
@@ -357,10 +345,10 @@ const handleCloseNotification = () => {
           
         </div>
 
-        <div className="toggle1">
+        {/* <div className="toggle1">
         <input className="radio" type="radio" name="radioGroup-1" />
           <div className="off">Sent Email to Parent</div>
-        </div>
+        </div> */}
         <div className="cta3">
           <Button href="/low-admin"
             className="buttons"
