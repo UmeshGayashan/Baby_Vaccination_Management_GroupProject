@@ -41,7 +41,7 @@ export default function Login() {
                 login(data.userType, data.token, data.username, data.nic);
 
                 if (data.userType === 'User') {
-                    navigate("/high-admin-parents");
+                    navigate("/high-admin-parants");
                 } else if (data.userType === 'Guardian') {
                     navigate("/user-page");
                 } else if (data.userType === 'Healthcare Professional') {
