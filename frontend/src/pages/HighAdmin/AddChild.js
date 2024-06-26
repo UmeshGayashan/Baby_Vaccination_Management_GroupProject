@@ -73,6 +73,18 @@ function getCookie(name) {
       
       if (response.ok) {
         setNotification({ open: true, message: 'Account created successfully', severity: 'success' });
+        // Reset state variables to blank
+      setFName('');
+      setLName('');
+      setNIC('');
+      setFatherName('');
+      setFatherNic('');
+      setBid('');
+      setGender('');
+      setOfc('');
+      setBirthDate('');
+      setBirthweight('');
+      setBirthHospital('');
       } else {
         console.error('Failed to create account');
         setNotification({ open: true, message: 'Failed to create account', severity: 'error' });
