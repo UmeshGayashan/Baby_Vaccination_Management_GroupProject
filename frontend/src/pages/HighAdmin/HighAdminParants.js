@@ -35,7 +35,7 @@ const HighAdminChild = () => {
   useEffect(() => {
     const fetchParents = async () => {
       try {
-        const response = await fetch('http://localhost:4000/admin/parents');
+        const response = await fetch('https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/parents');
         const data = await response.json();
         const formattedData = data.map(parent => ({
           id: parent._id,

@@ -48,7 +48,7 @@ const AddProffessions = () => {
    // Function to create an account
    const createAccount = async () => {
     try {
-      const response = await fetch('http://localhost:4000/admin/create-health-acc', {
+      const response = await fetch('https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/create-health-acc', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

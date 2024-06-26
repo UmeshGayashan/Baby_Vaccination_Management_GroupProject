@@ -19,9 +19,9 @@ const HighAdminVaccination = () => {
   useEffect(() => {
     const fetchVaccinations = async () => {
       try {
-        const response = await fetch('http://localhost:4000/admin/vaccinations');
+        const response = await fetch('https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/vaccinations');
         const data = await response.json();
-        console.log("Fetched data:", data);  // Log fetched data
+        console.log("Fetched data:", data);
         const formattedData = data.map(vaccination => ({
           id: vaccination._id,
           bid: vaccination.bid,
@@ -48,18 +48,43 @@ const HighAdminVaccination = () => {
 
   const handleSendMessage = async (bottleCode) => {
     try {
-      const response = await fetch(`http://localhost:4000/admin/vaccination/${bottleCode}`);
+      const response = await fetch(`https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/vaccination/${bottleCode}`);
       const data = await response.json();
       if (response.ok) {
-        const { nextVaccinationDate, nextVaccinationTime, parentMobileNumber } = data;
+        const { nextVaccinationDate, nextVaccinationTime, parentMobileNumber,bid } = data;
         console.log("Next vaccination date:", nextVaccinationDate);
         console.log("Next vaccination time:", nextVaccinationTime);
         console.log("Parent mobile number:", parentMobileNumber);
-        // Add the logic to send the message to the parent's mobile number
-        // For example, you can use a messaging API here to send the message
+        console.log("Baby Id:", bid);
+
+        const messagePayload = {
+          phoneNumber: parentMobileNumber,
+          babyId: bid,
+          nextDate: `${nextVaccinationDate} ${nextVaccinationTime}`
+        };
+
+        // Send the message backend
+      const sendResponse = await fetch('https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/send-vaccination-reminder', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(messagePayload)
+      });
+
+      const sendResult = await sendResponse.json();
+
+      if (sendResponse.ok) {
+        console.log('Message sent successfully:', sendResult);
+        setNotification({ open: true, message: 'Message sent successfully', severity: 'success' });
+      } else {
+        console.error('Error sending message:', sendResult.error);
+        setNotification({ open: true, message: sendResult.error, severity: 'error' });
+      }
+        
       } else {
         console.error('Error fetching vaccination details:', data.error);
-        setNotification({ open: true, message: 'No Parent asign for Child', severity: 'error' });
+        setNotification({ open: true, message: data.error, severity: 'error' });
       }
     } catch (error) {
       console.error('Error sending message:', error);
@@ -97,7 +122,7 @@ function getCookie(name) {
 
       const updatedRow = updatedRows.find(row => row.id === id);
 
-      await fetch(`http://localhost:4000/admin/update-vacc/${updatedRow.bottle_code}`, {
+      await fetch(`https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/update-vacc/${updatedRow.bottle_code}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

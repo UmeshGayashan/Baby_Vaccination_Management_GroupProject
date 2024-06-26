@@ -26,7 +26,7 @@ const HighAdminProfession = () => {
   useEffect(() => {
     const fetchHealthcareProfessionals = async () => {
       try {
-        const response = await fetch('http://localhost:4000/admin/healthcares');
+        const response = await fetch('https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/healthcares');
         const data = await response.json();
         const formattedData = data.map(hcp => ({
           id: hcp._id,

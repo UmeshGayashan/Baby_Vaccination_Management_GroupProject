@@ -58,7 +58,7 @@ function getCookie(name) {
             return null;
         }
 
-      const response = await fetch('http://localhost:4000/healthcare/create-parent-acc', {
+      const response = await fetch('https://baby-vaccination-management-groupproject-w51l.onrender.com/healthcare/create-parent-acc', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

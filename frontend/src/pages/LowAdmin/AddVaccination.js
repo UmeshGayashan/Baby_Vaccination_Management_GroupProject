@@ -16,6 +16,7 @@ const LAVaccination = () => {
   const [bcode, setBottle_code] = useState("");
   const [location, setLocation] = useState("");
   const [nextDate, setnextDate] = useState(null);
+  const [notification, setNotification] = useState({ open: false, message: '', severity: '' });
 
   const onChangeHandler = (value) => {
     setnextDate(value);

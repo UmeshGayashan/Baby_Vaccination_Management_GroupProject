@@ -52,7 +52,7 @@ const VaccHistory = () => {
         setLoading(true);
         setError(null);
         try {
-          const response = await fetch(`http://localhost:4000/admin/baby-acc-info/${bid}`);
+          const response = await fetch(`https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/baby-acc-info/${bid}`);
           if (response.ok) {
             const data = await response.json();
             setAccountInfo(data);
@@ -69,7 +69,7 @@ const VaccHistory = () => {
     
       const fetchVaccinationsForBaby = async (bid) => {
         try {
-          const response = await fetch(`http://localhost:4000/admin/vac/${bid}`, {
+          const response = await fetch(`https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/vac/${bid}`, {
             headers: {
               'Authorization': `Bearer ${user.token}`
             }

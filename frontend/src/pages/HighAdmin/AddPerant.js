@@ -56,7 +56,7 @@ const HAddPerant = () => {
           console.error('No JWT token found');
           return null;
       }
-      const response = await fetch('http://localhost:4000/admin/create-parent-acc', {
+      const response = await fetch('https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/create-parent-acc', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

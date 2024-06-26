@@ -32,7 +32,7 @@ const UpdatePerant = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const handleFetchParentInfo = () => {
-    const url = `http://localhost:4000/admin/get-parent-acc/${parentNIC}`; 
+    const url = `https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/get-parent-acc/${parentNIC}`; 
     axios.get(url)
       .then(response => {
         const data = response.data;
@@ -56,7 +56,7 @@ const UpdatePerant = () => {
 
 
   const handleUpdateParentInfo = () => {
-    const url = `http://localhost:4000/healthcare/update-parent-acc/${parentNIC}`; 
+    const url = `https://baby-vaccination-management-groupproject-w51l.onrender.com/healthcare/update-parent-acc/${parentNIC}`; 
     axios.put(url, {
       motherorGuardianName: {
         firstName: parentData.firstName,

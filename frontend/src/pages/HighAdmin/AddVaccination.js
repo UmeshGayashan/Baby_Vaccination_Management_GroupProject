@@ -41,7 +41,7 @@ function getCookie(name) {
             return null;
         }
 
-      const response = await fetch('http://localhost:4000/admin/vacc-adding', {
+      const response = await fetch('https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/vacc-adding', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ function getCookie(name) {
   // Function to retrieve account information
   const getAccountInfo = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/admin/baby-acc-info/${babyId}`); // Use the correct API route
+      const response = await fetch(`https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/baby-acc-info/${babyId}`); // Use the correct API route
       if (response.status === 200) {
         const data = await response.json();
         setAccountInfo(data);

@@ -44,7 +44,7 @@ function getCookie(name) {
             return null;
         }
 
-      const response = await fetch(`http://localhost:4000/admin/update-baby-acc/${bid}`, {
+      const response = await fetch(`https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/update-baby-acc/${bid}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ function getCookie(name) {
   // Function to retrieve account information
   const getAccountInfo = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/admin/baby-acc-info/${bid}`); // Use the correct API route
+      const response = await fetch(`https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/baby-acc-info/${bid}`); // Use the correct API route
       if (response.status === 200) {
         const data = await response.json();
         setAccountInfo(data);
@@ -116,7 +116,7 @@ function getCookie(name) {
   }, [bid]);
 
   const handleDeleteBabyInfo = () => {
-    const url = `http://localhost:4000/admin/delete-baby-acc/${bid}`;
+    const url = `https://baby-vaccination-management-groupproject-w51l.onrender.com/admin/delete-baby-acc/${bid}`;
     axios.delete(url)
       .then(response => {
         if (response.status === 200) {

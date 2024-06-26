@@ -47,7 +47,7 @@ const UserPage = () => {
   useEffect(() => {
     const fetchBabies = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/parent/get/${user.nic}`, {
+        const response = await fetch(`https://baby-vaccination-management-groupproject-w51l.onrender.com/parent/get/${user.nic}`, {
           headers: {
             'Authorization': `Bearer ${user.token}`
           }
@@ -69,7 +69,7 @@ const UserPage = () => {
 
     const fetchVaccinationsForBabies = async (babies) => {
       const babiesWithVaccinations = await Promise.all(babies.map(async (baby) => {
-        const vacResponse = await fetch(`http://localhost:4000/parent/vac/${baby.bid}`, {
+        const vacResponse = await fetch(`https://baby-vaccination-management-groupproject-w51l.onrender.com/parent/vac/${baby.bid}`, {
           headers: {
             'Authorization': `Bearer ${user.token}`
           }
@@ -91,7 +91,7 @@ const UserPage = () => {
 
   const onBabyClick = async (baby) => {
     try {
-      const response = await fetch(`http://localhost:4000/parent/vac/${baby.bid}`, {
+      const response = await fetch(`https://baby-vaccination-management-groupproject-w51l.onrender.com/parent/vac/${baby.bid}`, {
         headers: {
           'Authorization': `Bearer ${user.token}`
         }
