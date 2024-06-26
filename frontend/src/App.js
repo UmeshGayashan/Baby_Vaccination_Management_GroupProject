@@ -1,8 +1,6 @@
 
 import {Routes,Route,} from "react-router-dom";
 import HomePage from "./pages/HomePage";
-import RecoverPassword from "./pages/RecoverPassword";
-import ForgotPassword from "./pages/ForgotPassword";
 import Login from "./pages/Login";
 import Table from "./pages/Table";
 import AboutUs from "./pages/AboutUs";
@@ -62,8 +60,6 @@ function App() {
       <Route path="/hupdate-perant" element={<HUpdateParent />} />
       <Route path="/add-proffession" element={<AddProffessions />} />
       <Route path="/update-proffession" element={<UpdateProffessions />} />
-      <Route path="/recover-password" element={<RecoverPassword />} />
-      <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/login" element={<Login />} />
       <Route path="/high-admin-parants" element={<HighAdminParants />} />
       <Route path="/high-admin-proffessions" element={<HighAdminProffessions />} />
