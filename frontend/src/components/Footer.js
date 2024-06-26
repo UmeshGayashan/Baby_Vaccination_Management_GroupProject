@@ -42,17 +42,11 @@ const Footer = () => {
             <FooterLink href="#">
               Aim
             </FooterLink>
-            <FooterLink href="#">
-              Home
-            </FooterLink>
           </Column>
           <Column>
             <Heading>Services</Heading>
             <FooterLink href="#">
               Baby vaccinating
-            </FooterLink>
-            <FooterLink href="#">
-              Maintain Reports
             </FooterLink>
             <FooterLink href="#">
               Send Reminders
@@ -72,9 +66,6 @@ const Footer = () => {
             <FooterLink href="#">
               Telephone No.
             </FooterLink>
-            <FooterLink href="#">
-              Location
-            </FooterLink>
           </Column>
           <Column>
             <Heading>Social Media</Heading>
@@ -86,9 +77,6 @@ const Footer = () => {
             </FooterLink>
             <FooterLink href="#">
                   Twitter
-            </FooterLink>
-            <FooterLink href="#">
-                  Youtube
             </FooterLink>
           </Column>
         </Row>
