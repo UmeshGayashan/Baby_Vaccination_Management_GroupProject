@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Button, TextField, Checkbox, Link, Paper, Box, Grid, Typography } from '@mui/material';
+import { Button, TextField, Link, Paper, Box, Grid, Typography, Snackbar, Alert } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
-import { FormControlLabel } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
@@ -14,6 +13,15 @@ export default function Login() {
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const { login } = useAuth();
+    const [notification, setNotification] = useState({ open: false, message: '', severity: '' });
+
+    const handleCloseNotification = () => {
+        setNotification({ ...notification, open: false });
+    };
+
+    const handleLinkClick = () => {
+        setNotification({ open: true, message: 'Contact Healthcare Professional', severity: 'error' });
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -28,32 +36,23 @@ export default function Login() {
             });
 
             if (response.ok) {
-                
-                // Redirect or update UI accordingly for successful login
                 const data = await response.json();
-                // Set the JWT in a cookie
-                document.cookie = `jwt=${data.token}; path=/; max-age=3600;`; // Expires in 1 hour
+                document.cookie = `jwt=${data.token}; path=/; max-age=3600;`;
                 login(data.userType, data.token, data.username, data.nic);
 
                 if (data.userType === 'User') {
-                    navigate("/high-admin-parants");
-                    console.log(data);
+                    navigate("/high-admin-parents");
                 } else if (data.userType === 'Guardian') {
                     navigate("/user-page");
-                    console.log(data);
                 } else if (data.userType === 'Healthcare Professional') {
                     navigate("/low-admin");
                 } else {
-                    console.error('Unknown user type');
                     setError('Unknown user type');
                 }
             } else {
-                // Handle login error
-                console.error('Login failed');
                 setError('Invalid username or password');
             }
         } catch (error) {
-            console.error('Error:', error);
             setError('Network error occurred');
         }
     };
@@ -92,7 +91,6 @@ export default function Login() {
                             Welcome To BabyVaxPro
                         </Typography>
                         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
-
                             <div>User Name</div>
                             <TextField
                                 margin="normal"
@@ -121,11 +119,6 @@ export default function Login() {
                                 onChange={(e) => setPassword(e.target.value)}
                             />
 
-                            <FormControlLabel
-                                control={<Checkbox value="remember" color="primary" />}
-                                label="Remember me"
-                            />
-
                             {error && (
                                 <Typography variant="body2" color="error" align="center" sx={{ mt: 1 }}>
                                     {error}
@@ -138,20 +131,28 @@ export default function Login() {
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
                             >
-                                Sign In
+                                Login
                             </Button>
                             <Grid container>
                                 <Grid item xs>
-                                    <Link href="/forgot-password" variant="body2">
+                                    <Link href="#" variant="body2" onClick={handleLinkClick}>
                                         Forgot password?
                                     </Link>
                                 </Grid>
                             </Grid>
-
                         </Box>
                     </Box>
                 </Grid>
             </Grid>
+            <Snackbar
+                open={notification.open}
+                autoHideDuration={6000}
+                onClose={handleCloseNotification}
+            >
+                <Alert onClose={handleCloseNotification} severity={notification.severity} sx={{ width: '100%' }}>
+                    {notification.message}
+                </Alert>
+            </Snackbar>
         </ThemeProvider>
     );
 }
