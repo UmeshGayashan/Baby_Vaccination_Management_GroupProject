@@ -60,7 +60,6 @@ function LAdminDashBoard() {
         <ListItemIcon>
           <GradeIcon />
         </ListItemIcon>
-        <ListItemText primary=" Child Collection" sx={{ color: 'black' }}  />
         <ListItemText primary=" child Collection" sx={{ color: 'black' }} />
       </ListItemButton>
 
