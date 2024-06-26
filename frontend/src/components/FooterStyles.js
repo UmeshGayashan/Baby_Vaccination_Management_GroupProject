@@ -2,14 +2,14 @@
 import styled from "styled-components";
 
 export const Box = styled.div`
-	padding: 5% 2.5%;
+	padding: 40px;
 	background: black;
 	// position: absolute;
 	bottom: 0;
 	width: 100%;
 
 	@media (max-width: 1000px) {
-		// padding: 70px 30px;
+	;
 	}
 `;
 
@@ -60,6 +60,7 @@ export const FooterLink = styled.a`
 export const Heading = styled.p`
 	font-size: 24px;
 	color: #fff;
-	margin-bottom: 40px;
+	margin-top:-10px;
+	margin-bottom: 20px;
 	font-weight: bold;
 `;
