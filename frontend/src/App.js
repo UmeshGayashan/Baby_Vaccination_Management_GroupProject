@@ -39,6 +39,7 @@ import ContactUs from "./pages/ContactUs";
 import ParentDashboard from './pages/Parent/parentdashboard';
 import VaccHistory from './pages/HighAdmin/VaccHistory';
 import HighAdminVaccination from './pages/HighAdmin/HighAdminVaccination';
+import LowAdminVaccination from './pages/LowAdmin/LowAdminVaccCollection';
 
 
 
@@ -83,7 +84,7 @@ function App() {
       <Route path="/mcard" element={<MCard />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/parentDashboard" element={<ParentDashboard />} />
-      <Route path="/VaccHistory" element={<VaccHistory />} />
+      <Route path="/LowAdminVaccination" element={<LowAdminVaccination />} />
       <Route path="/HighAdminVaccination" element={<HighAdminVaccination />} />
       
 

@@ -70,7 +70,7 @@ function LAdminDashBoard() {
         <ListItemText primary=" Parent Collection" sx={{ color: 'black' }} />
       </ListItemButton>
 
-      <ListItemButton component={Link} to="/VaccHistory">
+      <ListItemButton component={Link} to="/LowAdminVaccination">
         <ListItemIcon>
           <GradeIcon />
         </ListItemIcon>
