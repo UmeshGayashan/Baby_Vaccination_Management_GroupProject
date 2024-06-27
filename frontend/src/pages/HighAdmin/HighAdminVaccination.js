@@ -289,7 +289,6 @@ function getCookie(name) {
               columns={columns}
               pageSize={12}
               rowsPerPageOptions={[12]}
-              checkboxSelection
               disableSelectionOnClick
             />
           </div>
