@@ -143,15 +143,6 @@ const LowAdmin = () => {
                 </div>
               </div>
 
-              {/* <div className="go-to-calendar" style={{height:"150px" , marginTop:"60px", marginBottom:"150px"}}>
-              <div className="list" > 
-              <div className="header">
-                  <div className="span">UPCOMING VACCINE</div>
-                </div>
-              
-               <NotificationList/></div>
-            </div> */}
-
             </div>
           </div>
         </section>
@@ -163,7 +154,6 @@ const LowAdmin = () => {
               columns={columns}
               pageSize={12}
               rowsPerPageOptions={[12]}
-              checkboxSelection
               disableSelectionOnClick
             />
           </div>

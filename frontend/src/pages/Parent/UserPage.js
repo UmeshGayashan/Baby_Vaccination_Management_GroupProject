@@ -170,44 +170,11 @@ const UserPage = () => {
                         </>
                       )}
                     </div>
-                    {/* <div className="table" style={{marginTop:"50px", marginLeft:"20px", marginRight:"20px", marginBottom:"50px"}}>
-                      <div style={{ height: 500, width: '100%' }}>
-                        <DataGrid
-                          rows={selectedBabyVaccinations}
-                          columns={columns}
-                          pageSize={12}
-                          rowsPerPageOptions={[12]}
-                          checkboxSelection
-                          disableSelectionOnClick
-                          onEditCellChangeCommitted={handleCellEditCommit}
-                          getRowId={(row) => row._id}
-                        />
-                      </div>
-                    </div> */}
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          {/* <div className="text-container" style={{ marginLeft: "25px" }}>
-            <div className="desktopdatepicker-parent">
-              <div className="go-to-calendar" style={{ marginTop: "50px" }}>
-                <div className="list">
-                  <div className="header-picker">
-                    <DesktopDatePicker />
-                  </div>
-                </div>
-              </div>
-              <div className="go-to-calendar" style={{ height: "150px", marginTop: "60px", marginBottom: "150px" }}>
-                <div className="list">
-                  <div className="header">
-                    <div className="span">UPCOMING VACCINE</div>
-                  </div>
-                  <NotificationList />
-                </div>
-              </div>
-            </div>
-          </div> */}
         </section>
 
         <div className="table" style={{ margin: "50px", backgroundColor: "#fff9c7" }}>
@@ -217,7 +184,6 @@ const UserPage = () => {
               columns={columns}
               pageSize={12}
               rowsPerPageOptions={[12]}
-              checkboxSelection
               disableSelectionOnClick
               onEditCellChangeCommitted={handleCellEditCommit}
               getRowId={(row) => row._id}

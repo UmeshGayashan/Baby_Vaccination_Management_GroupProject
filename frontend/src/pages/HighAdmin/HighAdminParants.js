@@ -154,15 +154,6 @@ const HighAdminChild = () => {
                   </div>
                 </div>
               </div>
-
-              {/* <div className="go-to-calendar" style={{ height: "130px", marginTop: "60px", marginBottom: "150px" }}>
-                <div className="list" >
-                  <div className="header">
-                    <div className="span">NOTIFICATIONS</div>
-                  </div>
-
-                  <ANotificationList /></div>
-              </div> */}
             </div>
           </div>
 
@@ -176,7 +167,6 @@ const HighAdminChild = () => {
               columns={columns}
               pageSize={12}
               rowsPerPageOptions={[12]}
-              checkboxSelection
               disableSelectionOnClick
             />
           </div>
